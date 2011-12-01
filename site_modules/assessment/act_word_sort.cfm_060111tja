@@ -1,0 +1,30 @@
+<cfset objAssessment = CreateObject("component","cfcs.assessment")> 
+<cfparam name="URL.sort_id" default="">
+<cfparam name="URL.type_id" default="">
+<cfparam name="URL.item_result" default="">
+<cfparam name="URL.user_id" default="">
+<cfparam name="URL.invite" default="">
+<cfparam name="URL.assessment_id" default="">
+
+<cfif FindNoCase('destinyfinder',CGI.HTTP_REFERER)>
+
+	<cfset VARIABLES.result = Replace(FORM.sort_serialized,'item[]=','','ALL')>
+	<cfset VARIABLES.result = Replace(VARIABLES.result,'&',',','ALL')>
+
+	<cfset VARIABLES.item = {
+		id = '#FORM.sort_id#',
+		type_id = '#FORM.type_id#',
+		result = '#SerializeJSON(VARIABLES.result)#'
+	}>
+		
+	<cfoutput>
+		#objAssessment.insert_assessment(
+			assessment_id="#FORM.assessment_id#",
+			item_detail="#VARIABLES.item#",
+			user_id="#FORM.user_id#",
+			invite="#FORM.invite#"
+			)#
+	</cfoutput>
+    
+	<cflocation addtoken="yes" url="/site_modules/assessment/word_sort.cfm?assessment_id=#FORM.assessment_id#&invite=#FORM.invite#&user_id=#FORM.user_id#&item_result=#FORM.item_result#&type_id=#FORM.type_id#&sort_id=#FORM.sort_id#">
+</cfif>

@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /database/
+Disallow: /documentation/
+Disallow: /downloads/
+Disallow: /images/
+Disallow: /files/
+Disallow: /logs/
+Disallow: /tempdownloads/
+Disallow: /update/

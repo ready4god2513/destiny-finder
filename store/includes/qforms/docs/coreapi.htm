@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: The Core API</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">The Core API</B></P>
+
+<P>All of the core qForms API members are included within a single file: the qforms.js file.
+Within this file, there are a number of constructors used to create the objects you'll be
+using on your page.
+
+<P><A NAME="qFormAPI"><B>The "qFormAPI" Object</B></A><br/>
+The "qFormsAPI" object is the top level object in the qForms API. It is initialized
+automatically when the qforms.js file is loaded. It is used primarily as a way to
+organize miscelleneous variables and pointers. You can think of the qFormAPI object
+as the parent object for all of the qForm object you initiate&#151;it's used internally
+within the API to keep track of all the new children created.</P>
+
+<OL TYPE="1">
+	<LI><A HREF="./qformapi.htm">Properties</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./qformapi.htm#allowSubmitOnError">allowSubmitOnError</A>
+			<LI><A HREF="./qformapi.htm#autodetect">autodetect</A>
+			<LI><A HREF="./qformapi.htm#containers">containers</A>
+			<LI><A HREF="./qformapi.htm#customValidators">customValidators</A>
+			<LI><A HREF="./qformapi.htm#errorColor">errorColor</A>
+			<LI><A HREF="./qformapi.htm#jsver">jsver</A>
+			<LI><A HREF="./qformapi.htm#librarypath">librarypath</A>
+			<LI><A HREF="./qformapi.htm#modules">modules</A>
+			<LI><A HREF="./qformapi.htm#objects">objects</A>
+			<LI><A HREF="./qformapi.htm#packages">packages</A>
+			<LI><A HREF="./qformapi.htm#resetOnInit">resetOnInit</A>
+			<LI><A HREF="./qformapi.htm#showStatusMsgs">showStatusMsgs</A>
+			<LI><A HREF="./qformapi.htm#styleAttribute">styleAttribute</A>
+			<LI><A HREF="./qformapi.htm#useErrorColorCoding">useErrorColorCoding</A>
+			<LI><A HREF="./qformapi.htm#validateAll">validateAll</A>
+		</UL>
+	<LI><A HREF="./qformapi.htm#Methods">Methods</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./qformapi.htm#dump">dump()</A>
+			<LI><A HREF="./qformapi.htm#include">include(string src, [string path], [string ver])</A>
+			<LI><A HREF="./qformapi.htm#getFields">getFields()</A>
+			<LI><A HREF="./qformapi.htm#reset">reset([boolean hardReset])</A>
+			<LI><A HREF="./qformapi.htm#setFields">setFields(object struct, [boolean resetDefault])</A>
+			<LI><A HREF="./qformapi.htm#setLibraryPath">setLibraryPath(string path)</A>
+			<LI><A HREF="./qformapi.htm#validate">validate(string qForm)</A>
+		</UL>
+</OL>
+
+<P><A NAME="qForm"><B>"qForm" Objects</B></A><br/>
+qForm objects are created using the qForm contructor. The qForm constructor
+is really the guts of the API. You'll need to call qForm constructor for
+each form on the page you planning on using qForms with.</P>
+
+<OL TYPE="1">
+	<LI><A HREF="./objects_qform.htm">Properties</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./objects_qform.htm#_allowSubmitOnError">_allowSubmitOnError</A>
+			<LI><A HREF="./objects_qform.htm#_fields">_fields</A>
+			<LI><A HREF="./objects_qform.htm#_form">_form</A>
+			<LI><A HREF="./objects_qform.htm#_locked">_locked</A>
+			<LI><A HREF="./objects_qform.htm#_name">_name</A>
+			<LI><A HREF="./objects_qform.htm#errorFields">_queue.errorFields</A>
+			<LI><A HREF="./objects_qform.htm#errors">_queue.errors</A>
+			<LI><A HREF="./objects_qform.htm#validation">_queue.validation</A>
+			<LI><A HREF="./objects_qform.htm#_parent">_parent</A>
+			<LI><A HREF="./objects_qform.htm#_pointers">_pointers</A>
+			<LI><A HREF="./objects_qform.htm#_showAlerts">_showAlerts</A>
+			<LI><A HREF="./objects_qform.htm#_skipValidation">_skipValidation</A>
+			<LI><A HREF="./objects_qform.htm#_status">_status</A>
+			<LI><A HREF="./objects_qform.htm#obj">obj</A>
+		</UL>
+	<LI><A HREF="./objects_qform.htm#Methods">Methods</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./objects_qform.htm#addEvent">addEvent(string event, string command, [boolean append])</A>
+			<LI><A HREF="./objects_qform.htm#addField">addField(string field)</A>
+			<LI><A HREF="./objects_qform.htm#addMethod">addMethod(string name, object function, [string type])</A>
+			<LI><A HREF="./objects_qform.htm#addValidator">addValidator(string name, object/string function)</A>
+			<LI><A HREF="./objects_qform.htm#changedFields">changedFields()</A>
+			<LI><A HREF="./objects_qform.htm#checkForErrors">checkForErrors()</A>
+			<LI><A HREF="./objects_qform.htm#disabled">disabled([boolean status])</A>
+			<LI><A HREF="./objects_qform.htm#dump">dump()</A>
+			<LI><A HREF="./objects_qform.htm#forceValidation">forceValidation(string fields, [boolean value])</A>
+			<LI><A HREF="./objects_qform.htm#hasChanged">hasChanged()</A>
+			<LI><A HREF="./objects_qform.htm#getFields">getFields()</A>
+			<LI><A HREF="./objects_qform.htm#optional">optional(string fields)</A>
+			<LI><A HREF="./objects_qform.htm#onSubmit">onSubmit()</A>
+			<LI><A HREF="./objects_qform.htm#onValidate">onValidate()</A>
+			<LI><A HREF="./objects_qform.htm#removeField">removeField(string field)</A>
+			<LI><A HREF="./objects_qform.htm#required">required(string fields, [boolean value])</A>
+			<LI><A HREF="./objects_qform.htm#reset">reset([boolean hardReset])</A>
+			<LI><A HREF="./objects_qform.htm#setFields">setFields(object struct, [boolean resetDefault])</A>
+			<LI><A HREF="./objects_qform.htm#submit">submit()</A>
+			<LI><A HREF="./objects_qform.htm#submitCheck">submitCheck()</A>
+			<LI><A HREF="./objects_qform.htm#validate">validate()</A>
+		</UL>
+</OL>
+
+<P><A NAME="Field"><B>"Field" Objects</B></A><br/>
+Field objects are internal objects created automatically when a new
+qForm object is created. You should <B>not</B> call the Field constructor
+manually, let the qForm constructor initialize the object for you.</P>
+
+<OL TYPE="1">
+	<LI><A HREF="./objects_field.htm">Properties</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./objects_field.htm#dependencies">_queue.dependencies</A>
+			<LI><A HREF="./objects_field.htm#validation">_queue.validation</A>
+			<LI><A HREF="./objects_field.htm#container">container</A>
+			<LI><A HREF="./objects_field.htm#defaultValue">defaultValue</A>
+			<LI><A HREF="./objects_field.htm#description">description</A>
+			<LI><A HREF="./objects_field.htm#lastValue">lastValue</A>
+			<LI><A HREF="./objects_field.htm#locked">locked</A>
+			<LI><A HREF="./objects_field.htm#name">name</A>
+			<LI><A HREF="./objects_field.htm#obj">obj</A>
+			<LI><A HREF="./objects_field.htm#path">path</A>
+			<LI><A HREF="./objects_field.htm#pointer">pointer</A>
+			<LI><A HREF="./objects_field.htm#qForm">qForm</A>
+			<LI><A HREF="./objects_field.htm#required">required</A>
+			<LI><A HREF="./objects_field.htm#requiredMessage">requiredMessage</A>
+			<LI><A HREF="./objects_field.htm#type">type</A>
+			<LI><A HREF="./objects_field.htm#validate">validate</A>
+		</UL>
+	<LI><A HREF="./objects_field.htm#Methods">Methods</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./objects_field.htm#addEvent">addEvent(string event, string command, [boolean append])</A>
+			<LI><A HREF="./objects_field.htm#allowFocus">allowFocus()</A>
+			<LI><A HREF="./objects_field.htm#blur">blur()</A>
+			<LI><A HREF="./objects_field.htm#checkIfLocked">checkIfLocked([boolean showMsg])</A>
+			<LI><A HREF="./objects_field.htm#checkForErrors">checkForErrors()</A>
+			<LI><A HREF="./objects_field.htm#click">click()</A>
+			<LI><A HREF="./objects_field.htm#disabled">disabled([boolean status])</A>
+			<LI><A HREF="./objects_field.htm#focus">focus()</A>
+			<LI><A HREF="./objects_field.htm#getValue">getValue()</A>
+			<LI><A HREF="./objects_field.htm#isDisabled">isDisabled()</A>
+			<LI><A HREF="./objects_field.htm#isLocked">isLocked()</A>
+			<LI><A HREF="./objects_field.htm#onFocus">onFocus()</A>
+			<LI><A HREF="./objects_field.htm#onSetValue">onSetValue()</A>
+			<LI><A HREF="./objects_field.htm#reset">reset()</A>
+			<LI><A HREF="./objects_field.htm#select">select()</A>
+			<LI><A HREF="./objects_field.htm#setValue">setValue(string value, [boolean reset], [boolean doEvents])</A>
+			<LI><A HREF="./objects_field.htm#throwError">throwError(string error)</A>
+			<LI><A HREF="./objects_field.htm#triggerEvent">triggerEvent(string event)</A>
+			<LI><A HREF="./objects_field.htm#validateExp">validateExp(string expression, [string error], [string command]))</A>
+		</UL>
+</OL>
+
+<P><A NAME="Functions"><B>Custom Functions</B></A><br/>
+Here are a list the custom functions that are included in the core qForms API. These
+functions are required by some of the constructors and methods.</P>
+
+<UL TYPE="circle">
+	<LI><A HREF="./core_functions.htm">_addEvent(string object, string event, string command, [boolean append])</A>
+	<LI><A HREF="./core_functions.htm#_addValidator">_addValidator(string name, object/string function, boolean alwaysRun)</A>
+	<LI><A HREF="./core_functions.htm#_param">_param(string value, string default, string type)</A>
+	<LI><A HREF="./core_functions.htm#_removeSpaces">_removeSpaces(string value)</A>
+	<LI><A HREF="./core_functions.htm#_setContainerValues">_setContainerValues(string object)</A>
+</UL>
+
+<P ALIGN="Center">
+	[<A HREF="./validation.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./qformapi.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

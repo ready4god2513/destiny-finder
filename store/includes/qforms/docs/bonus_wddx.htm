@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Cookies Extension Methods Library</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">WDDX Extension Methods Library</B></P>
+
+<P>The WDDX extension library was designed to provide the tools necessary to 
+easily convert your form data into a valid WDDX XML packet.</P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor. Arguments in
+bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Functions"><B>Functions</B></A><br/>
+<DL>
+	<DT><A NAME="__serializeStruct"><B>__serializeStruct(object struct)</B></A></DT>
+	<DD>
+		The __serializeStruct() takes a structure and converts the structure into a valid
+		WDDX packet identical to those produced by the v1.0a build of the WDDX.js library
+		file. This serialize method is optimized for qForms and only handles simple
+		structures.
+
+		<P>The struct argument is required and should be equal to a simple structure.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_deleteCookie"><B>__wddxValue(string value)</B></A></DT>
+	<DD>
+		The __wddxValue() function will convert a string value into a properly escaped
+		XML value string. This uses the included _encoding table object to escape the
+		string.
+		
+		<P>The value argument is required.
+	</DD>
+</DL>
+
+<br/><br/>
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="serialize1"><B><I>qFormAPI</I>.serialize([string exclude])</B></A></DT>
+	<DD>
+		The serialize method will serialize the all of the qForm objects into a WDDX packet. This function
+		will check to make sure that the WDDX JavaScript library has been loaded, and if it's not
+		present, an error will be outputted to the screen.
+
+		<P>The serialize method takes an optional argument of "exclude", which is a comma-delimited
+		list of form fields that you do not want included in the WDDX packet. By default, no fields
+		are excluded.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="serialize2"><B><I>obj</I>.serialize([string exclude])</B></A></DT>
+	<DD>
+		The serialize method will serialize the form's content into a WDDX packet. This function
+		will check to make sure that the WDDX JavaScript library has been loaded, and if it's not
+		present, an error will be outputted to the screen.
+
+		<P>The serialize method takes an optional argument of "exclude", which is a comma-delimited
+		list of form fields that you do not want included in the WDDX packet. By default, no fields
+		are excluded.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./bonus_cookies.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./expandingapi.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,467 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Example</TITLE>
+	<STYLE>
+	<!--
+		p,td,th,div,blockquote { font-family: Arial, Helvetica, sans-serif; font-size: 10pt}
+		h3 { font-family: Arial, Helvetica, sans-serif; background-color: #FFFFFF; border-bottom: thin solid #a3a3a3; color: #000000; font-size: 12pt; text-align: left;}
+		input,option,textarea { font-family: Arial, Helvetica, sans-serif; font-size: 8pt;}
+	-->
+	</STYLE>
+
+<!--// load the qForm JavaScript API //-->
+<script SRC="../../lib/qforms.js"></script>
+
+<script language="JavaScript">
+<!--//
+// set the path to the qForms directory
+qFormAPI.setLibraryPath("../../lib/");
+// this loads all the default libraries
+qFormAPI.include("*");
+qFormAPI.include("wddx");
+// to load a custom library, use the following:
+//   qFormAPI.include("somelib");
+// where somelib is the name of the module to load
+// to load a module in a different directory then the qForms subfolder
+// use:
+//   qFormAPI.include("somelib", "/some/other/directory/");
+//
+// if you wish to create different libraries for different versions
+// of JavaScript, then use the following:
+//   qFormAPI.include("somelib", null, "12");
+// this would load the module for use with browsers that support
+// JavaScript v1.2 and higher
+
+function init(){
+	// initialize the qForm object
+	objForm = new qForm("frmExample");
+
+
+	// make these fields required
+	objForm.required("Name, Email");
+	// this forces validation on the the "onBlur" event
+	objForm.forceValidation("Name, Email, State");
+
+	// this defines the following select boxes as containers. containers are treated
+	// slightly different then normal form fields. when you use the getValue() on
+	// a container, it will return all values in the select box instead of just those
+	// that are selected. everything in a container is consider part of the value
+	objForm.Hobbies.makeContainer();
+	objForm.FavHobbies.makeContainer();
+
+	// add dynamic validator
+	//
+	// I'm not sure why, but these seem to crap out in NS3 (that's what the qFormAPI.min is for)
+	// it appears it may be a bug in NS3. I've been able to track it down to the point of failure,
+	// but I'm not sure how to fix it. The problem occurs in the following lines of the qForms.js
+	// script:
+	// 	strRule += "for( i=0; i < arguments.length; i++ ){ \n";
+	//	strRule += "	if( arguments[i] != '' ){\n";
+	// Once it gets inside the if statement, the variable i is "lost." If you put alert(i); inside
+	// and outside the statement, it works outside the statment, but return "undefined" inside
+	// the statement
+	if( qFormAPI.min ){
+		objForm.addValidator("isEqualTo", _isEqualTo);
+		// attach the new validator "isEqualTo" to the "MailingList"
+		objForm.MailingList.validateEqualTo("NO");
+
+		// simple expression validator
+		// this makes sure the "Format" field is equal to "ASCII", otherwise the error message is thrown
+		objForm.Format.validateExp("this.getValue() != 'ASCII'", "You must select the newsletter format 'ASCII'!");
+	}
+
+	// these methods initialize validation on the fields
+	objForm.Name.validateNotEmpty();
+	objForm.Email.validateEmail();
+	objForm.State.validateState();
+	objForm.Date.validateDate();
+
+	// this creates a dependency between the "Phone" field and the "State" field. If the "State" field is
+	// empty, then the "Phone" field is not required. If there is a value in the "State" field, then
+	// the "Phone" field becomes required.
+	objForm.Phone.createDependencyTo("State");
+
+	// this creates a dependency to the "State" field if the "Name" field is equal to "Dan" or if the length
+	// of the "Name" field is greater then 5 characters long
+	objForm.State.createDependencyTo("Name", "Dan");
+	objForm.State.createDependencyTo("Name", "this.getValue().length >= 5");
+
+	// copy the results of "State" to "StateCopy"
+	objForm.StateCopy.disabled(true);
+	objForm.State.mirrorTo("objForm.StateCopy");
+	objForm.State.mirrorTo("globalStateVar");
+
+	// this will parse the URL and set the form according to URL parameters
+	objForm.setFields(_getURLParams(), null, false);
+}
+
+var globalStateVar;
+
+function _isEqualTo(value){
+	var value = (arguments.length > 0) ? arguments[0] : "";
+
+	// check to make sure the zip code is the correct length
+	if( this.getValue() != value ){
+		this.error = "The " + this.description + " field be equal to " + value + ".";
+	}
+}
+
+function getFields(){
+	var str = "";
+	// this will go grab all the current form field elements and return a structure
+	// containing the field and its value
+	fields = objForm.getFields();
+	// loop through all the fields and create a string for outputting
+	for( field in fields ){
+		str += field + " = " + fields[field] + "\n";
+	}
+	alert(str);
+}
+
+function setFields(reset){
+	// if you need to reset the default values of the fields
+	var reset = (arguments.length > 0) ? arguments[0] : false;
+	// create a structure to populate the form with
+	form = new Object();
+	form.Name = "Dan";
+	form.Email = "dswitzer@pengoworks.com";
+	form.Newsletters = "1,3";
+	form.MailingList = "NO";
+	form.Format = "HTML";
+	form.Occupation = "2,3";
+
+	// populate the form values from the structure above
+	objForm.setFields(form, reset);
+}
+
+function changeFields(){
+	if( objForm.hasChanged() ){
+		// this will go grab all the current form field elements and return a structure
+		// containing the field and its value
+		fields = objForm.changedFields();
+		// loop through all the fields and create a string for outputting
+		var str = "";
+		for( field in fields ){
+			str += field + " = " + fields[field] + "\n";
+		}
+	} else {
+		str = "No changed fields";
+	}
+	alert(str);
+}
+
+function updateField(){
+	// get a new name
+	result = prompt("Enter new list of option for the occupation. Seperate multiple entries by a comma. Valid entries are 1,2 or 3.", objForm.Occupation.getValue());
+	// update the form
+	objForm.Occupation.setValue(result, true);
+}
+//-->
+</script>
+</HEAD>
+
+
+<BODY BGCOLOR="#ffffff" onload="init();">
+
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample" onsubmit="alert('hello');">
+
+<H3>qForms JavaScript API Example</H3>
+
+<P>This demos the Form JSAPI library. This will allow you to create a form object in which you can
+quickly and easily retrieve field values from a form or even the entire form's content using methods.
+This library automatically handles the different types of form fields, so you no longer have to write
+code for specific form field types (like checkboxes, select boxes, radio buttons, etc.) You simply
+use the include methods to retrieve and set your values.</P>
+
+<P>
+<SELECT NAME="Go" onChange="objForm.Go.location();">
+	<OPTION VALUE="">Select a page</OPTION>
+	<OPTION VALUE="">-------------</OPTION>
+	<OPTION VALUE="example.htm">qForm JSAPI</OPTION>
+	<OPTION VALUE="../clientserver/example.cfm">Client/Server Gateway JSAPI</OPTION>
+	<OPTION VALUE="http://www.oar.net/">OARnet</OPTION>
+</SELECT>
+
+<P>
+</P>
+
+<P>
+<B>Name:</B><br/>
+<INPUT TYPE="Text" NAME="Name" VALUE="" STYLE="width: 400px;"><br/>
+
+<B>E-mail:</B><br/>
+<INPUT TYPE="Text" NAME="Email" VALUE="" STYLE="width: 400px;"><br/>
+
+<B>Phone Number</B><br/>
+<INPUT TYPE="Text" NAME="Phone" VALUE="" STYLE="width: 400px;"><br/>
+
+<B>State</B><br/>
+<INPUT TYPE="Text" NAME="State" VALUE="" STYLE="width: 400px;"><br/>
+
+<B>Copy of State</B><br/>
+<INPUT TYPE="Text" NAME="StateCopy" VALUE="" STYLE="width: 400px;"><br/>
+
+<B>Date</B><br/>
+<INPUT TYPE="Text" NAME="Date" VALUE="" STYLE="width: 400px;"><br/>
+
+
+<P><B>Are you here?</B><br/>
+<INPUT TYPE="Checkbox" NAME="AmIHere" VALUE="YES">
+Yes<br/>
+
+<P><B>Newsletters:</B><br/>
+<INPUT TYPE="Checkbox" NAME="Newsletters" VALUE="1">
+TechNews<br/>
+<INPUT TYPE="Checkbox" NAME="Newsletters" VALUE="2">
+WebNews<br/>
+<INPUT TYPE="Checkbox" NAME="Newsletters" VALUE="3">
+Jobs</P>
+
+<P><B>Receive Mailing List?:</B><br/>
+Yes <INPUT TYPE="Radio" NAME="MailingList" VALUE="YES" CHECKED>
+No <INPUT TYPE="Radio" NAME="MailingList" VALUE="NO">
+Maybe <INPUT TYPE="Radio" NAME="MailingList" VALUE="MAYBE">
+</P>
+
+<P><B>Newsletter Format:</B><br/>
+<SELECT NAME="Format">
+	<OPTION VALUE="">-----------------</OPTION>
+	<OPTION VALUE="ASCII">ASCII</OPTION>
+	<OPTION VALUE="HTML">HTML</OPTION>
+	<OPTION VALUE="WORD">MS Word</OPTION>
+</SELECT>
+</P>
+
+<P><B>Occupation:</B><br/>
+<SELECT NAME="Occupation" SIZE="3" MULTIPLE>
+	<OPTION VALUE="1">Web Developer</OPTION>
+	<OPTION VALUE="2">Network Engineer</OPTION>
+	<OPTION VALUE="3">Sales</OPTION>
+</SELECT>
+</P>
+
+<P><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR>
+	<TD><B>Favorite Sport:</B></TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD><B>Favorite Team:</B></TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD><B>Selections:</B></TD>
+</TR>
+
+<TR>
+	<TD>
+		<SELECT NAME="FavSport" SIZE="4" STYLE="width: 200px;" onChange="objForm.FavTeam.populate(stcSports[objForm.FavSport.getValue()]); objForm.FavSport.transferTo('FavSelections', null, null, false);">
+			<OPTION VALUE="nba">NBA</OPTION>
+			<OPTION VALUE="nfl">NFL</OPTION>
+			<OPTION VALUE="mls">MLS</OPTION>
+			<OPTION VALUE="nhl">NHL</OPTION>
+		</SELECT>
+	</TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD>
+		<SELECT NAME="FavTeam" SIZE="4" STYLE="width: 200px;" onChange="objForm.FavTeam.transferTo('FavSelections', null, null, false);">
+		</SELECT>
+	</TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD>
+		<SELECT NAME="FavSelections" SIZE="4" STYLE="width: 200px;">
+		</SELECT>
+	</TD>
+</TR>
+</TABLE></P>
+
+<P><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR>
+	<TD><B>Hobbies:</B></TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD><B>Favorite Hobbies:</B></TD>
+</TR>
+
+<TR>
+	<TD>
+		<SELECT NAME="Hobbies" SIZE="4" MULTIPLE STYLE="width: 200px;">
+			<OPTION VALUE="Reading">Reading</OPTION>
+			<OPTION VALUE="Writing">Writing</OPTION>
+			<OPTION VALUE="Drawing">Drawing</OPTION>
+			<OPTION VALUE="Computers">Computers</OPTION>
+		</SELECT>
+	</TD>
+	<TD ALIGN="Center">
+		<INPUT TYPE="Button" VALUE="&gt;&gt;" onclick="objForm.Hobbies.transferTo('FavHobbies', true, 'all');"><br/>
+		<INPUT TYPE="Button" VALUE="&gt;" onclick="objForm.Hobbies.transferTo('FavHobbies');"><br/>
+		<INPUT TYPE="Button" VALUE="&lt;" onclick="objForm.Hobbies.transferFrom('FavHobbies');"><br/>
+		<INPUT TYPE="Button" VALUE="&lt;&lt;" onclick="objForm.Hobbies.transferFrom('FavHobbies', true, 'all');"><br/>
+	</TD>
+	<TD>
+		<SELECT NAME="FavHobbies" SIZE="4" MULTIPLE STYLE="width: 200px;">
+		</SELECT>
+	</TD>
+</TR>
+</TABLE></P>
+
+<INPUT TYPE="Hidden" NAME="wddxPacket" VALUE="">
+
+<INPUT TYPE="Button" VALUE="Toggle Form's Lock Status" onclick="objForm.locked=(objForm.locked) ? false : true;" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Toggle Name's Disabled Status" onclick="objForm.Name.disabled();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Toggle The Form's Disabled Status" onclick="objForm.disabled();" STYLE="width: 200px;"><br/>
+
+<INPUT TYPE="Button" VALUE="Validate Form" onclick="objForm.validate();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Serialize Form" onclick="alert(objForm.serialize());" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Show Changed Fields" onclick="changeFields();" STYLE="width: 200px;"><br/>
+
+<br/>
+<INPUT TYPE="Button" VALUE="Trim Name Field" onclick="objForm.Name.trim();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Left Trim Name Field" onclick="objForm.Name.ltrim();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Right Trim Name Field" onclick="objForm.Name.rtrim();" STYLE="width: 200px;"><br/>
+
+<INPUT TYPE="Button" VALUE="Mark I Am Here" onclick="objForm.AmIHere.setValue('YES');" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Name Field To Upper Case" onclick="objForm.Name.toUpperCase();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Name Field To Lower Case" onclick="objForm.Name.toLowerCase();" STYLE="width: 200px;"><br/>
+
+<INPUT TYPE="Button" VALUE="Reset Mailing List" onclick="objForm.MailingList.reset();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Reset" onclick="objForm.reset();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Reset All" onclick="objForm.reset(true);" STYLE="width: 200px;"><br/>
+
+<INPUT TYPE="Button" VALUE="getFields()" onclick="getFields();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="setFields()" onclick="setFields();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Reset Default Values" onclick="setFields(true);" STYLE="width: 200px;"><br/>
+
+<INPUT TYPE="Button" VALUE="Update State Field" onclick="objForm.State.setValue(prompt('Enter a new state:', objForm.State.getValue()));" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Update Occupation Field" onclick="updateField();" STYLE="width: 200px;">
+<INPUT TYPE="Button" VALUE="Display Occupation Field" onclick="alert(objForm.Occupation.getValue());" STYLE="width: 200px;"><br/>
+
+
+
+<INPUT TYPE="Button" VALUE="Display globalStateVar JS Variable" onclick="alert(globalStateVar);" STYLE="width: 200px;"><br/>
+<INPUT TYPE="Submit">
+</FORM>
+
+<P><A HREF="">Back to Introduction</A></P>
+
+<script language="JavaScript">
+<!--//
+// create a structure to store all the team information in
+stcSports = new Object();
+stcSports.nba = new Object();
+stcSports.nfl = new Object();
+stcSports.mls = new Object();
+stcSports.nhl = new Object();
+
+// structure containing the NBA Teams
+stcSports.nba["atl"] = "Atlanta";
+stcSports.nba["bos"] = "Boston";
+stcSports.nba["cha"] = "Charlotte";
+stcSports.nba["chi"] = "Chicago";
+stcSports.nba["cle"] = "Cleveland";
+stcSports.nba["dal"] = "Dallas";
+stcSports.nba["den"] = "Denver";
+stcSports.nba["det"] = "Detroit";
+stcSports.nba["gsw"] = "Golden State";
+stcSports.nba["hou"] = "Houston";
+stcSports.nba["ind"] = "Indiana";
+stcSports.nba["lac"] = "LA Clippers";
+stcSports.nba["lal"] = "LA Lakers";
+stcSports.nba["mia"] = "Miami";
+stcSports.nba["mil"] = "Milwaukee";
+stcSports.nba["min"] = "Minnesota";
+stcSports.nba["njn"] = "New Jersey";
+stcSports.nba["nyk"] = "New York";
+stcSports.nba["orl"] = "Orlando";
+stcSports.nba["phi"] = "Philadelphia";
+stcSports.nba["pho"] = "Phoenix";
+stcSports.nba["por"] = "Portland";
+stcSports.nba["sac"] = "Sacramento";
+stcSports.nba["sas"] = "San Antonio";
+stcSports.nba["sea"] = "Seattle";
+stcSports.nba["tor"] = "Toronto";
+stcSports.nba["uth"] = "Utah";
+stcSports.nba["van"] = "Vancouver";
+stcSports.nba["was"] = "Washington";
+
+// structure containing the NFL Teams
+stcSports.nfl["ari"] = "Arizona";
+stcSports.nfl["atl"] = "Atlanta";
+stcSports.nfl["bal"] = "Baltimore";
+stcSports.nfl["buf"] = "Buffalo";
+stcSports.nfl["car"] = "Carolina";
+stcSports.nfl["chi"] = "Chicago";
+stcSports.nfl["cin"] = "Cincinnati";
+stcSports.nfl["cle"] = "Cleveland";
+stcSports.nfl["dal"] = "Dallas";
+stcSports.nfl["den"] = "Denver";
+stcSports.nfl["det"] = "Detroit";
+stcSports.nfl["gnb"] = "Green Bay";
+stcSports.nfl["ind"] = "Indianapolis";
+stcSports.nfl["jac"] = "Jacksonville";
+stcSports.nfl["kan"] = "Kansas City";
+stcSports.nfl["mia"] = "Miami";
+stcSports.nfl["min"] = "Minnesota";
+stcSports.nfl["nwe"] = "New England";
+stcSports.nfl["nor"] = "New Orleans";
+stcSports.nfl["nyg"] = "NY Giants";
+stcSports.nfl["nyj"] = "NY Jets";
+stcSports.nfl["oak"] = "Oakland";
+stcSports.nfl["phi"] = "Philadelphia";
+stcSports.nfl["pit"] = "Pittsburgh";
+stcSports.nfl["sdg"] = "San Diego";
+stcSports.nfl["sfo"] = "San Francisco";
+stcSports.nfl["sea"] = "Seattle";
+stcSports.nfl["stl"] = "St. Louis";
+stcSports.nfl["tam"] = "Tampa Bay";
+stcSports.nfl["ten"] = "Tennessee";
+stcSports.nfl["was"] = "Washington";
+
+// structure containing the MLS Teams
+stcSports.mls["cob"] = "Columbus";
+stcSports.mls["mia"] = "Miami";
+stcSports.mls["nwy"] = "New York";
+stcSports.mls["tam"] = "Tampa Bay";
+stcSports.mls["nwe"] = "New England";
+stcSports.mls["was"] = "Washington DC";
+stcSports.mls["dal"] = "Dallas";
+stcSports.mls["san"] = "San Jose";
+stcSports.mls["chi"] = "Chicago";
+stcSports.mls["los"] = "Los Angeles";
+stcSports.mls["col"] = "Colorado";
+stcSports.mls["kas"] = "Kansas City";
+
+// structure containing the NHL Teams
+stcSports.nhl["ana"] = "Anaheim";
+stcSports.nhl["atl"] = "Atlanta";
+stcSports.nhl["bos"] = "Boston";
+stcSports.nhl["buf"] = "Buffalo";
+stcSports.nhl["cgy"] = "Calgary";
+stcSports.nhl["car"] = "Carolina";
+stcSports.nhl["chi"] = "Chicago";
+stcSports.nhl["col"] = "Colorado";
+stcSports.nhl["cob"] = "Columbus";
+stcSports.nhl["dal"] = "Dallas";
+stcSports.nhl["det"] = "Detroit";
+stcSports.nhl["edm"] = "Edmonton";
+stcSports.nhl["fla"] = "Florida";
+stcSports.nhl["los"] = "Los Angeles";
+stcSports.nhl["min"] = "Minnesota";
+stcSports.nhl["mon"] = "Montreal";
+stcSports.nhl["nas"] = "Nashville";
+stcSports.nhl["njd"] = "New Jersey";
+stcSports.nhl["nyi"] = "NY Islanders";
+stcSports.nhl["nyr"] = "NY Rangers";
+stcSports.nhl["ott"] = "Ottawa";
+stcSports.nhl["phi"] = "Philadelphia";
+stcSports.nhl["pho"] = "Phoenix";
+stcSports.nhl["pit"] = "Pittsburgh";
+stcSports.nhl["san"] = "San Jose";
+stcSports.nhl["stl"] = "St. Louis";
+stcSports.nhl["tam"] = "Tampa Bay";
+stcSports.nhl["tor"] = "Toronto";
+stcSports.nhl["van"] = "Vancouver";
+stcSports.nhl["was"] = "Washington";
+//-->
+</script>
+
+
+</BODY>
+</HTML>

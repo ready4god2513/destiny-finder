@@ -1,0 +1,39 @@
+<cfset objAssessment = CreateObject("component","cfcs.assessment")> 
+
+<cfif NOT isDefined("FORM.surveydone")>
+<cfif FindNoCase('destinyfinder',CGI.HTTP_REFERER)>
+
+	<cfset VARIABLES.result = Replace(FORM.sort_serialized,'item[]=','','ALL')>
+	<cfset VARIABLES.result = Replace(VARIABLES.result,'&',',','ALL')>
+
+	<cfset VARIABLES.item = {
+		id = '#FORM.sort_id#',
+		type_id = '#FORM.type_id#',
+		result = '#SerializeJSON(VARIABLES.result)#'
+	}>
+		
+	<cfoutput>
+		#objAssessment.insert_assessment(
+			assessment_id="#FORM.assessment_id#",
+			item_detail="#VARIABLES.item#",
+			user_id="#FORM.user_id#",
+			invite="#FORM.invite#"
+			)#
+	</cfoutput>
+    <cfif isDefined("FORM.qcount")>
+    	<cfset FORM.qcount = FORM.qcount + 1>
+    </cfif>
+	<cflocation addtoken="yes" url="/site_modules/assessment/word_sort.cfm?page=#FORM.page#&assessment_id=#FORM.assessment_id#&invite=#FORM.invite#&user_id=#FORM.user_id#&item_result=#FORM.item_result#&type_id=#FORM.type_id#&qcount=#FORM.qcount#">
+</cfif>
+<cfelse>
+<div style="background-color:white;">
+<p style="color:#a82b33;font-size: 24px;">Survey Results</p>
+<h2>Introduction</h2>
+<p>Congrats on taking the first step to discover your destiny! The scripture says, “We are His workmanship, created in Christ Jesus for good works which God prepared beforehand that we should walk in them.” (Eph. 2:10) It is our goal to help you fulfill this verse by helping you understand your gifts and calling in the Lord. God created you with a destiny, to do what you love AND what you’re good at to accomplish something significant for God in your lifetime. We are excited to partner with you as you make this journey of discovery and fulfillment.</p>
+<p>This Destiny Survey reveals a key aspect of your destiny; how you express yourself, what we call your core trait. If you’re authentic to yourself, that is, to the way you’ve been created, you will interact with the world around you, with your relationships, spiritual life, work, ministry, school and more according to your this trait. Understanding your core trait is crucial to discovering your destiny. </p>
+<p>The core traits are based on our view of the gifts listed in Ephesians 4:11-13 (apostle, prophet, evangelist, pastor, teacher). We believe that everyone has a primary core trait based on one of the Ephesians 4 gifts. But, it’s more of an orientation than a gift or office. In other words, you’re oriented towards one of these five gifts in terms of how you think and function. A comprehensive explanation can be found in the “Our Approach” section <LINK>. </p>
+<!---<p>We provide your top ranked trait in this free survey. When you purchase the Planner module with the complete set of surveys, you will receive a report with your ranking for all five core traits as well as expanded results descriptions for your primary and secondary core trait.</p>--->
+<p>Thanks for joining us in the Destiny Survey. It is our conviction that each of us was created by God with a unique design and that our ultimate fulfillment and fruitfulness in life depends on discovering and developing our personal destiny.</p> 
+</div>
+<p>            <a href="/profile/?page=viewresults"><img width="197" height="47" border="0" src="/site_images/btn_view_results.png" style="margin:10px 0px 20px 200px;" alt="" /></a></p>
+</cfif>

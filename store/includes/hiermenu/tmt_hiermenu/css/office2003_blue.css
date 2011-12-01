@@ -1,0 +1,128 @@
+/* Main container for whole menu */
+div.tmtHierbar {
+	font-family: Tahoma, Verdana, "MS Serif", "New York", serif;
+	font-size: 11px;
+	height: 24px;
+	padding:3px 10px 0 10px;
+	background-color: #9EBEF5;
+	background-image: url(../images/office2003_blue_menu_left.gif);
+	background-repeat: no-repeat;
+	background-position: left;
+}
+
+/* Main list inside tmtHierbar */
+div.tmtHierbar ul {
+	margin: 0;
+	padding: 0;
+	background-color: #9EBEF5; /* a background color is required here */	
+	background-image: none !important;
+	
+	
+}
+
+/* Links, all levels */
+div.tmtHierbar li a,
+div.tmtHierbar li a:link
+div.tmtHierbar li a:visited {
+	display: block;
+	padding-bottom: 0.25em; /* (minimum value allowed) */
+	padding-top: 0.25em; /* (minimum value allowed) */
+	text-decoration: none;
+	color: black;
+	padding:3px 6px;
+	border:1px solid #9EBEF5;
+	
+}
+
+
+/* images in menus */
+/* with this skin, images should be 16x16 pixel */
+div.tmtHierbar li a img {
+	border:0;
+	display: block;
+	float:left;
+	margin-left:-24px;
+	margin-top:-2px;
+	width:16px;
+	height:16px;
+}
+
+
+/* Links, all levels, hover */
+div.tmtHierbar li a:hover {
+	border:1px solid Navy;
+	background-image: url(../images/office2003_blue_background_item.gif);
+	background-position: bottom;
+	background-repeat: repeat;
+	background-color: #FFF6CF;
+}
+
+/* Links second and third level */
+div.tmtHierbar ul li.tmtHiermenu ul li a,
+div.tmtHierbar ul li.tmtHiermenu ul li a:link
+div.tmtHierbar ul li.tmtHiermenu ul li a:visited {
+	width: 160px; /*[a]*/
+	border:0;
+	padding:4px 5px; /* [d] */
+	padding-left:27px; /* [e] */
+	
+}
+
+/* Links,  second and third level, hover */
+div.tmtHierbar ul li.tmtHiermenu ul li a:hover {
+	background-color: #FFEEC2;
+	border:1px solid Navy;
+	padding:3px 4px; /* [d] - 1 */
+	padding-left:26px; /* [e] - 1 */
+
+}
+
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu {
+	background-image: url(../images/office2003_arrow.gif);
+	background-repeat: no-repeat;	
+	background-position: right;
+}
+
+
+/* First level */
+div.tmtHierbar li {
+	float: right;
+	list-style: none;
+	position: relative;
+}
+
+/* Both second and third level */
+div.tmtHierbar ul li.tmtHiermenu ul{
+	display: none;
+	position: absolute;	
+	padding:2px; /*[b]*/
+	width: 192px; /* [c] depends on [a] and [b] */
+	border:1px solid Navy;
+	background-image: url(../images/office2003_blue_menu_background.gif) !important;
+	background-repeat: repeat-y !important;	
+}
+
+
+/* Third level */
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu ul{
+	display: none;
+	left: 192px; /* a left property is required here, must be lesser or equal to [c] */
+	top: 0;
+}
+
+/*
+Show second and third level items on hover
+IE doesn't understand this, but the Javascript code will takes care of it
+*/
+div.tmtHierbar ul li.tmtHiermenu:hover ul,
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu:hover ul{
+	display: block;
+	
+}
+
+/* IE will miss this. It's a quick fix for the box model */
+div.tmtHierbar>ul li a,
+div.tmtHierbar>li a:link
+div.tmtHierbar>li a:visited {
+	
+}

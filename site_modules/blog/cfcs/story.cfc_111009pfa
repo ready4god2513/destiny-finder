@@ -1,0 +1,69 @@
+<cfcomponent displayname="story" output="no" hint="I handle the story functions">
+
+<cfset obj_admin = CreateObject("component","admin.cfcs.admin")>
+
+<cffunction name="process_form" returntype="string" output="false" hint="I process the story form">
+	<cfargument name="process" required="yes" type="string">
+	
+	<cfswitch expression="#process#">
+	
+		<cfcase value="Post Story">	
+				<cfquery name="Insert_Story" datasource="#APPLICATION.dsn#">
+					INSERT INTO	stories
+						(story_title,story_date,story_content,story_user_id,story_active,story_shorttext,story_categories)
+					VALUES
+						(<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_date#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						<cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_user_id#">,
+						0,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_categories#">)
+				</cfquery>
+				
+				<cfquery name="GetMax" datasource="#APPLICATION.DSN#" maxrows="1">
+					SELECT story_id 
+					FROM Stories
+					ORDER BY Story_id DESC
+				</cfquery>
+				
+				<cfparam name="FORM.story_id" default="#GetMax.story_id#">
+				
+				<cfset obj_admin.lookup_table_update(
+				lookup_table="Category_Story_Match",
+				table_primkey_name="story_id",
+				checkbox_name="story_categories",
+				secondary_primkey_name="category_id"
+				)>
+			
+			<cflocation url="index.cfm?page=prayerwall&admin=1" addtoken="no">
+		</cfcase>
+		
+		<cfcase value="Update Story">	
+				<cfquery name="Update_Story" datasource="#APPLICATION.dsn#">
+					UPDATE stories
+						SET 
+						story_title = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						story_content = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						story_shorttext = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">
+						WHERE story_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_id#">
+				</cfquery>
+								
+				<cfset obj_admin.lookup_table_update(
+				lookup_table="Category_Story_Match",
+				table_primkey_name="story_id",
+				checkbox_name="story_categories",
+				secondary_primkey_name="category_id"
+				)>
+				
+			<cflocation url="index.cfm?page=prayerwall&admin=1" addtoken="no">
+		</cfcase>
+		
+		<cfdefaultcase>
+		</cfdefaultcase>
+	
+	</cfswitch>
+		
+</cffunction>
+
+</cfcomponent>

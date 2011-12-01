@@ -1,0 +1,70 @@
+
+STEPS FOR UPGRADING TO CFWEBSTORE VERSION 6 FROM VERSION 5.X
+-----
+
+These are the instructions for upgrading version 5 stores to version 6. If you are already on version 6, stop here! Information on minor updates is found in the documentation directory, the version.txt lists the updates/corrections done and the changes.txt file details the actual file changes made.
+
+To proceed with the version 5-->6 upgrade, your database must be a relatively recent version 5 database first. Version 5.6 or later should be fine. If using an earlier CFWebstore version, perform this upgrade FIRST. 
+
+There are basically TWO steps to the upgrade process. The first is to run a series of SQL scripts on the database. These will add all the new tables and columns and add some default data. The second step is to run a series a ColdFusion scripts. These will perform the remaining steps, those that cannot be done through SQL alone. BE SURE TO DO BOTH OF THESE STEPS to complete the upgrade. 
+
+Upgrade scripts for version 6 are only available for MySQL and SQL Server. Access does not support running of complex SQL scripts and isn't an appropriate platform for running a live ecommerce site, so if running on Access, please upscale the database to MySQL or SQL Server first. Most hosts provide MySQL and/or SQL Server Express for free so there are better low-cost options to Access now that will also save you trouble down the line if your site starts getting any amount of traffic. 
+
+When running this update process, be sure to test it on a copy of your store first. There's a good chance you may need to tweak the scripts for your particular database and you don't want to mess up a live store. You'll want to test all the scripts on a copy of the database and then move over your layout and styles for your store to the version 6 files and any changes you have made to make sure everything works before moving on to your live site. Ideal is to test it on the same server your own site is running on, as many hosts may run timeout scripts that may interfere with the upgrade. You may also want to clear out old order data from your database first. The more orders and customer data you have, the longer the upgrade scripts will take to run. 
+
+
+RUNNING THE SQL SCRIPTS 
+-----
+
+When you are ready to start your migration to version 6, run the update scripts, using the files from the MySQL or MS-SQL directory according to the database you are using. 
+
+For MS-SQL run the scripts in this order: update_schema.sql, update_data.sql, renamekeys_indexes.sql.
+
+For MySQL, run the scripts in this order: pre_schema_changes.sql, update_schema.sql, update_data.sql, renamekeys_defaults.sql. 
+
+For both database versions, the last file is optional, and will update the indexes, defaults and/or foreign key names to match the standard naming method for all version 6 databases. 
+
+Please note that you may run into issues with these scripts depending on how your database was originally created. You may need to delete the section on dropping foreign keys in the renamekeys_defaults.sql file for MySQL if your database does not currently have foreign keys, and depending on the tool used to migrate from Access, you may need to rename the indexes (or drop that section as well). If you have access to a tool like Navicat that can do schema comparisons, that may help you in doing some of these migration steps. 
+
+For MS-SQL, you may have to adjust the scripts for your constraint names, the ones provided will match databases created using the provided SQL scripts in version 5, if you used the database backups or upscaled from Access, they may not have the '1's in the middle so just edit your files and remove those to match your database schema. Stores updated from even older webstore versions may have different constraint names altogether, so you can either just skip these steps, or modify them with names that match your database. Again, tools that do schema comparisons can help a lot here, by creating a blank version 6 database using the scripts provided and then running a comparisons on the schemas. Please note that there will be additional changes to the schema after the rest of the update process, so do not drop any tables and fields that show up in the comparison.  
+
+After successfully running the SQL scripts, you may want to create a backup or dump file of your database before proceeding. That way if you run into trouble you can easily restore to this point and not have to run the scripts again. 
+
+
+RUNNING THE COLDFUSION SCRIPTS 
+-----
+
+Set up a datasource pointing to your upgraded database on ColdFusion and enter the settings for it in the Application.cfm file in the update directory of your version 6 copy. Browse to the update directory to begin the second part of the migration (http://www.yoursite.com/storepath/update/index.cfm). Click the button to start the migration and step through each screen until it completes. 
+
+
+COMPLETING THE UPGRADE
+-----
+
+After the ColdFusion scripts complete, you are ready to start copying over files from your current store to version 6. The biggest step generally is migrating over your layout pages. Version 6 stores layouts in a new directory and uses some slightly different files. Here are some of the most common changes you may need to make:
+
+	- First make sure to enter your datasource and other settings in the config.cfm file. The settings in this file are critical for your store to run properly. 
+
+	- All components of the layout are now in the layouts directory. You may need to change some paths to files in your old layouts when copying them over. For instance, 'includes/putbody.cfm'  now becomes 'put_body.cfm'. Note that if you have used relative image paths, those will not need to be changed. But check all cfincludes and cfmodules to make sure paths are correct.
+	
+	- Most of the sections previously in the header of the page are now found in the put_layouthead.cfm page. Modify your layouts to use this page instead. 	
+	
+	- Call your style sheet directly from your layout page if not already doing this. 
+	
+	- If you have any links using the store URL (Request.AppSettings.StoreURL) or Secure URL (Request.AppSettings.SecureURL) change these to the new settings (Request.StoreURL and Request.SecureURL)
+	
+	- Many variables previously copied into attributes or request scope are now left as session vars. Watch out for ones like User_ID, Group_ID, etc. that are now session vars only. 
+	
+	- Version 6 uses CFCs for menus. You will need to change the calls to the menus and if you have customized the code for creating them you may need to also modify the components to match your customized code. Or if this is really too much work to do, you could copy over the code from your current version and re-create the fusebox actions for calling them. You will though lose some performance benefit from doing this. 
+
+	- If you use Shared SSL, it's important that you pay attention to the Request variables on the end of any links. These are essential to maintain sessions. For any links that start with Request.SecureURL, use Request.AddToken on the end, and for any that start with Request.StoreURL (or nothing) use the Request.Token2. 
+	
+After copying over any layouts, you may also need to copy any code modifications you have done that you still need. An easy way to work your way through these it to run a comparison on your current site with the release version of the software, using a comparison tool such as ExamDiff Pro. This will allow you to find any modifications you've done fairly easily and copy them over as needed. 
+
+Note that if you have modified the product layouts at all, this directory has been reorganized as well. All queries are now in the 'queries' directory and all the listing pages and components for them are in the 'listings' directory.
+
+Be sure to copy over all the new styles from the default.css style page and update as needed for your site. 
+
+You may want to review all the main store settings, payment settings and shipping and tax setup. All of these had many changes and upgrades for the new version and while the scripts should do a pretty good job of migrating everything, there may be some things you will need to tweak for your store. Be sure to note anything you will need to redo when updating the live site. 
+
+Once you've copied over all your layouts and code changes, test your store copy and make sure everything looks and runs as it should. Be sure to try some test orders to make sure all your shipping and payments settings are working. Once you are satisfied, you are ready to upgrade your live site! You will probably want to disable your store while doing this, so modify the main Application.cfm page to redirect to a temporary page informing customers of the outage. Grab a backup of the database, and then run the scripts, and then the CF migration scripts. You'll want to clear all the old files from your directory before moving over the new version 6 files, so as to not leave orphan files behind. Again, make sure to save a backup of your old site first, just in case you forget anything (images, downloads, etc.) Once everything is in place, put the normal Application.cfm page back in place, and it should be ready to go! 
+

@@ -1,0 +1,129 @@
+<cfset objAssessments = CreateObject("component","cfcs.assessment")>
+<cfset qItems = objAssessments.retrieve_assessment_item(assessment_id="#VARIABLES.assessment_id#")>
+<cfset qResults = objAssessments.retrieve_result(user_id="#VARIABLES.user_id#",assessment_id="#VARIABLES.assessment_id#",invite_uid="#VARIABLES.invite#")>
+<cfif qResults.recordcount>
+		<cfset VARIABLES.result_set = DeserializeJSON(qResults.result_set)>
+	<cfelse>
+		<cfset VARIABLES.result_set = ArrayNew(1)>
+</cfif>
+<cfparam name="URL.sort_id" default="#qItems.item_type_id#">
+<cfparam name="URL.type_id" default="#qItems.item_type#">
+<cfparam name="URL.item_result" default="">
+<cfparam name="URL.user_id" default="">
+<cfparam name="URL.invite" default="">
+<cfparam name="URL.assessment_id" default="">
+<cfparam name="URL.page" default="">
+<cfparam name="URL.qcount" default="">
+<cfparam name="ATTRIBUTES.sort_id" default="#URL.sort_id#">
+<cfparam name="ATTRIBUTES.type_id" default="#URL.type_id#">
+<cfparam name="ATTRIBUTES.item_result" default="#URL.item_result#">
+<cfparam name="ATTRIBUTES.user_id" default="#URL.user_id#">
+<cfparam name="ATTRIBUTES.invite" default="#URL.invite#">
+<cfparam name="ATTRIBUTES.assessment_id" default="#URL.assessment_id#">
+<cfparam name="ATTRIBUTES.page" default="#URL.page#">
+<cfparam name="ATTRIBUTES.qcount" default="#URL.qcount#">
+
+
+
+
+	
+    
+<cfif isNumeric(ATTRIBUTES.sort_id)>
+	<cfset qSort = objAssessments.retrieve_sort(sort_id="#ATTRIBUTES.sort_id#")>
+	<cfset VARIABLES.sort_words = DeSerializeJSON(qSort.sort_words)>
+	<cfset CreateObject("java","java.util.Collections").Shuffle(VARIABLES.sort_words)>
+	<cfset VARIABLES.sort_id_list = "">
+	
+	
+	<cfif ListLen(ATTRIBUTES.item_result) GT 0>
+		<cfloop from="1" to="#ListLen(ATTRIBUTES.item_result)#" index="i">
+			<cfset VARIABLES.sort_words[i][1] = ListGetAt(ATTRIBUTES.item_result,i)>
+			
+		</cfloop>
+	</cfif>
+	
+	
+	<cfoutput>
+		<cfif isDefined("url.cid")>#url.cid# - #ATTRIBUTES.assessment_id#</cfif>
+		<div class="sort_name">#qSort.sort_name#</div>
+		<div id="sort#ATTRIBUTES.sort_id#_result" class="sort_result">
+		
+		</div>
+		<cfif ListLen(ATTRIBUTES.item_result) GT 0>
+			<input type="button" class="retake#ATTRIBUTES.sort_id#" value="Retake"/>
+		</cfif>
+		<div class="sort#ATTRIBUTES.sort_id#_wrapper" <cfif ListLen(ATTRIBUTES.item_result) GT 0>style="display:none;"</cfif>>
+		<form action="/site_modules/assessment/act_word_sort.cfm" method="post" id="sort_form_#ATTRIBUTES.sort_id#">
+			
+			<ul id="sortable#ATTRIBUTES.sort_id#" class="sortable" >
+				<cfloop from="1" to="#ArrayLen(VARIABLES.sort_words)#" index="i">
+					<li class="ui-state-default" id="item_#VARIABLES.sort_words[i][1]#">#VARIABLES.sort_words[i][2]#</li>
+					<cfset VARIABLES.sort_id_list = ListAppend(VARIABLES.sort_id_list,VARIABLES.sort_words[i][1])>
+				</cfloop>			
+			</ul>
+			<input type="hidden" id="serialize#ATTRIBUTES.sort_id#" name="sort_serialized" value="#VARIABLES.sort_id_list#"/>
+			<!--- <input type="hidden" name="orig_sort_order" value="#VARIABLES.sort_id_list#"/> --->
+			<input type="hidden" name="page" value="#ATTRIBUTES.page#"/>
+            <input type="hidden" name="assessment_id" value="#ATTRIBUTES.assessment_id#"/>
+			<input type="hidden" name="sort_id" value="#ATTRIBUTES.sort_id#"/>
+			<input type="hidden" name="type_id" value="#ATTRIBUTES.type_id#"/>
+            <input type="hidden" name="item_result" value="#ATTRIBUTES.item_result#"/>
+			<input type="hidden" name="user_id" value="#ATTRIBUTES.user_id#"/>
+			<input type="hidden" name="invite" value="#ATTRIBUTES.invite#"/>
+            <input type="hidden" name="q" value="#ATTRIBUTES.q#"/>
+			<input type="submit" name="submit" value="Submit"/>
+		</form>
+		</div>
+				<script type='text/javascript'>
+				$(function() {
+					$('##sortable#ATTRIBUTES.sort_id#').sortable(
+						{
+						update: function(event, ui) 
+							{					
+								$('##serialize#ATTRIBUTES.sort_id#').val($("##sortable#ATTRIBUTES.sort_id#").sortable("serialize"));
+							} 			
+						});
+
+					$('##sortable#ATTRIBUTES.sort_id#').disableSelection();
+				});
+				
+				$(function(){
+					//AJAX submit
+					$('##sort_form_#ATTRIBUTES.sort_id#').submit(function() { 
+						//alert('Submitted' + $(this).attr("id"));
+						$(this).ajaxSubmit(submitOptions#ATTRIBUTES.sort_id#);
+						return false;
+						});
+				});
+					
+					//Parameters for ajaxSubmit
+					var submitOptions#ATTRIBUTES.sort_id# = {
+					target: '##sort#ATTRIBUTES.sort_id#_result',
+					beforeSubmit:showProcessing#ATTRIBUTES.sort_id#,
+					success: hideProcessing#ATTRIBUTES.sort_id#,
+					type:'post',
+					url: '/site_modules/assessment/act_word_sort.cfm'
+					};
+				
+					function showProcessing#ATTRIBUTES.sort_id#() {
+
+						$(".sort#ATTRIBUTES.sort_id#_wrapper").fadeOut(1000);
+					} 
+				
+					function hideProcessing#ATTRIBUTES.sort_id#() {
+					   $("##processingMessage").addClass("hideElement");
+					   setTimeout(function() {
+					   $("##sort#ATTRIBUTES.sort_id#_result").fadeIn(1000);
+						}, 1000); 
+					}
+					
+					$('.retake#ATTRIBUTES.sort_id#').click(
+						function(){
+							$(".retake#ATTRIBUTES.sort_id#").hide();
+							$(".sort#ATTRIBUTES.sort_id#_wrapper").fadeIn(1000);
+						}
+					);
+			</script>
+
+	</cfoutput>
+</cfif>

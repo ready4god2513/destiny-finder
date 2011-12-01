@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Field Methods Library</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Field Methods Library</B></P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor.
+<B><I>fieldName</I></B> signifies the form field element that you want
+to perform the action on. Arguments in bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Properties"><B>Properties</B></A><br/>
+<DL>
+	<DT><A NAME="dummyContainer"><B><I>obj.fieldName</I>.dummyContainer</B></A></DT>
+	<DD>
+		The dummyContainer property is a boolean value which specifies that the current
+		container is simply used to hold items. A "dummy" container should have no
+		value, and qForms will ensure that no value is returned for a dummy container.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="boundContainers"><B><I>obj.fieldName</I>.boundContainers</B></A></DT>
+	<DD>
+		The boundCountainers property contains an array of all containers bound to the
+		current container. "Bound" containers are used assiociate the items in one
+		select box to another, so that a setValue() method will correctly populate
+		a container with the proper value in the bound container's option array.
+	</DD>
+</DL>
+
+<br/><br/>
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="compare"><B><I>obj.fieldName</I>.compare(string field)</B></A></DT>
+	<DD>
+		The compare method will compare the value of the selected form field with the value of
+		the form field specified in the "field" argument. If the values are different, then <B>false</B>
+		is returned. If the values are identical, then <B>true</B> is returned. The field argument is a
+		string equal to that of another qForm field name.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="createDependencyTo"><B><I>obj.fieldName</I>.createDependencyTo(string field, [string condition])</B></A></DT>
+	<DD>
+		The createDependencyTo method will create a relationship between two specified fields&#151;the
+		fieldName and the field specified in the field argument. When a dependency is created, a check
+		is run each time the specified field is updated. A condition check is then performed to see
+		if the fieldName object should become required. If the condition check returns <B>true</B>, then
+		the fieldName object becomes required, otherwise the fieldName object's required property is set
+		to <B>false</B>.
+
+		<P>The field argument is a required parameter, which specifies the field that the condition
+		should be tested on.
+
+		<P>The condition argument is an optional parameter, which specifies either a string value to
+		use as a comparison or an expression which is evaluated. If the condition statement is not provided,
+		then the specified field is tested to see it contains a value. If it does, then the required property
+		for "fieldName" is set to <B>true</B>. If the condition statement contains the "this" keyword, then
+		the string is evaluated as an expression. The value of the fieldName's required property will be equal to
+		the expression's result. Otherwise, the condition statement is treated as a simple string. In this case
+		the value of the "field" argument is tested against the condition, if the values match, then the
+		required property for "fieldName" is set to <B>true</B>.
+
+		<P><B>For example:</B><br/>
+		<CODE>objForm.City.createDependencyTo("Address1");<br/>
+		objForm.State.createDependencyTo("Address1");<br/>
+		objForm.Zip.createDependencyTo("Address1");<br/>
+		objForm.Fax.createDependencyTo("FaxMe", "this.getValue() = 'yes'");</CODE>
+
+		<P>You could simplify the last statement, by simply using:<br/>
+		<CODE>objForm.Fax.createDependencyTo("FaxMe", "yes");</CODE></{>
+
+		<P>This would make the "City", "State" and "Zip" fields required if there is any value in the
+		Address1 field. Also, if the user chooses to be informed via a fax to their order shipment,
+		it would force the "Fax" field to be required.
+
+		<BLOCKQUOTE><B>NOTE:</B> If you want to enforce dependencies on the default
+		values of the fields, you'll want to call the enforceDependency() method for
+		each unique field defined in the "field" argument for your dependencies. For
+		example:
+
+		<P><CODE>objForm.City.createDependencyTo("Address1");<br/>
+		objForm.State.createDependencyTo("Address1");<br/>
+		objForm.Zip.createDependencyTo("Address1");<br/>
+		objForm.Fax.createDependencyTo("FaxMe", "this.getValue() = 'yes'");<br/>
+		<br/>
+		<FONT COLOR="#999999">// enforce dependencies on the default values</FONT><br/>
+		objForm.Address1.enforceDependency();<br/>
+		objForm.FaxMe.enforceDependency();<br/>
+		</CODE>
+		</BLOCKQUOTE>
+
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="enforceDependency"><B><I>obj.fieldName</I>.enforceDependency(string exclusionList)</B></A></DT>
+	<DD>
+		The enforceDependency() method is an internal method used by the API to enforce all the
+		queued dependencies for a given field. It's the enforceDependency method which determines
+		whether the specified field should be required or not.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="isDependent"><B><I>obj.fieldName</I>.isDependent(string field, [string condition])</B></A></DT>
+	<DD>
+		The isDependent() method is an internal method used by the API to test whether or not the
+		specified field should be required. These methods are stored in the fields dependency queue
+		and test against whenever the form's onSubmit event is called.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="location"><B><I>obj.fieldName</I>.location([string target], [string key])</B></A></DT>
+	<DD>
+		The location method will use the JavaScript method "location" to try to redirect the user's
+		browser to the value of the selected form field. This was designed to work with the select
+		box element as a navigational tool.
+
+		<P>The target argument is an optional parameter to specify the target object in which to
+		attach the location method. By default the target object is "self." If you wish to redirect
+		to another frame, then the target should be the string pointer to the JavaScript object.
+
+		<P>The key argument is another optional parameter. The key parameter by default is equal
+		to an empty string. If the value of the current form field element is equal to the key,
+		then the location method will not be enacted.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="ltrim"><B><I>obj.fieldName</I>.ltrim()</B></A></DT>
+	<DD>
+		The ltrim method will strip all whitespaces from the left the side of the current form
+		field's value and update the field.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="makeContainer"><B><I>obj.fieldName</I>.makeContainer([string bindTo])</B></A></DT>
+	<DD>
+		The makeContainer method will change a select box into a "container." A container is a unique
+		qForm's type of select box. What makes a container unique is that each item in the container
+		is part of its value.
+
+		<P>When using the setValue() method on a container, a list of the original container values
+		and any bound container objects will be searched, and if a match is found, the container
+		will be populated with matching results.
+
+		<P>The bindTo argument is optional and is used to bind other container objects to the current
+		container. When two (or more) containers are bound, then when the setValue() method is called
+		on the main container, all containers will be searched for the value, if a match is found,
+		then that match will be added to the container's pool of objects.
+
+		<BLOCKQUOTE><B>NOTE:</B> You must specify the <B>MULTIPLE</B> attribute in any &lt;SELECT&gt; tag
+		you wish to make as a container. The browser by default will only allow one option in a select
+		box to be selected. Unfortunately, this can't be change programmatically, so if the servers only
+		seeing one value for a container, you probably haven't specified the <B>MULTIPLE</B> attribute.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="mirrorTo"><B><I>obj.fieldName</I>.mirrorTo(string object)</B></A></DT>
+	<DD>
+		The mirrorTo method will place a copy of the value of fieldName into the object specified
+		in the objectName string.
+
+		<P>The objectName argument is required and accepts any string which is the name for a valid
+		JavaScript object. The string is then test to see if it's a valid qForms object, if it is,
+		it will update the value of the form specified. If it's not a qForms object, then it'll
+		assume it's a valid JavaScript variable and assign the value of fieldName to the object
+		specified.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="populate"><B><I>obj.fieldName</I>.populate(object struct, [boolean reset], [boolean sort], [object prefix])</B></A></DT>
+	<DD>
+		The populate method is only available for select box elements. The populate() method will
+		take in a structure and repopulate the options array based upon the structure passed in.
+		The keys in the provided structure will be equal to the options "value" and the key's value
+		will be equal to the options "text" value. This method will not run if the
+		isLocked() method return <B>true</B>.
+
+		<P>The reset argument is an optional argument used to define whether or not the options array
+		should be cleared before adding the structure key and values. The default value for this method
+		is <B>true</B>. If set to <B>false</B>, then items in the structure will be appended to the selected field's
+		options array.
+
+		<P>The sort argument is an optional argument that can be used to specify whether or not the
+		options array should be resorted in ascending order by the value of the options text value.
+		The default value for the sort argument is <B>false</B>. Valid values are <B>true</B> and <B>false</B>.
+
+		<P>The prefix argument is an optional argument that can be used to append a structure to the beginning
+		of the option's array. This is useful for adding a blank option at the beginning of the option array
+		or some text like "Please select an option from the following:". By default, nothing is appended to
+		the option array.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="resetLast"><B><I>obj.fieldName</I>.resetLast()</B></A></DT>
+	<DD>
+		The resetLast method will reset the selected form field element to the value stored in
+		the lastValue property.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="rtrim"><B><I>obj.fieldName</I>.rtrim()</B></A></DT>
+	<DD>
+		The rtrim method will strip all whitespaces from the right the side of the current form
+		field's value and update the field.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="toLowerCase"><B><I>obj.fieldName</I>.toLowerCase()</B></A></DT>
+	<DD>
+		The toLowerCase method will convert the selected form field element to lower case.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="toUpperCase"><B><I>obj.fieldName</I>.toUpperCase()</B></A></DT>
+	<DD>
+		The toUpperCase method will convert the selected form field element to upper case.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="transferFrom"><B><I>obj.fieldName</I>.transferFrom(string field, [boolean sort], [string type], [boolean selectItems], [boolean reset])</B></A></DT>
+	<DD>
+		The transferFrom method will transfer items to the specfied select box from the select
+		box specified in the field argument. The field argument is required and must be equal
+		to the name of another qForms select box field. This method will not run if
+		the isLocked() method return <B>true</B>.
+
+		<P>The sort argument is an optional argument that can be used to specify whether the
+		options in the specified select box should be resorted in ascending order by the options
+		text value once the transfer is complete. Valid values are <B>true</B> and <B>false</B>. The default
+		value is <B>true</B>.
+
+		<P>The type argument is an optional argument that is used to specify whether only the
+		selected items should be moved, or whether all the items should be moved. Valid values
+		are "selected" and "all". The default value is "selected."
+
+		<P>The selectItems argument is an optional argument used to specify whether or not the
+		moved items should be selected by default when moved to the new box. Valid values are
+		<B>true</B> and <B>false</B>. The default value is <B>true</B>.
+
+		<P>The reset argument is an optional argument used to determine whether or not the target
+		select box should be cleared before moving the specified options. Valid values are <B>true</B>
+		and <B>false</B>. The default value is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="transferTo"><B><I>obj.fieldName</I>.transferTo(string field, [boolean sort], [string type], [boolean selectItems], [boolean reset])</B></A></DT>
+	<DD>
+		The transferTo method will transfer items from the specfied select box to the select
+		box specified in the field argument. The field argument is required and must be equal
+		to the name of another qForms select box field. This method will not run if
+		the isLocked() method return <B>true</B>.
+
+		<P>The sort argument is an optional argument that can be used to specify whether the
+		options in the field argument should be resorted in ascending order by the options text
+		value once the transfer is complete. Valid values are <B>true</B> and <B>false</B>. The default value
+		is <B>true</B>.
+
+		<P>The type argument is an optional argument that is used to specify whether only the
+		selected items should be moved, or whether all the items should be moved. Valid values
+		are "selected" and "all". The default value is "selected."
+
+		<P>The selectItems argument is an optional argument used to specify whether or not the
+		moved items should be selected by default when moved to the new box. Valid values are
+		<B>true</B> and <B>false</B>. The default value is <B>true</B>.
+
+		<P>The reset argument is an optional argument used to determine whether or not the target
+		select box should be cleared before moving the specified options. Valid values are <B>true</B>
+		and <B>false</B>. The default value is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="trim"><B><I>obj.fieldName</I>.trim()</B></A></DT>
+	<DD>
+		The trim method will strip all whitespaces from the both the left and right
+		sides of the current form field's value and update the field.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./core_extensions.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./extension_validation.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,972 @@
+Version History:
+=====================
+
+Release 6.43
+- Include custom checkout fields on email confirmation
+- Updated the SQL injection scanner to also check for XSS attacks
+- Removed InnovaStudio editor
+- Some additional security updates
+- Some additional areas and functions turned off for demo sites
+
+Release 6.42
+- Correct issue with image lines not showing up if color is set
+- Correct category to properly be hidden when display=no
+- Correct bug in Linkpoint delayed capture
+- Correct the /admin shortcut to the admin area
+- Correct a small issue in the paging when using the product search header
+- Correct typo in redirecting for addon missing information
+- Correct condition setting in Bizrate Feed
+- Hid the setting for currency exchange, as the free webservice is no longer available
+- Changes to prevent running cfm files from any directory other than the root
+- Additional checks for uploaded files, that they are an allowed type
+
+Release 6.41
+- Updates for Shared SSL
+- Correction to product copy function
+- Integrated new PayFlowPro HTTPS method
+- Corrections to PayPal IPN function
+- Some additional file upload checks added to admin upload functions
+
+Release 6.40
+- Improvements to error handling for various XML functions
+- Secure information stripped when generating store errors
+- Updates to the user registration functions
+- Some updates for PayPal Express Checkout
+- Correct an issue with PayPal Express orders not showing in the order history
+- Affiliate registration email corrected to send affiliate code
+- Updates and improvements to the order export functions
+- Some changes to packing list printouts
+- Updated cart function to maintain order for options and addons
+- Updated order-based promotions to exclude the discounted item
+- Correct password reminder function to handle disabled addresses
+- Correction to the product copy function
+- Category access keys now assigned to associated products and features
+- Remove settings for saving credit card data (tokens only)
+- New settings to minimize use of session IDs on the URL
+- Entire admin now secured behind SSL (if used)
+
+
+Release 6.32
+- Update link for the Color Tool
+- Update the functions used to scan URL/Form/Cookie scope for attacks
+- Correct a bug if deleting user from user summary page
+- Store will only send notes on downloads/memberships for orders that include them
+- Emails use different notes for downloads and memberships
+- Some updates so that the login form during checkout redirects properly with terms being used
+- Add voiding function after processing a test authorization on a user credit card
+- Correct error when a user deletes a feature or product review
+- A few additional fixes for Railo
+- A few additional minor bug fixes
+
+Release 6.31
+- Correction for adding products when there are multiple registries
+- Corrections to Skipjack processing
+- Correct for using free shipping promotion with Intershipper
+- Correct problem with shipping date changing when order is updated
+- Correct issue with discounts when items with options prices
+- Correct issue with product reviews on some CF servers
+- Additional purchase of same downloadable file will add more accesses
+- Save PayPal orders that weren't verified as unapproved
+- Hide coupon entry field during checkout
+- Hide expired features in search results
+- Update directory listing to not throw error when no records found
+- Some additional updates for Railo support
+- Updated wysiwyg editor with new features (divs, encoded email links, etc.)
+- More updates to block hack attempts
+
+Release 6.30
+- Updates to better align short and vertical product listings
+- Various fixes for Railo support
+- Correction to Bizrate feed for MySQL
+- Some corrections to the user add/update functions for manual imports
+- Corrections to automated billing features
+- Correction to validation for shipping state when checking out
+- Correction for search parameter of status being lost on order search tab
+- Some gift registry updates
+- Added code to toggle off the hot,sale,new icons as needed
+- Added code to image manager to prevent deletes on satellite connections
+- Added code to use for creating a manufacturer search function
+- Added function to delete all stores error dumps
+- Additional corrections for affiliates with no address information
+- Updates to detect hack attempts and prevent error messages being generated
+- Updated USPS code to not round off ounces
+- Update Google Base to include SKU (id)
+- Updated to last release version of qForms
+- Updated code to use compressed qForm libraries
+- Updates for support of MS SQL on CF8 servers
+- Updated related product queries so they can more easily be moved on product page
+- Improved code for order box to allow use of images more easily
+- Updated the currency exchange to replace the old web service that is no longer working
+- Updated Sales Summary Report to subtract unpaid orders
+- Modified image.cfc to write temp files to image directory 
+- Improved function to reset session information for external visitors
+- Updated shipping estimator to show default shipping rate when using custom methods
+- Updated the product image function to allow images to be saved to a subdirectory
+- Updated to the final release of FCKEditor 2.6
+- Added links to the wish list and gift registry to the Account page
+- Added robots.txt file to prevent indexing of extra files/images/etc.
+- Other minor bug fixes
+
+Release 6.21
+- Updated database schema function to work for MySQL
+- Correction for the expiration date passed for PayFlow processing
+- Correct duplicates in county tax report
+- Corrections for new hack blocking methods
+- Correct an error in the processing of memberships
+- Correction to the reorder inventory functions
+- Update for Intershipper, include a minimum package size
+- Updated code to display a full invoice after completed PayPal orders
+
+Release 6.20
+- Correctly hide shipping table if turned off in custom settings
+- Correct typo on page for adding items to wishlist
+- Trim functions added in payment manager section
+- Improve option for deleting past orders to only show months with orders
+- First tax code is now applied by default to new products
+- Some gift certificate corrections
+- AutoEmail component updated to not override explicitly-passed email address
+- Updated the address forms to require the state selectbox for US and Canada addresses
+- Correction for saving credit card data for recurring memberships
+- Other updates to better handle recurring memberships
+- Correct issue with addons that are not whole dollar amounts
+- Correct some case issues with table names
+- Correct table name for deleting county tax
+- Correction to Linkpoint delayed capture
+- Correct the inventory marker if an option is no longer being used for inventory
+- Correct issue with multi-item promotions with promotion being applied too many times
+- Correct issue with multiple promotions for the same items
+- Correction to discount calculations when using multiple product discounts
+- Correct problem with some countries not showing up in country rates page
+- Correct code for taxes when you have county taxes but no country tax
+- By default, the code to prevent accidental session sharing turned on
+- Added option to select order type when downloading orders
+- Add checks for valid emails when using admin email function
+- Update email contact forms to not display page text after form submitted
+- Improvements to the detection of hack attempts, to prevent errors being generated
+- Update to layouts to use a specific layout page for printing
+- Added new function to output best-sellers 
+- WSIWYG editor update to latest version
+
+Release 6.10
+- Correct error in shipping checkout if International orders turned off
+- Correct configuration for the WSIWYG editor
+- Correct issue with adding promotions on MySQL
+- Correct update of cached queries for discounts and promotions
+- Correct error on Sale template with categories
+- Correctly copy option choice order when using product copy feature
+- Correct payment options when offline orders turned off
+- Correct problem with changing drop-shipper setting
+- Correct error in Google Base feed
+- Correct product edit function
+- Correct problem with product breadcrumb paths
+- Added enlarged product image to product copy function
+- Update customer form for international postal codes
+- Updates to trial membership, to better handle multiple purchases on a CC
+- Allow capturing CC data when buying a free trial membership
+- Correct product display with sale dates
+- Correction for checkout with tax exempt users
+- Update product listings to show a link for gift registry if no orderbox used
+- Correct Registry link to add products if no separate store home
+- Update method of copying user's shopping cart after login
+
+Release 6.03
+- Correct issue with automatic generation of gift certificates
+- Correct problem with member registration confirmations
+- Correct problem when showing quantity discount as discount product price
+- Correct headers on PayPal Pro files
+- Correction for single-item promotions
+- Correct typo on PayPal direct API
+- Correction in the MySQL scripts
+- Corrections for missing products (typically from googlebot hits)
+- Corrections for the database prefix support
+- Some database field type corrections
+- Correct error when deleting accounts
+- Correction for standard options that are not required
+- Correct problem with setting free shipping promotion on Intershipper
+- Some updates to features that use the old shopping cart ID method
+- Update to error dump counter to handle any extra files/directories that get added
+- Remove duplicate HTMLCompressFormat function from some pages
+- Update email confirmation for affiliate registration
+- Improvements to the search function
+- Some fixes for login functions
+- Some CSS corrections
+- Additional updates for BlueDragon
+- Additional corrections for Unix
+
+Release 6.02
+- Correct some bugs with user delete function
+- Correct issue with custom shipping method types
+- Correct issue with feature reviews/comments
+- Correct issue with turning off options
+- Correct issue when adding more product custom fields
+- Added ability to hide page text on an action page (page templates)
+- Updates for PayPal checkouts
+- Minor corrections to Linkpoint processing page
+- Some minor style corrections
+- Syntax corrections for SQL Server
+- Some corrections for BlueDragon
+- Update code to be compatible with Railo
+- Additional functions for reloading admin menu after changes
+
+
+Release 6.01
+- Correct issue with prices on options on some CF servers
+- Recoded admin menu to use Spry Accordion and automatic updating of counters
+- Correct issue when checking out if shipping page is skipped
+- Moved file download settings to config file
+- Added basic SES link support for pages
+- Improvements to spam handling on email forms
+- Correct issue when showing product without reviews
+- Correct problem if using standard listing for product of the day
+- Some corrections for page menus
+- Update product of day to not check stock amount if inventory checks not used
+- Fix FedEx and UPS registrations if user has no address entered
+- New functions for creating store menus
+- Update to latest ImageCFC tag with CF8 support
+- Update to InnovaStudio editor for special character support
+- Update to latest FCKEditor with basic spellcheck for Firefox
+- Various other minor bug corrections
+
+Release 6.0
+- Built-in support for UPS, USPS and FedEx APIs
+- Support for rates, tracking and address verification APIs
+- Added ability to set a separate freight charge for products
+- Can set freight charge for domestic or for international shipments
+- Added ability to set package dimensions for oversized products
+- Can add weight limit to split orders into multiple shipments
+- Custom shipping methods can now be set as domestic or international
+- Additional new settings for more control over how to calculate custom shipping
+- Added In-Store Pickup option for shipping
+- Added a shipping estimator for the shopping cart
+- Added Residence field for more accurate shipping rates
+- Complete restructuring of tax system
+- Can set a "tax code" with the specific taxes that apply to it
+- Taxes can be set for billing or shipping address
+- Can set up a tax that applies to all users
+- Any number of tax codes may be applied to each product
+- Tax codes can be cumulative (include previous taxes when calculated)
+- Added ability to set zipcode range for local taxes
+- Added county taxes with ability to link to specific states
+- Can set taxes on multiple countries
+- Can set a user group as tax-exempt and/or shipping exempt
+- Added option to add terms of purchase agreement to checkout process
+- Added option to skip address form during checkout if user has default addresses entered
+- New custom checkout fields
+- Can set custom fields as required
+- Purchase order checkout option
+- New javascript-based calendar popup
+- Added option to show order-level discount info on store pages
+- New permissions for products, allows for admin users that access only their own products
+- Product images now include original file name after uploading
+- New product import and export functions
+- Rearranged product directory 
+- Complete restructuring of product options
+- Can now easily re-order and delete all types of options
+- No theoretical limit on the number of choices an option can have
+- Better error-checking on options to prevent issues with inventory tracking
+- Added a calendar selector option for addons
+- New gift wrap option for products
+- New gift certificate product type, to automatically generate and email codes
+- Complete gift registry function added
+- New file download delivery method (less CF-server intensive)
+- Complete restructuring of discounts, using linked tables and CFCs
+- Added new tabs to the Discount Edit screen to link products, categories and users
+- Simplified discount sections in the category, product and user admin areas
+- All option/addon selections combined when calculating product quantity discounts
+- Added new promotion module for additional types of discounts, such as "Buy 1, get 1 free"
+- More discount information saved with orders, to improve calculation speed and reporting
+- Coupon sales report now shows both order and product-level discounts, as well as promotions
+- Can now set an access key for discounts and promotions, to require a membership to use them
+- Can set a discount or promotion coupon code to only be used once per user
+- New function to automatically display a second currency for product prices
+- Moved a lot of shopping functions to CFCs to improve performance
+- Moved some layout elements to CFCs to improve performance
+- Updated the page text output to correctly append session vars to all cfm links in text
+- Orders can now have both a coupon and a gift certificate applied
+- Can use PayPal along with another online processor method
+- Added PayPal Payments Pro support
+- Added CyberSource support
+- Added encryption function for storing credit cards
+- Setting to use Search-engine safe links throughout the site
+- SES links can use built-in SESconverter or a server mod-rewrite function
+- Added breadcrumb trail for categories on product and feature pages
+- Added new shortcut link for Pages, also prevents problems when renaming some system pages
+- Added parameter field for palettes, allows easier reuse of layout pages
+- Improvements to color palettes page, new color selector added
+- New layouts directory to help organize store layouts
+- Moved all layout elements to their own files, to make custom layouts easier
+- New admin layout with a dedicated, cascading menu of admin functions
+- Added order search function to search all types of orders at once
+- Added function to search for orders for a specified product
+- Sales report design and accuracy updated
+- New tax report that breaks down the different types of taxes
+- Option to print reports
+- Added function to export a CSV of store orders
+- Function to delete multiple site errors at once
+- Added field to link to a store map for Store Locator page
+- Changed store URL setting to prevent issues with incorrect settings
+- Can now save standard email texts
+- More control over store emails
+- Added basic spam detection to the customer support email form
+- Ability to set SMTP authentication (username/password)
+- New group/user permission page to set all store permissions at once
+- Permissions now stored in database rather than using fbx_permissions files
+- New setting to send the admin an email when a new login account is created
+- Limit number of user logins per day or concurrent logins (good for membership sites)
+- Setting to lock user out if exceeds a set number of failed login attempts
+- User passwords now hashed for security
+- Added page to use to run scheduled daily functions
+- More use of Application and Session scopes to improve performance
+
+Release 5.73
+- Correct issue with dates on gift certificates on MySQL
+- Updated affiliate report so customer record not needed
+- Updates to access key functions
+- Corrections to date fields on the feature list form
+- Correct the designation for billed orders
+- Correct recalculation on products with sale dates
+- Copy over category discounts (same level) for product when copied
+- Correction to the tag for outputting text when appending session ID
+- Correct permission setting and formatting of feature admin links on category pages
+- Correct confirmation order to include quantity discounts amounts
+- Correct the database schema pages when username/password used
+- Correct problem with email w/attachment page on CF7 servers
+- Additional validations added
+- Additional updates to prevent XSS attacks
+- Some corrections for shared SSL servers
+- Updated the headers to prevent caching
+- Upgraded the WSIWYG editor version
+
+Release 5.72
+- Improve error handling if option list error encountered
+- Correct paging issue in SQL search function
+- Correct product copy to include all product categories
+- Correct the check for sales dates when recalculating shopping cart
+- Correct error in user registrations
+- Correct Google sitemap header
+- Correct error when changing a group-level discount to all users
+- Correct problem when user has blank permission string
+- Correction to the email update function
+- Better code for handling order processing links for different permissions levels
+- Some corrections to order reports
+- Prevent infinite loop when Members Only page assigned an access key
+- Removed unused FCKEditor scripts to prevent hacking
+
+Release 5.71
+- Correct issue with deleting an inventory option
+- Correct PayPal checkout issue
+- Updates to image functions for Unix servers
+- Removed capitilization corrections on company field
+- Correct issue with logins if persistent login box not used
+- Correctly set login variables with new registrations
+- Correct typo in Skipjack processing
+- Correct problem with PayPal order total
+- Updated Froogle export file to new format
+- Product and feature pages now show breadcrumb navigation for selected category
+- Added optional PayPal Checkout file to send the entire shopping cart to PayPal
+- Update WSIWYG editor to latest version and remove references to older version
+
+Release 5.70
+- Updates to user functions to improve security
+- Update to newest AuthNet changes
+- Move session variables to request scope for temp use and better security
+- Add Google Sitemap export
+- Update USPS Shipping to version 2 API
+- Improvements to the credit card on file functions
+- Add affiliate search to the users list
+- Automatically approve orders that are free
+- FCKEditor link browser now links to Download Manager instead of Image Manager
+- Fix issue with products selling for one day only
+- Sales tax report correctly sums tax for shipping, not billing addresses
+- Quickorder form correctly filters out products not for sale
+- Use of image order button on detailed product page
+- Correct error on the Contact Us email form
+- Correct problem with Verity indexing on CFMX 7 servers
+- Correct problem with printing features on Firefox
+- Correct problem with order-level discounts used with PayPal
+- Correct mouseover links when quotes in the string
+- Correct affiliate screen to not show voided orders
+- Other assorted bug fixes
+- Minor style and text corrections
+
+Release 5.64
+- Correct error with account info in users table
+- Correct issue with admin menu options according to selected permissions
+- Added code to email forms to prevent use for spamming
+- Correct gift certificate calculation for international currency formats
+- Added javascript validation for user password verification
+- Additional javascript functions to improve user experience
+- Added check that user is logged in to run any user-related fuseactions
+- Skip inventory control for download and membership products
+- Correct problem with credit data sometimes being removed from pending orders
+- Correct some access key issues
+- Correct error in inventory checking when using options for stock amount
+- Correct a problem when using PayPal with a minimum order amount
+- Correct problem with PDF-style features on the sitemap page
+- Correct problem in express checkout function
+- Correct problem with default meta tags
+- Corrections to SkipJack processing
+- Correct shipping calculation for Percentage of Weight method
+- Added code to prevent the user's session from timing out if browser open
+- Changes to product photo gallery
+- Installed latest FCKEditor release
+
+Release 5.63
+- Correct sizing issue in the image manager
+- Correct error when deleting options
+- Correct error in USAePay processor
+- Return to same category after copying a product
+- Correct problem with store-level inventory control and offline orders
+- Correct error with wholesale signups
+- Add addon prices to order reports
+- Add error check for feature ID on URL missing
+- Discounts calculated after any quantity discounts applied
+- Image Manager can now use CFX_OpenImage (included in Webmaster directory)
+- Image Manager can be used for flash movies
+- Installed final release of FCKEditor
+- Added Flash movie support with new editor version
+
+Release 5.62
+- Correct calculation of ounces in USPS shipping
+- Add additional code to initial caps javascript to better handle some last names
+- Correct problem with option quantities with custom options
+- Correct error on accounts
+- Correct errors resulting from blank radio buttons
+- Correct errors in admin email function
+- Correct gift certificate calculation when customer continues shopping
+- Correct file path for froogle export
+- Correct error with affiliate report when address info is incomplete
+- Update image manager to allow PDF upload for features
+- Paypal payments now work same as credit cards for inventory management
+- Prevent uncancelling of orders to prevent inventory issues
+- Improvements to discount calculations to reduce extra queries
+- Add code to make sure session not lost while checking out
+- Installed latest FCKEditor release
+
+Release 5.61
+- Correct problem with adding/editing Intershipper methods
+- Correct issue with category not being saved when adding new products
+- Correct issue with login ending on SSL
+- Correct product query when inventory control is turned off
+- Reorder error list page
+- Included latest WSIWYG Editor release
+
+Release 5.6
+- Correct updates to category discounts when editing products
+- Correct all links back to homepage to fit Fusebox standard
+- Correct memberships to allow empty start and expire dates
+- Display error if problem deleting a discount
+- Display login errors when checking out
+- Include quantity discount in customer email
+- Disable date search on filled orders if other search boxes filled out
+- SQL search function now shows only 20 results per page
+- Correct image custom tag to remove line that shows in Firefox
+- Correct tax calculation on shipping state for foreign countries
+- Change admin functions to only use decimal formatted numbers
+- Correct database login issue with product image gallery uploads
+- Added a new, more advanced error handler with more security features
+- Better handling of various invalid URL strings
+- Add note to customer on PO shipping form
+- Add additional error check for valid parameters
+- Additional error checking in code
+- Added new user summary page
+- Added ability to add code to the customer receipt page
+- Added HTML editor to admin user email function
+- New quick-search fields for orders and users
+- Added a function to export product data for Froogle
+- Added whitespace suppression functions
+- Improvements to the express order functions
+- Improvements to email confirmation function
+- Improved checkout payment page
+- Change login function to correct redirect back to secure pages as necessary
+- More code included for stores that save customer cc data
+- Moved user permissions code to separate file for easier modification
+- Corrected various store comments
+- Additional coding on custom tags to support Bluedragon
+- Additional coding on javascripts to support Bluedragon
+
+Release 5.51
+- Change Reply-to on emails forms so replies go to the email sender
+- More corrections to support new editor version
+- Correct problem with losing session when uploading images
+- Corrections to not lose session on J2EE sessions
+
+Release 5.5
+- Correct issues with sort on product query
+- Correct some paging issues on admin lists
+- Correct some issues with features
+- Correct error when an addon display is turned off
+- Correct problem with shipping address entered when some fields turned off
+- Correct problem with offline order being voided removing inventory
+- Correct shipping rates on shopping cart page
+- Integrated latest FCKEditor version along with image browser/uploader
+- Changes to form buttons to support new FCKEditor version
+- Correct affiliate percentage with new signups
+- Redirect user back to non-secure side of site after failed login
+- Fix the Store Locator template so it can be used for a page
+- Save quantity discount with line item price for invoices
+- Make sure user is selected when creating a feature
+- Add ability to send additional message to customer when filling orders
+- Added alternate code so you can use images for the shopping cart buttons
+- Added store pages to the site search
+- Show button to fill order even if shipping was free
+- Correct problem with admin getting logged out on some servers
+- Added image manipulation CFC to use with Unix servers (MX)
+- More corrections for Unix support
+
+Release 5.4
+- Correct problems with new coupon code form on the shopping basket
+- Added the go.cfm page for shortcuts to product pages
+- Admin menu will now show when memberships need validation
+- Make sure features only shown if current and approved
+- Correct user admin list to properly link to accounts
+- Correct problem with discount calculation when order is saved
+- Correct issues when USPS shipping cannot be calculated
+- Correct problem with users being able to change other addresses
+- Improvements to the email validation function
+- Added javascript to correct capitalization of address information
+- Added letterhead function for invoices and POs
+- Reformatted invoices
+- Added an Express order option for shopping
+- Improved image manager for selecting and uploading images
+- Improved color chooser for store palettes
+- Corrections to code to handle various color palettes better
+- Added email with attachment template
+- Updated Linkpoint credit card processing for latest API
+- Added Bank of America cc processing
+- Installed latest beta version of FCKEditor
+- Various code cleanup and corrections
+- More corrections for Unix support
+
+Release 5.3
+- Set entire order management area to run off secure server
+- Corrections to some links to make sure session info passed
+- Make sure Product of the Day is a product available to all customers
+- Added a page with help on the CVV2 code
+- Correct some issues with users in groups that are not assigned any permissions
+- Correct problems in checkout if order allowed when shipping not determined
+- In-process and Filled orders now save the last 4 digits of the credit card
+- Changes to the inventory tracking to correctly handle various changes in order status
+- Categories not allowed to be subcategories under themselves
+- Added ability to create a selectbox category menu
+- Added a box to enter the coupon code on the shopping basket form
+- Corrections to the login function, to redirect properly in all store areas
+- If price turned off for a product, hide on the vertical listing page
+- Refresh shopping basket discounts properly
+- Add style to the logout link to show up better
+- Keep coupon active if checkout cancelled
+- Changes to order reports to handle a product name being changed
+- Correct user download function to work on all CF servers
+- Clear the user's realname when logging out
+- Correct issue with linking user with account
+- Correct some issues for Unix support
+- Correction for Verisign PayFlow Pro Debug setting
+
+Release 5.2
+- Fixed issue with dates on feature admin page
+- Correct setting a discount on a category
+- Correct problem with paging through product pages
+- Change selection name for the default color palette 
+- Allow list of features to be output without a search header/footer
+- Adding setting to turn off title on category and site pages
+- Added settings for home page to set number of columns for highlighted products section
+- Correct some styles and color issues
+- Changed category form to make sure user selects a category template
+- Some additional corrections to support J2EE sessions
+- Installed latest release version of FckEditor and the new beta version (supported on Netscape)
+- Added setting to the Fbx_Settings to allow user to use the new FCKEditor Beta
+- Added pages for configuring custom settings for FCKEditor
+- Other minor corrections and fixes
+
+Release 5.1.1
+- Make credit cards required on Payment Settings
+- Use browser detection for search engines, to leave session variables off the URL
+- Correct error when user logs in after using quickorder form
+- Correct problems with product options/addons on multiple product pages
+- Correct error when deleting a product with quantity discounts assigned
+- Correct error when running delayed capture with Shift4
+- Correctly format all the text strings displayed on the status bar with javascript
+- Correctly copy discounts when copying products
+- Correct quantity discounts to calculate properly when items removed from the basket
+- Add code to settings page to work properly on some MX servers
+- Various other minor bug corrections
+
+Release 5.1
+- Add status bar to upload windows (to see progress of upload)
+- Add error checking for shipping address if javascript turned off
+- Correct error if dropshipping amount set to 0 after opening purchase order
+- Correct SQL search to show non-protected products for logged-in users
+- Correct color palettes to allow removal of store lines
+- Correct problems with filled order search
+- Correct login functions when user has cookies turned off
+- Changes to text on address book page
+- Update error message for quick order form
+- Email form for users now allows use for different accounts
+- Show the user's real name instead of their account name on the welcome message
+- Add headers to store emails to prevent them being marked as spam
+- Added new error handler to automatically send error emails
+- Add large image output to store pages
+- Added $$$ ON THE NET (Shift4) gateway support
+- Various other minor bug corrections
+
+Release 5.0.3
+- Correct error when adding custom addon
+- Correct error when canceling edit of an option
+- Correct error when using one shipping type
+- Correct error when submitting the error message
+- Correct incorrect form entry on quickorder page
+- Remove javascript checks for shipping address when state and/or country disabled
+- Include store pages in the breadcrumb menu
+- Correct issue when customer changes address when checking out
+- Correct error with product search on SQL Server
+- Correct Edit buttons to edit Intershipper methods
+- Correct issue with shipping address not being saved if changed during checkout
+- Pass product search parameters on page links
+- Fixed issue with product options appearing in wrong order
+- Fix Product of the Day to change product when refreshing
+- Fix Intershipper tag for CFMX
+- Change taxes to be computed on shipping address, not billing address
+- Updated to new version of FCKEditor
+- Corrected image browse in FCKEditor to work with blank store URL
+- Various other minor bug corrections
+
+Release 5.0.2
+- Correct issue with affiliate IDs in the database
+- Correct error thrown by Access databases on some CF servers
+- Correct problem with login redirecting to home page
+- Correct problem with login during checkout
+- Correct problem with deleting admin users
+- Admin area will now not allow accounts with the same username and/or email
+- Changed cookie detection to work properly on secure servers with MSIE 6
+- Changed sesson cookies to only be set once
+- Correct error if invalid coupon or certificate code entered during checkout
+- Improvements to the sitemap page
+- Added password reminder link to checkout login form
+
+Release 5.0.1
+- Use of cfqueryparam throughout customer area to prevent SQL insertion attacks
+- Recoding of search boxes and other forms on the page to prevent 3rd party javascript attacks
+- Correct field in the Order_PO table for SQL server
+- Correct admin searches to work properly on SQL server
+- Corrected the product search for new, sale, hot products
+- Correct error when editing custom fields
+- Correct errors on List Edit pages if exceed maximum records per page
+- Minor text corrections on various pages
+
+Release 5.0
+- Complete redesign of code in Fusebox 3 methodology 
+- Redesign of admin area and store look and feel 
+- Roles-based permissions for administration of site 
+- Addition of feature articles 
+- Complete redesign of Order and User Management sections 
+- Many, many additional features and settings added 
+
+Release 4.8
+- Changes to support Cold Fusion MX
+- Fix issue with multiple customer records being created
+- Add updated PayFlow Pro files
+- Update Intershipper pages
+- Correct rounding issues in shopping cart
+- Correction for free shipping offered along with other shipping methods
+- Correct problem when user is editing information and uses back button
+
+Release 4.7
+- Redid Intershipper tag for their new API
+- New admin sections for Intershipper methods
+- Other minor corrections
+
+Release 4.6
+- Corrected error when adding options
+- Corrected issue with non-rounded amounts sent to Authorize.net
+- Correct error caused by deleting an option used for inventory
+- Correct problem with shifting options when a product is marked as not for sale
+- Corrected problem with some product discounts not showing up with multi-level discounts
+- Corrected an error if user logged into admin area and then tried to place order
+- Add encrypted string for shipping cost to USPS shipping page
+- Output link for More Info even when no short description
+- Updated the UPS tag and admin functions
+
+Release 4.5.4
+- Corrected security issues with viewing customer orders
+- Related products will now be hidden if turned off
+- Next "x" products now shows exact number left
+- Category long description now always displays on first page
+- More corrections to recalculating cart quantities
+- Other minor corrections
+
+Release 4.5.3
+- Correction to the javascripts for adding options
+- Correction to checking for cookies turned on 
+- Other minor corrections
+
+Release 4.5.2
+- Improvements to the Verity Search function
+- Added reports to deal with products with option-level SKUs
+- Fixed problem with gift certificates
+- When copying product, displays original product name for easy editing
+- Various other bug fixes
+
+Release 4.5.1
+- Changed method of cookie detection
+- Corrected error on SQL server when adding a user in the admin
+- Corrected error on SQL server when checking out
+- Corrected error when editing Country Tax rate
+- Corrected problems with Logout button in Admin area
+- Corrected error when International shipping not allowed
+- Corrected issue with basket recalculations on certain servers
+- Corrected various issues with discounts
+- Fixed font color on admin login page
+- Slight edits to header and footer to look better
+- Changes to temporary basket table
+
+Release 4.5
+- Shopping cart and customer information now stored in temporary database tables
+- Removed majority of font tags, greater use of CSS
+- All session and application variables fully locked and scoped
+- Split Settings table into 3 different tables
+- Additional information given to customer for offline order
+- Ability for customer to create an account during checkout
+- Fixed issues when an invalid affiliate ID is used
+- Corrections to Linkpoint processing
+- Related products now correctly show up on Shopping Basket page
+- Corrected error when adding related products by SKU or Product ID
+- All orders now show up in order history when customer changes address
+- Can now delete products that are in orders table
+- Store no longer puts customer ID in a cookie
+- Store now includes features to better optimize search engine submission
+- Other minor corrections and improvements
+
+Release 4.0.1
+- Page jumps down to product if required option not selected
+- Fixed problem with more than one discount in store
+- Other minor bug corrections
+
+Release 4.0
+- Made custom tags for outputting page text, lines and images
+- Can now easily set the store to display columns of subcategories and products
+- Added Linkpoint card processing (requires Linkpoint CFX tag)
+- Added EZIC card processing
+- Setting for online/offline inventory control 
+- Added related products feature
+- Feature to send copy of order to affiliate
+- Added giftcard feature
+- Added Delivery date feature
+- Customer can now view their order history from the login area
+- Invoices now show shipping date and tracking info as appropriate
+- Added additional email verification on order form
+- Added local tax rates
+- Added image preview feature to admin pages
+- Added ability to set wholesale prices
+- Added shipping by number of items
+- Discounts can apply to entire order total
+- Coupon-based discounts
+- Gift certificates
+- Ability to add description of option in basket
+- Textbox options can now require an entry
+- Setting for color of alternating rows of shopping basket
+- Added Product of the Day feature
+- Corrections to Authorizenet processing
+- Reloading shopping cart page now does not effect quantities
+- Entire checkout section now detects empty shopping cart
+- Other minor feature additions
+- Other minor bug corrections
+
+Release 3.1.2
+- Fixed error if standard option added but not completed
+- Added ability to refresh application variables from the website
+- Authorizenet tag now properly sends customer's name
+- Several files now called on SSL server for increased security
+- Fixed error if shipto address is to country that shipping is not allowed to
+- Shopping basket will now just increment quantity rather than add new line when possible
+- Added Close button to cookie info page
+- Locked all session writes
+- Added some additional locks for database concurrency problems
+- Changed the Session.AddToken and Token to local variables (Token1 and Token2)
+- Other minor bug corrections
+
+Release 3.1.1
+- Fixed security bug with URL parameters
+- Check for CGI.HTTP_Referer before using it
+- Added worldwide UPS shipping rates
+
+Release 3.1
+- Fixed problems with moving categories
+- Changes to the Search Manager
+- Fixed problem when selective user search returns more than 100 users
+- UPS shipping now uses internal rate tables
+- New tag for Image width and height functions
+- Shipping cost now encrypted on URL
+
+Release 3.0.3
+- Added option for USPS Shipping Rates (domestic only)
+- Fixed problem with options when out of stock products turned off
+- Couple minor bug fixes
+
+Release 3.0.2
+- Fixed problem with copying products
+- Fixed various problems with product options
+- Fixed problem at checkout with SQL servers
+- Fixed problem when adding option choices to a standard option
+- Correct javascript errors when adding standard options
+- Corrected problem resulting from deleting a standard option currently used
+- Recalculate discounts after a user logs in
+- Added locks to all CFX tags
+- Changed header, footer and setimages pages to only use one page each for whole site
+- Sections of header and footer moved to separate pages to make easier to custom code
+- Use custom tag for outputting lines
+- Added option to not have any lines at all
+- Fixed problem with some types of UPS shipping
+- Delete function for shipping methods now works correctly
+- Added page to set meta tag information for site
+- Can now search for product by SKU
+
+Release 3.0.1
+- Corrected error when trying to edit user
+- Corrected error when viewing product quicklist
+- Corrected problem with items not showing up in confirmation email
+- SKU of "0" now doesn't show up in email
+- Corrected error when saving changes to store lines
+- Fixed product manager screen when in category with no subcategories
+- Corrected problems with some number formats
+- Corrected issue with an option turned off that is used for inventory tracking
+- Fixed javascript error when using product copy feature
+- Fixed SQL Server error when adding standard option to product
+- Added ability to do shipping rates by percentage
+- Corrected various problems with affiliates
+- Other minor bug fixes
+
+Release 3.0
+- Corrected javascript error when using category quicklist
+- Corrected error due to GetTickCount on CF servers that are seldom rebooted
+- Corrected error due to deleting a discount that is assigned to a user gorup
+- Shopping basket functions rewritten to minimize use of lists
+- Correctly returns user to category page when it has a start row from shopping basket
+- Correctly displays negative options
+- Store will not allow an order if shopping cart has been cleared
+- Order Manager now shows invoice number for stores using online processing
+- Orders table now holds actual amount of discount
+- Product options can now effect Product SKU
+- Option choices can be selectively turned on or off
+- Inventory tracking at option level
+- Can set an option to be required or not
+- Setting for order in progress versus filled order
+- Ability to email customer when order ships
+- Ability to email customer tracking numbers
+- Can now enter product number to go directly to edit form
+- Can now edit a customer's information in the User Manager
+- Improved reports
+- Changes to search engine functions
+- Footer correctly shows up when clearing shopping cart
+- Corrected javascript error that comes up when trying to move category
+- Prevent moving category under itself
+- Parent names now correctly set for subcategories after moving a category
+- New affiliate features
+- Can now send email to subscribers users, affiliates, or any user group
+- Can now upload additional images for use in the store
+- Added ability to use Intershipping shipping rates
+- Can set a handling percentage to be added to orders
+
+
+Release 2.0.1
+- Corrected javascript errors when editing product options
+- Corrected problem with only one custom field and/or option being copied when copying product
+- Corrected problem with cookie remaining when customer logs out
+- Corrected problem with cookie not being turned off once it's turned on
+- Corrected problems resulting from IE customers having session cookies on but permanent cookies off
+- Corrected errors when customer enters only spaces in a required form field
+- Corrected problem with discounts less than $1.00 not showing up in shopping cart
+- Corrected problem with display of negative option prices
+- Added SKU to invoice in Administrator
+- Added display of Product number in Administrator
+- Customers now logged in when they create a user account
+- Credit card data deleted when order filled or deleted
+
+Release 2.0
+- Corrected problems in Authorize.Net 3.0 processing
+- Corrected problem with editing a category from the Category Quicklist
+- Corrected problem when trying to view Product List when no products found
+- Added Paymentnet/Signio processing
+- Added SKU to email confirmations
+- Corrected error in options2.cfm page 
+- When adding tax rate, states no longer show up if they already have one
+- Store now correctly adds base shipping when using UPS
+- Added ability to set a tax rate for the home country
+- Can now set a starting number for order numbers
+- Complete redesign of options, including use of standard options
+- Added ability to create and use 6 custom fields with Products
+- Added cflocks for all writes to application variables
+- Added separate Sale and What's New pages
+- Images for designating Sale and New Items
+- Separate pages for setting images from application.cfm pages
+- Track date added for Products and Categories
+- Reorganized Administrator Menu
+
+Database Changes:
+- Added SaleImage and NewImage to Main Table
+- Added Sale to Categories and Products Tables
+- Added ProdOptions Table
+- Transfered current options to ProdOptions
+- Deleted Options Table
+- Added CustomNames Table
+- Added ProdCustom Table
+- Added NumOptions and DateAdded to Products Table
+- Added DateAdded to Categories Table
+- Added BaseTax and BaseOrderNum to Settings Table
+
+
+Release 1.1
+- More improvements to javascript functions in Administrator
+- Added button to logout from Administrator
+- Added function to check for incorrect credit card numbers
+- Long category descriptions only appear on first page of multi-page categories
+- Corrected problem with editing discounts
+- Corrected errors on CF3 servers
+- Corrected old years showing up for credit card expiration date
+- Corrected problem with adding options to products that have none
+- Corrected problem with displaying orders that did not have shipping calculated
+- Complete revision of store pages to allow use of style sheets 
+- Added database field to Colors Table - TitleText 
+
+Release 1.0.3
+- Corrected problem with secure display of filled orders
+- Corrected problem with display of all unfilled orders
+- Corrected problem with TopCats not being updated from category list pages
+- Corrected error received when sending email to subscribers without previewing 
+- Corrected problem with editing products that have prices over $1000
+- Corrected problems with lines not showing up
+- Can now enter all 4 options immediately after adding a product
+- Added cancel buttons to many edit screens
+- Greatly reduced lines of javascript code on Product List pages
+- Improved validation on Option edit screens
+- Minor changes to database structure to improve upscaling to SQL Server
+
+Release 1.0.2
+- Corrected problem where store still required credit card for free items
+- Corrected search engine showing items whose display is turned off
+- Corrected problem with store lines not having width and height tags
+- Corrected error with links to products from search engine being incorrect
+- Corrected error in purging old orders
+- Corrected error in determining image width and height in subdirectories
+- Product list now pulls up all products in subcategories under a selected
+	category
+- More corrections for SQL Server support
+
+Release 1.0.1
+- Corrected error when customer trys to return to a pages.cfm 
+	page after viewing shopping cart
+- Corrected error in calling page header on categories.cfm
+- Corrected error when viewing all orders and an order is blank
+- Corrected error with store lines not being updated when store URL is changed
+- Changed Min and Max in Discounts and Shipping tables to MinOrder and 
+	MaxOrder and corrected all references
+- Changed Transaction in Order_No table to TransactNum and corrected references
+- Changed any references/uses of Yes/No to 1/0
+
+Release 1.0
+- Fixed problem with wrong number of products showing on pages
+- Fixed error when adding new categories
+- Fixed error on shipping address page
+- Fixed error when changing page address in Page Manager
+- Fixed problem with list of top-level categories not getting updated
+- Corrected javascript error in header
+

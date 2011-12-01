@@ -1,0 +1,82 @@
+<!--- CFWebstore®, version 6.30 --->
+
+<!--- CFWebstore® is ©Copyright 1998-2009 by Dogpatch Software, All Rights Reserved. This code may not be copied or sold without permission of the original author. Dogpatch Software may be contacted at info@cfwebstore.com --->
+
+<!--- Get List of Locales --->
+<cfinclude template="../queries/qry_getlocales.cfm">
+
+<!--- Displays a price in multiple currencies. Assumes incoming number in local currency.
+
+price: 		price in site default currency
+country: 	country name to calculate exchange rate for
+type: 		local|international
+RateHrs:	HOURS before the currency exchange rate expire
+--->
+<cfparam name="attributes.RateHrs" default="24">
+<cfparam name="attributes.country" default="US">
+<cfparam name="attributes.price" default="0">
+<cfparam name="attributes.type" default="local">
+<cfparam name="attributes.Refresh" default="no">
+
+<!--- Translate Country to Locale --->
+<cfquery name="getnewLocale" dbtype="query">
+	SELECT Name FROM GetLocales
+	WHERE CurrExchange LIKE '#attributes.country#'
+</cfquery>
+
+<cfset locale = getnewLocale.Name>
+
+<!--- 1) Create application exchange rates if they do not exist. --->
+<cfif not structKeyExists(application,"ExchangeRates") OR attributes.Refresh>
+	<cfset application.ExchangeRates = structNew()>
+</cfif>
+
+<!--- 2) Check if THIS exchange rate exists --->
+<cfif not structKeyExists(application.ExchangeRates,locale)>
+	<cfset application.ExchangeRates[locale] = structNew()>
+	<cfset application.ExchangeRates[locale].rate = 1>
+	<cfset application.ExchangeRates[locale].date = ''>
+</cfif>
+	
+<!--- 3) GET the current exchange rate if it doesn't exist OR RateHrs are past --->
+<cfif application.ExchangeRates[locale].date is '' OR
+DateAdd('h',attributes.RateHrs,application.ExchangeRates[locale].date) lt now()>
+
+	<!--- Get Exchange Name for current Locale --->
+	<cfquery name="getExchange" dbtype="query">
+		SELECT CurrExchange FROM GetLocales
+		WHERE Name LIKE '#request.appsettings.locale#'
+	</cfquery>
+
+	<cfset localeCountry = getExchange.CurrExchange>
+	
+	<cftry>
+	
+   <cfinvoke webservice="http://www.xmethods.net/sd/2001/CurrencyExchangeService.wsdl" method="getRate" returnvariable="aString" timeout="5">
+      <cfinvokeargument name="country1" value="#LCase(localeCountry)#"/>
+	  <cfinvokeargument name="country2" value="#LCase(attributes.country)#"/>
+   </cfinvoke>
+
+	<cfset application.ExchangeRates[locale].rate = aString>
+	<cfset application.ExchangeRates[locale].date = now()>	
+	
+	<cfcatch>
+	<cfthrow message="Timed out connecting to the currency rate service." type="service_timeout">
+	</cfcatch>
+	</cftry>
+   
+</cfif>
+
+<!--- 4) Calculate  --->
+<cfset newNumber = attributes.price * application.ExchangeRates[locale].rate>
+
+<!---
+<cfoutput>#newNumber# = #attributes.price# * #application.ExchangeRates[attributes.locale].rate#</cfoutput>
+--->
+
+<!--- 5) Format the number --->
+<cfset oldlocale = SetLocale(locale)>
+
+<cfset temp = setvariable("caller.#attributes.country#_Price", LSCurrencyFormat(newNumber, attributes.type))>
+
+<cfset done = SetLocale(oldlocale)>

@@ -1,0 +1,1064 @@
+Version History
+---------------
+Listed below is the complete version history of the changes to the qForms
+API. Use the following key to determine the type of change:
+
+ [*] A change in the behavior, pay close attention to these changes, as
+     they could affect existing applications using the qForms JSAPI
+ [+] Some additional functionality has been added. This should not affect
+     existing code.
+ [-] A bug was fixed or some other minor change was made that should not
+     affect existing code.
+
+*************************************************************************
+* Don't forget to donate!                                               *
+* -----------------------                                               *
+* If you leverage the power of qForms, consider donating some money to  *
+* help aid future development:                                          *
+*                                                                       *
+*          http://www.pengoworks.com/qForms/donations/                  *
+*                                                                       *
+*************************************************************************
+
+Build 142 (April 2, 2007)
+---------------------------------------------------------------------------
+[*] Added code to _addValidator() function to fix issue with Safari. Safari
+    when reading a function() to a string, converts all escaped characters
+    (\n) in a quoted string into their escaped value. This means that
+    string that contain newlines ("\n") are incorrectly converting to
+    newlines causing JS errors when converting the function back to
+    real function. Safari appears to be the only browser with this issue.
+
+Build 141 (October 23, 2006)
+---------------------------------------------------------------------------
+[*] Fixed bug in the wddx.js library relating to the qFormAPI.serialize()
+    method. The method did not properly declare local variables, which was
+    causing data corruption.
+[*] Fixed bug in the qFormAPI.validate() function where if you called the
+    method without having the qFormAPI.validateAll set to true a JS error
+    would be generated. Now an alert() message is thrown to warn of the
+    incorrect syntax.
+
+Build 140 (July 13, 2006)
+---------------------------------------------------------------------------
+[*] Change the _stripInvalidChars() function so that with numeric values
+    only numbers remain. Checking for decimals was causing problems in
+    other routines.
+[*] Fixed bug in _f_checkForErrors() where this.qForms._skipValidation
+    was being checked instead of this.qForm._skipValidation.
+[+] Added field.requiredMessage property--which you can use to override
+    the default required message.
+[-] Removed compressed library (for time being.)
+
+Build 139 (June 21, 2004)
+---------------------------------------------------------------------------
+[-] Change the _q_checkForErrors() function so that the call
+    to the isNotEmpty() method used escaped double quotes
+    instead of single quotes. This should allow single quotes
+    in the description property.
+[*] Changed the validateNumeric method to use the parseFloat()
+    function to check for a valid numeric value.
+[+] Added validateSame validation method
+[+] Added validateInteger validation method
+[-] Used my old homegrown compression routine on the compressed files.
+    It doesn't compress the files down as much as either jsCruncher Pro
+    or w3compiler, but it shouldn't break the source code either.
+[+] Added cfform.js validation module. This should give you all of the
+    exact same functionality as provided w/CFFORM.
+
+
+Build 138 (May 13, 2004)
+---------------------------------------------------------------------------
+[-] Fixed a bug in the is/validateFormat() method which affected masks
+    which contained 3 or fewer characters.
+[-] Fixed bug in Opera v7.x where single checkbox elements where not
+    working w/the setValue()/getValue() methods. I had fixed this in
+    the v2 builds already.
+[-] Fixed bug w/validateLengthGT and LT if the value was equal to
+    the specified argument than no error was thrown (and it should
+    be).
+[+] Added qFormAPI.styleAttribute which allows you to specify a single
+    property to apply a style change to. This defaults to "backgroundColor".
+    This provides a quick CSS hack until v2 is released. If you change
+    the qFormAPI.errorColor to a valid CSS property value you can do
+    more than change the color. For example:
+	qFormAPI.styleAttribute = "border";
+	qFormAPI.errorColor = "1px dotted red";
+
+    NOTE: This is experimental at best, you need test in different
+          browser.
+
+[+] Added obj._skipValidation property which allows you to toggle
+    validation off/on for an entire form. Setting the property to
+    true will cause the validation routines to be skipped for that
+    form object.
+[+] Added the validation_addon.js library. At this point, this contains
+    one additional validation method called validateAtLeastOne(), which
+    you can use to confirm that at least one field out of a list of
+    fields contain a value.
+
+
+Build 137g (March 31, 2003)
+---------------------------------------------------------------------------
+[*] Change the output of the wddx.js to match the SDK's wddx.js which
+    converts all name attributes to lowercase.
+[*] Changed the qFormAPI.reAttribs to "gi" for all cases. In no
+    cases should a RegEx be passed the "m" argument
+[*] Removed the qFormAPI.userAgent property
+[*] Removed the qFormAPI.isMacIE property
+[-] Fixed setFields.htm example file--the option arrays did not contain
+    a value attribute.
+
+
+Build 137f (February 27, 2003)
+---------------------------------------------------------------------------
+[-] Fixed another Mac IE bug. It appears that the Mac RegEx engine will
+    throw an error if you try to perform a regular expression on an empty
+    string (or more specifically, if you try to replace whitespacing
+    at the beginning of an empty string, it'll return an "out of memory"
+    error.)
+
+Build 137e (February 27, 2003)
+---------------------------------------------------------------------------
+[-] Fixed bug w/IE5.0 on Windows. Turns out the RegExp bug w/the "m"
+    attribute isn't specific to Mac 5.0/5.1--it's specific to versions
+    lower than 5.5 (at least it appears that way.)
+[*] Removed the qFormAPI.isMacIE and qFormAPI.isMac properties--since
+    they're no longer needed.
+[+] Added the qFormAPI.isIE5 check. Don't use this in your code, as it's
+    not gaurenteed to remain a valid property.
+
+
+Build 137d (February 27, 2003)
+---------------------------------------------------------------------------
+[-] Fixed bug with is/validateDifferent() in which the error message
+    wouldn't display the description for the field passed as an argument.
+
+Build 137c (February 26, 2003)
+---------------------------------------------------------------------------
+[-] Fixed 2 bugs in the functions.js file where the _ltrim() and _rtrim()
+    had an extra parenthesises in them.
+[-] Fixed bug in _rtrim() where the s variable wasn't getting updated
+    after deleting the last character. This would cause a inifite loop
+    if the last character was a whitespace char.
+[-] Split the strings that contained the phrases "<script" and "</script"
+    apart so NS wouldn't interpret them as <script> tags.
+
+Build 137b (February 18, 2003)
+---------------------------------------------------------------------------
+[-] Removed the commented String.prototype.rereplace prototype from
+    the functions_js12.js file. It appears that NS7 on the Mac was
+    parsing this String prototype--even though it was in a comment
+    block. This was definitely a bug in NS7, but it fixes the problem.
+[-] Fixed bug in Mac IE, line 86 of the qforms.js file should have had
+    the keyword "MSIE" in lowercase (i.e. "msie".) Because of this,
+    RegExp may not have worked in Mac IE5.x.
+
+Build 137a (February 16, 2003)
+---------------------------------------------------------------------------
+[-] Fixed bugs in the validation.js where the _param() functions weren't
+    explicitly declaring "number" for numeric values
+
+
+Build 137 (February 08, 2003)
+---------------------------------------------------------------------------
+[*] The obj.removeFields() method now requires JS v1.2. (This shouldn't
+    be a problem, since the only reason to invoke the method is when
+    using DHTML to add/remove fields dynamically. All DHTML browsers support
+    JS 1.2)
+[*] When using the setValue() method on a select box, and a value has
+    been supply that doesn't exist, it'll first try to reset the field
+    to the defaultValue of the select box and if that doesn't exist,
+    then the first item in the option array is selected. Previously
+    no change occurred.
+[-] Changed all instances of parseInt(x) to parseInt(x, 10) to avoid
+    bugs when not explicitly specifying the base number to convert
+    to.
+[-] Fixed bug in the _Field_createDependencyTo() method which was
+    incorrectly passing the name property instead of the type property.
+    (and for the wrong field even!)
+[-] Fixed bug in Field.prototype.disabled() which was causing select boxes
+    not to be disabled. (Thanks Matt!)
+[-] Fixed bug causing the Field.prototype.removeField() method to not
+    work correctly (Thanks Matt!)
+[-] Fixed RegExp--most of the RegExp were missing the escaping backslash.
+    (Thanks Matt!)
+[-] Fixed bug w/_stripInvalidChars() function which caused custom rules
+    not to work--like are used by the validateFormat("SSN") method.
+[+] Added the obj.fieldName.validatorAttached property, to track whether
+    or not the checkForErrors should be added to the onBlur event.
+    Previously the checkForErrors event was being triggered each time
+    a validator was attached.
+
+
+Build 136b (September 11, 2002)
+---------------------------------------------------------------------------
+[-] Fixed oddity in the new String.prototype.rereplace() method which
+    appears was causing IE to ignore the "global" instance property on
+    the RegExp object. I fixed this by passing the attributes
+[+] Added qFormAPI.version property to show the current build number
+[+] Added qFormAPI.userAgent property which stores the current browser
+    information in lowercase
+[+] Added qFormAPI.isMac property to indicate whether the current
+    browser is running on a Mac OS.
+
+
+Build 136a (September 5, 2002)
+---------------------------------------------------------------------------
+[-] Switch the logic for the validateLengthGT()/validateLengthLT()
+    validation routines. This has been reversed since introduction.
+
+
+Build 136 (September 4, 2002)
+---------------------------------------------------------------------------
+[-] Fixed bug which would cause some of the field extension method
+    (trim(), toUpperCase(), etc) to loop endlessly if placed in
+    some event handlers of the fields.
+[-] Fixed bug in _stripInvalidChars() function in the functions_js12.js
+    file which was cause the custom RegExes to be case sensitive.
+[-] Fixed bug in _transferOptions() function when the sort argument is
+    passed as null. This only caused a problem if you're manually calling
+    the function outside of the qForms API.
+[-] Fixed bug in validateFormat() method, which caused an error when a
+    custom mask was used.
+[-] Fixed bug w/disabled() method which didn't handle fields that were
+    arrays
+[-] Fixed miscellaneous bugs w/Mac IE (fieldset, empty form elements)
+[-] Re-wrote RegEx support for Mac IE compatibility
+[-] Made HTML generation XHTML compatible
+[-] Fixed bug in date validation routine w/Leap Year dates (Feb 29)
+    (thanks to zadarum for spotting this and sending a fix)
+[-] Fixed bug in JS version detection routine that was causing
+    strange warning dialog box in some version of the Mac IE
+[-] Added an add-on String prototype to correctly handle RegEx support
+    for the multiline property in Mac IE
+[-] Thanks to Steve Moore for all his patience in helping work out the
+    Mac IE issues (and the rest of your guys)
+[-] Fixed bug in is/validatePhoneNumber() method which wasn't stripping
+    just numbers. (Thanks to Dave Babbitt)
+[-] Compressed validation.js is now working. The bug with the
+    validateDate() is fixed. It should be safe to use the compressed
+    version of this script now.
+
+
+
+
+Build 135a (October 31, 2001)
+---------------------------------------------------------------------------
+[-] Fixed documentation. The validateFormat() was incorrectly documented
+    as a core field extension called "format()."
+
+
+Build 135 (October 31, 2001)
+---------------------------------------------------------------------------
+[*] The isNotNull() validator now will always run--regardless of whether
+    the field is required or not. Using this method essentially requires
+    a field, but allows you to define a custom error message.
+    (NOTE: Once a validation method is applied, there's no way to remove
+    the validation during runtime. This means you should never use this
+    validation method on fields in which you may not want to validate
+    the field based upon a condition.)
+[*] Changed the doBlur argument of the setValue() method to doEvents.
+    The value of this argument now determines if any of the events for
+    the field will be triggered after calling the setValue() method.
+    The default value for this argument is still true.
+[*] Changed the isDate() validation method. Made some changes to the
+    masking methods. 2 digit year masks ("yy") are now allowed.
+[+] Added the _swapOptions() function--which swaps two nodes in a
+    select box.
+[+] Added the obj.fieldName.moveUp() and obj.fieldName.moveDown() methods.
+[+] Added the obj.onError() event which runs when an error occurs. If
+    this event returns false, it will cancel errors from being shown.
+[-] Fixed error in validateExp() documentation. Method throws errors if
+    the expression is *true*, not false.
+[-] Made the "this.value" property available to the createDependecyTo()
+    methods.
+[-] Fixed more errors in the documentation.
+[-] Fixed bug in validate/isRange() method which was causing the
+    "high" argument not to be recognized.
+[+] Added the "type" of characters required to the validate/isLength()
+    method. (i.e. "The state field must include 2 numeric characters.")
+
+
+Build 134a (August 28, 2001)
+---------------------------------------------------------------------------
+[+] Added the qFormAPI.showStatusMsgs property which can be set to false
+    to disable status bar messages from showing up (such as the
+    initialization of the validation methods.)
+[-] Fixed bug in the obj.addField() method which was causing form fields
+    that are arrays (such as checkboxes w/the same name) to be excluded
+    from qForms object.
+
+
+Build 134 (August 23, 2001)
+---------------------------------------------------------------------------
+[*] Fixed some grammatic errors in the docs.
+[-] Netscape 6 seems to be considering the <LABEL> tag as an element within
+    the form elements array--which it shouldn't be. I added some code so
+    that qForms ignores invalid form fields.
+[-] The obj.submit() event now returns "true" if the submit occurred and
+    returns false if the event failed.
+[-] Removed alert() from wddx.js mod
+[+] Added the prefix argument to the populate() method.
+[+] Added the triggerEvent() method--which can trigger an event on a qForms
+    field object.
+[*] The setValue() method now calls the onChange event if the value
+    for the field changed.
+[+] Added the onSetValue event, which is triggered each time the setValue()
+    method is called.
+[+] The validate/isRange() method now defaults has default low (0) and
+    high (9,999,999) values
+[+] Added the validate/isLengthLT() and validate/isLenghtGT() methods to
+    validate the length of a field.
+[+] Added the addField() method which is used to add a new field to the
+    qForms object. This is useful when creating forms field using DHTML.
+[+] Added the removeField() method.
+[*] The obj._showAlert property will now affect the whether or not errors
+    are shown when the form is submitted. If set to false, the form will
+    submit regardless if errors occur, so you'll probably want to trap the
+    errors manually and pass them in a hidden field (or something.)
+
+
+
+Build 133 (July 19, 2001)
+---------------------------------------------------------------------------
+[*] Moved WDDX support into a seperate module (./qforms/wddx.js).
+[*] Removed the qFormsAPI.usewddx property.
+[*] WDDX mod no longer requires the full wddx.js library file. I've built
+    a WDDX serializer streamlined for qForms.
+[+] Added the "alwaysRun" argument for the _addValidator() function. This
+    was designed to allow you to create "either/or" type validation
+    routines. (That one's for you Ron!)
+[-] Fixed bug in the _param() function. You can now pass a string or
+    numeric value in for the value and if the type is defined as "number"
+    the value will be convert to a number.
+[-] Rewrote the _ltrim() and _rtrim() functions in the "function.js" file.
+[-] Rewrote the e-mail address validation routine
+[-] Fixed bug in the validate/isDate function--strings in the date will
+    now thrown an error.
+
+
+
+Build 132 (June 27, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug in the validate/isCreditCard() method. If credit cards
+    contained alpha strings the validation code would sometimes break.
+[-] Fixed bug which was causing some browser to not reset the
+    qFormsAPI.errorColor color if the value was an uppercase hex color
+    value. Changed the check to make sure that it's case insensitive.
+[-] Corrected a bug in the isPassword() method. There was an erronous
+    line (51) which was causing the function to error if 4 arguments
+    weren't passed.
+[+] Added FAQ section to documentation
+[*] Bought a house today! (Ok, this doesn't have anything to do with
+    qForms, but I'm pretty excited about it!!!
+
+
+Build 131 (June 11, 2001)
+---------------------------------------------------------------------------
+[-] Change the obj.fieldName.validateNumeric() method to use the
+    !_isLength(this.value, this.value.length, "numeric") function instead
+    of the parseInt(). Using the parseInt() function, makes statements
+    like "3 birds" pass the validation, since the parseInt() function will
+    convert the string to 3.
+
+
+Build 130 (May 18, 2001)
+---------------------------------------------------------------------------
+[+] Added the resetAll argument to the obj.setFields() and
+    qFormAPI.setFields() methods.
+[+] Changed the default value of the qFormAPI.resetOnInit to false.
+[-] The compare() method was incorrectly written, should have been using
+    a qForm field instead of an object.
+[-] Fixed a bug in the isPassword() validation method which was causing
+    "undefined" to be displayed instead of the second field's description.
+[-] Removed the references to the obj.fieldName.checked property.
+[-] Change the obj.init() method's resetOnInit check to use the obj.reset()
+    method instead of the form's native reset() method. The native command
+    was causing problems with Netscape v4.x when trying to populate a form
+    since it caches the request until after all functions have run.
+[-] Rewrote docs for the obj.fieldName.setValue() method. There seemed to
+    be some confusion on how this worked w/checkboxes and radio buttons.
+[-] Fixed bug which was causing the reset() method to always perform a
+    hard reset.
+
+
+Build 129b (April 26, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug w/obj.fieldName.format() method. The type param needed
+    defined.
+[-] Changed code in the createDependencyTo() method so that an invalid
+    field starting with a integer won't throw an error.
+[-] Correct some spelling mistakes through out the docs (mainly the
+    word "receive".
+
+
+Build 129a (April 25, 2001)
+---------------------------------------------------------------------------
+[-] Fixed a few bugs in the documentation: validateExp in the validate.htm
+    file and jsver property in the qformapi.htm file.
+
+
+Build 129 (April 16, 2001)
+---------------------------------------------------------------------------
+[*] You can now force a field to be validated during the onBlur event
+    at anytime by setting the obj.fieldName.validate property to true.
+    Previously, this setting could only be set before the validateXXX()
+    method was set.
+[-] Corrected a timing problem with the onBlur events--which would
+    cause errors to appear when they shouldn't be. This had to do with the
+    form's status not being reset.
+[-] Moved the validation testing of a field into it's own method:
+    obj.fieldName.checkForErrors() which will check to see if the field
+    should be validated, and if so run the queue and report the first
+    error found.
+[-] Fixed isZipCode validation method.
+[+] Added an example of using the obj.setFields() method.
+[-] Fixed bug in the setFields() method which wasn't properly setting
+    select boxes that didn't have the VALUE attribute on the <OPTION>
+    tags. The getFields() method was already accounting for the
+    problem.
+
+
+Build 128b1 (April 12, 2001)
+---------------------------------------------------------------------------
+[-] Updated the compression algorithm I've been using to
+    create the compressed version of the files. NS6 was choking on the
+    functions_js12.js file for some reason. The new versions of the files
+    will be slightly larger, since I had to leave more CR's in there, but
+    the difference is at most a few hundred bytes.
+[-] Removed reference to the this.libs object in the include() method
+    which was causing a problem.
+
+
+Build 128b (April 12, 2001)
+---------------------------------------------------------------------------
+[-] Fixed a bug in the validateAlpha() and validateAlphanumeric()
+    functions.
+[-] Fixed a bug in the _isLength() function.
+
+
+Build 128a (April 11, 2001)
+---------------------------------------------------------------------------
+[-] Fixed a bug in the _stripInvalidChars() function which was causing
+    the format(), isFormat() & validateFormat() methods to behave
+    incorrectly.
+
+
+Build 128 (April 10, 2001)
+---------------------------------------------------------------------------
+[-] Modified the include method so by default it won't try to autodetect
+    the version of JS--which seems more intuitive since most people don't
+    want to create multiple libraries. To use autodetect, just specify
+    the version parameter as the max library available.
+[-] Speed up validation slightly, by moving the field names into an array
+    (which prevents me from having to parse the field name out of the
+    string.)
+[-] Created the obj.fieldName.throwError() function which is used for
+    throwing an error to the error queue.
+[-] Chiseled away some more size from the qForms.js file.
+[-] Added the onValidate() method. This is run when the validate() method
+    is called. This can be used to create custom logic to catch additional
+    custom validation.
+[-] Updated docs to reflect the changes.
+
+
+Build 127b (April 3, 2001)
+---------------------------------------------------------------------------
+[-] Changed the _ltrim() & _rtrim() functions to use the \s expression
+    instead of \W. (\s handles whitespace, \W is any non-alphanumeric
+    character.
+[-] Updated the _stripInvalidChars() function to use RegEx in
+    function_js12.js file.
+
+
+Build 127a (March 30, 2001)
+---------------------------------------------------------------------------
+[-] Reverted the back to the old _param() function (the changes broke a few
+    functions)
+[-] The format() method will no longer throw an error if the field is left
+    blank.
+
+Build 127 (March 30, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug in the _addValidator() function which was causing strange
+    behavior in the the createDependencyTo() method.
+[-] Changed _param() function to ignore null values as well as undefined
+[-] You can now change the default behavior of how sorts are performed on
+    when using the _sortOption() function by setting the global variables
+    qFormAPI.sortOptions.order and qFormAPI.sortOptions.byText.
+[-] Fixed the obj.fieldName.format() method
+[+] Added a obj.fieldName.is/validateFormat() method for use with the
+    format() method.
+
+
+Build 126 (March 14, 2001)
+---------------------------------------------------------------------------
+[-] Rewrote obj.reset() method.
+[+] Added _removeSpaces() function to core API
+[-] More streamlining of code
+[-] Fixed bug in obj.disabled() method which caused the "status" parameter
+    to be ignored.
+[-] Rewrote obj.setFields() method.
+[-] Changed the obj.fieldName.getValue() method to use an array for the
+    values instead of string.
+[-] Fixed dependencies so that circular references could not occur. This
+    was fixed by checking the field name that instigated the request (or
+    anywhere within the instigating tree) and making sure not to enforce
+    those dependencies again. This was in the fields.js file.
+[+] Created a this.value property for use in your validation fields. This
+    contains the value of the current field. This should speed things up
+    considerable, since a validation method will only have to call the
+    getValue() method once, instead of a minimum of twice like before.
+[-] Rewrote the validation methods to use the new this.value property
+    that's available to them.
+
+
+Build 125 (March 10, 2001)
+---------------------------------------------------------------------------
+[+] Added psuedo-support for frames. This needs to be tested in more
+    depth. Use at your own risk.
+[+] Added the ability to define custom error messages for the form
+    validation methods.
+[+] Required fields now give a "This field is required" message isn't
+    of a message about the field being empty.
+[-] The validate() method now checks to make sure the validation library
+    has been loaded before running. If it hasn't been loaded, then it
+    will return true immediately.
+[*] Removed the qFormAPI.libs[] structure. This was designed to create
+    a global workspace for custom libraries, but due to problems with
+    the Mac (and an overall lack of its use) I removed it.
+[-] Fixed bug with cookies library in IE5 on the Mac. The global workspace
+    was not being initialized in time for it to be available to the
+    library, so moved the global workspace in to global vars.
+[-] Rewrote the createDependencyTo() section in the documentation. It
+    should be a little clearer now.
+[+] Added an array to the qFormAPI object to track the validators that
+    are initialized. (qFormAPI.validators)
+[+] Added the qFormAPI.unload() method which is run at window.onunload
+    event. This was added to reset status of the form to "idle". This fixes
+    a problem with some browsers (mainly IE on the Mac) which doesn't reset
+    the form's status when the history.back() event is called to return
+    to the page.
+[+] The _addValidator() function now checks to make sure the validator
+    hasn't been initialized before adding it. An error is thrown if a
+    validator attempt to be initialized more than once.
+[-] Streamlined code some more.
+[-] Changed the parsing code which grabs the field name out in the
+    obj.checkForError() method.
+
+
+
+Build 124c (March 5, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug that was causing single checkbox fields to fail when trying
+    to use the setValue() method. It wasn't properly comparing values
+    because of an addition done for multiple checkboxes.
+
+Build 124b (February 27, 2001)
+---------------------------------------------------------------------------
+[-] Changed the _param() function so that it worked properly in NS3.
+    It seems the arguments[] array was not being reset on each call.
+[+] Created the obj.fieldName.allowFocus() method. This method is now
+    used to determine if a field should be allowed to receive focus
+[+] Add the obj.fieldName.onFocus() method. You can use this to create
+    custom events to run any time a field receives focus. The neat thing
+    about this method, is that you can set one onFocus event and it'll
+    run for each form element in the it's array (for example, with radio
+    buttons and checkboxes.)
+[-] Changed the obj.fieldName.init() method to use the allowFocus()
+    method. This greatly reduced the size of the function.
+
+
+Build 124a1 (February 26, 2001)
+---------------------------------------------------------------------------
+[-] Added semi-colons to a few lines in the some of the external libs
+    that were missing them at the end of the line. This was causing
+    problems with the compressed libraries.
+
+Build 124a (February 26, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug in the _param() function. Now using typeof to determine
+    if a argument is undefined.
+
+Build 124 (February 26, 2001)
+---------------------------------------------------------------------------
+[+] Updated docs to reflect new changes.
+[+] Added the "_param()" core API function which can be used to check
+    for the existing of an argument and it's type, and return the
+    value if correct, or return a default value instead.
+[-] Changed all methods & functions to use the _param() function, this
+    should reduce the size of the files some.
+[-] I fixed the bug that was causing single checkbox element to break
+    the API in NS3 & 4. Changed the check from this.obj.length to
+    !!this.obj[0].
+[+] I added a submitCheck() method which handles what used to be
+    done inline in the form's onSubmit event handler. This should
+    speed up initialize a little bit, as well as make the code
+    much more readable. I also change the onSubmit method so that
+    it mirrors what was originally in the form's onSubmit event.
+[+] The form's onSubmit event can now return a boolean value, if the
+    value is false, then the form won't be submitted. This allows you
+    to add extra checks when the form is submitted. This also is
+    less obtrusive, since the form's onSubmit event now works like
+    it would without the qForms API.
+[+] You can now set the use the obj.onSubmit prototype to initialize
+    an onSubmit. Example: obj.onSubmit = new Function("alert('test')");
+
+
+Build 123b2 (February 20, 2001)
+---------------------------------------------------------------------------
+[+] Added the "compressed" folder which contains the core files without
+    all the white spacing. These files might be more appropriate to use
+    in a production environment, because the file size is dramatically
+    smaller. The core qForm.js library is about 17K smaller. Boy, man,
+    comments sure do increase the file size. :)
+[+] Added reference in the docs to "compressed" sub-folder.
+
+
+Build 123b1 (February 20, 2001)
+---------------------------------------------------------------------------
+[+] Changed all the validation methods so they include the this.description
+    property. This provides a little more consistency. Thanks to David
+    Crawford for pointing this out.
+
+
+Build 123b (February 20, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug that was introduced yesterday in build 123a. When changing
+    the API to support brackets in the field name, several of the components
+    of the _addValidatior() function where broken. It should now be working
+    properly.
+
+
+Build 123a1 (February 19, 2001)
+---------------------------------------------------------------------------
+[-] The last three release note dates were wrong.
+[-] Fixed the advanced.htm example. I forget to set the last parameter
+    of the addEvent() method to false, which caused a problem in Netscape.
+[-] Fixed the multilayer.htm example so that it works with Netscape v4.0.
+    I keep forgetting how much Netscape dislike the STYLE attribute. If
+    you're having weird display problems with layers, the odds are you've
+    got some inline CSS in a STYLE attribute, move it to a class statement
+    and you're ok. :)
+[-] Changed the example files to call "qforms.js" instead of "qForms.js"
+    for Unix users. Also, changed all FORM action statements in the layer
+    examples to point to the showdata.htm file.
+
+Build 123a (February 19, 2001)
+---------------------------------------------------------------------------
+[-] Changed a few lines in the "Field" constructor to support field names
+    with odd syntaxes--namely added support for field names in the format
+    of "SomeField[]".
+[*] Had the wrong GNU License agreement in the first release. Oops!
+[-] Corrected a few typos in the docs
+
+Build 123 (February 18, 2001)
+---------------------------------------------------------------------------
+[-] First public release!!!
+[+] Created the HTML documentation and example files. If I ever say it will
+    only take me a couple of hours to do docs, kick me--please! :)
+[-] Looked for code redundency and try to cut down the qForms footprint.
+[*] Got rid of excess properties in both the qForm and Field constructors.
+    These were properties that were supposed to act as pointers, but didn't
+    work correctly. However, as always, you can access the same information
+    by using the "obj" pointer for those constructors.
+[-] Re-wrote some of the code to cut down on the file size
+[*] Renamed _Trim(), _RTrim() & _LTrim() functions to all lowercase.
+[-] Renamed the /lib/qForms/ folder to /lib/qforms/ to prevent possible
+    problems on Unix-based boxes.
+[+] Added the obj.fieldName.dummyContainer property for container objects.
+    Setting a container to a dummyContainer will exclude the items in the
+    option array from being returned or submitted.
+[-] Fixed bug in the _getURLParams() function that caused variables that
+    appear multiple times in the query string to only grab the last value.
+[-] Changed the obj.fieldName.getValue() method so that if a select box
+    option doesn't have a "VALUE" attribute, it'll use the use the text
+    between the <OPTION></OPTION> tags.
+[-] Changed the reset() methods so they now run the enforceDependency()
+    method anytime it clears a value.
+[+] Added _getEventType() function which returns the correct event for
+    to use when adding an event that should happen as soon as the field
+    value is sure to have changed
+[-] Changed the obj.fieldName.mirrorTo() method so that non-text fields
+    are updated as soon as the value changes
+[+] Added obj.fieldName.init() method--this allows the use of
+    this.addEvent() to initialize event handlers
+[+] Added a parameter to the disabled() method to specify the status.
+    Leaving the parameter out will continue to toggle the status.
+[-] Fixed bug in the obj.fieldName.enforceDependency() method which wasn't
+    losing variable declarations, was force to use the setTimeout() method.
+[-] Fixed bug in the obj.fieldName.addEvent() method which wasn't properly
+    added events to multi-arrayed items--such as radio buttons. This
+    caused problems with some aspects of the qForms, like with the
+    createDependencyTo() method
+[-] Fixed bug that was causing the onBlur events not to always run when
+    using the setValue() method (once again the multi-arrayed thing)
+[*] Changed the name of the "whatsnew.txt" file to "history.txt"
+[*] Renamed the qFormAPI.getAllForms() method to qFormAPI.getFields()
+[*] Renamed the obj.getForm() method to obj.getFields()
+[*] Renamed the obj.setForm() method to obj.setFields()
+[*] Renamed the obj.setForm() method to obj.setFields()
+    of the form objects populating fields by matching the field name
+    to the keys in the specified structure.
+[*] Renamed the Cookie library functions loadForm() to loadFields()
+    and saveForm() to saveFields()
+[+] Added the obj.dump() method which will display all of the fields
+    in the selected qForm object and their values to an alert box.
+[+] Added the qFormAPI.dump() method which will display all of the fields
+    in all of the qForm objects and their values to an alert box.
+[+] Added the qFormAPI.serialize() method which will serialize all the
+    qForm objects into a single WDDX packet
+[+] Added the qFormAPI.reset() method which will run the obj.reset() method
+    for all the qForm objects on the page
+[-] Fixed bug which was causing the qFormAPI.usewddx variable to
+    be false if the wddx.js file was loaded after the qForm.js library.
+    The wddx library is now check for each time a qForms object is
+    initialized.
+[+] Added support for JavaScript v1.4 and v1.5
+
+
+Build 122 (January 30, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug which caused problems when defining the parent layer when
+    creating a new layer. (This was an NS4 problem.)
+[+] Created the qFormAPI.validate() method. This method is now used instead
+    of obj.validate(). This allows for validating multiple qForm objects
+    anytime a form is submitted. By default, only the form being submitted
+    is checked. To check all qForm objects, set the property
+    qFormAPI.validateAll to true.
+[-] Split the obj.validate() function in to two seperate functions:
+    obj.validate() and obj.checkForErrors(). The checkForErrors() method
+    now actually clears and rebuilds the error queue for the specified
+    qForm object. The validate() method runs the checkForErrors() method
+    and generates an error message if any errors exist. You can call the
+    checkForErrors() any time you want to manually rebuild the error's
+    queue.
+[+] Added the qFormAPI.getAllForms() method which will return a structure
+    similiar to the obj.getForm() method, except it will contain the data
+    from all of the qForm objects on the page.
+[*] Changed the functionality of the obj.fieldName.mirrorTo() method. This
+    method now takes the name of a valid object (as a string) instead of
+    another field. This allows you to mirror the value to any field in
+    any form, or even a JS variable.
+[-] Fixed bug in the obj.submit() method which was causing some browsers
+    to not run the onSubmit event.
+
+
+Build 121 (January 29, 2001)
+---------------------------------------------------------------------------
+[+] Added the qFormAPI.libs structure. This is used to create global
+    workspace for custom libraries. The workspace will be initialized
+    automatically for you in the format: qFormAPI.libs.[library name].
+[+] Added the "cookies" library.
+[-] Fixed another bug in the validate() method.
+[+] Added the _functionToString() function
+[+] Added onSubmit() method which is run before the page is submitted to
+    the server
+[*] Changed the process for creating the pointers some of the field
+    properties by using typeof != undefined
+[+] Added the makeContainer() method to the field.js extension library.
+    Use this method for marking a field as a container. Simply setting the
+    container property to false will cause errors.
+[-] Fixed bug in the isDate() function with both parseInt() and with finding
+    months with 30 days in it. (Thanks to Jeremy Allen!)
+[-] Removed Version History from the qForms.js file to a seperate
+    "whatsnew.txt" file
+
+
+Build 120 (January 10, 2001)
+---------------------------------------------------------------------------
+[*] Changed the isDependentTo() method to check the expression evaluate for
+    the phrase "this."--if it doesn't exist, it'll treat the expression as a
+    string.
+[-] Moved the customValidators property to the "qFormAPI" constructor.
+[+] Added the _allowSubmitOnError form property. This dictates whether or not
+    validation errors should be in an alert (false) or confirm (true) box.
+[+] Added the _setContainerValues() function which makes sure that if a select
+    box is flagged as a container, that when the form is submitted, all the
+    items get selected. This ensures that the value the server recieves matches
+    the "getValue()" method.
+[-] Fixed bug which was preventing the form from submitting!!! Oops!
+
+
+Build 119 (January 09, 2001)
+---------------------------------------------------------------------------
+[+] Added container property to field constructor. The container is a special
+    property for select boxes. If a select box is consider a container, then
+    all the items in the select box are consider part of the value, rather then
+    just the selected values.
+[*] Gave the createDependencyTo(field, expression) method a new argument of
+    "expression". The expression must validate to true in order for the
+    dependency to take effect.
+[-] Multiple dependencies now work correctly for the same fields now work
+    correctly
+[-] Dependency will now climb the dependency tree: meaning if field3 is only
+    required if field2 is filled in and field2 is normally optional, but a
+    dependency on field1 that has been matched making field2 required, then
+    field3 will show required as well.
+
+
+Build 118 (January 08, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug with locked status
+[*] Changed the name of the qForm's property back to locked from _locked
+[+] Added CSS change to failed validation fields as well as required fields
+    that were left empty
+[*] Changed isLocked() method to checkIfLocked()
+[+] Added isLocked() method which return true if the current field should
+    be locked
+[+] Added isDisabled() method which checks to see if the current field has
+    it's disabled property set to true.
+[+] Added mirrorTo(field) method which will copy the value of the select
+    field to another field--this is useful for updating hidden form fields
+[-] Changed the transferTo(), transferFrom(), location() and populate()
+    methods so they will not work if the field is disabled or locked
+[-] The setValue() method now calls the field's onblur event if the argument
+    doBlur is true (default.) The reset() & setForm() methods call the
+    setValue() method with the doBlur event set to false.
+[+] Added createDependencyTo(field) and enforceDependency(field) methods--this
+    methods create a relationship between two fields. If the field the
+    dependency is created on is blank, then the dependent field is not required.
+    If there is a value entered, then the field is required.
+[-] CSS styles on the form fields are now reset each time the validate() method
+    runs, this makes sure that fields aren't left a color they shouldn't be
+
+
+Build 117 (January 08, 2001)
+---------------------------------------------------------------------------
+[-] Fixed bug which was causing endless loops to occur if you tab between two
+    fields that required validation
+[+] Added browser detection to the qFormAPI object, this will detects the
+    browser version. You can use these variables to help write DHTML code.
+[+] Text fields are now turned red if required and not filled in when the
+    validate() method is called. The fields will be return to the normal
+    background style once focus is returned to the form field. (This works in
+    IE4+ and NS6 only)
+[-] Fixed bug in NS3 w/disabled methods
+[-] Fixed bug in NS3 that was causing the validate methods to fail
+[-] Fixed bug which was double verifying required fields that had a validation
+    type defined on them
+[*] Changed the isBlank() method to isNotEmpty()--which more correctly reflects
+    the purpose of the function
+[+] Created isNotNull() method which makes sure the string lenght is not zero
+[*] Moved some of the global qForm variables into the qFormAPI object
+[-] Fixed problem in NS3 & 6 that caused the field to lose focus even when a
+    field has forced validation assigned to it.
+
+
+Build 116 (January 08, 2001)
+---------------------------------------------------------------------------
+[-] Removed duplicate lines in the _addValidator() function
+[+] Added addEvent(event, command, [append]) methods which allow you to attach an
+    event to either the qForm object or one of it's fields
+[+] Added _addEvent(object, event, command, [append]) function
+[+] Added validateExp(expression, error, [command]) method, which validates a simple
+    expression
+[+] Added reset (resetOnInit()) command on the form when initialization occurs--this
+    makes sure that the default values initialized for the form are correct
+[*] Changed (again) the structure of the validation methods. To attach validation to a field
+    you know would use validateXXXX (where XXXX is the name of the method initialized.)
+    For example: objForm.Email.validateEmail() would ensure that when the form is submitted
+    that if a value is supplied for the Email field, that it's a valid e-mail address
+[*] The "is"-style validation can now be called to return "true" if no error occured, or
+    "false" if an error occurred. This gives you the ability to write custom code to check
+    the validation of a field.
+[-] In order to get the onBlur field validation to display the error, you must append to
+    the qForm's status the string "_ShowError". This will ensure that the error is displayed.
+[*] Changed the "qForms_load.js" file to "qForms_init.js" (which makes more sense.)
+
+
+Build 115 (January 05, 2001)
+---------------------------------------------------------------------------
+[-] Made changes to make the API work in NS3 (got rid of "function literals")
+[*] Major changes to the validation mechanisms. The validate() function is no longer
+    required. Validation rules can be initialized any time after the form object
+    had been created.
+[*] Changed internal qForm properties to start with an underscore--this should help
+    to avoid naming convention conflicts within a form
+[+] Added the required and validate properties to the Field objects
+[+] Revised validate() method to check to make sure required fields are not blank
+    (this runs the isBlank() validation method)
+[+] Added required() and optional() methods to set whether a field is required or not
+[+] Added the forceValidation() method--which forces a field to be validate when the
+    field's onBlur event occurs
+[+] Created addMethod() method which allows you to create a new prototype
+[+] Created addValidator() method to create new inline validation methods
+[+] Created _addValidator() function which is used to create new validation prototypes
+    The function creates two prototypes for the function specified, once for validation
+    purpose, and the second which attaches it to any required events and places it in
+    the validation queue.
+[*] Rewrote Validation library to work with the new validation methods
+[*] No more "check"-style validations--they're no longer required
+
+
+Build 114 (December 29, 2000)
+---------------------------------------------------------------------------
+[-] Removed alert() line used for debugging that was at line 282.
+
+
+Build 113 (December 28, 2000)
+---------------------------------------------------------------------------
+[-] Fixed bug which was causing the "is"-style validations from popping up
+    when you'd lock the entire form object
+[-] Changed the message for the isState() check. It no longer says "postal
+    code."
+[-] Fixed bug which caused most methods to fail once an "is"-style checked
+    had thrown an error. (Seems I was setting the value of the qForm's status
+    to null, when it should have been set to "idle".)
+[-] Fixed bug with onSubmit event that prohibitted the user-defined onSubmit
+    events from running. The validate() function is now executed after the
+    user-defined code.
+[+] Added isZip() and checkZip() validation methods.
+[-] The isPassword() validation method now excepts a null entry for the
+    field attribute. This will skip compare the password field to another
+    field.
+
+
+Build 112 (December 28, 2000)
+---------------------------------------------------------------------------
+[+] Added check to make sure that a field name exists when validating
+    the field using the "check"-style validations
+
+
+Build 111 (December 28, 2000)
+---------------------------------------------------------------------------
+[+] Added check for the validate() function in the onSubmit event. If it
+    exists, then we parse it out. This will prevent double validate()
+    functions from running in v4.0 browsers.
+[-] Fixed bug that was causing the form not to be submitted in v4.0 browsers
+    once an error had occurred. Now if the browser's validate function
+    returns false, the status of the form will be reset
+[-] Created a bug when changing the isLocked() method in the last build.
+    isLocked() returns false if the field is locked, and true if the
+    field is not locked
+
+
+Build 110 (December 27, 2000)
+---------------------------------------------------------------------------
+[-] Fixed NS bug in bit library that didn't use the options[] object
+[-] Renamed a few of the arguments
+[-] Fixed bug in isLocked which wasn't really returning the correct value
+    when the showMsg arguement was set to false.
+
+
+Build 109 (December 22, 2000)
+---------------------------------------------------------------------------
+[-] Fixed bug in the include path which didn't load custom modules correctly
+[+] Added _listSum() function
+[+] Added "Bits Extensions Library" and "example_bits.htm" files
+[*] Changed the declaration of the _createFields() function
+
+
+Build 108 (December 22, 2000)
+---------------------------------------------------------------------------
+[+] Added the populate() method which will repopulate an option based upon a
+    structure
+[+] Added custom function _sortOption() which can be used to sort a select box's
+    option array. You can sort asc or desc by either the text or value
+    (default is "text");
+[+] Added custom function _getURLParams() which will parse the query string and
+    return it as a structure. Useful for populating a form based on the URL
+    parameters passed to it.
+[+] Added custom function _createFields() which will create form fields based
+    upon a structure. Useful for passing information from one form to the next.
+[+] Added custom function _transferOptions() which will move the selected option(s)
+    from one select box to another select box.
+[+] Added the transferTo() and transferFrom() methods which will move options from
+    one select box to another.
+[-] Fixed the submit() method so that a form can only be submitted once when using
+    this function.
+[*] Changed the validate() method so that it will return true if the form's status
+    has been set to "submitting"
+[-] The form's "onSubmit" event now prepends a check to make sure the form hasn't
+    already been submitted. If it has, it will cancel the submit request. This
+    prevents multiple submissions to the server.
+[-] The form's "onSubmit" event now prepends a check to see if the function
+    "validate" exists in the document. If it does, it'll automatically run the
+    function on form submission.
+
+
+Build 107 (December 20, 2000)
+---------------------------------------------------------------------------
+[*] Broke the API into modules
+[*] Changed the name of the file from qform.js to qforms.js
+
+Build 106 (December 19, 2000)
+[-] Fixed bug which caused selected box with no default value to give error when
+    it calculated the default values
+[-] Fixed bug which caused form fields that contained multiple values to not be
+    selected correctly. (This was caused by not checking for the delimiter before
+    and after the value!!!)
+
+
+Build 105 (December 15, 2000)
+---------------------------------------------------------------------------
+[+] Added isPhoneNumber() and checkPhoneNumber() methods
+[+] Added isLength() and checkLength() methods
+[+] Added isState() and checkState() methods (which uses the US Postal 2-digit abbreviation)
+[+] Added function _getState(abbr) which returns a states full name if a valid 2 digit
+    abbreviation is passed.
+[+] Added the field-level "format()" method which allows you to create masking for fields
+[-] Fixed bug that was occurring with some "for" loops by adding the var defintion
+    before the variable declarations
+[-] Fixed bug which called endless loop in Netscape when you went from one form field with
+    "is"-style onBlur event to another form field with an "is"-style onBlur event
+
+
+Build 104 (December 14, 2000)
+---------------------------------------------------------------------------
+[+] Added form-level "hasChanged()" function which return true if a value in the form
+    has changed or false if the form contains the default values
+[+] Added the "reset" attribute to the setForm() method which allows you to reset the
+    default values with that of the object being passed in
+[-] Changed the reset() method from using the default reset() form method to a custom
+    one that reads the current defaultValue variable and resets the value occordingly
+[-] Changed the setForm() function so that it's case insensitive. To accomedate this,
+    I had to add a "pointers" object to the form which keeps pointers as lower case
+    representatives of the field names
+[-] Fixed bug which was causing IE to loss the value of the form field when the isLocked()
+    event occurred
+[+] Added miscellaneous functions--these begin with underscores ("_")
+[+] Added trim methods (trim(), ltrim(), rtrim()) at the field level
+[-] Fixed bug with "check"-style validations that didn't allow spaces between the comma
+    delimiter
+[+] Added "serialize()" method which serializes the forms content to WDDX. If the WDDX.JS
+    library is not loaded, an error is thrown when calling this method. This returns a
+    string. You can pass the argument "exclude" which will exclude fields from being
+    serialized.
+[+] Added "toUpperCase()" and "toLowerCase()" field-level methods
+
+
+Build 103 (December 13, 2000)
+---------------------------------------------------------------------------
+[+] Got event capturing working in Netscape (still looking for a better way to handle
+    selectboxes)
+[+] added changedFields() method that returns a structure of all the form fields that have value
+    different from the defaultValue variable
+
+
+Build 102 (December 12, 2000)
+---------------------------------------------------------------------------
+[+] Added the "extension" add-on library for fields (location() and isLocked())
+[+] Added event capturing to the fields
+[+] Added field-level "reset" method
+
+
+Build 101 (December 11, 2000)
+---------------------------------------------------------------------------
+[+] Added support for all normal form and field properties and methods
+ (action, click, focus, method, target, selectedIndex, etc.)
+[+] Added base form validation methods (isBlank, isEmail, isNumeric, isAlpha
+    isAlphaNumeric, isCreditCard, isDate, checkBlank, checkEmail, isPassword
+    checkCreditCard, checkDate, compare, isRange, isDifferent)
+[*] "Check" function are at the form object level, and are for validating
+    multiple fields (example: objForm.checkBlank("Name");)
+[*] "Is" functions are at the field level and are for validating a single
+    field object (example: objForm.Name.isBlank();)
+[*] After running any "check" methods, you must run the validate() method
+    in order to view the errors.
+
+
+Build 100 (December 10, 2000)
+---------------------------------------------------------------------------
+[-] First beta release

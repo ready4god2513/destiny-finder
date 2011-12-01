@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Cookies Extension Methods Library</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Cookies Extension Methods Library</B></P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor. Arguments in
+bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Functions"><B>Functions</B></A><br/>
+<DL>
+	<DT><A NAME="_createCookiePackage"><B>_createCookiePackage(object struct)</B></A></DT>
+	<DD>
+		The _createCookiePackage() takes a structure and converts the structure in to an encoding
+		string. The string that is created is then saved as a single cookie. The _readCookiePackage()
+		function will convert the string back in to it's original structure.
+
+		<P>The struct argument is required and should be equal to a simple structure.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_deleteCookie"><B>_deleteCookie(string name, [string path], [string domain])</B></A></DT>
+	<DD>
+		The _deleteCookie() function will remove a cookie from the user's computer.
+
+		<P>The name argument is the name of the cookie you'd like to delete. This is a required
+		parameter.
+
+		<P>The path argument is the directory path which the cookie was assoiciated with.
+		This is an optional parameter.
+
+		<P>The domain argument is the domain which the cookie was assoiciated with.
+		This is an optional parameter.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_getCookie"><B>_getCookie(string name)</B></A></DT>
+	<DD>
+		The _getCookie() function will retrieve a cookie from the user's computer.
+
+		<P>The name argument is the name of the cookie you'd like to retrieve from the browser.
+		This is a required parameter.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_readCookiePackage"><B>_readCookiePackage(string package)</B></A></DT>
+	<DD>
+		The _readCookiePackage() function will take a string created by the _createCookiePackage()
+		function and return the original structure passed to the _createCookiePackage() function.
+
+		<P>The package argument is a required parameter.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_setCookie"><B>_setCookie(string name, string value, [string expires], [string path], [string domain], [boolean secure])</B></A></DT>
+	<DD>
+		The _setCookie() function will set a cookie to the user's computer.
+
+		<P>The name argument is the name of the cookie you'd like to save. This is a required
+		parameter.
+
+		<P>The path argument can be used to assoiciated the cookie with a specific directory on
+		the web server. This is an optional parameter.
+
+		<P>The domain argument can be used to associate the cookie with multiple servers within
+		the same domain. This is an optional parameter.
+
+		<P>The secure argument is used to specify whether or not the cookie should be saved via
+		SSL. This is an optional parameter.
+	</DD>
+</DL>
+
+<br/><br/>
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="loadFields"><B><I>obj</I>.loadFields()</B></A></DT>
+	<DD>
+		The loadFields() method will retrieve any existing form field elements that
+		were saved for the current form using the saveFields method. If nothing was
+		saved, then no action will take place.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="saveFields"><B><I>obj</I>.saveFields()</B></A></DT>
+	<DD>
+		The saveFields() method will save all the form field elements from the
+		selected form into a single cookie. You can restore the form by calling
+		the loadFields() method.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="saveOnSubmit"><B><I>obj</I>.saveOnSubmit()</B></A></DT>
+	<DD>
+		The saveOnSubmit() method is used to automatically save the contents
+		of the form to a cookie. This process is automatically attached to the
+		form's onSubmit event.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./bonus_bits.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./bonus_wddx.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

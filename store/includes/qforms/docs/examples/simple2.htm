@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: Simple Form #2</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// this loads all the default libraries
+	qFormAPI.include("*");
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Simple Form #2</B><br/>
+This is the same form as "Simple Form #1," but this validates the e-mail address to make
+sure it appears to be syntatically correct.</P>
+
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample">
+<P>Name: [*]<br/>
+<INPUT TYPE="Text" NAME="Name" SIZE="40"></P>
+
+<P>E-mail: [*]<br/>
+<INPUT TYPE="Text" NAME="Email" SIZE="40"></P>
+
+<P>Company:<br/>
+<INPUT TYPE="Text" NAME="Company" SIZE="40"></P>
+
+<BLOCKQUOTE>[*] Required fields</BLOCKQUOTE>
+
+<P>
+<INPUT TYPE="Submit" VALUE="Submit">
+<INPUT TYPE="Reset">
+</FORM>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+<script language="JavaScript">
+<!--//
+// initialize the qForm object
+objForm = new qForm("frmExample");
+
+// make these fields required
+objForm.required("Name, Email");
+
+// make sure the "Email" field appears syntatically correct
+objForm.Email.validateEmail();
+//-->
+</script>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

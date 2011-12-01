@@ -1,0 +1,382 @@
+
+/* Set the default font and page margin here. Do not set colors here.*/
+BODY {
+	MARGIN: 0px 0px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 10px;
+}
+A:active {
+	COLOR: #87609f; TEXT-DECORATION: none;
+}
+A:link {
+	COLOR: #87609f; TEXT-DECORATION: none;
+}
+A:visited {
+	COLOR: #87609f; TEXT-DECORATION: none;
+}
+A:hover {
+	COLOR: #9d68be; TEXT-DECORATION: none;
+}
+/* This is the default font for the entire page body */
+.mainpage {
+	font-size : 12px;
+}
+
+/* This is a smaller text used for the wishlist, etc. */
+.smalltext {
+	font-size : 9px;
+}
+
+/* ---------- Styles for admin content section --------------------- */
+.admincontent {
+margin-top: 10px;
+margin-bottom: 10px;
+padding-bottom: 10px;
+margin-left: 15px;
+padding-left: 15px;
+text-align: left;
+}
+
+
+/* Style for lines. */
+div.thickline {
+	height: 2px;
+	margin-bottom : 2px;
+	margin-top : 2px;
+	border: none; 
+}
+div.thickline hr {
+  display: none;
+}
+
+div.thinline {
+	height : 1px;
+	margin-bottom : 2px;
+	margin-top : 2px;
+	border: none; 
+}
+div.thinline hr {
+  display: none;
+}
+
+/* Style for page breaks when printing */
+P.pageEnd {page-break-before: always}
+
+/* Highlight and Input Form box title bars. */
+.BoxTitle {
+	FONT-SIZE: 16px;  
+	font-weight: bold;
+}
+/* Used primarily in Highlight boxes. */
+.BoxText {
+	FONT-SIZE: 13px;  
+}
+
+
+/*** INPUT FORMS ******************************************/
+/* Titles separating sections of a form (this is NOT the Box Title)*/
+.formtitle {
+	FONT-SIZE: 14px;
+	font-weight : bold;
+}
+
+/* Appears at top of form if page returns an error */
+.formerror {
+	FONT-SIZE: 12px;
+	color : Red;
+}
+
+/* Used in the login box ('user name not found', etc.) */
+.formerrorsmall {
+	FONT-SIZE: 10px;
+	color : Red;
+}
+
+/* Form field names '*/
+.formtext {
+	FONT-SIZE: 12px;
+}
+/* Instructions below form fields '*/
+.formtextsmall {
+	FONT-SIZE: 10px; 
+}
+
+/* Used in the login box for 'name' and 'password'*/
+.FormTextVerySmall {
+	FONT-SIZE: 9px;
+	COLOR: gray;
+}
+
+.formfield {
+	BACKGROUND-COLOR: #fbfbfb;
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-LEFT: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+	BORDER-TOP: #999999 1px solid;
+	COLOR: #003163;
+	FONT-SIZE: 12px;
+}
+.formfieldselect {
+	FONT-SIZE: 12px;
+	COLOR: #003163;
+}
+/* The form fields for the login box have width set as well */
+.formfieldlogin {
+	BORDER-RIGHT: #cccccc 1px solid;
+	BORDER-TOP: #cccccc 1px solid;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: #cccccc 1px solid;
+	BACKGROUND-COLOR: white;
+	BORDER-BOTTOM: #cccccc 1px solid;
+	width : 120px;
+}
+
+.formfieldcheckbox {
+	FONT-SIZE: 10px;
+	COLOR: #cccccc;
+}
+
+/* HTML form submit buttons */
+.formbutton {
+	BORDER-RIGHT: 1px outset;
+	BORDER-TOP: 1px outset;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: 1px outset;
+	COLOR: white;
+	BORDER-BOTTOM: 1px outset;
+	BACKGROUND-COLOR: #D5A63E;
+	text-align : center;
+}
+A.formbutton:visited {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	COLOR: #dddddd;
+	BACKGROUND-COLOR: #D5A63E;
+	TEXT-DECORATION: none;
+}
+A.formbutton:hover {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: white;
+	BACKGROUND-COLOR: #666666;
+	TEXT-DECORATION: none;
+}
+
+
+/* Some styles needed to display product information */
+
+H2.product {	
+	font-size: 16px;
+	FONT-WEIGHT: bold;
+	margin: 0px;
+	color: #854C83;
+}
+
+.listingimg {
+	margin-right : 5px;
+}
+/* Style for Product SKU, number in stock, etc. */
+.prodSKU {
+	font-size : 11px;
+	color : #666666;
+}
+
+/* Product price line */
+.prodprice {
+	font-size : 11px;
+	color: blue;
+}
+
+/* Product price emphasized words: 'Our Price' */
+.prodprice2 {
+	font-size : 12px;
+	font-weight: bold;
+	color: maroon;
+}
+
+/* Product discount line */
+.proddisc {
+	font-size : 12px;
+	color : maroon;
+}
+
+
+/*** TAB MENUS IN ADMIN ******************************************/
+TD.TopTierHeader {
+}
+.TopTierHeader {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+}
+
+A.TopTierHeader:link {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif;  TEXT-DECORATION: none
+}
+A.TopTierHeader:visited {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif;  TEXT-DECORATION: none
+}
+A.TopTierHeader:hover {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+
+
+/* ----- top tier is tabs; TD produces height ---------------------------------*/
+TD.TopTierNav {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 17px;  
+	FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	TEXT-DECORATION: none; 
+	BACKGROUND-COLOR: #854C83;
+	COLOR: #CCCCCC;
+}
+A.TopTierNav:link {
+	 FONT-SIZE: 9px; FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; COLOR: #CCCCCC;
+}
+A.TopTierNav:visited {
+	FONT-SIZE: 9px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; COLOR: #CCCCCC;
+}
+A.TopTierNav:hover {
+	FONT-SIZE: 9px;
+	FONT-FAMILY: verdana,arial,sans serif;
+	TEXT-DECORATION: none;
+	COLOR: #FFFFFF;
+}
+
+/* ----- styles for the active tab ---------------------------------*/
+TD.TopTierNavActive {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 17px;  
+	FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	TEXT-DECORATION: none; 
+	BACKGROUND-COLOR: #FFFFFF;
+	COLOR: #854C83;
+}
+A.TopTierNavActive:link {
+	 FONT-SIZE: 9px; FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; COLOR: #854C83;
+}
+A.TopTierNavActive:visited {
+	FONT-SIZE: 9px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; COLOR: #854C83;
+}
+A.TopTierNavActive:hover {
+	FONT-SIZE: 9px;
+	FONT-FAMILY: verdana,arial,sans serif;
+	TEXT-DECORATION: none;
+	COLOR: #B597AF;
+}
+
+/* ----- styles for the tab background and dividing lines ---------------------------------*/
+.TopTierNavBkgrd {
+	FONT-WEIGHT: bold; 
+	FONT-SIZE: 17px;  
+	FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+	TEXT-DECORATION: none; 
+	BACKGROUND-COLOR: #B597AF;
+	COLOR: #FFFFFF;
+}
+
+
+/* ----- styles for the admin form boxes ---------------------------------*/
+.emphasisBoxUpperRight {
+	BACKGROUND-POSITION: left bottom; BACKGROUND-IMAGE: url(images/fade_upperright.gif); BACKGROUND-REPEAT: no-repeat;
+}
+.emphasisBoxUpperLeft {
+	BACKGROUND-POSITION: right bottom; BACKGROUND-IMAGE: url(images/fade_upperleft.gif); BACKGROUND-REPEAT: no-repeat;
+}
+.emphasisBoxLowerRight {
+	BACKGROUND-POSITION: left top; BACKGROUND-IMAGE: url(images/fade_lowerright.gif); BACKGROUND-REPEAT: no-repeat;
+}
+.emphasisBoxLowerLeft {
+	BACKGROUND-POSITION: right top; BACKGROUND-IMAGE: url(images/fade_lowerleft.gif); BACKGROUND-REPEAT: no-repeat;
+}
+.emphasisBoxLeft {
+	BACKGROUND-POSITION: right 50%; BACKGROUND-IMAGE: url(images/fade_left.gif); WIDTH: 4px; BACKGROUND-REPEAT: repeat-y;
+}
+.emphasisBoxRight {
+	BACKGROUND-POSITION: left 50%; BACKGROUND-IMAGE: url(images/fade_right.gif); WIDTH: 4px; BACKGROUND-REPEAT: repeat-y;
+}
+.emphasisBoxTop {
+	BACKGROUND-POSITION: 50% bottom; BACKGROUND-IMAGE: url(images/fade_top.gif); BACKGROUND-REPEAT: repeat-x; HEIGHT: 4px;
+}
+.emphasisBoxBottom {
+	BACKGROUND-POSITION: 50% top; BACKGROUND-IMAGE: url(images/fade_bottom.gif); BACKGROUND-REPEAT: repeat-x; HEIGHT: 5px;
+}
+.emphasisBoxHeader {
+	PADDING-RIGHT: 2px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 2px; BACKGROUND-IMAGE: url(images/fade_header.gif); PADDING-BOTTOM: 2px; PADDING-TOP: 2px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x
+}
+.emphasisBoxHeaderPurple {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_purple.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x; font-family: Verdana, Arial, Helvetica
+}
+.emphasisBoxHeaderYellow {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_yellow.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x; font-family: Verdana, Arial, Helvetica
+}
+.emphasisBoxHeaderRed {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_red.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x; font-family: Arial, Helvetica, Geneva, Verdana, sans-serif;
+}
+.emphasisBoxHeaderGreen {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_green.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x; font-family: Arial, Helvetica, Geneva, Verdana, sans-serif;
+}
+.emphasisBoxHeaderBlue {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_blue.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x; font-family: Arial, Helvetica, Geneva, Verdana, sans-serif;
+}
+.emphasisBoxHeaderBrown {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_brown.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BORDER-BOTTOM: #bfbfbf 1px solid; BACKGROUND-REPEAT: repeat-x; font-family: Arial, Helvetica, Geneva, Verdana, sans-serif;
+}
+.emphasisBoxContent {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px;
+}
+
+/* Additional styles to use if no bottom border */
+.emphasisBoxHeaderPurpleClear {
+	PADDING-RIGHT: 4px; BACKGROUND-POSITION: 50% top; PADDING-LEFT: 4px; FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND-IMAGE: url(images/background_purple.jpg); PADDING-BOTTOM: 4px; TEXT-TRANSFORM: capitalize; COLOR: #ffffff; PADDING-TOP: 4px; BACKGROUND-REPEAT: repeat-x; font-family: Verdana, Arial, Helvetica
+}
+
+.emphasisBoxContentClear {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 4px; PADDING-TOP: 0px;
+}
+
+/* accordion styles used for the admin menu */
+.accordionTabTitleBar {
+	font-size           : 12px;
+	padding             : 4px 6px 4px 6px;
+	border-style        : solid none solid none;
+	border-top-color    : #BDC7E7;
+	border-bottom-color : #182052;
+	border-width        : 1px 0px 1px 0px;
+}
+	
+.accordionTabTitleBarHover {
+	font-size        : 11px;
+	background-color : #1f669b;
+	color            : #000000;
+}
+
+.accordionTabContentBox {
+	font-size        : 11px;
+	border           : 1px solid #1f669b;
+	border-top-width : 0px;
+	padding          : 0px 8px 0px 8px;
+	background-color : white;
+}
+
+.accordionTextBox {
+	font-size        : 11px;
+	margin           : 8px 0px 4px 0px;
+}
+		
+div.tp1 { font-size:12px; color:#336; padding-top:2px }
+
+/* Style spec's for tooltip  */
+div#tipDiv {
+  position:absolute; visibility:hidden; left:0; top:0; z-index:10000;
+  background: #854C83;
+  border:1px solid #68286B; 
+  width:160px; padding:3px;
+  color:#000; font-size:11px; line-height:1.3;
+}
+
+
+
+
+
+		
+		

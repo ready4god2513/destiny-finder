@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Custom Functions</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Custom Functions</B></P>
+
+<DL>
+	<DT><A NAME="_addEvent"><B>_addEvent(string object, string event, string command, [boolean append])</B></A></DT>
+	<DD>
+		The _addEvent function will dynamically attach the specified command to the requested
+		event for the specified object.
+
+		<P>The object argument should be a string containing the valid path to a form object
+		that the event should be attached to.
+
+		<P>The event argument is the name of the event to attach the command to. This is a
+		required parameter.
+
+		<P>The command argument is JavaScript code to attach to the event.
+
+		<P>The append argument is an optional argument that accepts either the value <B>true</B> or
+		<B>false</B>. If <B>true</B>, then the command will be attached to the end of any existing instructions
+		already in the specified event. If <B>false</B>, then the event will be attached in front of any
+		other instructions. The default value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_addValidator"><B>_addValidator(string name, object/string function, boolean alwaysRun)</B></A></DT>
+	<DD>
+		The _addValidator function will dynamically initialize a new validation routine. When a
+		new validator is created, two new methods are created: a validateXXXX() and an isXXXX()
+		method (where XXXX is equal to the name argument.) The "validate" methods are used to
+		initialize validation on the form. These type of methods return no value. The "is" methods
+		will return <B>tru</B>e if no error occurred, or <B>false</B> if an error did occur.
+
+		<P>The name argument is the base name of the new validation procedure. This is a required
+		parameter.
+
+		<P>The function argument is either a pointer to an existing function, or a string to
+		which will be converted into the new method.
+
+		<P>The alwaysRun argument is a boolean value. If set to <B>true</B>, the validation rule will
+		always be run on the objects it's attached to&#151;regardless if the field is required or contains
+		a value. This is useful if you want to write "either/or" type validation rules. If set to <B>false</B>,
+		then in order for the validation rule to run, there must either be a value in the field or it must
+		be required. The default behavior is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_param"><B>_param(string value, string default, string type)</B></A></DT>
+	<DD>
+		The _param function is used to check an argument to see if it's value meets certain
+		criteria. It first checks to make sure the value was defined, if not, then the default
+		value will be returned. If the value is defined, but doesn't match the specified
+		type, then the default value will also be returned.
+		
+		<P>The value argument is required. This would normally be an item in the arguments[] 
+		array.</P>
+		
+		<P>The default argument is optional. Use this to specify a default value to return.
+		By default, an empty string is used for this argument.</P>
+		
+		<P>The type argument is an optional argument specifying the data type of the 
+		value argument. By default, this is "string." Valid types are any string equal
+		to a value which can be returned when using the "typeof" operator.</P>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_removeSpaces"><B>_removeSpaces(string value)</B></A></DT>
+	<DD>
+		The _removeSpaces function remove all spaces from a string. This function
+		is used throughout the API to remove spaces from lists of field names.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_setContainerValues"><B>_setContainerValues(string object)</B></A></DT>
+	<DD>
+		The _setContainerValues function will loop through all the fields in a qForm object and
+		find all the select boxes, which are containers. When it finds match, it'll make sure each
+		item in the select box is selected. This will ensure that the value received by the server
+		matches that of the getValue() for the field. This function is automatically called right
+		before the form is submitted to the server. 
+
+		<P>The object argument is required and should contain a valid qForm's object.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./objects_field.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./core_extensions.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

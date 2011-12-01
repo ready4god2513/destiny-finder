@@ -1,0 +1,16 @@
+<cfmodule template="customtags/item_listing.cfm"
+	table_name="Assessments"
+	select_columns="assessment_id,assessment_name,assessment_active"
+	primary_key="assessment_id"
+	title_column="assessment_name"
+	order_by="assessment_name"
+	sortable="no"
+	item_prefix="assessment"
+	listing_title="Assessments"
+	column_headings="Name,Active"
+	add_new_link="assessment.cfm?assessment_id=new"
+	item_page="assessment.cfm"
+	column_details="<a href=""assessment.cfm?assessment_id=##qItems.assessment_id##"" style=""cursor:hand;""><img src=""images/edit.gif"" />&nbsp;##qItems.assessment_name##</a>,<img src=""images/##qItems.assessment_active##.gif""/>"
+	column_widths="450,20"
+>
+

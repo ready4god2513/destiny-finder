@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Validation Methods Library</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Validation Methods Library</B></P>
+<P>When a validation method is created, there are two types of methods created: a "validate"
+and an "is" method. The "validate" methods are used to bind validation to a form field. "Validate"
+methods on need to be run once and are normally called at initialization time. The "is" methods
+are used to determine if an error occurred. If an error occurred, then the "is" method will
+return false, otherwise it will return true if no error occurred. The "validate" methods will
+handle throwing the errors for you automatically. The following descriptions for the validation
+methods assume you know the difference between the two types of methods. Both "validate" and "is"
+methods share the same arguments</P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor.
+<B><I>fieldName</I></B> signifies the form field element that you want
+to perform the action on. Arguments in bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="validateAlpha"><B><I>obj.fieldName</I>.validateAlpha()<br/><I>obj.fieldName</I>.isAlpha()</B></A></DT>
+	<DD>
+		The isAlpha method tests the selected form object to make sure that it contains an alpha string
+		(contains only characters A-Z and a-z.) If the value is not an alpha string, then an error is
+		generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateAlphaNumeric"><B><I>obj.fieldName</I>.validateAlphaNumeric()<br/><I>obj.fieldName</I>.isAlphaNumeric()</B></A></DT>
+	<DD>
+		The isAlphaNumeric method tests the selected form object to make sure that it contains an
+		alphanumeric string (contains only characters A-Z and a-z or numbers 0-9.) If the value is
+		not alphanumeric, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateCreditCard"><B><I>obj.fieldName</I>.validateCreditCard()<br/><I>obj.fieldName</I>.isCreditCard()</B></A></DT>
+	<DD>
+		The isCreditCard method will check to make sure the selected form element's value passes a
+		MOD10 check. It does this by stripping out all non-numeric characters and running a MOD10
+		check on the remaining numeric characters. If the value remainder of the MOD10 check does
+		not return 0, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateDate"><B><I>obj.fieldName</I>.validateDate([string mask])<br/><I>obj.fieldName</I>.isDate([string mask])</B></A></DT>
+	<DD>
+		The isDate method checks the selected form object to make sure the value contained appears to
+		be a valid date. If the value does not appear to be a valid date, then an error is generated.
+
+		<P>The mask argument is an optional argument that defaults to "<CODE>mm/dd/yyyy</CODE>". The mask is created
+		using a combination of the character sets "<CODE>mm</CODE>", "<CODE>dd</CODE>" and "<CODE>yyyy</CODE>" (or <CODE>yy</CODE>).
+
+		<P>For example, to specify a European-style date format, you can specify the mask as "<CODE>dd-mm-yyyy</CODE>"
+		or "<CODE>dd/mm/yyyy</CODE>".
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateDifferent"><B><I>obj.fieldName</I>.validateDifferent(string field)<br/><I>obj.fieldName</I>.isDifferent(string field)</B></A></DT>
+	<DD>
+		The isDifferent() method will compare the selected form object to the form element
+		specified in the field argument.
+
+		<P>The field argument is required and must be equal to the name of another qForms field
+		object. If the selected field object and the specified field element are identical, then
+		the isDifferent() method will generate an error.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateEmail"><B><I>obj.fieldName</I>.validateEmail()<br/><I>obj.fieldName</I>.isEmail()</B></A></DT>
+	<DD>
+		The isEmail method will check to make sure the selected form element's value contains a valid
+		e-mail address. It does this by make sure that the e-mail address contains certain required
+		characters (i.e. the @ symbol and at least one period after the @ symbol.) If the field does
+		not contain an e-mail address, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateFormat"><B><I>obj.fieldName</I>.validateFormat(string mask, [string type])<br/><I>obj.fieldName</I>.isFormat(string mask, [string type])</B></A></DT>
+	<DD>
+		The format method allows you to define a basic format that the current field must
+		be in. The mask can defined in several ways. You can either use a default mask, or
+		create your own mask. Custom masks are created by using "X"'s to define valid data
+		types. Wherever an "x" is placed, a valid character type must be present. Valid data
+		types are defined using the optional "type" argument.
+
+		<P>The type argument is an optional parameter that defaults to "numeric." Valid
+		values for the "type" argument are "numeric", "alpha" and "alphanumeric". When
+		using the "numeric" type, then a valid number (0-9) must be filled in for each "X"
+		in the mask.  When using the "alpha" type, then an alpha character (A-Za-z) must
+		exist for each "X" in the mask. When using the "alphanumeric" type, either a valid
+		number or alpha character (0-9A-Za-z) needs to be present for each "X" in the mask.
+
+		<P>The mask argument can be any custom string, or one of the following predefined masks:
+
+		<BLOCKQUOTE>
+		<B>SSN</B><br/>
+		Makes sure that a 9-digit number in the format "<CODE>xxx-xx-xxxx</CODE>" is entered.
+
+		<P><B>Phone (or Phone1)</B><br/>
+		Makes sure that a 10-digit number in the format "<CODE>(xxx) xxx-xxxx</CODE>" is entered.
+
+		<P><B>Phone2</B><br/>
+		Makes sure that a 10-digit number in the format "<CODE>xxx-xxx-xxxx</CODE>" is entered.
+
+		<P><B>Phone3</B><br/>
+		Makes sure that a 10-digit number in the format "<CODE>xxx/xxx-xxxx</CODE>" is entered.
+
+		<P><B>Phone7</B><br/>
+		Makes sure that a 7-digit number in the format "<CODE>xxx-xxxx</CODE>" is entered.
+
+		<P><B>Zip</B><br/>
+		Makes sure either a 5 or 9-digit number is entered in either the format "<CODE>xxxxx</CODE>" or "<CODE>xxxxx-xxxx</CODE>".
+
+		<P><B>Zip5</B><br/>
+		Makes sure a 5-digit number is entered in the format "<CODE>xxxxx</CODE>".
+
+		<P><B>Zip9</B><br/>
+		Makes sure a 9-digit number is entered in the format "<CODE>xxxxx-xxxx</CODE>".
+		</BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateInteger"><B><I>obj.fieldName</I>.validateInteger()<br/><I>obj.fieldName</I>.isInteger()</B></A></DT>
+	<DD>
+		The isInteger method tests the selected form object to make sure that it contains a
+		numeric value. It does this by passing the string into the parseInt() function. If the
+		value is not numeric, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateLength"><B><I>obj.fieldName</I>.validateLength([int length], [string type])<br/><I>obj.fieldName</I>.isLength([int length], [string type])</B></A></DT>
+	<DD>
+		The isLength method will check to make sure the selected form element's length is equal
+		to its length argument value. It does this by stripping out all non-valid characters
+		and comparing the length of the value to the value of the length argument. If the lengths
+		do not match, then an error is generated.
+
+		<P>The length argument is an optional argument, which specifies the length that a valid
+		phone number should be. The default value is 10.
+
+		<P>The type argument is an optional parameter that defaults to "numeric." Valid values
+		for the "type" argument are "numeric", "alpha" and "alphanumeric". Any character that
+		does not match the type specified will be removed when comparing the lengths.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateLengthGT"><B><I>obj.fieldName</I>.validateLengthGT(int length)<br/><I>obj.fieldName</I>.isLengthGT(int length)</B></A></DT>
+	<DD>
+		The isLengthGT method will check to make sure the selected field's value is
+		greater than in length than the specified length argument value.
+		If the field value's length is less than the length arguement an error is thrown.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateLengthLT"><B><I>obj.fieldName</I>.validateLengthLT(int length)<br/><I>obj.fieldName</I>.isLengthLT(int length)</B></A></DT>
+	<DD>
+		The isLengthLT method will check to make sure the selected field's value is
+		less than in length than the specified length argument value.
+		If the field value's length is greater than the length arguement an error is thrown.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateNotEmpty"><B><I>obj.fieldName</I>.validateNotEmpty()<br/><I>obj.fieldName</I>.isNotEmpty()</B></A></DT>
+	<DD>
+		The isNotEmpty method will check to make sure the selected form element's value is not blank.
+		It does this by trimming all whitespace and checking to make sure the length of the string is
+		not equal to zero. If the field is blank, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateNotNull"><B><I>obj.fieldName</I>.validateNotNull()<br/><I>obj.fieldName</I>.isNotNull()</B></A></DT>
+	<DD>
+		The isNotNull method will check to make length of the specified string is not equal to zero. If
+		the string length has a length of zero, then an error is generated.
+		<BLOCKQUOTE><B>NOTE:</B> This validation method will run regardless of value of the field's
+		"required" property.</BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateNumeric"><B><I>obj.fieldName</I>.validateNumeric()<br/><I>obj.fieldName</I>.isNumeric()</B></A></DT>
+	<DD>
+		The isNumeric method tests the selected form object to make sure that it contains a
+		numeric value. It does this by passing the string into the parseFloat() function. If the
+		value is not numeric, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validatePassword"><B><I>obj.fieldName</I>.validatePassword([string field], [int min], [int max])<br/><I>obj.fieldName</I>.isPassword([string field], [int min], [int max])</B></A></DT>
+	<DD>
+		The isPassword method is used to determine whether the selected form element is a password.
+		It does this by comparing the selected form element (when provided) to the value of the
+		field argument and make sure the length of the password is between the minimum and maximum
+		number of characters allowed. If any condition fails, an error is generated.
+
+		<P>The field argument is an optional field. If set to <B>null</B>, then the selected element's
+		value is not compared to another field. If a field is specified, then the selected field
+		object and the specified field element must match in order for the isPassword() method
+		to not return an error.
+
+		<P>The min argument is the minimum number of characters the password must be. The default
+		value for this is 1.
+
+		<P>The max argument is the maximum number of characters the password must be. The default
+		value is 255.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validatePhoneNumber"><B><I>obj.fieldName</I>.validatePhoneNumber([int length])<br/><I>obj.fieldName</I>.isPhoneNumber([int length])</B></A></DT>
+	<DD>
+		The isPhoneNumber method will check to make sure the selected form element's length is
+		equal to its length argument value. It does this by stripping out all non-numeric
+		characters and comparing the length of the value to the value of the length argument.
+		If the lengths do not match, then an error is generated.
+
+		<P>The length argument is an optional argument, which specifies the length that a valid
+		phone number should be. The default value is 10-which is the correct number of digits
+		for a US phone number. (Area Code + 7-digit phone number.)
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateRange"><B><I>obj.fieldName</I>.validateRange(int min, int max)<br/><I>obj.fieldName</I>.isRange(int min, int max)</B></A></DT>
+	<DD>
+		The isRange method will check to make sure the selected form element's value is
+		between the minimum and maximum numbers allowed. If the value does not fall between
+		the minimum and maximum values, then an error is generated.
+
+		<P>The min argument is the minimum number of the range. This attribute is required.
+
+		<P>The max argument is the maximum number of the range. This attribute is required.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateSame"><B><I>obj.fieldName</I>.validateSame(string field)<br/><I>obj.fieldName</I>.isSame(string field)</B></A></DT>
+	<DD>
+		The isSame() method will compare the selected form object to the form element
+		specified in the field argument.
+
+		<P>The field argument is required and must be equal to the name of another qForms field
+		object. If the selected field object and the specified field element are different, then
+		the isSame() method will generate an error.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateSSN"><B><I>obj.fieldName</I>.validateSSN()<br/><I>obj.fieldName</I>.isSSN()</B></A></DT>
+	<DD>
+		The isSSN method will check to make sure the selected form element's length contains 9
+		numeric characters. It does this by stripping out all non-numeric characters and making
+		sure the length of the string is equal to 9. If the length is not 9, then an error is
+		generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateState"><B><I>obj.fieldName</I>.validateState()<br/><I>obj.fieldName</I>.isState()</B></A></DT>
+	<DD>
+		The isState method will check to make sure the selected form element's value is a valid
+		2-digit US postal abbreviation (example "OH" is the 2-digit abbreviation for "Ohio.") If
+		the value is not a valid 2-digit abbreviation, then an error is generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateZipCode"><B><I>obj.fieldName</I>.validateZipCode()<br/><I>obj.fieldName</I>.isZipCode()</B></A></DT>
+	<DD>
+		The isZipCode method will check to make sure the selected form element contains either a
+		5 or 9-digit numeric number. If the number of numeric characters is not equal to either
+		5 or 9, then an error is generated.
+	</DD>
+</DL>
+
+<P><B>Note:</B> All validation methods automatically are given argument of "errorMsg".
+This argument is assigned as the last argument for the method and is used to provided a custom
+error message instead of using the default error message. For more information, please see
+"<A HREF="./validation.htm#ErrorMessages">Custom Error Messages</A>".</P>
+
+
+<P ALIGN="Center">
+	[<A HREF="./extension_fields.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./extension_functions.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

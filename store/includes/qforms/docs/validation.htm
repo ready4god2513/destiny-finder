@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Validating Your Forms</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Validating Your Forms</B></P>
+
+<P>The qForms API ships with dozens of validation routines that are ready to use. The
+validation routines were designed to be easy to use and easy to create.
+
+<P><A NAME="Using"><B>Using The Validation Library</B></A><br/>
+In order to take advantage of the validation methods, you'll need to first make
+sure to load both the "validation" and "function" libraries with using the
+<A HREF="./qformapi.htm#include">qFormAPI.include()</A> method. You can do this
+two ways: by loading each individual library or loading all of the default extension
+libaries. In order to load the qForms API and the bare minimum libraries in order
+to get the validation methods to work, place the following code in between the
+&lt;HEAD&gt;&lt;/HEAD&gt; of your document.</P>
+
+<PRE>&lt;!--// load the qForm JavaScript API //--&gt;
+&lt;SCRIPT SRC="/lib/qforms.js"&gt;&lt;/SCRIPT&gt;
+&lt;!--// you do not need the code below if you plan on just
+       using the core qForm API methods. //--&gt;
+&lt;!--// [start] initialize all extension libraries  //--&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--//
+// specify the path where the "/qforms/" subfolder is located
+qFormAPI.setLibraryPath("/lib/");
+// loads the validation & functions libraries
+qFormAPI.include("validation");
+qFormAPI.include("functions", null, "12");
+//--&gt;
+&lt;/SCRIPT&gt;
+&lt;!--// [ end ] initialize all extension libraries  //--&gt;</PRE>
+
+<P>The validation methods are extremely easy to use. There are two types of
+validation methods: "validate" methods and an "is" methods. The "validate" methods
+are used to initialize a validation rule on a form field. You initialize these
+methods at runtime and the rule is processed everytime the validate() method is
+called upon the form. The validate() method is called automatically when the
+form is submitted. For example, to validate that the field "Email" appears
+to be a valid e-mail, you'd do the following:</P>
+
+<BLOCKQUOTE><CODE>objForm.Email.validateEmail();</CODE></BLOCKQUOTE>
+
+<P>That's it! This creates a validation rule that will be enforced any time
+the user tries to submit the form.</P>
+
+<P>The "is" methods can be called at any time to determine whether the specified
+field passes the validation rule. The "is" methods will return <B>true</B> if the
+validation rule passes, and it will return <B>false</B> if the validation rule
+fails. For example, if you wish to know at any current time whether the "Email"
+field contains a valid e-mail address, you'd do the following:</P>
+
+<BLOCKQUOTE><CODE>objForm.Email.isEmail();</CODE></BLOCKQUOTE>
+
+<P>This would return <B>true</B> if the validation rule passes, or <B>false</B> if
+the rule failed. It doesn't get much easier than that!</P>
+
+<P><A NAME="Requiring"><B>Requiring Fields</B></A><br/>
+<P>There is something important to note about validation rules, validation rules
+check the status of the field's "required" property. If a field is blank and
+the "required" property is <B>false</B> (the default value,) then the validation
+rule will not fail. In order to get the validation rule to fail, you need to
+set the "required" property to <B>true</B>. This allows you to apply rules to
+form fields, but not require a value&#151;you may not want every field on a form
+to be required, but if the user does input data, you will want to make sure it
+appears to be valid. For example:</P>
+
+<BLOCKQUOTE><CODE>
+objForm.Email.required = <B>true</B>;<br/>
+objForm.Email.validateEmail();
+</CODE></BLOCKQUOTE>
+
+<P>This would ensure that the user fills in a value for the "Email" field that
+appears to be a valid e-mail address before the form can be submitted. If the
+field is either blank or doesn't pass the validation rule, then an validation
+error will occur.</P>
+
+<BLOCKQUOTE><B>Tip:</B> You can require or make multiple fields optional using
+the <A HREF="./objects_qform.htm#required">required()</A> and
+<A HREF="./objects_qform.htm#optional">optional()</A> methods.</BLOCKQUOTE>
+
+<P><A NAME="Forcing"><B>Forcing Field Validation</B></A><br/>
+One of the unique features of the qForms API is its ability to attach events
+to form fields automatically. Because of this, we're you're able to force validation
+automatically when focus leaves a form field. In order to do this, you must
+set the field's "validate" property to <B>true</B> <I>before</I> calling the
+validate method. For example:</P>
+
+<BLOCKQUOTE><CODE>
+objForm.Email.required = <B>true</B>;<br/>
+objForm.Email.validate = <B>true</B>;<br/>
+objForm.Email.validateEmail();
+</CODE></BLOCKQUOTE>
+
+<P>This would require a value in the the "Email" field as well as run the validation rule
+to ensure the field appears to contain a valid e-mail address any time the user tries
+to remove focus from the field, or the user tries to submit the form.</P>
+
+<BLOCKQUOTE><B>Tip:</B> You can forceValidation on multiple fields by using
+the <A HREF="./objects_qform.htm#forceValidation">forceValidation()</A> method.</BLOCKQUOTE>
+
+<P><A NAME="Creating"><B>Creating Custom Validation</B></A><br/>
+Knowing the importance of validating data, we also knew that creating custom validation
+methods would have to be quick and easy. The qForms API does this using two means:
+the <A HREF="./objects_field.htm#validateExp">validateExp()</A> method and the
+<A HREF="./core_functions.htm#_addValidator">_addValidator()</A> function.</P>
+
+<P>The <A HREF="./objects_field.htm#validateExp">validateExp()</A> method is designed
+as a way to do simple validations. It's designed to allow you to quickly create rules
+such as: making sure a field is greater then zero. You could do that by using something
+like the following:</P>
+
+<BLOCKQUOTE><CODE>objForm.Qty.validateExp("parseInt(this.value) &lt; 1");</CODE></BLOCKQUOTE>
+
+<P>This ensures that the "Qty" field contains a postive integer greater than zero. (If
+the condition returns <B>true</B>, than an error is thrown, otherwise no error
+occurs.)</P>
+
+<P>For more complex validation rules, or to create your own validation libraries, you'll
+want to use the <A HREF="./core_functions.htm#_addValidator">_addValidator()</A> function.
+In order to use the _addValidator() function, you'll first need to know a few things about
+how to create validation functions.</P>
+
+<P>Before using the _addValidator() function, you'll first need to create a function that
+contain the validation rules you wish to enforce. When creating these functions, there's
+two things to keep in mind.</P>
+
+<P>First, you'll have access to a special variable called "<B>this</B>"&#151;which is a
+direct pointer to the field that the validation rule was attached to. For those of you who've
+created a constructor before, this variable will look very familiar to you. So, to retrieve
+the value of the field that the rule was attached to, you'd use <CODE><B>this</B>.getValue()</CODE>.</P>
+
+<P>The second thing you need to know is: validation rules have two special properties
+available to them, the "<B>this</B>.value" and the "<B>this</B>.error" properties. The <B>this</B>.value
+property will contain a copy of the value as returned by the this.getValue() method
+as soon as the validation method is invoked. The <B>this</B>.error property is used to
+fail a validation rule if it doesn't meet your specified conditions. In order to fail
+a validation rule, simply populate the this.error property with the error message that
+should appear to the user. If the <B>this</B>.error property is empty when the function
+ends, then validation rule will pass, and no error will be thrown. If the <B>this</B>.error
+property contains a string value, then the value will be displayed to the user and and
+the validation rule will fail.</P>
+
+<P>Let's create a quick little function that will check to make sure the current field's
+value is an integer greater than zero.</P>
+
+<BLOCKQUOTE><PRE>function __isPositiveInt(){
+  // check to make sure the current value is greater then zero
+  if( parseInt(this.value) < 1 ){
+    // here's the error message to display
+    this.error = "The " + this.description + " field must";
+    this.error += " contain an integer greater then zero.";
+  }
+}</PRE></BLOCKQUOTE>
+
+<P>The next thing we need to do is to register the our new function using the _addValidator()
+function. We do that using the following syntax:</P>
+
+<BLOCKQUOTE><CODE>_addValidator("isPositiveInt", __isPositiveInt);</CODE></BLOCKQUOTE>
+
+<P>The first parameter supplied is the name for our new validation method. From this,
+two new methods will be created: "validatePositiveInt()" and "isPositiveInt()". The
+second argument is the name of the function that was just created. This value should
+<B>not</B> be in quotes. Calling the isPositiveInt() method will return <B>true</B> if the
+field contains a positive integer value, and will return <B>false</B> if it doesn't. To
+attach the rule to a field, we'd simply do the following:</P>
+
+<BLOCKQUOTE><CODE>objForm.Qty.validatePositiveInt();</CODE></BLOCKQUOTE>
+
+<P>How easy was that? Take a look through the validation.js file to see how to create
+more complex validation rules.</P>
+
+<P><A NAME="ErrorMessages"><B>Custom Error Messages</B></A><br/>
+The _addValidator() function automatically appends a special argument to your function
+for specifying custom error messages. This is useful for displaying specific errors
+that better represent your form then the default error message, or simply for those
+times when the default error message just doesn't make sense.</P>
+
+<P>Since this argument is created automatically for you, it's important to note that
+is appended to the end of any arguments of the original function. So, if the original
+function attached via the _addValidator() had zero arguments, the errorMsg argument
+would be the first argument in the validator methods. If the function had 3 arguments,
+then the errorMsg argument would be the forth argument. For example to add a custom
+validation error to the "Email" field, use the following:</P>
+
+<BLOCKQUOTE><CODE>objForm.Email.validateEmail("Please enter your e-mail address.");</CODE></BLOCKQUOTE>
+
+<P>Or, if the function requires or has optional arguments, your code might look like
+the following:</P>
+
+<BLOCKQUOTE><CODE>objForm.MonthBorn.validateRange(1, 12, "The month you were born in must be a valid integer between 1 and 12.");</CODE></BLOCKQUOTE>
+
+<BLOCKQUOTE><B>Note:</B> It's important to remember that providing a custom validation error
+message to a field will not affect the message that's displayed if the field is required.</BLOCKQUOTE>
+
+
+<P ALIGN="Center">
+	[<A HREF="./using.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./coreapi.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

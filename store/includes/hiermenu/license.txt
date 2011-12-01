@@ -1,0 +1,20 @@
+The accompanying Original Work is provided under the terms of this license ("agreement"). Any use of the Original Work constitutes recipient's acceptance of this agreement.
+
+1) Grant of Copyright License. 
+Licensor hereby grants You a license to do the following:
+You can USE, COPY, MODIFY, CREATE DERIVATIVE WORKS OF, PUBLICLY DISPLAY AND PUBLICLY PERFORM the Original Work SO LONG AS YOU DO NOT DISTRIBUTE the Original Work, modified or unmodified
+
+2) Warranty of Provenance and Disclaimer of Warranty. 
+Licensor warrants that the copyright in and to the Original Work are owned by the Licensor or are sublicensed to You under the terms of this License with the permission of the contributor(s) of those copyrights. The Original Work is provided under this License on an "AS IS" BASIS and WITHOUT WARRANTY, either express or implied, including, without limitation, the warranties of NON-INFRINGEMENT, MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY OF THE ORIGINAL WORK IS WITH YOU. This DISCLAIMER OF WARRANTY constitutes an essential part of this License. No license to Original Work is granted hereunder except under this disclaimer. 
+
+3) Limitation of Liability. 
+Under no circumstances and under no legal theory, whether in tort (including negligence), contract, or otherwise, shall the Licensor be liable to any person for any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or the use of the Original Work including, without limitation, damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses. Some jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so this exclusion and limitation may not apply to You. 
+
+4) Jurisdiction, Venue and Governing Law. 
+Any action or suit relating to this License may be brought only in the courts of a jurisdiction wherein the Licensor resides or in which Licensor conducts its primary business, and under the laws of that jurisdiction excluding its conflict-of-law provisions. The application of the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded. Any use of the Original Work outside the scope of this License or after its termination shall be subject to the requirements and penalties of the U.S. Copyright Act, 17 U.S.C. § 101 et seq., the equivalent laws of other countries, and international treaty. This section shall survive the termination of this License
+
+5) Miscellaneous. 
+This License represents the complete agreement concerning the subject matter hereof. If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable. 
+
+6) Definition of "You" in This License.
+"You" throughout this License, whether in upper or lower case, means an individual or a legal entity exercising rights under, and complying with all of the terms of, this License. For legal entities, "You" includes any entity that controls, is controlled by, or is under common control with you. For purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity. 

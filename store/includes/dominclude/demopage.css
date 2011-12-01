@@ -1,0 +1,44 @@
+		body{
+			background:#ccc;
+		}
+		#boundary{
+			width:480px;
+			margin:0 auto;
+			padding:2em 20px;
+			background:#fff;
+		}
+		p.cite{
+			text-align:right;
+		}
+		#boundary .breakout{
+			padding:.5em 0;
+			margin:1em 0;
+			list-style:square;
+			background:#ccf;
+			border:1px solid #666;
+			border-left:none;
+			border-right:none;
+		}
+		blockquote{
+			font-style:italic;
+			padding:.5em 0;
+		}
+		 a:link,
+		a:visited,
+		a:hover,
+		a:active
+		{
+			color:#369;
+		}
+		h2{font-size:1.1em;color:#336;padding:.5em 0}
+		ol{
+			margin-left:1.5em;
+		}
+		ol li{
+			padding:.2em 0;
+		}
+		.breakout li{
+			margin:0 1.5em;
+			padding:.2em 0;
+		}
+		p,li{line-height:1.3em;}

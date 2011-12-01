@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Bits Extension Methods Library</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Bits Extension Methods Library</B></P>
+
+<P>The "bits" extension library works with "checkbox" and "select box" elements
+that share the same name. When the browser detects these types of fields, it treats
+the elements in the field as an array. The "Bit Library" by default assumes that
+the elements are worth 2 ^ x (where x is the current element array position.)</P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor.
+<B><I>fieldName</I></B> signifies the form field element that you want
+to perform the action on. Arguments in bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="getBits"><B><I>obj.fieldName</I>.getBits([boolean useValue])</B></A></DT>
+	<DD>
+		The getBits method will return the sum of all bits currently selected. The getBits()
+		method only works on checkbox fields with the same field name or with multi-select boxes.
+
+		<P>The useValue argument is an optional argument used to specify whether or not to use
+		the actual form field's value or to calculate the value based upon the position in the
+		array the item falls in. If set to <B>true</B>, then the value of the form element is used when
+		calculate the integer that represents the binary number. If set to <B>false</B>, then the value
+		of each element checked, will be calculated based upon it's position in the array.
+		(2 ^ x, where x equals the position in the array.)
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="setBits"><B><I>obj.fieldName</I>.setBits(int value, [boolean useValue])</B></A></DT>
+	<DD>
+		The setBits() method only works on checkbox fields with the same field name or with multi-select
+		boxes.
+
+		<P>The value argument is a required parameter which indicates the value that should be
+		applied to the bit field.
+
+		<P>The useValue argument is an optional argument used to specify whether or not to use the
+		actual form field's value or to calculate the value based upon the position in the array
+		the item falls in. If set to <B>true</B>, then the value of the form element is used when determining
+		whether the value should be marked on. If set to <B>false</B>, then the value of each element checked,
+		will be calculated based upon it's position in the array. (2 ^ x, where x equals the position
+		in the array.)
+	</DD>
+</DL>
+
+<P ALIGN="Center">
+	[<A HREF="./bonus_extensions.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./bonus_cookies.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

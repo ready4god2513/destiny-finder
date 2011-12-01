@@ -1,0 +1,91 @@
+/* Main container for whole menu */
+div.tmtHierbar {
+	float: left;
+	width: auto;
+}
+
+/* Main list inside tmtHierbar */
+div.tmtHierbar ul {
+	background: #B9D2FF;
+	border: 1px;
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-top-width: 0px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Links, all levels */
+div.tmtHierbar li a,
+div.tmtHierbar li a:link
+div.tmtHierbar li a:visited {
+	background-color: #628BFF;
+	border: 1px;
+	border-bottom-color: #002AA2;
+	border-left-color: #DDE7FF;
+	border-right-color: #002AA2;
+	border-style: solid;
+	border-top-color: #DDE7FF;
+	color: #DFE6F5;
+	display: block;
+	font-weight: bold;
+	padding-bottom: 0.25em;
+	padding-left: 0.5em;
+	padding-right: 0em;
+	padding-top: 0.25em;
+	text-decoration: none;
+	width: 8.5em;
+}
+
+/* Links second and third level */
+div.tmtHierbar ul li.tmtHiermenu ul li a,
+div.tmtHierbar ul li.tmtHiermenu ul li a:link
+div.tmtHierbar ul li.tmtHiermenu ul li a:visited {
+	background-color: #A6C6FF;
+	color: #00008B;
+	font-weight: normal;
+}
+
+/* Links, second and third level, hover */
+div.tmtHierbar ul li.tmtHiermenu ul li a:hover {
+	background-color: #DFE6F5;
+	color: #00008B;
+}
+
+/* First level */
+div.tmtHierbar li {
+	float: left;
+	line-height: 1em;
+	list-style: none;
+	margin: 0;
+	position: relative;
+	width: 9em;
+}
+
+/* Both second and third level */
+div.tmtHierbar ul li.tmtHiermenu ul {
+	display: none;
+	left: -1px;
+	position: absolute;
+	top: 1.6em;
+	width: 9em;
+}
+
+/* Third level */
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu ul{
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-top: 1px;
+	display: none;
+	left: 9em;
+	top: -1px;
+}
+
+/*
+Show second and third level items on hover
+IE doesn't understand this, but the Javascript code will takes care of it
+*/
+div.tmtHierbar ul li.tmtHiermenu:hover ul,
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu:hover ul{
+	display: block;
+}

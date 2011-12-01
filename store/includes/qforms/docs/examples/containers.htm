@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: Containers</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// this loads all the default libraries
+	qFormAPI.include("*");
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Containers</B><br/>
+This examples illustrates the concept of "Containers." Containers are special
+types of select boxes in which every item in the select box is part of the value.
+Notice how when the "Debug" button is clicked, any item in the "Members" select
+box will be included with the value. Also, when the form is submitted, the value
+returned to the server will include all the items in the select box. This example
+also demonstrates the "transferTo()" and "transferFrom()" methods.</P>
+
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample">
+<P ALIGN="Center"><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR>
+	<TD ALIGN="Left" VALIGN="Top">
+		<B>Available Users:</B><br/>
+		<SELECT NAME="Users" SIZE="8" MULTIPLE STYLE="width: 250px;" onDblClick="objForm.Users.transferTo('Members');">
+			<OPTION VALUE="1">Dan Switzer, II</OPTION>
+			<OPTION VALUE="2">Bob Odenkirk</OPTION>
+			<OPTION VALUE="3">David Cross</OPTION>
+			<OPTION VALUE="4">Jack Black</OPTION>
+			<OPTION VALUE="5">Kyle Gass</OPTION>
+			<OPTION VALUE="6">John Ennis</OPTION>
+			<OPTION VALUE="7">Tom Kenny</OPTION>
+			<OPTION VALUE="8">Jill Talley</OPTION>
+			<OPTION VALUE="9">Jay Johnston</OPTION>
+			<OPTION VALUE="10">Karen Kilgariff</OPTION>
+			<OPTION VALUE="11">Jerry Minor</OPTION>
+			<OPTION VALUE="12">Brett Paesel</OPTION>
+			<OPTION VALUE="13">Brian Posehn</OPTION>
+			<OPTION VALUE="14">Mary Lynn Rajskub</OPTION>
+			<OPTION VALUE="15">Paul F. Tompkins</OPTION>
+		</SELECT>
+	</TD>
+	<TD WIDTH="50" ALIGN="Center" VALIGN="Middle">
+		<INPUT TYPE="Button" VALUE="&gt;&gt;" onclick="objForm.Users.transferTo('Members', true, 'all');" STYLE="width: 30px;"><br/>
+		<INPUT TYPE="Button" VALUE="&gt;" onclick="objForm.Users.transferTo('Members');" STYLE="width: 30px;"><br/>
+		<br/>
+		<INPUT TYPE="Button" VALUE="&lt;" onclick="objForm.Users.transferFrom('Members');" STYLE="width: 30px;"><br/>
+		<INPUT TYPE="Button" VALUE="&lt;&lt;" onclick="objForm.Users.transferFrom('Members', true, 'all');" STYLE="width: 30px;"><br/>
+	</TD>
+	<TD ALIGN="Left" VALIGN="Top">
+		<B>Group Members:</B><br/>
+		<SELECT NAME="Members" SIZE="8" MULTIPLE STYLE="width: 250px;" onDblClick="objForm.Users.transferFrom('Members');">
+		</SELECT>
+	</TD>
+	<TD WIDTH="50" ALIGN="Center" VALIGN="Middle">
+		<INPUT TYPE="Button" VALUE="/\" onclick="objForm.Members.moveUp();" STYLE="width: 30px;"><br/>
+		<INPUT TYPE="Button" VALUE="\/" onclick="objForm.Members.moveDown();" STYLE="width: 30px;"><br/>
+	</TD>
+</TR>
+<TR><TD COLSPAN="4" ALIGN="Center">
+	<br/>
+	<INPUT TYPE="Submit" VALUE="Submit">
+	<INPUT TYPE="Button" VALUE="Form Dump" onclick="objForm.dump();">
+	<INPUT TYPE="Button" VALUE="Reset" onclick="objForm.reset();">
+</TD></TR>
+</TABLE></P>
+
+</FORM>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+
+<script language="JavaScript">
+<!--//
+// initialize the qForm object
+objForm = new qForm("frmExample");
+
+// make the User field a container, this will ensure that the "reset()"
+// method will restore the values in the select box, even if they've
+// been removed from the select box
+objForm.Users.makeContainer();
+// setting the "dummyContainer" property to false will ensure that no values
+// from this container are included with the value
+objForm.Users.dummyContainer = true;
+
+// make the "Members" field a container--every item in the "Members" select box
+// will be part of the container, even if the item isn't selected.
+objForm.Members.makeContainer();
+//-->
+</script>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

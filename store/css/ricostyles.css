@@ -1,0 +1,27 @@
+
+div.multiSelect {
+	width: 250px;
+	height:120px;
+  	overflow:auto;
+			border:1px solid #000;
+			border-color:#7F9DB9;
+	position:relative;
+	font-size:14px;
+}
+
+div.multiSelect label {
+	display:block;
+}
+
+div.multiSelect label span {
+}		
+
+div.multiSelect label.disabled {
+	color:#D7B899;
+}		
+
+div.multiSelect label.selected {
+	background-color:#316AC5;				
+	color:#ffffff;
+}	
+

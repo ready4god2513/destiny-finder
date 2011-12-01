@@ -1,0 +1,614 @@
+
+/*** HTML STYLES ************************************************/
+
+/* Set the default font and page margin here. Do not set colors here.*/
+BODY {
+	MARGIN: 5px 5px;
+	font-family : Arial, Helvetica, sans-serif;
+	font-size : 12px;
+}
+
+/* Style for links */
+A:link {
+	text-decoration: none;
+}
+A:visited {
+	text-decoration: none;
+} 
+A:hover {
+	background-color : #F0F0F0;
+}
+
+/* Style for lines. */
+div.thickline {
+	height: 2px;
+	margin-bottom : 2px;
+	margin-top : 2px;
+	border: none; 
+}
+div.thickline hr {
+  display: none;
+}
+
+div.thinline {
+	height : 1px;
+	margin-bottom : 2px;
+	margin-top : 2px;
+	border: none; 
+}
+div.thinline hr {
+  display: none;
+}
+
+/* Style for page breaks when printing */
+P.pageEnd {page-break-before: always}
+
+
+
+/*** GENERAL PAGE LAYOUT ****************************************/
+/* Your Main Site Name. */
+#siteName {
+	font-size: 24px;
+	line-height: 35px;
+	margin-left: 5px;
+}
+
+.storewideDiscount {
+	font-size: 14px;
+	color: purple;
+}
+
+#basketStats {
+	font-size: 11px;
+}
+
+
+
+/* This is the default font for the entire page body */
+.mainpage {
+	font-size : 12px;
+}
+
+/* This is a smaller text used for the wishlist, etc. */
+.smalltext {
+	font-size : 9px;
+}
+
+
+/* Header is a large separating bar used for "What's New" and 
+'Product of the Day'. It uses the Highlight Box (Order Box) Title Bar
+colors. */
+.header {
+	FONT-SIZE: 14px;
+	font-weight : bolder;
+	background-color: gray;
+	color: white; 
+}
+
+/* Highlight and Input Form box title bars. */
+.BoxTitle {
+	FONT-SIZE: 16px;  
+	font-weight: bold;
+}
+/* Used primarily in Hightlight boxes. */
+.BoxText {
+	FONT-SIZE: 13px;  
+}
+
+/* Sections separate sections on listings and detail pages like the
+'more images' and 'customer reviews' sections of the product page. */
+.section_title {
+	font-size: 12px;
+	font-weight: bold;
+	color : Maroon;
+}
+
+/* Used for listing and detail page navigation links like the 'Sort by' links
+on listing pages and 'next | back' links at the bottom of detail pages.*/
+.section_footer {
+	font-size: 11px;
+	color : Maroon;
+}
+A.section_footer {
+	text-decoration : none;
+}
+
+.caution {
+	COLOR: #ff6600; FONT-SIZE: 12px; FONT-WEIGHT: 700
+}
+
+
+
+
+/*** CATEGORY & PAGES ****************************************/
+
+/* Page Title - only 1 title per page: category, feature, page, product */
+H1 {
+	font-family:  Arial, Helvetica, sans-serif;
+	font-size: 28px;
+	FONT-WEIGHT: normal;
+	margin: 0px;
+	color: RED;
+}
+H1.page {
+	font-size: 28px;
+}
+H1.category {
+	font-size: 26px;
+}
+H1.feature {
+	font-size: 26px;
+}
+H1.product {
+	font-size: 20px;
+}
+
+/* Page SubTitles - Category Teaser Listings: category, feature, page, product */
+H2 {
+	font-size: 16px;
+	FONT-WEIGHT: bold;
+	margin: 0px;
+	color: Green;
+}
+
+/* Teaser Lists: category, feature, page, product */
+H3 {
+	font-size:	12px;
+	font-weight: bold;
+	text-decoration: underline;
+	color: navy;
+	margin: 0px;	
+}
+H3.product {
+	text-decoration: none;
+}
+
+.cat_text_large {
+	font-size: 14px;
+}
+.cat_text_featured {
+	font-size: 14px;
+}
+.cat_text_small {
+	font-size: 13px;
+}
+.cat_text_list {
+	font-size: 12px;
+}
+
+
+/*** FEATURE DETAIL ****************************************/
+.FeatureTeaser {
+	font-size : 16px;
+}
+.FeatureByline {
+	font-size : 12px;
+	font-style : italic;
+}
+.Feature_Type {
+	font-size : 9px;
+	font-style : Verdana,Arial, Helvetica, sans-serif;
+	color : #FF3300;
+}
+
+/*** PRODUCT DETAIL ****************************************/
+/* Style for Product SKU, number in stock, etc. */
+.prodSKU {
+	font-size : 11px;
+	color : #666666;
+}
+
+/* Product price line */
+.prodprice {
+	font-size : 11px;
+	color: blue;
+}
+
+/* Product price emphasized words: 'Our Price' */
+.prodprice2 {
+	font-size : 12px;
+	font-weight: bold;
+	color: maroon;
+}
+
+/* Product discount line */
+.proddisc {
+	font-size : 12px;
+	color : maroon;
+}
+
+/* Large image on product detail page. */
+.listingimg {
+	margin-right : 10px;
+}
+
+.moreimg {
+	border-style : solid;
+	border-width : 1px;
+	border-color : Silver;
+	padding : 10px;
+	background-color: white;
+}
+
+/* 'More Image' gallery on product detail page. */
+.gallery_img {
+	border-style : solid;
+	border-color : Silver;
+	margin-right : 3px;
+	border-width : 1px;
+}
+/* 'More Image' gallery detail caption. */
+.photocaption {
+	COLOR: white; FONT-SIZE: 11px; 
+}
+
+
+/*** WISH LIST DETAIL *************************************/
+
+/* The delete and update buttons for Wish List product listings */
+.WishButton {
+	BORDER-RIGHT: 1px outset;
+	BORDER-TOP: 1px outset;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: 1px outset;
+	COLOR: white;
+	BORDER-BOTTOM: 1px outset;
+	BACKGROUND-COLOR: #999999;
+	text-align : center;
+}
+
+
+/*** SHOPPING CART ****************************************/
+/* Product name, prices, etc. */
+.carttext {
+	font-size : 11px;
+}
+/* Sku and options listed under product name*/
+.smallcarttext {
+	font-size : 10px;
+}
+
+
+/*** INPUT FORMS ******************************************/
+/* Titles separating sections of a form (this is NOT the Box Title)*/
+.formtitle {
+	FONT-SIZE: 14px;
+	font-weight : bold;
+}
+
+/* Appears at top of form if page returns an error */
+.formerror {
+	FONT-SIZE: 12px;
+	color : Red;
+}
+
+/* Used in the login box ('user name not found', etc.) */
+.formerrorsmall {
+	FONT-SIZE: 10px;
+	color : Red;
+}
+
+/* Form field names '*/
+.formtext {
+	FONT-SIZE: 12px;
+}
+/* Instructions below form fields '*/
+.formtextsmall {
+	FONT-SIZE: 10px; 
+}
+
+/* Used in the login box for 'name' and 'password'*/
+.FormTextVerySmall {
+	FONT-SIZE: 9px;
+	COLOR: gray;
+}
+
+.formfield {
+	BACKGROUND-COLOR: #fbfbfb;
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-LEFT: #999999 1px solid;
+	BORDER-RIGHT: #999999 1px solid;
+	BORDER-TOP: #999999 1px solid;
+	COLOR: #003163;
+	FONT-SIZE: 12px;
+}
+.formfieldselect {
+	FONT-SIZE: 12px;
+	COLOR: #003163;
+}
+/* The form fields for the login box have width set as well */
+.formfieldlogin {
+	BORDER-RIGHT: #cccccc 1px solid;
+	BORDER-TOP: #cccccc 1px solid;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: #cccccc 1px solid;
+	COLOR: #101F74;
+	BORDER-BOTTOM: #cccccc 1px solid;
+	width : 120px;
+}
+
+.formfieldcheckbox {
+	FONT-SIZE: 10px;
+	COLOR: #cccccc;
+}
+
+/* HTML form submit buttons */
+.formbutton {
+	BORDER-RIGHT: 1px outset;
+	BORDER-TOP: 1px outset;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	BORDER-LEFT: 1px outset;
+	COLOR: white;
+	BORDER-BOTTOM: 1px outset;
+	BACKGROUND-COLOR: #999999;
+	text-align : center;
+}
+A.formbutton:visited {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	COLOR: #dddddd;
+	BACKGROUND-COLOR: #999999;
+	TEXT-DECORATION: none;
+}
+A.formbutton:hover {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 11px;
+	COLOR: white;
+	BACKGROUND-COLOR: #666666;
+	TEXT-DECORATION: none;
+}
+
+
+
+/* Simple Search Field */
+#searchbox {
+}
+#searchbox .formfield {
+	width: 130px;
+	FONT-SIZE: 11px;
+}
+
+/*** LISTING RECORDS ******************************************/
+/* Query Description line */
+.ResultHead {
+	FONT-SIZE: 16px;
+}
+
+/* Result table title row */
+.listingHead {
+	FONT-SIZE: 12px; 
+	TEXT-DECORATION: none;
+}
+/* Result table smaller font */
+.ListingSmall {
+	font-size:	10px;
+}
+.listingTitle {
+	FONT-SIZE: 14px;
+	TEXT-DECORATION: none;
+	font-weight : bold;
+}
+A.listingTitle:link {
+	FONT-SIZE: 14px;  TEXT-DECORATION: none
+}
+A.listingTitle:visited {
+	FONT-SIZE: 14px;  TEXT-DECORATION: none
+	}
+A.listingTitle:hover {
+	FONT-SIZE: 14px; ; TEXT-DECORATION: underline
+	}
+	
+.listingsubtitle {
+	FONT-SIZE: 12px; FONT-STYLE: italic;  
+}
+.listingtext {
+	FONT-SIZE: 12px; 
+}
+.listingsubtext {
+	FONT-SIZE: 12px;  
+}
+.listingtagline {
+	FONT-SIZE: 12px; 
+}
+
+
+/*** ALPHA MENU (SITEMAP) *************************************************/
+A.alphaon:link {
+	 FONT-SIZE: 13px; TEXT-DECORATION: none ; Font-Weight: Bold;
+}
+A.alphaon:visited {
+	FONT-SIZE: 13px; TEXT-DECORATION: none; Font-Weight: Bold;
+}
+A.alphaon:hover {
+	FONT-SIZE: 13px;
+	TEXT-DECORATION: none;
+	Font-Weight: Bold;
+	background-color : #F0F0F0;
+}
+A.alphaoff:link {
+	 FONT-SIZE: 9px; TEXT-DECORATION: none
+}
+A.alphaoff:visited {
+	FONT-SIZE: 9px;  TEXT-DECORATION: none
+}
+A.alphaoff:hover {
+	FONT-SIZE: 9px;
+	TEXT-DECORATION: none;
+	background-color : #F0F0F0;
+}
+
+
+/*** MENUS ******************************************/
+/* Breadcrumb Trail Menu */
+/* The Breadcrumb Trail DIV and non-link text */
+#menu_trail {
+	font-size: 12px;
+	text-decoration : none;
+	COLOR: gray;
+}
+#menu_trail a {
+	COLOR: gray;
+}
+
+.menu_page {
+	font-size: 12px;
+	COLOR: gray;
+}
+a.menu_page
+{
+	font-size: 12px;
+}
+
+.menu_page2 {
+	font-size: 10px;
+	COLOR: #808080;
+}
+a.menu_page2
+{
+	font-size: 10px;
+	COLOR: #808080;
+}
+
+.menu_page_title {
+	font-size: 12px;
+	COLOR: gray;
+	FONT-WEIGHT: bold;
+}
+
+a.menu_page_title
+{
+	font-size: 12px;
+	COLOR: gray;
+	FONT-WEIGHT: bold;
+}
+
+
+.menu_trail {
+	font-size: 12px;
+	text-decoration : none;
+	COLOR: #808080;
+}
+a.menu_trail
+{
+	font-size: 12px;
+
+}
+
+.menu_footer {
+	font-size: 10px;
+	text-decoration : none;
+	color : Gray;
+}
+a.menu_footer
+{
+	
+}
+
+
+
+/* Admin Menu Links */
+.menu_admin {
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 8px;
+	COLOR: #DAA520;
+	TEXT-DECORATION: none
+}
+A.menu_admin{
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 8px;
+	COLOR: #DAA520;
+	TEXT-DECORATION: none
+}
+
+
+
+/*** TAB MENUS IN ADMIN ******************************************/
+TD.TopTierHeader {
+}
+.TopTierHeader {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; 
+}
+
+A.TopTierHeader:link {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif;  TEXT-DECORATION: none
+}
+A.TopTierHeader:visited {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif;  TEXT-DECORATION: none
+}
+A.TopTierHeader:hover {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 12px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; TEXT-DECORATION: underline
+}
+
+
+/* ----- top tier is tabs; TD produces height ---------------------------------*/
+TD.TopTierNav {
+	FONT-WEIGHT: bold; FONT-SIZE: 17px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.TopTierNav {
+	FONT-WEIGHT: bold; FONT-SIZE: 11px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.TopTierNav:link {
+	 FONT-SIZE: 11px; FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none
+}
+A.TopTierNav:visited {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none
+}
+A.TopTierNav:hover {
+	FONT-SIZE: 11px;
+	FONT-FAMILY: verdana,arial,sans serif;
+	TEXT-DECORATION: none;
+	background-color : transparent;
+}
+
+/* ----- the sub tier is for sort  ---------------------------------*/
+.SubTierNav {
+	FONT-SIZE: 11px;  FONT-FAMILY: Verdana, Geneva, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A.SubTierNav:link {
+	 FONT-SIZE: 11px; FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none
+}
+A.SubTierNav:visited {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none
+}
+A.SubTierNav:hover {
+	FONT-SIZE: 11px;
+	FONT-FAMILY: verdana,arial,sans serif;
+	TEXT-DECORATION: none;
+	background-color : transparent;
+}
+
+
+/* ---------- Styles for Tracking Page --------------------- */
+
+th.track {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; Font-Weight: Bold;
+	background-color : #B6B6B6;
+}
+
+td.trackbold {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; Font-Weight: Bold;
+}
+
+td.track {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; 
+}
+
+td.track0 {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; 
+	background-color : #F0F0F0;
+}
+
+td.track1 {
+	FONT-SIZE: 11px;  FONT-FAMILY: verdana,arial,sans serif; TEXT-DECORATION: none; 
+	background-color : #FFFFFF;
+}
+
+
+/* ---------- Styles for Gift Registry Printing --------------------- */
+.printregistry {
+	border: 2px solid #000000;
+	FONT-SIZE: 14px;
+	font-family : Arial, Helvetica, sans-serif;
+}

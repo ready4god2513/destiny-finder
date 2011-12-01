@@ -1,0 +1,16 @@
+<cfmodule template="customtags/item_listing.cfm"
+	table_name="Gift_Types"
+	select_columns="gift_type_id,gift_type_name"
+	primary_key="gift_id"
+	title_column="gift_type_name"
+	order_by="gift_type_id"
+	sortable="no"
+	item_prefix="gift"
+	listing_title="Gift Types"
+	column_headings="Name"
+	add_new_link="gift_type_listing.cfm?gift_id=new"
+	item_page="gift_listing.cfm"
+	column_details="<a href=""gift_listing.cfm?gift_type_id=##qItems.gift_type_id##"" style=""cursor:hand;""><img src=""images/edit.gif"" />&nbsp;##qItems.gift_type_name##</a>"
+	column_widths="470"
+>
+

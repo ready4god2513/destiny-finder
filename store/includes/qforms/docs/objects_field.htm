@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: "Field" Objects</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">"Field" Objects</B></P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor.
+<B><I>fieldName</I></B> signifies the form field element that you want
+to perform the action on. Arguments in bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Properties"><B>Properties</B></A><br/>
+<DL>
+	<DT><A NAME="dependencies"><B><I>obj.fieldName</I>._queue.dependencies</B></A></DT>
+	<DD>
+		The dependencies property is an array containing all of the dependency events that need
+		to be processed. Dependencies are used to create a relationship between fields. (For
+		example: <CODE>objForm.LastName.createDependencyTo("FirstName")</CODE> says that the
+		field LastName is only required if the field FirstName is populated with a value.)
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validation"><B><I>obj.fieldName</I>._queue.validation</B></A></DT>
+	<DD>
+		The validation property is an array containing all of the validation events that need
+		to be processed during the onBlur event if the validate property is set to true. The
+		validation queue is generated automatically when the validate-style method is called.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="container"><B><I>obj.fieldName</I>.container</B></A></DT>
+	<DD>
+		The container property is special property for use with select box elements. If the
+		container property is set to <B>true</B> then all items in the select box are consider part
+		of the value&#151;not just the selected items, which is the default behavior for a form
+		field. If set to <B>false</B> then the select box is treated like a normal select box and
+		only the selected items are used to determine the value. The default value is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="defaultValue"><B><I>obj.fieldName</I>.defaultValue</B></A></DT>
+	<DD>
+		The defaultValue property is default value of the selected form field element.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="description"><B><I>obj.fieldName</I>.description</B></A></DT>
+	<DD>
+		The description property holds a description for the current field. By default the description
+		is equal to the lower case value of the field name. The description property can be set any
+		time after the qForms object has been initialized. This property is used to describe the
+		current form field for when the user has to be notified about an error.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="field"><B><I>obj.fieldName</I>.name</B></A></DT>
+	<DD>
+		The name property is name of the current form field element.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="lastValue"><B><I>obj.fieldName</I>.lastValue</B></A></DT>
+	<DD>
+		The lastValue property contains the previous value of the current form field element. If
+		the value has never been changed, then it will be equal to the defaultValue property.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="locked"><B><I>obj.fieldName</I>.locked</B></A></DT>
+	<DD>
+		The locked property is used to prevent a form field from being edited. Valid values
+		are <B>true</B> or <B>false</B>. When set to <B>true</B>, the elements is locked and cannot be edited.
+		When set to <B>false</B>, then the field is not locked.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="obj"><B><I>obj.fieldName</I>.obj</B></A></DT>
+	<DD>
+		The obj property contains a pointer to the physical form field element. This can be
+		used if you ever need to access unsupported methods or properties of the form field element.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="path"><B><I>obj.fieldName</I>.path</B></A></DT>
+	<DD>
+		The path property is a string representing the path to the current form field
+		element. (For example: <CODE>document.frmExample.Name</CODE>)
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="pointer"><B><I>obj.fieldName</I>.pointer</B></A></DT>
+	<DD>
+		The pointer property is a string containing the qFormAPI pointer.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="qForm"><B><I>obj.fieldName</I>.qForm</B></A></DT>
+	<DD>
+		The qForm property is a pointer to the qForm that the current Field object
+		current belongs too.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="required"><B><I>obj.fieldName</I>.required</B></A></DT>
+	<DD>
+		The required property defines whether or not a field is required in order for the form to
+		be submitted.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="requiredMessage"><B><I>obj.fieldName</I>.requiredMessage</B></A></DT>
+	<DD>
+		This allows you to override the default message that's presented
+		when a field is required (normally: "The " + <B><I>obj.fieldName</I>.description</B> + " field is required.")
+
+		<P>
+			<B>NOTE:</B> To insert quotes in the string, you must use
+			the string <code>\\\"</code>. This will properly escape the
+			quote for use in the string; otherwise a JS error may occur.
+			Example:
+		</P>
+		<P>
+			<code>
+				<B><I>obj.fieldName</I>.requiredMessage</B> = "This is a \\\"required\\\" message with quotes.";
+			</code>
+		</P>
+		<P>
+			This would display as:
+		</P>
+		<P>
+			<code>
+				This is a "required" message with quotes.
+			</code>
+		</P>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="type"><B><I>obj.fieldName</I>.type</B></A></DT>
+	<DD>
+		The type property defines the selected field element's type.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validate"><B><I>obj.fieldName</I>.validate</B></A></DT>
+	<DD>
+		The validate property defines whether or not a field should be validate when the focus
+		is removed from the form field element. This property is only used when the validation
+		methods are initialized, so this is a runtime only property. Once the validation method
+		has been initialized, the value of this property is no longer referenced.
+	</DD>
+</DL>
+
+<br/><br/>
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="addEvent"><B><I>obj.fieldName</I>.addEvent(string event, string command, [boolean append])</B></A></DT>
+	<DD>
+		The addEvent method will dynamically attach the specified command to the requested
+		field event.
+
+		<P>The event argument is the name of the event to attach the command to. This is a
+		required parameter.
+
+		<P>The command argument is JavaScript code to attach to the event.
+
+		<P>The append argument is an optional argument that accepts either the value <B>true</B> or
+		<B>false</B>. If <B>true</B>, then the command will be attached to the end of any existing instructions
+		already in the specified event. If <B>false</B>, then the event will be attached in front of any
+		other instructions. The default value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="allowFocus"><B><I>obj.fieldName</I>.allowFocus()</B></A></DT>
+	<DD>
+		The allowFocus method is run each time a form field receives focus. This method handles
+		several things. If the style on the form field has been changed due to a validation
+		error, the style change is undone. It also check to see if the field is locked, if
+		so, then an error message is displayed and focus is removed from the form field.
+
+		<P>If the field receives focus, then the obj.fieldName.onFocus() method is invoke,
+		along with any other commands attached to the event handler.</P>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="blur"><B><I>obj.fieldName</I>.blur()</B></A></DT>
+	<DD>
+		The blur method will put the remove focus from the selected form field element.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="checkIfLocked"><B><I>obj.fieldName</I>.checkIfLocked([boolean showMsg])</B></A></DT>
+	<DD>
+		The checkIfLocked method is called each time a form field receives focus. If the field is
+		locked, then by default a message is displayed to the user and focus is removed from the form
+		field.
+
+		<P>If parameter showMsg is optional and when set to <B>true</B> a message alerting the user to the
+		fact that field is disabled will appear and the focus will be removed from the form field.
+		If set to <B>false</B>, then no message will be displayed and <B>false</B> will be returned if the field
+		is locked and <B>true</B> will be returned if the field is unlocked. The default value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="checkForErrors"><B><I>obj.fieldName</I>.checkForErrors()</B></A></DT>
+	<DD>
+		The checkForErrors method is called each time a form field loses focus. If the field's
+		validate property is set to <B>true</B>, then any validation methods queued will be executed.
+		The first error that occurs will be thrown to the screen and the focus will be returned
+		to the form element. If no errors occur then onBlur event will continue normally.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="click"><B><I>obj.fieldName</I>.click()</B></A></DT>
+	<DD>
+		The click method will call the field's onclick event.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="disabled"><B><I>obj.fieldName</I>.disabled([boolean status])</B></A></DT>
+	<DD>
+		The disabled method will disable the selected form element. This will prevent the user from
+		being able to change the value of the element. If the browser supports the HTML 4 "disabled"
+		property, then the field is set to disabled, otherwise the custom qForm "locked" property is
+		used. This provides for a cross browser compatible method of disabling a form field.
+
+		<P>The status arguement is an optional argument which allows you to specify whether the
+		field should be disabled (<B>true</B>) or enabled (<B>false</B>.) By default, if no argument is given
+		the status of the form field's disabled status is toggled.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="focus"><B><I>obj.fieldName</I>.focus()</B></A></DT>
+	<DD>
+		The focus method will put the focus on the selected form field element.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="getValue"><B><I>obj.fieldName</I>.getValue()</B></A></DT>
+	<DD>
+		The getValue method will return the current value for the selected form field element.
+		The getValue method will return the current value of any form field element. If the
+		selected element can have multiple items selected or checked, then multiple values will
+		be comma delimited&#151;just as they would appear when submitted to the server.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="isDisabled"><B><I>obj.fieldName</I>.isDisabled()</B></A></DT>
+	<DD>
+		The isDisabled method returns <B>true</B> if the current field's "disabled" property or if the
+		form's "disabled" property is set to <B>true</B>, otherwise the method returns <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="isLocked"><B><I>obj.fieldName</I>.isLocked()</B></A></DT>
+	<DD>
+		The isLocked method returns <B>true</B> if the current field's "locked" property or if the
+		form's "locked" property is set to <B>true</B>, otherwise the method returns <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="onFocus"><B><I>obj.fieldName</I>.onFocus()</B></A></DT>
+	<DD>
+		The onFocus method is run each time the obj.fieldName.allowFocus() method is true.
+		You can attach your own function to this event which will be processed each time
+		a field receives focus.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="onSetValue"><B><I>obj.fieldName</I>.onSetValue()</B></A></DT>
+	<DD>
+		The onSetValue method is run each time the obj.fieldName.setValue() method is run. Use
+		this function to define a custom function to run for a specific field when the setValue
+		method is run.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="reset"><B><I>obj.fieldName</I>.reset()</B></A></DT>
+	<DD>
+		The reset method will reset the value of the current form field to its default value.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="select"><B><I>obj.fieldName</I>.select()</B></A></DT>
+	<DD>
+		The select method will select the text in a text or textarea form field.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="setValue"><B><I>obj.fieldName</I>.setValue(string value, [boolean reset], [boolean doEvents])</B></A></DT>
+	<DD>
+		The setValue method will set the selected form field's value equal to that of the
+		"value" argument. If you wish to completely wipe any value from the selected form field,
+		pass the value <B>null</B>. The setValue method will also trigger the onChange event
+		for the form field if the value was changed. The setValue method works for any form field element.
+
+		<BLOCKQUOTE><B>NOTE:</B> The setValue() simply configures each form field so that when
+		the information is sent back to the server, the value the server sees is equal to
+		"value" argument. For example, if you have series of checkboxes that share the same
+		name attribute, then qForms will compare the value attribute of each input tag
+		and set the "checked" property of the field to true if the value is the list
+		of values passed to the setValue() method.</BLOCKQUOTE>
+
+		<P>If the optional argument "reset" is set to <B>true</B>, then the current value will be
+		erased, and the value of the field will be replaced with the provided value. If set
+		to <B>false</B>, then the provided value will be appended to the current value. This works
+		only on form elements that can have multiple options selected or checked. The default
+		value is <B>true</B>.
+
+		<P>If the optional argument "doEvents" is set to <B>true</B>, then after the value for the
+		field is updated, the field's "onblur" and "onchange" event handlers will be executed. If set
+		to <B>false</B> the event will not be executed. The default value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="throwError"><B><I>obj.fieldName</I>.throwError(string error)</B></A></DT>
+	<DD>
+		The throwError method is used to generated a validation error when the form is submitted.
+		If the error parameter is a valid string, then that message will be added to the
+		obj._queue.error array, which is displayed if any errors occurred when the obj.validate()
+		was called.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="triggerEvent"><B><I>obj.fieldName</I>.triggerEvent(string event)</B></A></DT>
+	<DD>
+		The triggerEvent method is used to trigger one of the form fields event. The string
+		argument is required and should be equal a valid event for the field.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateExp"><B><I>obj.fieldName</I>.validateExp(string expression, [string error], [string command])</B></A></DT>
+	<DD>
+		The validateExp method is used to create simple expression validation. You can use the
+		validateExp() method easily verify that a particular field is equal to a certain value,
+		or to make sure that a field contains at least X number of characters. The validateExp()
+		behaves just like all "validate" style validation methods.
+
+		<P>The expression argument is a required parameter and is the expression used to determine
+		whether or not to throw an error. An expression is any valid string that when evaluated
+		returns <B>true</B> or <B>false</B>. If the expression returns <B>true</B> an error
+		will be thrown. For example, the expression "<CODE>this.getValue().length > 4</CODE>" when
+		evaluate would return <B>true</B> if the value of the field was greater then 4 and <B>false</B> if was
+		less then or equal to 4.
+
+		<P>The error argument is the message to be displayed should the expression return <B>true</B>.
+		By default a generic message is displayed that tells you what field the error occurred in.
+
+		<P>The command argument is an optional parameter used to specify a command to append to
+		the validation method when it is called. This can be used to call another function or to
+		simply set the value of a variable.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./objects_qform.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./core_functions.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

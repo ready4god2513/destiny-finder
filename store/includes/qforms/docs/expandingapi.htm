@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Expanding The API</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Expanding The API</B></P>
+
+<P>One of the key features of qForms is its expandable architecture. qForms was designed to
+be easily expanded to meet specific needs of a project or just to fit your organziation.
+Expansion methods are creating by attaching new prototypes to the existing constructors. In
+order to do that, you'll need to know the name of each constructor and what it does.</P>
+
+<P><A NAME="qForm"><B>qForm Constructor</B></A><br/>
+The qForm constructor is used to create new qForm objects. You can add a new qForm prototype,
+with the following syntax:</P>
+
+<BLOCKQUOTE>
+<CODE>qForm.prototype.methodName = functionName;</CODE><br/>
+(Where <B>methodName</B> is the name of the new method and <B>functionName</B> is
+the name of the function to use.)
+</BLOCKQUOTE>
+
+<P><A NAME="Field"><B>Field Constructor</B></A><br/>
+The Field constructor is used to create new Field objects and is called automatically
+for each field in a form whenever the qForm constructor is called. You can add a new 
+Field prototype, with the following syntax:</P>
+
+<BLOCKQUOTE>
+<CODE>Field.prototype.methodName = functionName;</CODE><br/>
+(Where <B>methodName</B> is the name of the new method and <B>functionName</B> is
+the name of the function to use.)
+</BLOCKQUOTE>
+
+<P><A NAME="Creating"><B>Creating The Prototype Functions</B></A><br/>
+When creating functions to use as the new methods, you'll have access to a special
+object called "<B>this</B>". The <B>this</B> object is a pointer to the initialized
+constructor. For example, when creating a new method for the "Field" constructor,
+<B>this</B>.getValue() would return the value of the field the method was attached
+to. For example, to create a method will set the specified field to today's date,
+you'd use the following:</P>
+
+<BLOCKQUOTE><PRE>function __setToday(){
+  dToday = new Date();
+  var today = (dToday.getMonth() + 1) + "/";
+  today += dToday.getDate() + "/" + dToday.getYear();
+  this.setValue(today);
+}
+Field.prototype.setToday = __setToday;</PRE></BLOCKQUOTE>
+
+<P>We now have a new method we can use on our forms. For example, to set the field
+"Date" to today's date, we simple call our new setToday() method. For example:</P>
+
+<BLOCKQUOTE><CODE>objForm.Date.setToday();</CODE></BLOCKQUOTE>
+
+<P>The syntax we've used in this example for creating new prototypes is the 
+compatible with JavaScript v1.1. There is for those of you more familiar with
+JavaScript, you'll know there's a shortcut version which looks like:</P>
+
+<BLOCKQUOTE><PRE>Field.prototype.setToday = function (){
+  dToday = new Date();
+  var today = (dToday.getMonth() + 1) + "/";
+  today += dToday.getDate() + "/" + dToday.getYear();
+  this.setValue(today);
+}</PRE></BLOCKQUOTE>
+
+<P>However, this method only works in JavaScript v1.2 and higher. Methods created
+this way will cause JavaScript errors in Netscape v3.0. If compatibility with
+v3.0 browsers is not a requirement you need to stick to, then using this 
+syntax to create new methods will not cause any problems.</P>
+
+
+<P ALIGN="Center">
+	[<A HREF="./bonus_cookies.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./support.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: n-Related Select Boxes</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// this loads all the default libraries
+	qFormAPI.include("*");
+
+	// this is the default struct to use for the blank options to prefix
+	// when populating a select box
+	stcBlank = new Object();
+	stcBlank[""] = " ";
+	
+	// create a structure to store all the team information in
+	stcSports = new Object();
+	
+	/**********************************************************
+	 structure containing the NBA Teams
+	**********************************************************/
+	stcSports["nba"] = new Object();
+	stcSports["nba"]["east"] = "Eastern Conference";
+	stcSports["nba"]["west"] = "Western Conference";
+
+	// teams in the East
+	stcSports["nba,east"] = new Object();
+	stcSports["nba,east"]["atl"] = "Atlanta";
+	stcSports["nba,east"]["bos"] = "Boston";
+	stcSports["nba,east"]["cha"] = "Charlotte";
+	stcSports["nba,east"]["chi"] = "Chicago";
+	stcSports["nba,east"]["cle"] = "Cleveland";
+	stcSports["nba,east"]["det"] = "Detroit";
+	stcSports["nba,east"]["ind"] = "Indiana";
+	stcSports["nba,east"]["mia"] = "Miami";
+	stcSports["nba,east"]["mil"] = "Milwaukee";
+	stcSports["nba,east"]["njn"] = "New Jersey";
+	stcSports["nba,east"]["nyk"] = "New York";
+	stcSports["nba,east"]["orl"] = "Orlando";
+	stcSports["nba,east"]["phi"] = "Philadelphia";
+	stcSports["nba,east"]["tor"] = "Toronto";
+	stcSports["nba,east"]["was"] = "Washington";
+
+	// teams in the West
+	stcSports["nba,west"] = new Object();
+	stcSports["nba,west"]["dal"] = "Dallas";
+	stcSports["nba,west"]["den"] = "Denver";
+	stcSports["nba,west"]["gsw"] = "Golden State";
+	stcSports["nba,west"]["hou"] = "Houston";
+	stcSports["nba,west"]["lac"] = "LA Clippers";
+	stcSports["nba,west"]["lal"] = "LA Lakers";
+	stcSports["nba,west"]["van"] = "Memphis";
+	stcSports["nba,west"]["min"] = "Minnesota";
+	stcSports["nba,west"]["pho"] = "Phoenix";
+	stcSports["nba,west"]["por"] = "Portland";
+	stcSports["nba,west"]["sac"] = "Sacramento";
+	stcSports["nba,west"]["sas"] = "San Antonio";
+	stcSports["nba,west"]["sea"] = "Seattle";
+	stcSports["nba,west"]["uth"] = "Utah";
+	
+	/**********************************************************
+	 structure containing the NFL Teams
+	**********************************************************/
+	stcSports["nfl"] = new Object();
+	stcSports["nfl"]["afc"] = "American Football Conference";
+	stcSports["nfl"]["nfc"] = "National Football Conference";
+
+	// teams in the afc
+	stcSports["nfl,afc"] = new Object();
+	stcSports["nfl,afc"]["bal"] = "Baltimore";
+	stcSports["nfl,afc"]["buf"] = "Buffalo";
+	stcSports["nfl,afc"]["cin"] = "Cincinnati";
+	stcSports["nfl,afc"]["cle"] = "Cleveland";
+	stcSports["nfl,afc"]["den"] = "Denver";
+	stcSports["nfl,afc"]["ind"] = "Indianapolis";
+	stcSports["nfl,afc"]["jac"] = "Jacksonville";
+	stcSports["nfl,afc"]["kan"] = "Kansas City";
+	stcSports["nfl,afc"]["mia"] = "Miami";
+	stcSports["nfl,afc"]["nwe"] = "New England";
+	stcSports["nfl,afc"]["nyj"] = "NY Jets";
+	stcSports["nfl,afc"]["oak"] = "Oakland";
+	stcSports["nfl,afc"]["pit"] = "Pittsburgh";
+	stcSports["nfl,afc"]["sdg"] = "San Diego";
+	stcSports["nfl,afc"]["ten"] = "Tennessee";
+
+	// teams in the nfc
+	stcSports["nfl,nfc"] = new Object();
+	stcSports["nfl,nfc"]["ari"] = "Arizona";
+	stcSports["nfl,nfc"]["atl"] = "Atlanta";
+	stcSports["nfl,nfc"]["car"] = "Carolina";
+	stcSports["nfl,nfc"]["chi"] = "Chicago";
+	stcSports["nfl,nfc"]["dal"] = "Dallas";
+	stcSports["nfl,nfc"]["det"] = "Detroit";
+	stcSports["nfl,nfc"]["gnb"] = "Green Bay";
+	stcSports["nfl,nfc"]["min"] = "Minnesota";
+	stcSports["nfl,nfc"]["nor"] = "New Orleans";
+	stcSports["nfl,nfc"]["nyg"] = "NY Giants";
+	stcSports["nfl,nfc"]["phi"] = "Philadelphia";
+	stcSports["nfl,nfc"]["sfo"] = "San Francisco";
+	stcSports["nfl,nfc"]["sea"] = "Seattle";
+	stcSports["nfl,nfc"]["stl"] = "St. Louis";
+	stcSports["nfl,nfc"]["tam"] = "Tampa Bay";
+	stcSports["nfl,nfc"]["was"] = "Washington";
+	
+	/**********************************************************
+	 structure containing the MLS Teams
+	**********************************************************/
+	stcSports["mls"] = new Object();
+	stcSports["mls"]["east"] = "Eastern Division";
+	stcSports["mls"]["central"] = "Central Division";
+	stcSports["mls"]["west"] = "Western Division";
+
+	// teams in the East
+	stcSports["mls,east"] = new Object();
+	stcSports["mls,east"]["mia"] = "Miami";
+	stcSports["mls,east"]["nwy"] = "New York";
+	stcSports["mls,east"]["nwe"] = "New England";
+	stcSports["mls,east"]["was"] = "Washington DC";
+
+	// teams in the Central
+	stcSports["mls,central"] = new Object();
+	stcSports["mls,central"]["chi"] = "Chicago";
+	stcSports["mls,central"]["cob"] = "Columbus";
+	stcSports["mls,central"]["dal"] = "Dallas";
+	stcSports["mls,central"]["tam"] = "Tampa Bay";
+
+	// teams in the West
+	stcSports["mls,west"] = new Object();
+	stcSports["mls,west"]["col"] = "Colorado";
+	stcSports["mls,west"]["kas"] = "Kansas City";
+	stcSports["mls,west"]["los"] = "Los Angeles";
+	stcSports["mls,west"]["san"] = "San Jose";
+	
+	/**********************************************************
+	 structure containing the NHL Teams
+	**********************************************************/
+	stcSports["nhl"] = new Object();
+	stcSports["nhl"]["east"] = "Eastern Conference";
+	stcSports["nhl"]["west"] = "Western Conference";
+
+	// teams in the East
+	stcSports["nhl,east"] = new Object();
+	stcSports["nhl,east"]["atl"] = "Atlanta";
+	stcSports["nhl,east"]["bos"] = "Boston";
+	stcSports["nhl,east"]["buf"] = "Buffalo";
+	stcSports["nhl,east"]["car"] = "Carolina";
+	stcSports["nhl,east"]["fla"] = "Florida";
+	stcSports["nhl,east"]["mon"] = "Montreal";
+	stcSports["nhl,east"]["nyi"] = "NY Islanders";
+	stcSports["nhl,east"]["nyr"] = "NY Rangers";
+	stcSports["nhl,east"]["njd"] = "New Jersey";
+	stcSports["nhl,east"]["ott"] = "Ottawa";
+	stcSports["nhl,east"]["phi"] = "Philadelphia";
+	stcSports["nhl,east"]["pit"] = "Pittsburgh";
+	stcSports["nhl,east"]["tam"] = "Tampa Bay";
+	stcSports["nhl,east"]["tor"] = "Toronto";
+	stcSports["nhl,east"]["was"] = "Washington";
+
+	// teams in the West
+	stcSports["nhl,west"] = new Object();
+	stcSports["nhl,west"]["ana"] = "Anaheim";
+	stcSports["nhl,west"]["cgy"] = "Calgary";
+	stcSports["nhl,west"]["chi"] = "Chicago";
+	stcSports["nhl,west"]["col"] = "Colorado";
+	stcSports["nhl,west"]["cob"] = "Columbus";
+	stcSports["nhl,west"]["dal"] = "Dallas";
+	stcSports["nhl,west"]["det"] = "Detroit";
+	stcSports["nhl,west"]["edm"] = "Edmonton";
+	stcSports["nhl,west"]["los"] = "Los Angeles";
+	stcSports["nhl,west"]["min"] = "Minnesota";
+	stcSports["nhl,west"]["nas"] = "Nashville";
+	stcSports["nhl,west"]["pho"] = "Phoenix";
+	stcSports["nhl,west"]["san"] = "San Jose";
+	stcSports["nhl,west"]["stl"] = "St. Louis";
+	stcSports["nhl,west"]["van"] = "Vancouver";
+
+	
+	function init(){
+		// initialize the qForm object
+		objForm = new qForm("frmExample");
+		
+		// make these fields required
+		objForm.required("Sport,Division,Team");
+	}
+	
+	// this example shows how you could pre-populate the form
+	function setDefault(){
+		objForm.Sport.setValue("nfl");
+		objForm.Division.setValue("afc");
+		objForm.Team.setValue("pit");
+	}
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff" onload="init();">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">n-Related Select Boxes</B><br/>
+This is example shows how you can create related select boxes to the n<SUP>th</SUP> level.
+Because qForms is object orientated, the logic for creating 50 select boxes is pretty
+much the same as creating the logic for 2 select boxes. This example shows relating
+3 select boxes to each other.</P>
+
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample">
+
+<P><B>Select a US Professional Sport:</B><br/>
+<SELECT NAME="Sport" STYLE="width: 200px;" onChange="objForm.Division.populate(stcSports[objForm.Sport.getValue()], null, null, stcBlank);">
+	<OPTION VALUE=""></OPTION>
+	<OPTION VALUE="nba">National Basketball Association</OPTION>
+	<OPTION VALUE="nfl">National Football League</OPTION>
+	<OPTION VALUE="mls">Major League Soccer</OPTION>
+	<OPTION VALUE="nhl">National Hockey League</OPTION>
+</SELECT></P>
+
+<P><B>Select a division:</B><br/>
+<SELECT NAME="Division" STYLE="width: 200px;" onChange="objForm.Team.populate(stcSports[objForm.Sport.getValue() + ',' + objForm.Division.getValue()], null, null, stcBlank);">
+	<OPTION VALUE="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+</SELECT></P>
+
+<P><B>Select a team:</B><br/>
+<SELECT NAME="Team" STYLE="width: 200px;">
+	<!---// insert blank entries for Netscape //--->
+	<OPTION VALUE="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+	<OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION><OPTION VALUE=""></OPTION>
+</SELECT></P>
+
+<P>
+<INPUT TYPE="Submit" VALUE="Submit">
+<INPUT TYPE="Reset">
+<INPUT TYPE="Button" VALUE="Set Default" onclick="setDefault()">
+</P>
+
+</FORM>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

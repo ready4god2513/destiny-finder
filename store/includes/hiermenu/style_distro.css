@@ -1,0 +1,44 @@
+div.docBlock{
+	background-color: #FFC56C;
+	margin-bottom: 2em;
+	min-width: 600px;
+	padding: 0.8em;
+}
+
+div.docBlock h1, div.docBlock h3{
+	background-color: #FF9900;
+	font-size: 1.2em;
+	font-weight: normal;
+	margin-left: 1em;
+	margin-top: -1.5em;
+	padding: 0.3em;
+	white-space: nowrap;
+	width: 75%;
+}
+
+div.docBlock table{
+	background-color: #DDDDDD;
+	width: 100%;
+}
+
+div.docBlock td{
+	background-color: #BCBCBC;
+	vertical-align: top;
+}
+
+div.docBlock, h1, h3{
+	border: 1px;
+	border-color: #7C7C7C;
+	border-style: solid;
+}
+
+html, body {
+	background-color: #DDDDDD;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	margin: 1em;
+}
+
+td{
+	padding: 0.3em;
+}

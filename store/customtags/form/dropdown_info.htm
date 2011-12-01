@@ -1,0 +1,429 @@
+<HTML> 
+<HEAD><TITLE></TITLE></HEAD> 
+<BODY><B><FONT face=Arial size=5> 
+<IMG SRC="IADropdown.gif" WIDTH=300 HEIGHT=79 ALT="" BORDER="0"><br/>
+
+<P>CF_IADropdown</P>
+
+</B></FONT><I><FONT face=Arial size=2> 
+<P>IADropdown</I> is a cold fusion custom tag developed to counter the often 
+tedious task of including the various kinds of dropdown lists in applications. 
+Not only does <I>IADropdown</I> make it easy to add dropdowns, it makes it 
+easier to control how they are displayed and which items are highlighted.</P>
+
+<I> 
+<P>IADropdown</I> has 6 main dropdown modes, and 3 companion modes that help 
+format submitted date/time information.</P>
+
+
+<UL> 
+<LI>Numbered, for creating numeric dropdowns</LI> 
+<LI>Combolist, for creating key/value dropdowns</LI> 
+<LI>Valuelist, for converting lists into dropdowns</LI> 
+<LI>Boolean, for yes/no dropdowns</LI> 
+<LI>Time, for time dropdowns (hour/minute/AM-PM)</LI> 
+<LI>Date, for date dropdowns (month/date/year)</LI></UL> 
+<P>…and…</P>
+
+
+<UL> 
+<LI>Assemble_time, to create a valid time object out of the submitted time 
+dropdown</LI> 
+<LI>Assemble_date, to create a valid date object out of the submitted date 
+dropdown</LI> 
+<LI>Assemble_datetime, to create a valid date/time object out of the 
+submitted date and time dropdown</LI></UL> 
+<P> </P>
+
+
+<P>If an error is detected in any of the modes, the variable 
+<I>error_message</I> will be returned.</P>
+
+</FONT><B><FONT 
+face=Arial></FONT><FONT face=Arial size=5> 
+<P>Install</P>
+
+</B></FONT><FONT face=Arial size=2> 
+<P>Installation is straight-forward. Simply place the IADropdown.cfm file in 
+your Cold Fusion Server custom tags directory, i.e.:</P>
+
+
+<P>C:\Cfusion\CustomTags\IADropdown.cfm</P>
+
+
+<P> </P>
+
+</FONT><B><FONT face=Arial> 
+<P> </P>
+
+</FONT><FONT face=Arial size=5> 
+<P>IADropdown Modes</P>
+
+</FONT><FONT face=Arial> 
+<P>MODE: </B>numbered</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Creates a dropdown number list. Must be enclosed in a 
+&lt;SELECT>&lt;/SELECT> HTML statement.</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "numbered"<br/>from = "start 
+number"<br/>to = "end number"<br/>step = "step 
+value"<br/>selected = "selected number"></P>
+
+</FONT><FONT 
+face=Arial size=2><B> 
+<P>ATTRIBUTES</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>from</B>: a numeric value representing the first number to appear in the 
+drop-down</P>
+
+<B> 
+<P>to</B>: a numeric value represensting the last number to appear in the 
+drop-down</P>
+
+<B> 
+<P>step</B>: a numeric value that sets the value the number list is 
+incremented/decrimented</P>
+
+<B> 
+<P>selected</B>: the number that will be marked as "selected" in the 
+drop-down</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "numbered"<br/>from = 
+"100"<br/>to = "1000"<br/>step = "100"<br/>selected = 
+"400"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>combolist</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Creates a dropdown list with separate keys (displayed in the list) and values 
+(which are submitted). Must be enclosed in a &lt;SELECT>&lt;/SELECT> HTML 
+statement.</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "combolist"<br/>valuelist = "a list 
+of keys and values"<br/>selected = "selected 
+value"></P>
+
+</FONT><FONT face=Arial size=2><B> 
+<P>ATTRIBUTES</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>valuelist</B>: a list with a combination of the displayed "key" and 
+the associated "value", separated by a bar. For instance, <I>one|1</I> 
+would create the HTML <OPTION 
+VALUE="1">one</OPTION></P>
+
+<B> 
+<P>selected</B>: the value that will be marked as "selected" in the 
+drop-down</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "combolist"<br/>valuelist = 
+"one|1,two|2,three|3,four|4"<br/>selected = 
+"4"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>valuelist</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Creates a dropdown list of values. Must be enclosed in a 
+&lt;SELECT>&lt;/SELECT> HTML statement.</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "valuelist"<br/>valuelist = "a list 
+of values"<br/>selected = "selected value"></P>
+
+</FONT><FONT 
+face=Arial size=2><B> 
+<P>ATTRIBUTES</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>valuelist</B>: a list of values.</P>
+
+<B> 
+<P>selected</B>: the value that will be marked as "selected" in the 
+drop-down</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "combolist"<br/>valuelist = 
+"one,two,three,four"<br/>selected = 
+"three"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>boolean</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Creates a yes/no dropdown list. Must be enclosed in a 
+&lt;SELECT>&lt;/SELECT> HTML statement.</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "boolean"<br/>selected = "selected 
+value"></P>
+
+</FONT><FONT face=Arial size=2><B> 
+<P>ATTRIBUTES</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>selected</B>: the value that will be marked as "selected" in the 
+drop-down (either 0 or 1)</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "boolean"<br/>selected = 
+"1"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>time</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Creates a combination drop-down, with hours, minutes, and 
+AM/PM.</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "time"<br/>label = "field label 
+prefix"<br/>set_time = "time to display as current"<br/>hour = 
+"hour to set"<br/>minute = "minute to set"<br/>period = 
+"AM/PM"<br/>step = "minute step 
+value"<br/>add_minutes="number of minutes to add to set 
+time"></P>
+
+</FONT><FONT face=Arial size=2><B> 
+<P>ATTRIBUTES</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>label</B>: a prefix attached to each of the hour/minute/period dropdowns. For 
+instance, if the label is "ctime", then there would be a form element 
+called "ctime_hour", "ctime_minute", and 
+"ctime_period".</P>
+
+<B> 
+<P>set_time</B>: optional; the time to be displayed by the drop-downs. </P>
+
+<B> 
+<P>hour</B>: optional; the hour to be displayed by the hour drop-down; overrides 
+<I>set_time</I>, must be used with <I>minute </I>and <I>period.</P>
+
+</I><B> 
+<P>minute</B>: optional; the minute to be displayed by the minute drop-down; 
+overrides <I>set_time</I>, must be used with <I>hour </I>and 
+<I>period.</P>
+
+</I><B> 
+<P>period</B>: optional; the AM/PM marker to be displayed by the period 
+drop-down; overrides <I>set_time</I>, must be used with <I>hour </I>and 
+<I>minute.</P>
+
+</I><B> 
+<P>step</B>: optional; the step value for the minutes. Default is 
+<I>15</I>.</P>
+
+<B> 
+<P>Add_minutes</B>: resets the time by adding the numeric value assigned to this 
+attribute to the current time.</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT size=2></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "time"<br/>label = 
+"ctime"<br/>set_time = "#now()#"<br/>step = 
+"1"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>assemble_time</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Assembles timestamp based upon hour/minute/period.</P>
+
+</FONT><FONT face=Arial 
+size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "assemble_time"<br/>hour = "numeric 
+hour value"<br/>minute = "numeric minute value"<br/>period = 
+"AM/PM"></P>
+
+</FONT><FONT size=2></FONT><B><FONT face=Arial size=1> 
+<P>hour</B>: the hour of the time to be created<I>.</P>
+
+</I><B> 
+<P>minute</B>: the of the time to be created<I>.</P>
+
+</I><B> 
+<P>period</B>: the AM/PM marker of the time to be created<I>.</P>
+
+</I><B> 
+<P>RETURNS:</B> assembled_time</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "assemble_time"<br/>hour = 
+"12"<br/>minute = "30"<br/>period = 
+"PM"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>date</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Creates a combination drop-down, with month, date and year.</P>
+
+</FONT><FONT 
+face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "date"<br/>label = "field label 
+prefix"<br/>set_date = "date to display as current"<br/>year = 
+"year to set"<br/>month = "month to set (numeric value 
+1-12)"<br/>date = "day of month to set"<br/>first_of_month = 
+"sets dropdown to start on the first day of the month"<br/>start_year = 
+"first year to be displayed"<br/>year_range = "number of years to 
+display beyond displayed year"<br/>add_months="number of months to add 
+to set date"></P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>ATTRIBUTES</P>
+
+</FONT><FONT face=Arial size=1> 
+<P>label</B>: a prefix attached to each of the month/date/year dropdowns. For 
+instance, if the label is "cdate", then there would be a form element 
+called "cdate_month", "cdate_date", and 
+"cdate_year".</P>
+
+<B> 
+<P>set_date</B>: optional; the date to be displayed by the drop-downs. </P>
+
+<B> 
+<P>month</B>: optional; the month to be displayed by the month drop-down; 
+overrides <I>set_date.</P>
+
+</I><B> 
+<P>date</B>: optional; the day of month to be displayed by the date drop-down; 
+overrides <I>set_date.</P>
+
+</I><B> 
+<P>year</B>: optional; the year to be displayed by the year drop-down; overrides 
+<I>set_ date.</P>
+
+</I><B> 
+<P>first_of_month</B>: optiona;l resets the day of the month set to be displayed 
+to the first<I>.</P>
+
+</I><B> 
+<P>start_year</B>: optional; sets the first year to be displayed.</P>
+
+<B> 
+<P>year_range</B>: optional; the number of years to be added to the year being 
+displayed<I>.</P>
+
+</I><B> 
+<P>add_months</B>: optional; resets the date by adding the numeric value 
+assigned to this attribute to the current date<I>.</P>
+
+</I></FONT><B><FONT 
+face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "date"<br/>label = 
+"cdate"<br/>year = "2000"<br/>month = "6"<br/>date = 
+"23"<br/>year_range="20"></P>
+
+</FONT><FONT 
+size=2></FONT><B><FONT face=Arial> 
+<P>MODE: </B>assemble_date</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Assembles timestamp based upon date/month/year.</P>
+
+</FONT><FONT face=Arial 
+size=1> 
+<P>&lt;CF_IADropdown</P>
+
+
+<P>mode = "assemble_date"</P>
+
+
+<P>year = "numeric year value"</P>
+
+
+<P>month = "numeric month value"</P>
+
+
+<P>date = "numeric day of month"></P>
+
+</FONT><FONT 
+size=2></FONT><B><FONT face=Arial size=1> 
+<P>month</B>: the month of the date to be created<I>.</P>
+
+</I><B> 
+<P>date</B>: the day of month of the date to be created<I>.</P>
+
+</I><B> 
+<P>year</B>: the year of the date to be created<I>.</P>
+
+</I><B> 
+<P>RETURNS:</B> assembled_date</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "assemble_date"<br/>year = 
+"1995"<br/>month = "04"<br/>date = 
+"20"></P>
+
+</FONT><B><FONT face=Arial> 
+<P>MODE: </B>assemble_datetime</P>
+
+</FONT><FONT face=Arial size=2> 
+<P>Assembles timestamp based upon date/month/year.</P>
+
+</FONT><FONT face=Arial 
+size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "assemble_datetime"<br/>hour = 
+"numeric hour value"<br/>minute = "numeric minute 
+value"<br/>period = "AM/PM"<br/>year = "numeric year 
+value"<br/>month = "numeric month value"<br/>date = "numeric 
+day of month"></P>
+
+</FONT><FONT size=2></FONT><B><FONT face=Arial size=1> 
+<P>month</B>: the month of the date to be created<I>.</P>
+
+</I><B> 
+<P>date</B>: the day of month of the date to be created<I>.</P>
+
+</I><B> 
+<P>year</B>: the year of the date to be created<I>.</P>
+
+</I><B> 
+<P>RETURNS:</B> assembled_datetime</P>
+
+</FONT><B><FONT face=Arial size=2> 
+<P>EXAMPLE</P>
+
+</B></FONT><FONT face=Arial size=1> 
+<P>&lt;CF_IADropdown<br/>mode = "assemble_date"<br/>year = 
+"1995"<br/>month = "04"<br/>date = "20"<br/>hour = 
+"12"<br/>minute = "30"<br/>period = "PM"></P>
+
+<IMG SRC="logo_big.gif" WIDTH=600 HEIGHT=100 ALT="" BORDER="0"><br/>
+Copyright 1999,2000 Internet Automated Inc., All rights reserved.<br/>
+<A HREF="license.htm">License Agreement</A><br/>
+<A HREF="http://www.iautomated.com/">http://www.iautomated.com/</A><br/>
+
+
+</FONT></BODY></HTML> 

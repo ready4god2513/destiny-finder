@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Overview</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Overview</B></P>
+The qForms API was designed with a very basic principal in mind&#151;to simplify the process of
+retrieving and setting form field variables. This was accomplished by creating two of
+the core API methods: the obj.fieldName.getValue() and obj.fieldName.setValue() methods.
+Once you've initialized the API, you'll by able to retrieve the value of any form field
+by using the following syntax:</P>
+
+<BLOCKQUOTE><CODE>obj.fieldName.getValue();</CODE></BLOCKQUOTE>
+
+<P>Regardless whether the field is a text box, radio button, selectbox
+or some other form field, the getValue() method always retrieves the
+value of the form field. That means no writing code to loop over arrays
+to see what elements are selected or checked&#151;the getValue() method works
+for all field types.</P>
+
+<P>Likewise, the obj.fieldName.setValue() method will set the value of any
+form field to the value specified. For example:
+
+<BLOCKQUOTE><CODE>objForm.SampleText.setValue("Hello World!");</CODE></BLOCKQUOTE>
+
+<P>This would set the value of the "SampleText" field to "Hello World!"
+It's as easy as that. For example, to create a button that displays the
+contents of a field called "SampleText" to the screen, you just need
+the following:
+
+<PRE>&lt;INPUT
+	TYPE="Button"
+	NAME="Test"
+	onclick="alert(objForm.SampleText.getValue();"&gt;</PRE>
+
+<P>When a qForm object is created, the object is a global object&#151;this means
+you can access the form object from any function within the template. If you
+have more then one form in the document, you can also initialize more then one qForm
+object. Just make sure to give each qForm object a unique name.</P>
+
+<P><A NAME="Features"><B>Features</B></A><br/>
+The qForms API includes methods for handling most of the common problems developers
+face. The qForms API includes:</P>
+<UL>
+	<LI>Common methods for setting and retrieving form field values
+	<LI>Automatically prevents forms from being submitted multiple times
+	<LI>Dozens of easy to use validation methods
+	<LI>An extendable API
+	<LI>Automatic Event Capturing
+	<LI>Methods for handling complex tasks dealing with form fields&#151;such as
+	transfering items between select boxes
+	<LI>The ability to lock/disable form fields (Works with Netscape v3.0!!!)
+	<LI>The API was written for Netscape v3.0 and higher
+	<LI>And much, much more...
+</UL>
+
+<P><A NAME="Event"><B>Event Capturing</B></A><br/>
+One of the most unique features of the qForms API is its ability to automatically
+attach events to your forms fields. The qForms API takes advantage of this capability
+in several ways.</P>
+
+<P>Whenever a new qForms object is created, several events are automatically attached
+to the form's onSubmit handler. These events provide several key pieces of functionality
+that are normally a burden to program.</P>
+
+<P>The most common piece of functionality web developers probably code, is for form validation.
+The qForms API provides an entire library of useful validation methods for you to use. When
+a form is submit, all validation rules defined for the form are test and if an errors occur,
+they are reported to the user and the submission request is cancelled automatically.</P>
+
+<P>Another common problem developers face is preventing duplicate data from being submitted to
+the server. While there is no way to completely prevent this from happening, we can take steps
+to help prevent it. Probably the most common reason duplicate data gets created is because an
+impatient user has repeatedly clicked the submit button. The qForm API automatically prevents this
+from happening, just by initializing the form! It does this by attaching an event to the form's onSubmit
+event that ensures only a single submission is allowed. Now how cool is that!</P>
+
+
+<P ALIGN="Center">
+	[<A HREF="./requirements.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./gettingstarted.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

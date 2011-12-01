@@ -1,0 +1,97 @@
+/* Only for the sample */
+div#doc{
+	clear: none;
+	float: left;
+	margin-left: 2em;
+	margin-top: 0;
+	width: 60%;
+}
+
+/* Main container for whole menu */
+div.tmtHierbarV {
+	color: #00008B;
+	float: left;
+}
+
+/* Links, all levels */
+div.tmtHierbarV li a,
+div.tmtHierbarV li a:link
+div.tmtHierbarV li a:visited {
+	border: 1px;
+	border-bottom-color: #1C57FF;
+	border-left-color: #DDE7FF;
+	border-right-color: #1C57FF;
+	border-style: solid;
+	border-top-color: #DDE7FF;
+	color: #00008B;
+	display: block;
+	padding-bottom: 0.25em;
+	padding-left: 0.5em;
+	padding-right: 0em;
+	padding-top: 0.25em;
+	text-decoration: none;
+	width: 9.5em;
+	text-align : left;
+}
+
+/* Links, all levels, hover */
+div.tmtHierbarV li a:hover {
+	background-color: #DDE7FF;
+}
+
+/* Main list inside tmtHierbar */
+div.tmtHierbarV ul {
+	background: #B9D2FF;
+	border: 1px;
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-top-width: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* First level */
+div.tmtHierbarV li {
+	line-height: 1em;
+	list-style: none;
+	margin: 0;
+	position: relative;
+	width: 10em;
+}
+
+/* Both second and third level */
+div.tmtHierbarV ul li.tmtHiermenuV ul {
+	display: none;
+	left: 10em;
+	position: absolute;
+	top: 0px;
+	width: 10em;
+}
+
+/* Third level */
+div.tmtHierbarV ul li.tmtHiermenuV ul li.tmtHiermenuV ul{
+	border-color: #CCCCCC;
+	border-style: solid;
+	border-top: 1px;
+	display: none;
+	left: 10em;
+	top: -1px;
+}
+
+/* First level, only if contains second level */
+div.tmtHierbarV ul li.tmtHiermenuV,
+/* Second level, only if contains third level */
+div.tmtHierbarV ul li.tmtHiermenuV ul li.tmtHiermenuV {
+	background: url(../images/blue_right.gif);
+	background-position: 95% 50%;
+	background-repeat: no-repeat;
+}
+
+/* 
+Show second and third level items on hover 
+IE doesn't understand this, but the Javascript code will takes care of it
+*/
+div.tmtHierbarV ul li.tmtHiermenuV:hover ul,
+div.tmtHierbarV ul li.tmtHiermenuV ul li.tmtHiermenuV:hover ul{
+	display: block;
+}

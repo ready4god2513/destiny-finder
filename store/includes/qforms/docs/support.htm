@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Support</TITLE>
+	<STYLE TYPE="text/css">
+		td,center,th,p,li,blockquote,form { font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000; font-size: 15px; }
+		.Heading { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 18px; font-style: italic; font-weight: bold; }
+	</STYLE>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Support</B></P>
+
+<P>If you discover a problem with the qForms API, please go to 
+<A HREF="http://www.pengoworks.com/qForms/">http://www.pengoworks.com/qForms/</A>
+and download the latest version. Please make sure to read both the history.txt file
+and the documentation closely, as there may be significant changes to the API which
+may cause older code to break.</P>
+
+<P>If your problem still exists, send an e-mail to:
+<A HREF="mailto:qforms@pengoworks.com">qforms@pengoworks.com</A>.</P>
+
+<P>Please include the following information:</P>
+<UL>
+	<LI>The version of qForms you're running.
+	<LI>The browser version the error is occurring in.
+	<LI>The line number of the error.
+	<LI>And if possible, the URL where the problem template can be viewed.
+</UL>
+
+<BLOCKQUOTE><B>Note:</B> Before e-mailing me directly, you may wish to
+post your questions to the mailing lists&#151;you'll most likely receive
+a much faster response. I'll try and answer every question I get, but
+do to the sheer volume of questions, it's hard to answer them all in
+a reasonable time, which is why I created the mailing list.</BLOCKQUOTE>
+
+<P><A NAME="Mailing"><B>Mailing List</B></A><br/>
+I've set up a mailing list for the qForms API. Please use this resource
+to post any questions, comments or thoughts on the qForms API. To
+sign up for the qForms API Mailing List, either visit the 
+<A HREF="http://groups.yahoo.com/group/qformsapi">qForms Yahoo Groups</A> 
+home page, or send an e-mail to 
+<A HREF="mailto:qformsapi-subscribe@yahoogroups.com">qformsapi-subscribe@yahoogroups.com</A>.</P>
+
+<BLOCKQUOTE>
+<B>Post message:</B> <A HREF="mailto:qformsapi@yahoogroups.com">qformsapi@yahoogroups.com</A><br/>
+<B>Subscribe:</B>  <A HREF="mailto:qformsapi-subscribe@yahoogroups.com">qformsapi-subscribe@yahoogroups.com</A><br/>
+<B>Unsubscribe:</B>  <A HREF="mailto:qformsapi-unsubscribe@yahoogroups.com">qformsapi-unsubscribe@yahoogroups.com</A><br/> 
+<B>List owner</B>:  <A HREF="mailto:qformsapi-owner@yahoogroups.com">qformsapi-owner@yahoogroups.com</A><br/>
+<B>URL to this page:</B> <A HREF="http://groups.yahoo.com/group/qformsapi">http://groups.yahoo.com/group/qformsapi</A><br/>
+</BLOCKQUOTE>
+
+<P><A NAME="Bugs"><B>Known Bugs</B></A><br/>
+<UL>
+	<LI>Dependencies are not enforced until the form field recieves focus the first time. This means
+	if someone goes to submit a form without placing focus on any of the fields, then the dependencies
+	may not be enforced. You can work around this by placing focus to the field and removing it.
+</UL>
+
+<P><A NAME="Issues"><B>Known Issues</B></A><br/>
+<UL>
+	<LI>For compatibility with Netscape v3.x, you'll need to place all your JavaScript
+	code within the &lt;HEAD&gt;&lt;/HEAD&gt; tags of your document. If you have any
+	&lt;SCRIPT&gt;&lt;/SCRIPT&gt; tags within the body of your document, using the 
+	qFormAPI.include() method may cause JavaScript errors. You can get around this
+	problem by manually loading the required libraries using the SRC attribute
+	on the &lt;SCRIPT&gt; tag.
+	<LI>Some early version of Netscape v4 (v4.01 & v4.04) also seem to have problems
+	with &lt;SCRIPT&gt; tags being written dynamically. To work around this, you'll
+	need to manually load the libraries. However, the best solution would be to
+	get the user to upgrade their browser. Netscape v4.06 and below are extremely
+	buggy and users are likely to run into problems elsewhere until they upgrade.
+	<LI>When a field is disabled, Netscape v3 will only show the disabled message
+	the first time the field receives focus.
+</UL>
+
+
+<P>There are currently no know incompatibilities.</P>
+
+<P ALIGN="Center">
+	[<A HREF="./index.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./acknowledgements.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

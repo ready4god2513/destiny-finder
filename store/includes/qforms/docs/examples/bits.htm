@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: Bits</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// load the "Bits" add-on library
+	qFormAPI.include("bits");
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Bits</B><br/>
+This example illustrates how to use the "Bits" extension library. It shows off the getBits()
+and setFields() methods.</P>
+
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample">
+<P><TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
+<TR>
+	<TD ALIGN="Left" VALIGN="Top">
+		<B>Permissions #1:</B><br/>
+		<LABEL FOR="id1"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="1" ID="id1">
+		Read</LABEL><br/>
+		<LABEL FOR="id2"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="2" ID="id2">
+		Write</LABEL><br/>
+		<LABEL FOR="id4"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="4" ID="id4">
+		Append</LABEL><br/>
+		<LABEL FOR="id8"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="8" ID="id8">
+		Delete</LABEL><br/>
+		<LABEL FOR="id16"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="16" ID="id16">
+		Execute</LABEL><br/>
+		<LABEL FOR="id32"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="32" ID="id32">
+		List Dir</LABEL><br/>
+		<LABEL FOR="id64"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="64" ID="id64">
+		Make Dir</LABEL><br/>
+		<LABEL FOR="id128"><INPUT TYPE="Checkbox" NAME="Permissions" VALUE="128" ID="id128">
+		Remove Dir</LABEL><br/>
+	</TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD ALIGN="Left" VALIGN="Top">
+		<B>Permissions #2:</B><br/>
+		<SELECT NAME="Permissions2" SIZE="8" MULTIPLE>
+			<OPTION VALUE="1">Read</OPTION>
+			<OPTION VALUE="2">Write</OPTION>
+			<OPTION VALUE="4">Append</OPTION>
+			<OPTION VALUE="8">Delete</OPTION>
+			<OPTION VALUE="16">Execute</OPTION>
+			<OPTION VALUE="32">List Dir</OPTION>
+			<OPTION VALUE="64">Make Dir</OPTION>
+			<OPTION VALUE="128">Remove Dir</OPTION>
+		</SELECT>
+	</TD>
+</TR>
+<TR>
+	<TD><br/>
+		<INPUT TYPE="Button" VALUE="Get Permissions #1" onclick="alert(objForm.Permissions.getBits());" STYLE="width: 200px;">
+		<INPUT TYPE="Button" VALUE="Set Permissions #1" onclick="objForm.Permissions.setBits(prompt('Enter the new bit value:', objForm.Permissions.getBits()))" STYLE="width: 200px;">
+	</TD>
+	<TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD>
+	<TD><br/>
+		<INPUT TYPE="Button" VALUE="Get Permissions #2" onclick="alert(objForm.Permissions2.getBits());" STYLE="width: 200px;">
+		<INPUT TYPE="Button" VALUE="Set Permissions #2" onclick="objForm.Permissions2.setBits(prompt('Enter the new bit value:', objForm.Permissions2.getBits()))" STYLE="width: 200px;">
+	</TD>
+</TR>
+</TABLE></P>
+
+</FORM>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+<script language="JavaScript">
+<!--//
+// initialize the qForm object
+objForm = new qForm("frmExample");
+//-->
+</script>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

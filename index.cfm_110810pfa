@@ -1,0 +1,71 @@
+<cfquery name="qBlocks" datasource="#APPLICATION.DSN#">
+	SELECT * FROM MiscContent
+</cfquery>
+<cfquery name="qGateways" datasource="#APPLICATION.DSN#">
+	SELECT *
+	FROM Gateway_Pages
+	WHERE gateway_parent_id = 0 AND gateway_id > 1
+	ORDER BY gateway_sortorder ASC
+</cfquery>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<cfoutput><title>#APPLICATION.sitename#</title></cfoutput>
+<script type="text/javascript" src="/site_scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/site_scripts/jquery_easing.js"></script>
+<script type="text/javascript" src="/site_scripts/jquery.fancybox-1.2.1.js"></script>
+<script type="text/javascript" src="/site_scripts/pngfix.js"></script>
+<script type="text/javascript" src="/site_scripts/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="/site_scripts/dropdowns.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/site_styles/fancybox.css">
+<link rel="stylesheet" type="text/css" href="/site_styles/main.css">
+
+</head>
+
+<body>
+	
+<div class="site_wrapper">
+<strong style="color:#ff0000;">DESTINY FINDER DEVELOPMENT SITE</strong>
+<div class="menu">
+<ul class="sf-menu">
+	<li><a href="/index.cfm"><span>Home</span></a></li>
+<cfoutput query="qGateways">
+	<li><a href="#qGateways.gateway_path##qGateways.gateway_landing_page#" class="gateway_active"><span>#qGateways.gateway_name#</span></a>
+		<cfmodule template="/customtags/sub_menu_multi.cfm"
+						gateway="#qGateways.gateway_id#"	
+						gateway_page_name="#qGateways.gateway_name#"
+						gateway_path="#qGateways.gateway_path#"		
+						parent_gateway="#qGateways.gateway_id#"				
+					> 
+	</li>			
+</cfoutput>
+</ul>
+	<div class="login_menu">
+		<a href="/pages/index.cfm?page=user"><cfif REQUEST.user_id EQ 0>Login<cfelse>Your Account</cfif></a> | <a href="index.cfm?logout=1">Logout</a> | <a href="/store/">Store</a>
+	</div>
+</div>
+		
+			<div class="banner_wrapper">
+			
+			</div><!-- class="banner_wrapper" -->
+		
+
+			
+</div><!-- class="site_wrapper" -->
+<!--- <script>
+	$(document).ready(function() { 
+		$("a.media").fancybox({ 
+			'zoomSpeedIn': 300, 
+			'zoomSpeedOut': 300,
+			'frameWidth':505,
+			'frameHeight':375,
+			'overlayOpacity':.75
+			}); 
+	}); 
+</script>
+--->
+</body>
+</html>

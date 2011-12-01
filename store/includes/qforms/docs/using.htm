@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Using The qForms API</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Using The qForms API</B></P>
+<P>Using the qForm API is very easy. As you've already seen, setting your forms for the
+API is quite simple. There are only a few key points you need to remember:</P>
+
+<UL TYPE="circle">
+	<LI>You must load the qforms.js library file before trying to using the qForm()
+	constructor
+	<LI>You <B>must</B> specify the NAME attribute in your <CODE>&lt;FORM&gt;</CODE> tags 
+	<LI>You must call the qForm() constructor after the browser has parsed the
+	ending <CODE>&lt;/FORM&gt;</CODE>
+	<LI>The qFormAPI.include() methods must be processed befored trying to use any of
+	the extended library methods
+</UL>
+
+<P>Remembering these simple points will avoid the most common problems developers experience
+when first trying to use the qForms API.</P>
+
+<P><A NAME="Basics"><B>The Basics</B></A><br/>
+Before you're able to use the methods of the qForms API, you'll have to initialize a new qForm's 
+object. You do this by using the qForm() constructor.</P>
+
+<BLOCKQUOTE><CODE>objForm = new qForm("frmExample");</CODE></BLOCKQUOTE>
+
+<P>In the above example, we've creating a new global JavaScript object called "objForm." This
+object can be accessed from anywhere within our document. Passing the string "frmExample"
+indicates we have a <CODE>&lt;FORM&gt;</CODE> tag in our document that has the name
+of "frmExample".</P>
+
+<P>If the form was inside another layer, we'd have to specify the layer in which the form
+resided in&#151;this is because Netscape v4.x considers layers as part of a new document.
+For example, if we had a form called "frmExample" inside a layer with the ID of "idForm",
+we'd initialize the form using the following syntax:</P>
+
+<BLOCKQUOTE><CODE>objForm = new qForm("frmExample", "document.idForm");</CODE></BLOCKQUOTE>
+
+<P>After initializing the form, you'll be able to retrieve and set your form field
+variables using the getValue() and setValue() methods. For example, to display the 
+value of a multi-select box named "MenuItem", you'd do the following:</P>
+
+<BLOCKQUOTE><CODE>alert(objForm.MenuItem.getValue());</CODE></BLOCKQUOTE>
+
+<P>This would display the value of all the items selected within the MenuItem
+select box. If you needed to programmatically change the value of the select 
+boxes, you can use the setValue() method. For example, if two of the values
+in the select box were "Home" and "Products", we could set the value of the
+MenuItems by simply calling:</P>
+
+<BLOCKQUOTE><CODE>objForm.MenuItem.setValue("Home,Products");</CODE></BLOCKQUOTE>
+
+<P>This would make sure that both the "Home" and "Products" listings were selected
+in the select box.</P>
+
+<P>For a complete listing of properties and methods, see the 
+<A HREF="./coreapi.htm">The Core API</A> page. It's also recommend to review the
+<A HREF="./examples/index.htm">Examples</A> area for sample code.
+
+<P><A NAME="Accessing"><B>Accessing Native Form Objects</B></A><br/>
+Although the qForms API will replace almost every need to access individual form field
+objects, you may still find circumstances where it's necessary. To accomplish this,
+the API creates pointers to both the form and field objects. This special property is the
+"obj" property. For example, from time to time you'll find you need to change the
+page that the current form is posting to, depending on the value of a certain variable.
+To do this, you'll need to update the form's "action" property. Using the qForm's "obj" property
+of the form object, you'll have easy access to change the "action" property. For example:</P>
+
+<PRE>if( objForm.Action.getValue() == "Edit" ){
+	objForm.obj.action = "edit.cgi";
+} else if( objForm.Action.getValue() == "Delete" ){
+	objForm.obj.action = "delete.cgi";
+}</PRE>
+
+<P>This would check the value of the field "Action" and change the form's action statement&#151;the
+page which the data will be posted to&#151;based upon the value found in the field.</P>
+
+<P>The "obj" property is created for both form objects and field objects. The syntax is as follows:</P>
+
+<BLOCKQUOTE>
+<B>Form Properties</B><br/>
+<CODE>
+objForm.<B>obj</B>.action<br/>
+objForm.<B>obj</B>.elements<br/>
+objForm.<B>obj</B>.encoding<br/>
+objForm.<B>obj</B>.length<br/>
+objForm.<B>obj</B>.method<br/>
+objForm.<B>obj</B>.target<br/>
+</CODE>
+
+<br/><B>Field Properties</B><br/>
+<CODE>
+objForm.fieldName.<B>obj</B>.checked<br/>
+objForm.fieldName.<B>obj</B>.defaultChecked<br/>
+objForm.fieldName.<B>obj</B>.defaultValue<br/>
+objForm.fieldName.<B>obj</B>.length<br/>
+objForm.fieldName.<B>obj</B>.name<br/>
+objForm.fieldName.<B>obj</B>.options<br/>
+objForm.fieldName.<B>obj</B>.selectedIndex<br/>
+objForm.fieldName.<B>obj</B>.type<br/>
+objForm.fieldName.<B>obj</B>.value<br/>
+</CODE></BLOCKQUOTE>
+
+<P>These properties will work exactly as they would if you called them using the
+document.form[x] syntax.</P>
+
+<P ALIGN="Center">
+	[<A HREF="./gettingstarted.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./validation.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

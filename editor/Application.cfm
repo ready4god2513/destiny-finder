@@ -1,0 +1,1 @@
+<cfapplication name="destinyfinder_admin" clientmanagement="Yes" sessionmanagement="Yes" setclientcookies="Yes" sessiontimeout=#CreateTimeSpan(0,1,0,0)#>

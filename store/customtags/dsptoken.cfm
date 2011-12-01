@@ -1,0 +1,1 @@
+<cfoutput><cfif attributes.Token is "">#Attributes.CardNumber#<cfelseif Left(attributes.Token,1) is "@">#attributes.CardNumber# (#Right(attributes.Token,Len(attributes.Token)-1)#)<cfelse>#attributes.Token#</cfif></cfoutput>

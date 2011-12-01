@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<urlset xmlns="http://www.google.com/schemas/sitemap/0.84">
+ <url>
+ 
+  <loc>http://localhost:8500/cfwebstorefb6/index.cfm</loc> 
+  <lastmod>2007-09-27</lastmod> 
+  
+  </url>
+
+
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/5/about-us.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/7/archived-articles.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/9/contact-us.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/11/documentation.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/16/login-accounts.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/1/magazine.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/2/members-only.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/15/membership-products.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/4/product-catalog.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/10/products-listed-in-standard-layout.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/13/products-listed-in-vertical-layout.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/8/regular-columnist.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/14/software-download-products.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/3/store-locator.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/12/store-specials.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/category/6/subcat-press-releases.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+  
+
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/11/60-day-membership.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/7/7-day-membership.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/8/baseball-jersey.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/275/cdx-m800-cd-receiver.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/9/cfwebstore-cup.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/295/cfwebstore-gift-certificate.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/283/copy-of-editors-product.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/278/copy-of-four-product-kit.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/282/editors-product.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/280/fedex-test-product.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/281/fedex-test-product---oversized-more-and-more-and-more-and-more.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/4/four-product-kit.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/302/free-shirt.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/13/pump-cap-bottle.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/279/site-reservation.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/12/software-product.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/276/test.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/product/299/trial-membership.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+
+
+
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/1/this-is-a-sample-article.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/4/employment-opportunities.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/2/another-article.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/14/test-article-by-author-user.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/5/current-months-column.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/3/instructions-for-product.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/6/last-months-article.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/9/members-only-article.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/8/product-review.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+<url>
+    <loc>http://localhost:8500/cfwebstorefb6/index.cfm/feature/7/the-article-from-before-that.cfm</loc>
+    <lastmod>2007-09-27</lastmod>
+  </url>
+
+
+</urlset>
+

@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>hiermenu</title>
+<link href="style_distro.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="docBlock" id="mainDoc">
+	<h1>ColdFusion custom tags set: hiermenu 1.1</h1>
+	<p>You can see a <a href="sample.cfm">sample here</a></p>
+	<p><a href="http://www.massimocorner.com/coldfusion/custom_tag/hiermenu.zip">Download the tag</a></p>
+	<p>A set of three custom tags that display a minimalist, CSS based, menu. The output is fully XHTML complainant and works fine if served using an XHTML mime-type.</p>
+	<p>This menu is derived from the one created by Eric Meyer on his "More Eric Meyer on CSS" book. Eric used an .htc file to address IE's limitations, but I don't like that approach, so I went with a plain vanilla JavaScript solution for that. Mozilla and other Gekko based browsers do just fine with only the CSS, so the script filters IE using the document.all property.</p>
+	<p>The end results are quite similar to SuckerFish menus, but I realized it only at a very late stage (thanks Peter!), since I never looked very well at them before.</p>
+	<p>The whole look and feel is completely driven by the CSS file, so we will be able to create different menus (including horizontal ones), by just pointing to a different CSS file. Basically, every CSS can be a skin on its own. By the way, if you would like to share a custom skin, please contact me, I would be more than happy to include it inside the distribution.</p>
+	<p>Compared to others solutions, this kind on menus depends much less on JavaScript (for Mozilla JavaScript isn't required at all) and it's much easier to setup, especially for database driven menus. I's also worth to note that all the links are already available inside the XHTML code, so search engines and crawlers can easily follow them.</p>
+	<p>The menu has been tested with IE 5+ (Win), Mozilla 1.x and Safari 1.x</p>
+	<p>Requires ColdFusion Server 6.1 or more</p>
+	<p>Copyright &copy; 2004 Massimocorner.com <br />
+		Developed 2004 Massimo Foti (massimo@massimocorner.com)</p>
+</div>
+<div class="docBlock" id="attributes_expandbar">
+	<h3>Attributes (hiermenubar tag) </h3>
+	<table>
+		<tr>
+			<td>css</td>
+			<td>Optional. The name of CSS file. Default to &quot;flat_blue.css&quot;</td>
+		</tr>
+		<tr>
+			<td>class</td>
+			<td>Optional. The class attribute of the &lt;div&gt; tag. Default to &quot;tmtHierbar&quot;</td>
+		</tr>
+		<tr>
+			<td>id</td>
+			<td>Optional. The id attribute of the &lt;div&gt; tag. Default to none</td>
+		</tr>
+		<tr>
+			<td>target</td>
+			<td>Optional. This attribute affects all the child menu items, unless child tags overwrite it. <br />
+				If you want to specify a target attribute for the whole menu you may consider using a base tag like: &lt;base target=&quot;myTarget&quot; /&gt;. <br />
+				Default to none</td>
+		</tr>
+		<tr>
+			<td>width</td>
+			<td>Optional. The width in pixel of menu. It's better practice to avoid using this attribute and define dimensions inside the CSS file instead. Default to none</td>
+		</tr>
+	</table>
+</div>
+<div class="docBlock" id="attributes_expandmenu">
+	<h3>Attributes (hiermenumenu tag) </h3>
+	<table>
+		<tr>
+			<td>label</td>
+			<td>Optional. Text for the menu entry. Default to &quot;Main Menu&quot;</td>
+		</tr>
+		<tr>
+			<td>href</td>
+			<td>Optional. The href attribute of the &lt;a&gt; tag. Default to &quot;javascript:;&quot;</td>
+		</tr>
+		<tr>
+			<td>class</td>
+			<td>Optional. The class attribute of the &lt;li&gt; tag. Default to &quot;tmtHiermenu&quot;</td>
+		</tr>
+		<tr>
+			<td>id</td>
+			<td>Optional. The id attribute of the &lt;li&gt; tag. Default to none</td>
+		</tr>
+		<tr>
+			<td>title</td>
+			<td>Optional. The title attribute of the &lt;a&gt; tag. Default to none</td>
+		</tr>
+		<tr>
+			<td>target</td>
+			<td>Optional. The target attribute of the &lt;a&gt; tag. This attribute also affects all the child menu items, unless child tags overwrite it. <br />
+				If you want to specify a target attribute for the whole menu you may consider using a base tag like: &lt;base target=&quot;myTarget&quot; /&gt;.<br />
+				Default to none</td>
+		</tr>
+	</table>
+</div>
+<div class="docBlock" id="attributes_expanditem">
+	<h3>Attributes (hiermenuitem tag) </h3>
+	<table>
+		<tr>
+			<td>label</td>
+			<td>Optional. Text for the menu item. Default to &quot;Sub Menu&quot;</td>
+		</tr>
+		<tr>
+			<td>href</td>
+			<td>Optional. The href attribute of the &lt;a&gt; tag. Default to &quot;javascript:;&quot;</td>
+		</tr>
+		<tr>
+			<td>class</td>
+			<td>Optional. The class attribute of the &lt;li&gt; tag. Default to none </td>
+		</tr>
+		<tr>
+			<td>id</td>
+			<td>Optional. The id attribute of the &lt;li&gt; tag. Default to none</td>
+		</tr>
+		<tr>
+			<td>title</td>
+			<td>Optional. The title attribute of the &lt;a&gt; tag. Default to none</td>
+		</tr>
+		<tr>
+			<td>target</td>
+			<td>Optional. The target attribute of the &lt;a&gt; tag. Default to none</td>
+		</tr>
+	</table>
+</div>
+<div class="docBlock" id="examples">
+	<h3>Code samples</h3>
+	<p>&lt;cfimport taglib=&quot;CustomTags/&quot; prefix=&quot;tmt&quot;&gt;</p>
+	<p>&lt;tmt:hierbar css=&quot;#url.skin#&quot;&gt;<br />
+&lt;tmt:hieritem label=&quot;Home&quot; href=&quot;http://www.olimpo.ch/tmt/&quot; title=&quot;Back to CF goodies&quot; /&gt;<br />
+&lt;tmt:hiermenu label=&quot;Dreamweaver&quot;&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.massimocorner.com/&quot; label=&quot;Massimocorner&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.dwfaq.com/&quot; label=&quot;DWfaq&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.projectseven.com/&quot; label=&quot;Project VII&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.yaromat.com/&quot; label=&quot;Yaromat&quot; /&gt;<br />
+&lt;/tmt:hiermenu&gt;<br />
+&lt;tmt:hieritem label=&quot;Macromedia&quot; href=&quot;http://www.macromedia.com/&quot; /&gt;<br />
+&lt;tmt:hiermenu label=&quot;ColdFusion&quot;&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.macromedia.com/software/coldfusion/&quot; label=&quot;Macromedia&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.cflib.org/&quot; label=&quot;cflib&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.cfmentor.com/&quot; label=&quot;cfmentor&quot; /&gt;<br />
+&lt;tmt:hiermenu label=&quot;Ben Forta&quot;&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.forta.com/&quot; label=&quot;Website&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.forta.com/blog/&quot; label=&quot;Blog&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.forta.com/books/&quot; label=&quot;Books&quot; /&gt;<br />
+&lt;/tmt:hiermenu&gt;<br />
+&lt;tmt:hiermenu label=&quot;Mailing lists&quot;&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.houseoffusion.com/cf_lists/&quot; label=&quot;CF-Talk&quot; /&gt;<br />
+&lt;tmt:hieritem href=&quot;http://www.cfczone.org/listserv.cfm&quot; label=&quot;CFCDev&quot; /&gt;<br />
+&lt;/tmt:hiermenu&gt;<br />
+&lt;/tmt:hiermenu&gt;<br />
+&lt;/tmt:hierbar&gt;<br />
+	</p>
+</div>
+</body>
+</html>

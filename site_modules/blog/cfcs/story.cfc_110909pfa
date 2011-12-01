@@ -1,0 +1,43 @@
+<cfcomponent displayname="story" output="no" hint="I handle the story functions">
+
+<cffunction name="process_form" returntype="string" output="false" hint="I process the story form">
+	<cfargument name="process" required="yes" type="string">
+	
+	<cfswitch expression="#process#">
+	
+		<cfcase value="Post Story">	
+				<cfquery name="Insert_Story" datasource="#APPLICATION.dsn#">
+					INSERT INTO	stories
+						(story_title,story_date,story_content,story_user_id,story_active,story_shorttext)
+					VALUES
+						(<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_date#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						<cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_user_id#">,0,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">)
+				</cfquery>
+			
+			<cflocation url="index.cfm?page=prayerwall&admin=1" addtoken="no">
+		</cfcase>
+		
+		<cfcase value="Update Story">	
+				<cfquery name="Update_Story" datasource="#APPLICATION.dsn#">
+					UPDATE stories
+						SET 
+						story_title = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						story_content = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						story_shorttext = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">
+						WHERE story_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_id#">
+				</cfquery>
+			
+			<cflocation url="index.cfm?page=prayerwall&admin=1" addtoken="no">
+		</cfcase>
+		
+		<cfdefaultcase>
+		</cfdefaultcase>
+	
+	</cfswitch>
+		
+</cffunction>
+
+</cfcomponent>

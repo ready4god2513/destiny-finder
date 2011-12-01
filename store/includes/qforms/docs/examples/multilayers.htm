@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: Layers (Multiple Forms)</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<STYLE TYPE="text/css">
+		.input { width: 400px; }
+		#idText { position: absolute ; left: 150px; top: 175px; width: 400px; height: 120px; background-color: #ffffff; border: thin solid #003399; z-index: 1; padding: 5px 5px 5px 5px;}
+		#idForm1 { position: absolute ; left: 150px; top: 175px; width: 400px; height: 120px; background-color: #ffffff; border: thin solid #003399; z-index: 2; padding: 5px 5px 5px 5px; visibility: hidden;}
+		#idForm2 { position: absolute ; left: 150px; top: 175px; width: 400px; height: 120px; background-color: #ffffff; border: thin solid #003399; z-index: 2; padding: 5px 5px 5px 5px; visibility: hidden;}
+	</STYLE>
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// this loads all the default libraries
+	qFormAPI.include("*");
+	qFormAPI.include("wddx");
+
+	// this will search all the qForm objects and populate the form data
+	function setForm(){
+		fields = new Object();
+		fields.name = "Dan Switzer";
+		fields.email = "dswitzer@pengoworks.com";
+		fields.phone = "614-555-1212";
+		fields.state = "oh";
+		qFormAPI.setFields(fields);
+	}
+
+	// this is the DHTML code for show the menus
+	function showLayer(layer){
+		strHidden = ( !document.layers ) ? "hidden" : "hide";
+		strVisible = ( !document.layers ) ? "visible" : "show";
+
+		if( document.layers ){
+			lyrText = document.idText;
+			lyrForm1 = document.idForm1;
+			lyrForm2 = document.idForm2;
+		} else if( document.getElementById ){
+			lyrText = document.getElementById("idText").style;
+			lyrForm1 = document.getElementById("idForm1").style;
+			lyrForm2 = document.getElementById("idForm2").style;
+
+		} else if( document.all ){
+			lyrText = document.all["idText"].style;
+			lyrForm1 = document.all["idForm1"].style;
+			lyrForm2 = document.all["idForm2"].style;
+		}
+
+		// update layers
+		lyrText.visibility = (layer == "idText") ? strVisible : strHidden;
+		lyrForm1.visibility = (layer == "idForm1") ? strVisible : strHidden;
+		lyrForm2.visibility = (layer == "idForm2") ? strVisible : strHidden;
+
+		return false;
+	}
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+
+[<A HREF="javascript:void(0);" onclick="return showLayer('idText');">Text</A>]
+[<A HREF="javascript:void(0);" onclick="return showLayer('idForm1');">Form 1</A>]
+[<A HREF="javascript:void(0);" onclick="return showLayer('idForm2');">Form 2</A>]
+
+<DIV ID="idText">
+<P><B CLASS="Heading">Layers (Multiple Forms)</B><br/>
+This example illustrates how qForms can to help merge data together from multiple forms
+on multiple layers.</P>
+</DIV>
+
+<DIV ID="idForm1">
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample1">
+<B>Name:</B><br/>
+<INPUT TYPE="Text" NAME="Name" VALUE="" CLASS="input"><br/>
+
+<B>E-mail:</B><br/>
+<INPUT TYPE="Text" NAME="Email" VALUE="" CLASS="input"><br/>
+</FORM>
+</DIV>
+
+<DIV ID="idForm2">
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample2">
+<B>Phone Number</B><br/>
+<INPUT TYPE="Text" NAME="Phone" VALUE="" CLASS="input"><br/>
+
+<B>State</B><br/>
+<INPUT TYPE="Text" NAME="State" VALUE="" CLASS="input"><br/>
+</FORM>
+</DIV>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<P><FORM ACTION="showdata.htm" METHOD="POST" NAME="frmExample3">
+<INPUT TYPE="Button" VALUE="Populate Form" onclick="setForm();">
+<INPUT TYPE="Button" VALUE="Form Dump" onclick="qFormAPI.dump();">
+<INPUT TYPE="Button" VALUE="Show WDDX" onclick="alert(qFormAPI.serialize());">
+<INPUT TYPE="Button" VALUE="Reset" onclick="qFormAPI.reset();">
+</FORM>
+</P>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+<script language="JavaScript">
+<!--//
+// run validation against all the qForm objects
+qFormAPI.validateAll = true;
+
+// initialize the qForm objects (since the form is in a layer,
+// you need to specify the path to the object)
+objForm1 = new qForm("frmExample1", "document.idForm1");
+objForm2 = new qForm("frmExample2", "document.idForm2");
+
+// make these fields required
+objForm1.Name.required = true;
+objForm1.forceValidation("Name");
+objForm1.Name.validateNotEmpty();
+
+// make sure the "Phone" field appears syntatically correct
+objForm2.Phone.required = true;
+objForm2.forceValidation("Phone");
+objForm2.Phone.validateNotEmpty();
+//-->
+</script>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

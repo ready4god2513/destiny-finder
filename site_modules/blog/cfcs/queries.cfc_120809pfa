@@ -1,0 +1,221 @@
+<cfcomponent displayname="queries" output="no" hint="I handle queries">
+
+	<cffunction name="comment_list" returntype="query" output="true" hint="I return comments.">													
+		<cfargument name="story_id" type="numeric" required="yes">
+		<cfquery name="qComments" datasource="#APPLICATION.dsn#">
+			SELECT *
+			FROM Comments
+			WHERE comment_story_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#story_id#">
+			AND comment_approved = 1
+		</cfquery>
+								
+		<cfreturn qComments>						
+										
+	</cffunction>
+
+	<cffunction name="author_list" returntype="query" output="true" hint="I return active authors.">
+									
+		<cfquery name="qAuthors" datasource="#APPLICATION.dsn#">
+			SELECT *
+			FROM Users
+			WHERE user_active = 1
+			AND user_type = 1
+		</cfquery>
+								
+		<cfreturn qAuthors>						
+										
+	</cffunction>
+
+	<cffunction name="author_detail" returntype="query" output="true" hint="I return author info.">
+		<cfargument name="author_id" type="numeric" required="yes">
+		
+		<cfquery name="qAuthor" datasource="#APPLICATION.dsn#">
+			SELECT *
+			FROM Users
+			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#author_id#">
+		</cfquery>
+								
+		<cfreturn qAuthor>						
+										
+	</cffunction>
+
+	<cffunction name="author_post_list" returntype="query" output="true" hint="I return an author's post.">
+		<cfargument name="author_id" type="numeric" required="yes">
+		<cfargument name="addl_where" type="string" required="no">
+		<cfargument name="publish_date" type="numeric" required="no">
+		
+		<cfparam name="publish_date" default="1">
+
+			<cfquery name="qPostList" datasource="#APPLICATION.dsn#">
+				SELECT *
+				FROM stories
+				WHERE story_user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#author_id#">
+				<cfif isDefined('addl_where')>
+					#addl_where#
+				</cfif>
+				<cfif isDefined('publish_date') AND publish_date EQ 1>
+					AND story_publish_date <= <cfqueryparam cfsqltype="cf_sql_timestamp" value="#DateAdd('h',REQUEST.time_offset,NOW())#">
+				</cfif>
+				ORDER BY story_publish_date DESC
+			</cfquery>
+								
+		<cfreturn qPostList>						
+										
+	</cffunction>
+	
+		<cffunction name="user_verify" output="false" returntype="numeric" hint="I verify a user">
+		<cfargument name="user_name" type="string" require="yes">		
+		<cfargument name="password"	type="string" require="yes">
+		
+		<cfquery name="qUser_Verify" datasource="#APPLICATION.dsn#">
+			SELECT user_id
+			FROM users
+			WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#user_name#">
+				AND user_password = <cfqueryparam cfsqltype="cf_sql_char" value="#password#">
+				AND user_active = 1
+		</cfquery>
+			
+		<cfif qUser_Verify.recordcount EQ 0>
+			<cfset VARIABLES.user_id = 0>
+		<cfelse>
+			<cfset VARIABLES.user_id = qUser_Verify.user_id>
+		</cfif>
+			
+		<cfreturn VARIABLES.user_id>
+			
+	</cffunction>
+	
+	<cffunction name="retrieve_story" returntype="query" output="true" hint="I return a post.">
+		<cfargument name="story_id" type="numeric" required="yes">
+		<cfargument name="author_id" type="numeric" required="no">
+		<cfargument name="admin" type="numeric" required="no">
+		
+		<cfparam name="admin" default="0">
+		<cfparam name="author_id" default="0">
+		
+			<cfquery name="qStory" datasource="#APPLICATION.DSN#">
+				SELECT *
+				FROM Stories
+				WHERE story_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#story_id#">
+				<cfif author_id GT 0>
+					AND story_user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#author_id#">
+				</cfif>
+				<cfif admin EQ 0>
+					AND story_active = 1
+					AND story_publish_date  <= <cfqueryparam cfsqltype="cf_sql_timestamp" value="#DateAdd('h',REQUEST.time_offset,NOW())#">
+				</cfif>
+				
+			</cfquery>
+								
+		<cfreturn qStory>						
+										
+	</cffunction>
+	
+	<cffunction name="retrieve_story_temp" returntype="query" output="true" hint="I return a post from the temp table for editing.">
+		<cfargument name="story_id" type="numeric" required="yes">
+		<cfargument name="author_id" type="numeric" required="no">
+		<cfargument name="admin" type="numeric" required="no">
+		
+		<cfparam name="admin" default="0">
+		<cfparam name="author_id" default="0">
+		
+			<cfquery name="qStory" datasource="#APPLICATION.DSN#">
+				SELECT *
+				FROM Stories_temp
+				WHERE story_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#story_id#">
+				<cfif author_id GT 0>
+					AND story_user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#author_id#">
+				</cfif>
+				<cfif admin EQ 0>
+					AND story_active = 1
+				</cfif>
+			</cfquery>
+								
+		<cfreturn qStory>						
+										
+	</cffunction>
+
+	<cffunction name="archive_listing" returntype="query" output="true" hint="I return a list of archive dates.">
+		<cfquery name="qArchive" datasource="#APPLICATION.dsn#">
+		SELECT DISTINCT DatePart(year,story_date) as year, DatePart(month,story_date) as month
+		FROM Stories
+		WHERE story_active = 1
+		ORDER BY year DESC,month DESC
+		</cfquery>
+		
+		<cfreturn qArchive>
+	</cffunction>
+
+	<cffunction name="archive_posts" returntype="query" output="true" hint="I return a list of posts within a given date/year.">
+		<cfquery name="qPosts" datasource="#APPLICATION.dsn#">
+		SELECT * FROM Stories
+		WHERE 
+		DatePart(month,story_date) = <cfqueryparam cfsqltype="cf_sql_integer" value="#URL.month#">
+		AND
+		DatePart(year,story_date) = <cfqueryparam cfsqltype="cf_sql_integer" value="#URL.year#">
+		AND story_active = 1
+		AND story_publish_date <= <cfqueryparam cfsqltype="cf_sql_timestamp" value="#DateAdd('h',REQUEST.time_offset,NOW())#">
+		ORDER BY story_date DESC,story_user_id
+		</cfquery>
+		
+		<cfreturn qPosts>
+	</cffunction>
+	
+	<cffunction name="category_list" returntype="query" output="true" hint="I return a list of categories.">
+		<cfquery name="qCategories" datasource="#APPLICATION.dsn#">
+		SELECT category_id,category_title
+		FROM Categories
+		ORDER BY category_title
+		</cfquery>
+		
+		<cfreturn qCategories>
+	</cffunction>
+
+	<cffunction name="category_posts" returntype="query" output="true" hint="I return a list of posts within a given category .">
+		<cfquery name="qPosts" datasource="#APPLICATION.dsn#">
+		SELECT Stories.story_id, Stories.story_title, Stories.story_user_id,Stories.story_shorttext,Stories.story_date,Stories.story_media,Stories.story_youtube,Stories.story_publish_date
+		FROM Stories 
+			INNER JOIN Category_Story_Match ON Stories.story_id = Category_Story_Match.story_id
+		WHERE Category_Story_Match.category_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#URL.category#">
+		AND Stories.story_active = 1
+		AND Stories.story_publish_date <= <cfqueryparam cfsqltype="cf_sql_timestamp" value="#DateAdd('h',REQUEST.time_offset,NOW())#">
+		ORDER BY Stories.story_date DESC
+		</cfquery>
+		
+		<cfreturn qPosts>
+	</cffunction>
+	
+	<cffunction name="retrieve_category" returntype="query" output="true" hint="I return a category.">
+		<cfquery name="qCategory" datasource="#APPLICATION.dsn#">
+		SELECT category_id,category_title
+		FROM Categories
+		WHERE Category_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#URL.category#">
+		</cfquery>
+		
+		<cfreturn qCategory>
+	</cffunction>
+	
+	<cffunction name="all_posts" returntype="query" output="true" hint="I return all posts.">
+		<cfargument name="where_condition" type="string" required="no">
+		<cfargument name="order_condition" type="string" required="no">
+		<cfargument name="max_rows" type="numeric" required="no">
+
+		<cfquery name="qPosts" datasource="#APPLICATION.dsn#">
+		SELECT 
+		<cfif isDefined('max_rows')>
+			TOP #max_rows#
+		</cfif> *
+		FROM Stories
+		<cfif isDefined('where_condition')>
+			#where_condition#
+		</cfif>
+		<cfif isDefined('order_condition')>
+			#order_condition#
+		</cfif>
+		</cfquery>
+		
+		<cfreturn qPosts>
+	</cffunction>
+
+	
+</cfcomponent>

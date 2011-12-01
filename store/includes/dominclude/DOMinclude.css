@@ -1,0 +1,42 @@
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{
+		font-size:.9em;
+		font-family:arial,sans-serif;
+		color:#333;
+		background:#fff;
+		padding:.5em;
+	}
+	h1{
+		font-size:1.2em;
+	}
+	p{
+		margin-top:.5em;
+	}
+	.popup{
+		padding:.5em;
+		background:url(indicator_snake.gif) 1em 1em no-repeat #eee;
+		border:1px solid #999;
+		position:absolute;
+		min-height:2em;
+		min-width:2em;
+		top:0;
+		left:0;
+
+	}
+	a.popuplink{
+		background:#eee;
+		padding:0 .5em;	
+		font-size:.9em;
+		border:1px solid #999;
+		text-decoration:none;
+		font-weight:bold;
+		color:#666;
+		margin-bottom:-1px;
+	}
+	.popup iframe{
+		width:99%;
+		height:99%;	
+	}

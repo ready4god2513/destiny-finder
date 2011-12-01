@@ -1,0 +1,29 @@
+CFWebstore® Version 6.43
+Copyright 1998-2009 Dogpatch Software info@cfwebstore.com
+Created 11/9/98 Last Modified 07/07/2009
+Latest Version at: http://www.cfwebstore.com
+
+COPYRIGHT NOTICE AND LIMITED WARRANTY                                                           
+©Copyright 1998-2009 Dogpatch Software All Rights Reserved.
+
+This is a legal agreement between you (either an individual or an entity) and Dogpatch Software.  By using the software, you agree to be bound by the terms of this Agreement.  If you do not agree to the terms of this Agreement, promptly remove the files from your server and apply for a refund.
+
+SOFTWARE LICENSE
+
+1. GRANT OF LICENSE.  This License Agreement (License) permits you to use one copy of CFWebstore® on a live internet server, for use with a single storefront. CFWebstore® is licensed as a single product; if reselling the software, each copy sold requires a separate license purchase. An additional copy of the software may be installed on a separate machine for development purposes, as long as this copy is not viewable on the internet or any other computer network for the purpose of conducting transactions of any kind.  CFWebstore® is considered in use on a computer when it is installed into the permanent memory (e.g. hard disk) of that computer and run in conjunction with a copy of Cold Fusion server software (copyright Adobe). 
+
+2. COPYRIGHT.  CFWebstore® is owned by Dogpatch Software and is protected by United States Of America copyright laws and international treaty provisions.  You may not copy the code accompanying CFWebstore®, or any user documentation provided in on-line or electronic form, or use any portions of the code contained within for development of derivative works, or repackage or rebrand this software under another name without permission. Changes to the code are allowed as long as these restrictions are met. Recoding CFWebstore® to use with multiple storefronts requires special permission and licensing.
+
+3. OTHER RESTRICTIONS.  This file is your proof of license to exercise the rights granted herein and must be retained by you.  You may rent or lease CFWebstore® under this license, as long as only one copy is rented per license, or you may transfer your rights under this License on a permanent basis, provided you transfer this License, all CFWebstore® files, retain no copies, and the recipient agrees to the terms of this License.  You may not use any portions of CFWebstore® code without possession of a license.
+
+LIMITED WARRANTY
+
+LIMITED WARRANTY.  Dogpatch Software warrants that CFWebstore® will perform substantially in accordance with the on-line documentation and descriptions for a period of 365 days from the date of receipt. 
+
+CUSTOMER REMEDIES.  Dogpatch Software's entire liability and your exclusive remedy shall be, at Dogpatch Software's option, either (a) return of the price paid or (b) repair or replacement of the software that does not meet this Limited Warranty, typically by providing updates to the software through the Dogpatch Software website.  This Limited Warranty is void if failure of CFWebstore® has resulted from accident, abuse, or misapplication, including changes to the base software code as provided.  Any replacement software will be warranted for the remainder of the original warranty period or thirty (30) days, whichever is longer.
+
+NO OTHER WARRANTIES.  To the maximum extent permitted by applicable law, Dogpatch Software disclaims all other warranties, either express or implied, including but not limited to implied warranties of merchantability and fitness for a particular purpose, with respect to CFWebstore® and any accompanying documentation. Dogpatch Software makes no specific warranty as to PCI compliance and purchasers assume responsibility for security, database and code audits as required by these standards.
+
+NO LIABILITY FOR CONSEQUENTIAL DAMAGES. To the maximum extent permitted by applicable law, in no event shall Dogpatch Software be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use or inability to use CFWebstore®, even if Dogpatch Software has been advised of the possibility of such damages.
+
+

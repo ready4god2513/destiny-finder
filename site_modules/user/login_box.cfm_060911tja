@@ -1,0 +1,70 @@
+<cfparam name="ATTRIBUTES.processing_url" default="index.cfm">
+<cfparam name="ATTRIBUTES.destination_url" default="index.cfm">
+
+<cfset obj_login = CreateObject("component","cfcs.login")>
+
+<cfif isDefined('FORM.user_name')>
+	<!--- RUN THE LOGIN FUNCTION --->
+	<cfset VARIABLES.process_login = obj_login.login_form_action()>
+	
+	<cfif VARIABLES.process_login EQ "login_fail">
+		<cfset VARIABLES.login_message = "I'm sorry your username and password did not match.">
+	<cfelse>
+		<cflocation url="#ATTRIBUTES.destination_url#" addtoken="no">
+		<cfabort>
+	</cfif>
+</cfif>
+
+<cfoutput>
+	<div id="form_wrapper">
+    <h2>Account Login</h2>
+    <br />	
+     <table>
+     <cfform id="login_box" name="form" action="#ATTRIBUTES.processing_url#" method="post">		  
+     	 <tr>
+             <td colspan="2">             
+             <cfif isDefined('VARIABLES.login_message')>
+                <cfoutput>#VARIABLES.login_message#</cfoutput>
+             </cfif>&nbsp;
+             </td>
+         </tr>
+		 <tr>
+		 	<td colspan="2">
+				<div style="font-weight:bold">Please Login</div> 
+            </td>
+		 </tr>
+         <tr>
+          	<td>&nbsp;</td>
+            <td></td>
+          </tr>
+		  <tr>
+			<td width="1%">Username:&nbsp;</td>
+			<td width="99%"><cfinput type="text" style="width:180px;" name="user_name" required="yes" message="Username cannot be blank!"></td>
+		  </tr>
+		  <tr>
+			<td>Password:&nbsp;</td>
+			<td><cfinput type="password" style="width:180px;" name="password" required="yes" message="Password cannot be blank!"></td>
+		  </tr>
+		  <tr>
+            <td></td>
+			<td>
+			  <input type="submit" name="submit" value="submit">
+		    </td>
+		  </tr>
+          <tr>
+          	<td>&nbsp;</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="2"><div align="left"><span>Not a user yet?</span> <a href="index.cfm?page=user&create=1">Click here to create a free account.</a></div></td>
+          </tr> 
+          <tr>
+          	<td colspan="2" height="99%"></td>
+          </tr>
+          </cfform>
+          </table>
+          </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+</cfoutput>
+	

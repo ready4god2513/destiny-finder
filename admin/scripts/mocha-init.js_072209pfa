@@ -1,0 +1,395 @@
+/* -----------------------------------------------------------------
+
+	In this file:
+
+	1. Define windows
+	
+		var myWindow = function(){ 
+			new MochaUI.Window({
+				id: 'mywindow',
+				title: 'My Window',
+				loadMethod: 'xhr',
+				contentURL: 'pages/lipsum.html',
+				width: 340,
+				height: 150
+			});
+		}
+
+	2. Build windows on onDomReady
+	
+		myWindow();
+	
+	3. Add link events to build future windows
+	
+		if ($('myWindowLink')){
+			$('myWindowLink').addEvent('click', function(e) {
+				new Event(e).stop();
+				jsonWindows();
+			});
+		}
+
+		Note: If your link is in the top menu, it opens only a single window, and you would
+		like a check mark next to it when it's window is open, format the link name as follows:
+
+		window.id + LinkCheck, e.g., mywindowLinkCheck
+
+		Otherwise it is suggested you just use mywindowLink
+
+	Associated HTML for link event above:
+
+		<a id="myWindowLink" href="pages/lipsum.html">My Window</a>	
+
+
+	Notes:
+		If you need to add link events to links within windows you are creating, do
+		it in the onContentLoaded function of the new window.
+
+
+   ----------------------------------------------------------------- */
+
+initializeWindows = function(){
+
+	//Gateway Module
+	MochaUI.gatewayWindow = function(){
+		new MochaUI.Window({
+			id: 'gateways',
+			title: 'Gateway Listing',
+			loadMethod: 'iframe',
+			contentURL: 'gateway_listing.cfm',
+			width: 600,
+			height: 600,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('gatewayLinkCheck')) {
+		$('gatewayLinkCheck').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.gatewayWindow();
+		});
+	}
+
+	//Homepage Module
+	MochaUI.homepageWindow = function(){
+		new MochaUI.Window({
+			id: 'homepage',
+			title: 'Manage Home Page',
+			loadMethod: 'iframe',
+			contentURL: 'manage_home_page.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('manageHomeCheck')) {
+		$('manageHomeCheck').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.homepageWindow();
+		});
+	}		
+	
+	//User Module
+	MochaUI.userWindow = function(){
+		new MochaUI.Window({
+			id: 'user',
+			title: 'Manage Users',
+			loadMethod: 'iframe',
+			contentURL: 'user_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('userCheck')) {
+		$('userCheck').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.userWindow();
+		});
+	}		
+		
+	//Itinerary Module
+	MochaUI.itineraryWindow = function(){
+		new MochaUI.Window({
+			id: 'itinerary',
+			title: 'Manage Itinerary',
+			loadMethod: 'iframe',
+			contentURL: 'itinerary_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('manageitinerary')) {
+		$('manageitinerary').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.itineraryWindow();
+		});
+	}		
+	
+	//Conference Module
+	MochaUI.conferenceWindow = function(){
+		new MochaUI.Window({
+			id: 'conference',
+			title: 'Manage Conference',
+			loadMethod: 'iframe',
+			contentURL: 'conference_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('manageconferences')) {
+		$('manageconferences').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.conferenceWindow();
+		});
+	}		
+
+
+	//Media Global Module
+	MochaUI.mediaWindow = function(){
+		new MochaUI.Window({
+			id: 'globalmedia',
+			title: 'Manage Media',
+			loadMethod: 'iframe',
+			contentURL: 'media_global.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managemedia')) {
+		$('managemedia').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.mediaWindow();
+		});
+	}		
+	
+	
+
+	//Media [Audio] Module
+	MochaUI.mediaaudioWindow = function(){
+		new MochaUI.Window({
+			id: 'mediaaudio',
+			title: 'Manage Audio Media',
+			loadMethod: 'iframe',
+			contentURL: 'media_listing.cfm?media_type=audio',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managemediaaudio')) {
+		$('managemediaaudio').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.mediaaudioWindow();
+		});
+	}		
+	
+	//Media [Video] Module
+	MochaUI.mediavideoWindow = function(){
+		new MochaUI.Window({
+			id: 'mediavideo',
+			title: 'Manage Video Media',
+			loadMethod: 'iframe',
+			contentURL: 'media_listing.cfm?media_type=video',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managemediavideo')) {
+		$('managemediavideo').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.mediavideoWindow();
+		});
+	}		
+	
+	//Gallery Module
+	MochaUI.galleryWindow = function(){
+		new MochaUI.Window({
+			id: 'gallery',
+			title: 'Manage Gallery',
+			loadMethod: 'iframe',
+			contentURL: 'photo_album_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managegallery')) {
+		$('managegallery').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.galleryWindow();
+		});
+	}		
+	
+	//Rotating Module
+	MochaUI.rotatingWindow = function(){
+		new MochaUI.Window({
+			id: 'rotating',
+			title: 'Manage Rotating Images',
+			loadMethod: 'iframe',
+			contentURL: 'rotating_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managerotating')) {
+		$('managerotating').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.rotatingWindow();
+		});
+	}		
+	
+	//Rotating Module
+	MochaUI.testimonyWindow = function(){
+		new MochaUI.Window({
+			id: 'rotating',
+			title: 'Manage Testimony',
+			loadMethod: 'iframe',
+			contentURL: 'testimony_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managetestimony')) {
+		$('managetestimony').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.testimonyWindow();
+		});
+	}		
+	
+	//Articles Module
+	MochaUI.articleWindow = function(){
+		new MochaUI.Window({
+			id: 'article',
+			title: 'Manage Articles',
+			loadMethod: 'iframe',
+			contentURL: 'article_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managearticles')) {
+		$('managearticles').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.articleWindow();
+		});
+	}		
+	
+	//Home Module
+	MochaUI.homeWindow = function(){
+		new MochaUI.Window({
+			id: 'home',
+			title: 'Manage Home',
+			loadMethod: 'iframe',
+			contentURL: 'manage_home_page.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('managehome')) {
+		$('managehome').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.homeWindow();
+		});
+	}		
+	
+	//Dream Pool
+	MochaUI.dreampoolWindow = function(){
+		new MochaUI.Window({
+			id: 'dream_pool',
+			title: 'Dream Pool',
+			loadMethod: 'iframe',
+			contentURL: 'dream_pool_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('dreampool')) {
+		$('dreampool').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.dreampoolWindow();
+		});
+	}		
+	
+	//Assigned Dreams
+	MochaUI.assigneddreamWindow = function(){
+		new MochaUI.Window({
+			id: 'assigneddream_listing',
+			title: 'Assigned Dreams',
+			loadMethod: 'iframe',
+			contentURL: 'assigned_dream_listing.cfm',
+			width: 600,
+			height: 475,
+			contentBgColor: '#ffffff'
+		});
+	}
+	if ($('assigneddream')) {
+		$('assigneddream').addEvent('click', function(e){
+		new Event(e).stop();
+			MochaUI.assigneddreamWindow();
+		});
+	}	
+}
+
+// Initialize MochaUI when the DOM is ready
+window.addEvent('domready', function(){
+	MochaUI.Desktop = new MochaUI.Desktop();
+	MochaUI.Dock = new MochaUI.Dock();
+
+	/* Create Columns
+	 
+	If you are not using panels then these columns are not required.
+	If you do use panels, the main column is required. The side columns are optional.
+	Create your columns from left to right. Then create your panels from top to bottom,
+	left to right. New Panels are inserted at the bottom of their column.
+
+	*/	 
+
+	new MochaUI.Column({
+		id: 'mainColumn',
+		placement: 'main',	
+		width: null,
+		resizeLimit: [100, 300]
+	});
+	
+
+	// Add panels to main column	
+	new MochaUI.Panel({
+		id: 'mainPanel',
+		title: 'Site View',
+		loadMethod: 'iframe',
+		contentURL: '/index.cfm',
+		column: 'mainColumn',
+		panelBackground: '#fff'
+	});
+
+
+
+	MochaUI.Modal = new MochaUI.Modal();
+	
+	MochaUI.Desktop.desktop.setStyles({
+		'background': '#fff',
+		'visibility': 'visible'
+	});
+	initializeWindows();
+
+});
+
+// This runs when a person leaves your page.
+window.addEvent('unload', function(){
+	if (MochaUI) MochaUI.garbageCleanUp();
+});
+
+
+
+function Reload () {
+var f = document.getElementById('mainPanel_iframe');
+f.contentWindow.location.reload(true);
+}

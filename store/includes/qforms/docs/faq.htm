@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Frequently Asked Questions</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Frequently Asked Questions (FAQ)</B></P>
+
+<P>
+<UL>
+	<LI><A HREF="#support">I'm having a problem, what should I do?</A>
+	<LI><A HREF="#description">How can I make the field names in my error messages more descriptive?</A>
+	<LI><A HREF="#errorColor">How do I change the background color of the fields when an error occurs?</A>
+<!---//
+	<LI><A HREF="#"></A>
+//--->
+</UL>
+
+<OL>
+	<LI TYPE="A" VALUE="17" STYLE="font-weight: bolder;"><A NAME="support">I'm having a problem, what should I do?</A></LI>
+	<LI TYPE="A" VALUE="1">
+		The first thing you should do, is download the latest <A HREF="http://www.pengoworks.com/qForms/download/">build</A>.
+		If you're still having a problem, or just have some questions to ask, I recommend signing up for the qForm's
+		<A HREF="./support.htm#Mailing">mailing list</A>.
+	</LI>
+</OL>
+
+<OL>
+	<LI TYPE="A" VALUE="17" STYLE="font-weight: bolder;"><A NAME="description">How can I make the field names in my error messages more descriptive?</A></LI>
+	<LI TYPE="A" VALUE="1">
+		Use the description property to define a more user-friendly definition of the field. For example, let's say
+		you've got a field called "i_addy_zip." By default if an error would occur, your user would see something like
+		the following: "You must supply a i_addy_zip." By using the description property, you can show the user the
+		same label that appears on the form.<br/>
+		<BLOCKQUOTE><B>objForm.i_addy_zip.description = "Zip Code";</B></BLOCKQUOTE>
+		Now the error message would appear as: "You must supply a zip code."
+	</LI>
+</OL>
+
+<OL>
+	<LI TYPE="A" VALUE="17" STYLE="font-weight: bolder;"><A NAME="errorColor">How do I change the background color of the fields when an error occurs?</A></LI>
+	<LI TYPE="A" VALUE="1">
+		If you're not happy with the default color of red, you can use the qFormAPI.errorColor property 
+		to change the background color when an error occurs. For example, to change the color to blue, you could
+		use the following code:
+		<BLOCKQUOTE><B>qFormAPI.errorColor = "#000099";</B></BLOCKQUOTE>
+	</LI>
+</OL>
+
+<!---//
+<OL>
+	<LI TYPE="A" VALUE="17" STYLE="font-weight: bolder;"><A NAME=""></A></LI>
+	<LI TYPE="A" VALUE="1">
+	</LI>
+</OL>
+//--->
+
+<P ALIGN="Center">
+	[<A HREF="./acknowledgements.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./examples/index.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

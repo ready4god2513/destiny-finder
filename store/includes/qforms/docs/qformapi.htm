@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: The "qFormAPI" Object</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">The "qFormAPI" Object</B></P>
+
+<P><A NAME="Properties"><B>Properties</B></A><br/>
+<DL>
+	<DT><A NAME="allowSubmitOnError"><B><I>qFormAPI</I>.allowSubmitOnError</B></A></DT>
+	<DD>
+		The allowSubmitOnError property is a global property which determines whether or not a user
+		should be given the choice to submit a form even if errors occurred. This is used as the default
+		value for all initialized qForm objects. If set to <B>true</B>, the user be given the
+		choice to submit the data without correcting the errors. When set to <B>false</B>, the form
+		will not be submitted until all the errors are corrected. The default value is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="autodetect"><B><I>qFormAPI</I>.autodetect</B></A></DT>
+	<DD>
+		The autodetect property is a boolean value which determines whether or not the qFormAPI
+		should load the best version of JavaScript libraries based upon the client's browser.
+		The default value for this is <B>true</B>. If set to <B>false</B>, then browser will
+		load the default versions of the libraries&#151;which are written to work with
+		JavaScript v1.1.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="containers"><B><I>qFormAPI</I>.containers</B></A></DT>
+	<DD>
+		The containers property is a read-only structure containing copies of the original options' array
+		of any select box declared as a container. When the setValue() method is called on a
+		container, then the original options array and all bound containers are parsed to finding
+		a matching key. If a match is found, then the array item is copied to that container.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="customValidators"><B><I>qFormAPI</I>.customValidators</B></A></DT>
+	<DD>
+		The customValidators property is a read-only integer value containing the total number of custom
+		validators intialized with the current form. Custom validators are validators that have
+		been initalized using the validateExp() method.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="errorColor"><B><I>qFormAPI</I>.errorColor</B></A></DT>
+	<DD>
+		The errorColor property is a string value containing the color to use when changing the
+		background style of form fields if an error occurs. The default value is "<B>red</B>".
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="jsver"><B><I>qFormAPI</I>.jsver</B></A></DT>
+	<DD>
+		The jsver property is a read-only object that is used by the API when loading
+		extension modules. By referencing qFormAPI.jsver[_jsver] you'll receive a string
+		containing the highest version of JavaScript support by the current browser.
+
+		<BLOCKQUOTE><B>NOTE:</B> <B>_jsver</B> is a global variable which indicates the highest
+		level of JavaScript supported by the browser. The variable will contain a two-digit
+		integer, where the value is the version of JS multipled by 10. (Example: "12"
+		would be equal to JavaScript v1.2.</BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="librarypath"><B><I>qFormAPI</I>.librarypath</B></A></DT>
+	<DD>
+		The librarypath property is a string value containing the path to the qForm extension
+		libraries. This property is updated via the qFormAPI.setLibraryPath() method.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="modules"><B><I>qFormAPI</I>.modules</B></A></DT>
+	<DD>
+		The modules property is an array containing the default libraries to load when the
+		qFormAPI.include("*") method is called. By default this loads the "functions",
+		"field" and "validation" libraries.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="objects"><B><I>qFormAPI</I>.objects</B></A></DT>
+	<DD>
+		The objects property is a read-only structure containing pointers to all of the
+		initialized qForm objects that have been created. This is used internall by the
+		qForms API when creating external events to the qForm objects.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="packages"><B><I>qFormAPI</I>.packages</B></A></DT>
+	<DD>
+		The packages property is read-only structure containing a list of external libraries
+		that have already been initialized. This prevents multiple libraries from being
+		loaded.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="resetOnInit"><B><I>qFormAPI</I>.resetOnInit</B></A></DT>
+	<DD>
+		The resetOnInit property contains a boolean value which states whether or not the
+		forms on the page should have their values reset on page load. By default the value
+		is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="showStatusMsgs"><B><I>qFormAPI</I>.showStatusMsgs</B></A></DT>
+	<DD>
+		The showStatusMsgs property is a boolean property which indicates whether
+		or not messages should be supplied to the status bar. By default, this
+		property is set to <B>true</B>. To disable messages from appearing in the
+		status bar, simply set this property to <B>false</B> when initializing
+		the qForms API. Disabling this property would prevent the initialization
+		messages from appearing in the status bar when a validation method is 
+		being registered.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="styleAttribute"><B><I>qFormAPI</I>.styleAttribute</B></A></DT>
+	<DD>
+		The styleAttribute property is a string property which you can use
+		to define what single CSS style property should be changed when an
+		error is thrown to the field. The default value is "backgroundColor".
+		<BLOCKQUOTE><B>NOTE:</B>
+			<i>This is an experimental property&#151;use at your own risk. It
+			is highly recommend to check the results in multiple browsers
+			if you change this property.</i>
+		</BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="useErrorColorCoding"><B><I>qFormAPI</I>.useErrorColorCoding</B></A></DT>
+	<DD>
+		The useErrorColorCoding property contains a boolean value which determines whether
+		or not the background style should change when the validate() method determines
+		a validation rule has failed. Style changes will only work in browsers that support
+		this feature&#151;this feature does not work in Netscape v4.0 or lower. The default
+		value for this property is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validateAll"><B><I>qFormAPI</I>.validateAll</B></A></DT>
+	<DD>
+		The validateAll property is a boolean value which states whether or not all qForm
+		objects should be validate when any single qForm object is submitted. You may wish
+		to set this value to <B>true</B> when dealing with forms on multiple layers, where
+		the value is copied to a single form, but the validation methods are set on the
+		individual form fields. The default value is <B>false</B>.
+	</DD>
+</DL>
+
+<br/><br/>
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="dump"><B><I>qFormAPI</I>.dump()</B></A></DT>
+	<DD>
+		The dump method will display all the qForm object form field names and their values in an alert box.
+		This is useful for debugging your forms to makes sure that the values you're expecting are
+		being returned.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="include"><B><I>qFormAPI</I>.include(string src, [string path], [string ver])</B></A></DT>
+	<DD>
+		The include method allows you to load external library files. The include method is used
+		to load the validation methods and extension field methods.
+
+		<P>The src argument is a required parameter which specifies which library you'd like to load.
+		The src parameter should be equal to the base file name of the extension library. For example,
+		to load the validation.js file, you'd pass in the string "validation". The src parameter also
+		takes a special string of "*" which will load all the default libraries stored in the
+		qFormAPI.module array.
+
+		<P>The path argument is an optional argument which specifies a path other then the default
+		path in which the library file is located. The default path is the value of
+		<B>qFormAPI.librarypath</B>.
+
+		<P>The ver argument is an optional parameter which specifies the maximum version of JavaScript
+		the request library has been written for. The qForms API allows you to write multiple versions
+		of the same library to leverage newer versions of JavaScript.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="getFields"><B><I>qFormAPI</I>.getFields()</B></A></DT>
+	<DD>
+		The getFields method will return a structure containing the form fields from all of the
+		qForm initialized objects. This is useful when dealing with multi-layered forms.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="reset"><B><I>qFormAPI</I>.reset([boolean hardReset])</B></A></DT>
+	<DD>
+		The reset method will reset all qForm object fields to their default values.
+
+		<P>The hardReset argument is an optional boolean value which specifies whether or not
+		all values should be set to <B>null</B>&#151;regardless of their default values. The default
+		value is <B>false</B>, which restore the fields to their default values.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="setFields"><B><I>qFormAPI</I>.setFields(object struct, [boolean resetDefault], [boolean resetAll])</B></A></DT>
+	<DD>
+		The setFields method will populate all of the qForm objects based upon the structure passed to it.
+		The setFields method works well with WDDX, since you can easily deserialize a structure
+		and pass the variable to the setFields structure. Keys in the structure that have no corresponding
+		form fields will be ignored. The keys in the structure do not need to be in the same case as the
+		form field names.
+
+		<P>The setFields method also takes an additional argument "resetDefault" which, when set to <B>true</B>,
+		resets the default values in the form to the given structure. The default value is <B>false</B>, which
+		simply changes the values of the fields found in the structure.
+
+		<P>The "resetAll" arguement determines whether the field values should be reset before updating
+		their values in the structure. By default this value is <B>true</B>, which means
+		all the fields will be reset before updating their values from the structures. If set to
+		false, then only the fields specified in the structure will be changed.</P>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="setLibraryPath"><B><I>qFormAPI</I>.setLibraryPath(string path)</B></A></DT>
+	<DD>
+		The setLibraryPath method is used to set the correct path to the qForm extensions libraries.
+
+		<P>The argument path is a required string parameter which contains the path to the
+		extension libraries subdirectory. This value is then checked for syntax and stored witin
+		the qFormAPI.librarypath property.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validate"><B><I>qFormAPI</I>.validate(string qForm)</B></A></DT>
+	<DD>
+		The validate method is called automatically when the form's onsubmit event occurs. This
+		method actual calls individual form's validate() method.
+
+		<P>The qForm argument is a string parameter containing the value of qForm's _name property.
+		This argument is used to run the validate method for that qForm object.
+
+		<P>If the form's _allowSubmitOnError is <B>false</B>, then the user will be forced to correct
+		any errors before being allowed to submit the form. If the option is set to <B>true</B>, the
+		user will be given the choice of correcting their errors, or submitting the form as is.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./coreapi.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./objects_qform.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

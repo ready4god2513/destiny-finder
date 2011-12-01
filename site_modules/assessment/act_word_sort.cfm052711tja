@@ -1,0 +1,24 @@
+<cfset objAssessment = CreateObject("component","cfcs.assessment")> 
+	Submitted
+	
+<cfif FindNoCase('destinyfinder',CGI.HTTP_REFERER)>
+
+	<cfset VARIABLES.result = Replace(FORM.sort_serialized,'item[]=','','ALL')>
+	<cfset VARIABLES.result = Replace(VARIABLES.result,'&',',','ALL')>
+
+	<cfset VARIABLES.item = {
+		id = '#FORM.sort_id#',
+		type_id = '#FORM.type_id#',
+		result = '#SerializeJSON(VARIABLES.result)#'
+	}>
+		
+	<cfoutput>
+		#objAssessment.insert_assessment(
+			assessment_id="#FORM.assessment_id#",
+			item_detail="#VARIABLES.item#",
+			user_id="#FORM.user_id#",
+			invite="#FORM.invite#"
+			)#
+	</cfoutput>
+	
+</cfif>

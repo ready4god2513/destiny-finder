@@ -1,0 +1,168 @@
+<cfcomponent displayname="story" output="no" hint="I handle the story functions">
+
+<cfset obj_admin = CreateObject("component","admin.cfcs.admin")>
+<cfset obj_files = CreateObject("component","cfcs.files")>
+<cfset obj_queries = CreateObject("component","cfcs.queries")>
+
+<cffunction name="process_form" returntype="string" output="false" hint="I process the story form">
+	<cfargument name="process" required="yes" type="string">
+	<cfargument name="return_url" required="no" type="string">
+
+	
+
+	<cfparam name="VARIABLES.story_media" default="">
+
+	<cfswitch expression="#process#">
+		<cfcase value="Post Story">	
+				<cfif LEN(FORM.add_media_file) GT 0>
+					<cfset VARIABLES.story_media = obj_files.upload_file(form_file_field="add_media_file",file_purpose="story")>
+				</cfif>
+				<cfif LEN(FORM.add_story_thumb) GT 0>
+					<cfset VARIABLES.story_media = obj_files.upload_file(form_file_field="add_story_thumb",file_purpose="story")>
+				</cfif>
+
+				<cfquery name="Insert_Story" datasource="#APPLICATION.dsn#">
+					INSERT INTO	stories
+						(story_title,story_date,story_publish_date,story_content,story_user_id,story_active,story_media,story_shorttext,story_categories,story_youtube,story_wall)
+					VALUES
+						(<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_date#">,
+						<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_publish_date#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						<cfif LEN(FORM.story_user_id) GT 0>
+							<cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_user_id#">,
+						<cfelse>
+							NULL,
+						</cfif>
+						0,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.story_media#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_categories#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_youtube#">,
+						0
+						)
+				</cfquery>
+				
+				<cfquery name="GetMax" datasource="#APPLICATION.DSN#" maxrows="1">
+					SELECT story_id 
+					FROM Stories
+					ORDER BY Story_id DESC
+				</cfquery>
+				
+				<!--- INSERT INTO TEMP TABLE FOR EDITING PURPOSES --->
+				
+				<cfquery name="Insert_Story_temp" datasource="#APPLICATION.dsn#">
+					INSERT INTO	stories_temp
+						(story_id,story_title,story_date,story_publish_date,story_content,story_user_id,story_active,story_media,story_shorttext,story_categories,story_youtube,story_wall)
+					VALUES
+						(#GetMax.story_id#,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_date#">,
+						<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_publish_date#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						<cfif LEN(FORM.story_user_id) GT 0>
+							<cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_user_id#">,
+						<cfelse>
+							NULL,
+						</cfif>
+						0,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.story_media#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_categories#">,
+						<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_youtube#">,
+						0
+						)
+				</cfquery>
+				
+				
+				
+				
+				<cfparam name="FORM.story_id" default="#GetMax.story_id#">
+				
+				<cfset obj_admin.lookup_table_update(
+				lookup_table="Category_Story_Match",
+				table_primkey_name="story_id",
+				checkbox_name="story_categories",
+				secondary_primkey_name="category_id"
+				)>
+				
+				
+				
+				<cfmail to="#REQUEST.admin_notification#" from="noreply@sharetheprayer.tv" subject="Sharetheprayer.tv: A new post has been made and is awaiting approval" type="html">
+				
+					<cfset qAuthor = obj_queries.author_detail(author_id="#FORM.story_user_id#")>
+					
+					Please login and review the post "#FORM.story_title#" by #qAuthor.user_first_name# #qAuthor.user_last_name#.
+					<br />
+					<br />
+					<a href="#REQUEST.site_URL#admin/">ShareThePrayer.tv Admin</a>				
+				
+				</cfmail>
+			
+			<cfif isDefined('return_url')>
+				<cflocation url="#return_url#" addtoken="no">
+			<cfelse>
+				<cflocation url="index.cfm?page=prayerwall&admin=1" addtoken="no">
+			</cfif>
+		</cfcase>
+		
+		<cfcase value="Update Story">	
+				
+				<cfif LEN(FORM.add_media_file) GT 0>
+					<cfset VARIABLES.story_media = obj_files.upload_file(form_file_field="add_media_file",file_purpose="story")>
+				</cfif>
+				
+				<cfquery name="Update_Story" datasource="#APPLICATION.dsn#">
+					UPDATE stories_temp
+						SET 
+						story_title = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_title#">,
+						story_content = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_content#">,
+						<cfif LEN(VARIABLES.story_media) GT 0>
+							story_media = <cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.story_media#">,
+						</cfif>		
+						story_publish_date = <cfqueryparam cfsqltype="cf_sql_date" value="#FORM.story_publish_date#">,
+						story_shorttext = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_shorttext#">,
+						story_categories = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_categories#">,
+						story_youtube = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.story_youtube#">,
+						story_active = 1
+						WHERE story_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.story_id#">
+				</cfquery>
+								
+				<cfset obj_admin.lookup_table_update(
+				lookup_table="Category_Story_Match",
+				table_primkey_name="story_id",
+				checkbox_name="story_categories",
+				secondary_primkey_name="category_id"
+				)>
+				
+				<cfmail to="#REQUEST.admin_notification#" from="noreply@sharetheprayer.tv" subject="Sharetheprayer.tv: A post has been edited and is awaiting approval" type="html">
+				
+					<cfset qAuthor = obj_queries.author_detail(author_id="#FORM.story_user_id#")>
+					
+					Please login and review the post update for "#FORM.story_title#" by #qAuthor.user_first_name# #qAuthor.user_last_name#.
+					<br />
+					<br />
+					<a href="#REQUEST.site_URL#admin/">ShareThePrayer.tv Admin</a>				
+				
+				</cfmail>
+				
+			<cflocation url="index.cfm?page=prayerwall&admin=1" addtoken="no">
+		</cfcase>
+		
+		<cfdefaultcase>
+		</cfdefaultcase>
+	
+	</cfswitch>
+		
+</cffunction>
+
+<cffunction name="email_notification" output="false" hint="I send email notifications">
+	<cfargument name="mail_to" required="yes">
+	<cfargument name="mail_from" required="yes">
+	
+	<cfmail to="#mail_to#" from="#mail_from#" subject="#subject#" type="html">
+	
+	</cfmail>
+</cffunction>
+
+</cfcomponent>

@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Getting Started</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Getting Started</B></P>
+
+<P>You'll want to start off by unzipping and copying the contents of the qForms
+zip file to a directory either on your local PC or on a web server. The
+<A HREF="./examples/index.htm">examples</A> included with qForms API do not
+require a web server to run.</P>
+
+<P>Once you've copied the files, go ahead and view a few of the
+<A HREF="./examples/index.htm">example files</A>.
+Play around with the forms and make sure to view the source code. I think you'll
+be amazed by how little actual JavaScript was needed in order to get the forms
+working.</P>
+
+<P><A NAME="Installation"><B>Installation</B></A><br/>
+Create a directory off the root of your web server to store the qForms API
+files. For the purpose of documentation this directory will be called "/lib/".*</P>
+
+<P>You'll need to copy the following files and directory into the "/lib/" folder.
+The files are included in the "lib" sub-folder of the zip file.</P>
+
+<UL>
+	<LI>File: qforms.js
+	<LI>Directory: /qforms/
+	<LI>File: qforms_full.js (Optional**)
+	<LI>File: qforms_init.js (Optional**)
+</UL>
+
+<BLOCKQUOTE><B>Note:</B> In a production environment, you may wish to use the versions
+of the library files located in the "compressed" sub-folder of the qForms distribution file. 
+The JavaScript files in this folder have all the erroneous white space and comments removed. 
+This dramatically reduce the file size of the library&#151;which means faster download times 
+for the users.</BLOCKQUOTE>
+
+<BLOCKQUOTE>* You can use this folder to store all of your JavaScript library
+files in. If you already have a directory for this purpose, then you can install
+the qForm files into that directory. Just make sure to substitute "/lib/" in
+the documentation with the path where the qForms API files were installed to.</BLOCKQUOTE>
+
+<BLOCKQUOTE>** The purpose of these files is to simplify usage of qForms. If you
+choose to use these files, you'll need to manually update the files with the
+correct path to the qForm API files. If you install the files into the default
+"/lib/" directory, then no changes are necessary.</BLOCKQUOTE>
+
+<P><A NAME="Preparing"><B>Preparing A Form</B></A><br/>
+Before you can use the qForms API, there are few things you need to do. The first
+thing you need to do is to load the qForms API library. You do this by loading
+the qforms.js using the &lt;SCRIPT&gt; tag. Create a new HTML document, and place
+the following in between the &lt;HEAD&gt;&lt;/HEAD&gt; tags of your document:</P>
+
+<PRE>&lt;!--// load the qForm JavaScript API //--&gt;
+&lt;SCRIPT SRC="/lib/qforms.js"&gt;&lt;/SCRIPT&gt;
+&lt;!--// you do not need the code below if you plan on just
+       using the core qForm API methods. //--&gt;
+&lt;!--// [start] initialize all default extension libraries  //--&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--//
+// specify the path where the "/qforms/" subfolder is located
+qFormAPI.setLibraryPath("/lib/");
+// loads all default libraries
+qFormAPI.include("*");
+//--&gt;
+&lt;/SCRIPT&gt;
+&lt;!--// [ end ] initialize all default extension libraries  //--&gt;</PRE>
+
+<BLOCKQUOTE>The above code should be kept isolate from other calls to the qForm API. The
+reason for this is the include() method acutally performs a document.write() statement
+which outputs other &lt;SCRIPT&gt; tags. These additional tags are not executed until
+the end &lt;/SCRIPT&gt; tag is reached. If you receive errors that certain methods
+are undefined which you know exist, try isolate the include() method in it's own
+block of JavaScript code.</BLOCKQUOTE>
+
+<BLOCKQUOTE><B>NOTE:</B> The qFormAPI.setLibraryPath() and qFormAPI.include() lines are only required
+if you wish to use the extension libraries-like the "Validation", "Field" and "Functions"
+libraries. The usage of these functions will be explained in more detail later on
+in the documentation.</BLOCKQUOTE>
+
+<P>The next thing you need to do is to initialize a new qForms object. This must be
+done after the form has been initialized by the document. This can be done
+in two manors: creating a function to run when the document's onLoad event occurs,
+or by placing the JavaScript code anywhere in the document after the ending
+&lt;/FORM&gt; tag. For this demonstration, we'll initialize the qForms object
+after the ending &lt;/FORM&gt; tag. Place the following code within the
+&lt;BODY&gt;&lt;/BODY&gt; tags of your document.</P>
+
+<PRE>&lt;!--// a simple form //--&gt;
+&lt;FORM ACTION="" METHOD="POST" NAME="<FONT COLOR="#CC3300">frmExample</FONT>"&gt;
+&lt;P&gt;Enter some sample text:&lt;BR&gt;
+&lt;INPUT TYPE="Text" NAME="SampleText"&gt;&lt;/P&gt;
+<PRE>&lt;INPUT TYPE="Button" NAME="Test" VALUE="Hello World!"
+	onclick="objForm.SampleText.setValue('Hello World!');"&gt;&lt;/P&gt;</PRE>
+&lt;/FORM&gt;
+
+&lt;!--// this code must execute after the end &lt;/FORM&gt; tag //--&gt;
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+&lt;!--//
+// replace "frmExample" with value of the &lt;FORM&gt; tag's NAME
+// attribute. you can also substitute "objForm" with any
+// variable name that makes sense for you
+objForm = new qForm("<FONT COLOR="#CC3300">frmExample</FONT>");
+//--&gt;
+&lt;/SCRIPT&gt;</PRE>
+
+<P>Now save the document you just created and load it up in your browser.
+Clicking the "Hello World!" button will place the text "Hello World!" into
+the SampleText field. That's all there is too it!</P>
+
+<P>Now that you have a basic overview of the qForms API, you're should be
+more then ready to start using it in your projects. Take a look at the
+<A HREF="./examples/index.htm">examples</A> for more inspiration.</P>
+
+
+<P ALIGN="Center">
+	[<A HREF="./overview.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./using.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

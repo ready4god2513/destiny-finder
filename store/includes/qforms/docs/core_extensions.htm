@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: Core Extension Libraries</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Core Extension Libraries</B></P>
+
+<P>The core extension members of the qForms API are split in to several files. These
+files are located in the "/qforms/" sub-directory. These extension libraries greatly
+enhance the normal functionality of qForms, giving you such functionality as form
+validation methods and the ability to move items between select boxes.</P>
+
+<P><A NAME="Field"><B>Field Methods Library</B></A><br/>
+</P>
+
+<OL TYPE="1">
+	<LI><A HREF="./extension_fields.htm#Properties">Properties</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./extension_fields.htm#dummyContainer">dummyContainer</A>
+			<LI><A HREF="./extension_fields.htm#boundContainers">boundContainers</A>
+		</UL>
+	<LI><A HREF="./extension_fields.htm#Methods">Methods</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./extension_fields.htm#compare">compare(object field)</A>
+			<LI><A HREF="./extension_fields.htm#createDependencyTo">createDependencyTo(string field, [string condition])</A>
+			<LI><A HREF="./extension_fields.htm#enforceDependency">enforceDependency()</A>
+			<LI><A HREF="./extension_fields.htm#isDependent">isDependent(string field, [string condition])</A>
+			<LI><A HREF="./extension_fields.htm#location">location([string target], [string key])</A>
+			<LI><A HREF="./extension_fields.htm#ltrim">ltrim()</A>
+			<LI><A HREF="./extension_fields.htm#makeContainer">makeContainer([string bindTo])</A>
+			<LI><A HREF="./extension_fields.htm#mirrorTo">mirrorTo(string object)</A>
+			<LI><A HREF="./extension_fields.htm#populate">populate(object struct, [boolean reset], [boolean sort], [object prefix])</A>
+			<LI><A HREF="./extension_fields.htm#resetLast">resetLast()</A>
+			<LI><A HREF="./extension_fields.htm#rtrim">rtrim()</A>
+			<LI><A HREF="./extension_fields.htm#toLowerCase">toLowerCase()</A>
+			<LI><A HREF="./extension_fields.htm#toUpperCase">toUpperCase()</A>
+			<LI><A HREF="./extension_fields.htm#transferFrom">transferFrom(string field, [boolean sort], [string type], [boolean selectItems], [boolean reset])</A>
+			<LI><A HREF="./extension_fields.htm#transferTo">transferTo(string field, [boolean sort], [string type], [boolean selectItems], [boolean reset])</A>
+			<LI><A HREF="./extension_fields.htm#trim">trim()</A>
+		</UL>
+</OL>
+
+<P><A NAME="Validation"><B>Validation Methods Library</B></A><br/>
+</P>
+
+<OL TYPE="1">
+	<LI><A HREF="./extension_validation.htm">Methods</A>
+		<UL TYPE="circle">
+			<LI><A HREF="./extension_validation.htm#validateAlpha">validateAlpha()<br/>isAlpha()</A>
+			<LI><A HREF="./extension_validation.htm#validateAlphaNumeric">validateAlphaNumeric()<br/>isAlphaNumeric()</A>
+			<LI><A HREF="./extension_validation.htm#validateCreditCard">validateCreditCard()<br/>isCreditCard()</A>
+			<LI><A HREF="./extension_validation.htm#validateDate">validateDate([string mask])<br/>isDate([string mask])</A>
+			<LI><A HREF="./extension_validation.htm#validateDifferent">validateDifferent(string field)<br/>isDifferent(string field)</A>
+			<LI><A HREF="./extension_validation.htm#validateEmail">validateEmail()<br/>isEmail()</A>
+			<LI><A HREF="./extension_validation.htm#validateFormat">validateFormat(string mask, [string type])<br/>isFormat(string mask, [string type])</A>
+			<LI><A HREF="./extension_validation.htm#validateInteger">validateInteger()<br/>isInteger()</A>
+			<LI><A HREF="./extension_validation.htm#validateLength">validateLength([int length], [string type])<br/>isLength([int length], [string type])</A>
+			<LI><A HREF="./extension_validation.htm#validateLengthGT">validateLengthGT(int length)<br/>isLengthGT(int length)</A>
+			<LI><A HREF="./extension_validation.htm#validateLengthLT">validateLengthLT(int length)<br/>isLengthLT(int length)</A>
+			<LI><A HREF="./extension_validation.htm#validateNotEmpty">validateNotEmpty()<br/>isNotEmpty()</A>
+			<LI><A HREF="./extension_validation.htm#validateNotNull">validateNotNull()<br/>isNotNull()</A>
+			<LI><A HREF="./extension_validation.htm#validateNumeric">validateNumeric()<br/>isNumeric()</A>
+			<LI><A HREF="./extension_validation.htm#validatePassword">validatePassword([string field], [int min], [int max])<br/>isPassword([string field], [int min], [int max])</A>
+			<LI><A HREF="./extension_validation.htm#validatePhoneNumber">validatePhoneNumber([int length])<br/>isPhoneNumber([int length])</A>
+			<LI><A HREF="./extension_validation.htm#validateRange">validateRange(int min, int max)<br/>isRange(int min, int max)</A>
+			<LI><A HREF="./extension_validation.htm#validateSame">validateSame(string field)<br/>isSame(string field)</A>
+			<LI><A HREF="./extension_validation.htm#validateSSN">validateSSN()<br/>isSSN()</A>
+			<LI><A HREF="./extension_validation.htm#validateState">validateState()<br/>isState()</A>
+			<LI><A HREF="./extension_validation.htm#validateZipCode">validateZipCode()<br/>isZipCode()</A>
+		</UL>
+</OL>
+
+<P><A NAME="Functions"><B>General Functions Library</B></A><br/>
+</P>
+
+<UL TYPE="circle">
+	<LI><A HREF="./extension_functions.htm">_createFields(object struct, [string type])</A>
+	<LI><A HREF="./extension_functions.htm#_isLength">_isLength(string text, [int length], [string type])</A>
+	<LI><A HREF="./extension_functions.htm#_getEventType">_getEventType(string type)</A>
+	<LI><A HREF="./extension_functions.htm#_getState">_getState(string postalAbbr)</A>
+	<LI><A HREF="./extension_functions.htm#_getURLParams">_getURLParams()</A>
+	<LI><A HREF="./extension_functions.htm#_listSum">_listSum(string list, [string delimiters])</A>
+	<LI><A HREF="./extension_functions.htm#_listToArray">_listToArray(string list, [string delimiters])</A>
+	<LI><A HREF="./extension_functions.htm#_ltrim">_ltrim(string text)</A>
+	<LI><A HREF="./extension_functions.htm#_rtrim">_rtrim(string text)</A>
+	<LI><A HREF="./extension_functions.htm#_sortOptions">_sortOptions(objext field, [string order], [boolean byText])</A>
+	<LI><A HREF="./extension_functions.htm#_stripInvalidChars">_stripInvalidChars(string text, [string type])</A>
+	<LI><A HREF="./extension_functions.htm#_transferOptions">_transferOptions(object field1, object field2, [boolean sort], [string type], [boolean selectItems], [boolean reset])</A>
+	<LI><A HREF="./extension_functions.htm#_trim">_trim(string text)</A>
+</UL>
+
+<P ALIGN="Center">
+	[<A HREF="./core_functions.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./extension_fields.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

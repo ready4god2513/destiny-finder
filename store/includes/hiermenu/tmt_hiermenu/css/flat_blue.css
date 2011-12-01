@@ -1,0 +1,91 @@
+/* Main container for whole menu */
+div.tmtHierbar {
+	float: left;
+	width: 48em;
+}
+
+/* Main list inside tmtHierbar */
+div.tmtHierbar ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* Links, all levels */
+div.tmtHierbar li a,
+div.tmtHierbar li a:link
+div.tmtHierbar li a:visited {
+	background-color: #376BFF;
+	color: #DFE6F5;
+	display: block;
+	font-weight: bold;
+	padding-bottom: 0.25em;
+	padding-left: 0.5em;
+	padding-right: 0em;
+	padding-top: 0.25em;
+	text-decoration: none;
+	width: 9em;
+}
+
+/* Links, all levels, hover */
+div.tmtHierbar li a:hover {
+	background-color: #DFE6F5;
+	color: #00008B;
+}
+
+/* Links second and third level */
+div.tmtHierbar ul li.tmtHiermenu ul li a,
+div.tmtHierbar ul li.tmtHiermenu ul li a:link
+div.tmtHierbar ul li.tmtHiermenu ul li a:visited {
+	background-color: #A6C6FF;
+	color: #00008B;
+	font-weight: normal;
+}
+
+/* Links,  second and third level, hover */
+div.tmtHierbar ul li.tmtHiermenu ul li a:hover {
+	background-color: #DFE6F5;
+	color: #00008B;
+}
+
+/* First level */
+div.tmtHierbar li {
+	float: left;
+	line-height: 1em;
+	list-style: none;
+	margin: 0;
+	position: relative;
+	width: 9em;
+}
+
+/* Both second and third level */
+div.tmtHierbar ul li.tmtHiermenu ul{
+	display: none;
+	left: -1px;
+	margin-top: -2px;
+	position: absolute;
+	top: 1.6em;
+	width: 9em;
+}
+
+/* Third level */
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu ul{
+	display: none;
+	left: 9em;
+	top: 0;
+}
+
+/*
+Show second and third level items on hover
+IE doesn't understand this, but the Javascript code will takes care of it
+*/
+div.tmtHierbar ul li.tmtHiermenu:hover ul,
+div.tmtHierbar ul li.tmtHiermenu ul li.tmtHiermenu:hover ul{
+	display: block;
+}
+
+/* IE will miss this. It's a quick fix for the box model */
+div.tmtHierbar>ul li a,
+div.tmtHierbar>li a:link
+div.tmtHierbar>li a:visited {
+	width: 8.5em;
+}

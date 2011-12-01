@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: Layers (Single Form)</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<STYLE TYPE="text/css">
+		.input { width: 400px; }
+		#idText { position: absolute ; left: 150px; top: 175px; width: 400px; height: 250px; background-color: #ffffff; border: thin solid #003399; z-index: 1; padding: 5px 5px 5px 5px;}
+		#idForm { position: absolute ; left: 150px; top: 175px; width: 400px; height: 250px; background-color: #ffffff; border: thin solid #003399; z-index: 2; padding: 5px 5px 5px 5px; visibility: hidden;}
+	</STYLE>
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// this loads all the default libraries
+	qFormAPI.include("*");
+
+	// this is the DHTML code for show the menus
+	function showForm(show){
+		strHidden = ( !document.layers ) ? "hidden" : "hide";
+		strVisible = ( !document.layers ) ? "visible" : "show";
+
+		if( document.layers ){
+			lyrForm = document.idForm;
+		} else if( document.getElementById ){
+			lyrForm = document.getElementById("idForm").style;
+		} else if( document.all ){
+			lyrForm = document.all["idForm"].style;
+		}
+
+		lyrForm.visibility = (show) ? strVisible : strHidden;
+		return false;
+	}
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+
+[<A HREF="javascript:void(0);" onclick="return showForm(false);">Text</A>]
+[<A HREF="javascript:void(0);" onclick="return showForm(true);">Form</A>]
+
+<DIV ID="idText">
+<P><B CLASS="Heading">Layers (Single Form)</B><br/>
+This example illustrates how qForms can be used even if the form resides in a layer.</P>
+</DIV>
+
+<DIV ID="idForm">
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample">
+<B>Name:</B><br/>
+<INPUT TYPE="Text" NAME="Name" VALUE="" CLASS="input"><br/>
+
+<B>E-mail:</B><br/>
+<INPUT TYPE="Text" NAME="Email" VALUE="" CLASS="input"><br/>
+
+<B>Phone Number</B><br/>
+<INPUT TYPE="Text" NAME="Phone" VALUE="" CLASS="input"><br/>
+
+<B>State</B><br/>
+<INPUT TYPE="Text" NAME="State" VALUE="" CLASS="input"><br/>
+
+<br/>
+<INPUT TYPE="Button" VALUE="Form Dump" onclick="objForm.dump();">
+<INPUT TYPE="Submit">
+<INPUT TYPE="Button" VALUE="Reset" onclick="objForm.reset();">
+
+</FORM>
+</DIV>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+
+<script language="JavaScript">
+<!--//
+// initialize the qForm object (since the form is in a layer,
+// you need to specify the path to the object)
+objForm = new qForm("frmExample", "document.idForm");
+
+// make these fields required
+objForm.required("Name, Email");
+
+// make sure the "Email" field appears syntatically correct
+objForm.Email.validateEmail();
+//-->
+</script>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

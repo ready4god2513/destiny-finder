@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms Examples: Advanced Form</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="../css/docs.css" TYPE="text/css" MEDIA="screen">
+	<!--// load the qForm JavaScript API //-->
+	<script SRC="../../lib/qforms.js"></script>
+	<script language="JavaScript">
+	<!--//
+	// set the path to the qForms directory
+	qFormAPI.setLibraryPath("../../lib/");
+	// this loads all the default libraries
+	qFormAPI.include("*");
+	//-->
+	</script>
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="../images/left.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">Advanced Form</B><br/>
+This example illustrates advance uses of the qForms API. It shows how you can
+easily create advanced functionality in your forms, without having to know
+a lot about JavaScript.</P>
+
+<P>Pay close attention to the rules of the page. By default, only "Name" and
+"E-mail" fields are required. However, as soon as you select a "Favorite
+Sport" the "Favorite Team" becomes required. Selecting any sport, except "Other",
+will force you to select a team from the list of valid professional teams. The
+"Other" and "Favorite Team" input boxes are disabled by default.</P>
+
+<P>If you select "Other" as your favorite sport, then you're required to fill in
+the "Other" input box as well as manually type in your "Favorite Team." If a value
+is entered in the "Other" text box and then a different sport is selecting, the
+value in the "Other" input box is cleared. However, reselecting the "Other" option
+will repopulate the "Other" input box with the lastValue property of the field.</P>
+
+<FORM ACTION="showdata.htm" METHOD="GET" NAME="frmExample">
+<P>Name: [*]<br/>
+<INPUT TYPE="Text" NAME="Name" SIZE="40"></P>
+
+<P>E-mail: [*]<br/>
+<INPUT TYPE="Text" NAME="Email" SIZE="40"></P>
+
+<P>Favorite Professional Sport<br/>
+<INPUT TYPE="Radio" NAME="FavSport" VALUE="nfl">
+Football (NFL)<br/>
+<INPUT TYPE="Radio" NAME="FavSport" VALUE="nba">
+Basketball (NBA)<br/>
+<INPUT TYPE="Radio" NAME="FavSport" VALUE="mls">
+Soccer (MLS)<br/>
+<INPUT TYPE="Radio" NAME="FavSport" VALUE="nhl">
+Hockey (NHL)<br/>
+<INPUT TYPE="Radio" NAME="FavSport" VALUE="Other">
+Other
+<INPUT TYPE="Text" NAME="FavSportOther" SIZE="40"></P>
+
+<P>Favorite Team:<br/>
+<INPUT TYPE="Text" NAME="FavTeam" SIZE="40"></P>
+
+<P>You can select your favorite team from here:<br/>
+<SELECT NAME="TeamSelection" SIZE="10">
+	<!---// create some dummy spacing //--->
+	<OPTION>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </OPTION>
+	<!--// insert 10 dummy records so Netscape v4 doesn't get upset :) //--->
+	<OPTION></OPTION><OPTION></OPTION><OPTION></OPTION><OPTION></OPTION><OPTION></OPTION>
+	<OPTION></OPTION><OPTION></OPTION><OPTION></OPTION><OPTION></OPTION>
+</SELECT>
+
+
+<BLOCKQUOTE>[*] Required fields</BLOCKQUOTE>
+
+<P>
+<INPUT TYPE="Submit" VALUE="Submit">
+<INPUT TYPE="Button" VALUE="Form Dump" onclick="objForm.dump();">
+<INPUT TYPE="Button" VALUE="Reset" onclick="objForm.reset();">
+</P>
+</FORM>
+
+<P ALIGN="Center">
+[<A HREF="./index.htm">More Examples</A>]
+[<A HREF="../index.htm">Documentation</A>]
+</P>
+
+<script language="JavaScript">
+<!--//
+// initialize the qForm object
+objForm = new qForm("frmExample");
+
+// make these fields required
+objForm.required("Name, Email");
+
+// run the "selectSport()" function everytime an option is clicked
+// the false option makes sure the selectSport() function is called immediately
+objForm.FavSport.addEvent("onclick", "selectSport();", false);
+
+// if the Favorite Professional Sport is "Other", then they must fill in
+// their favorite other sport
+objForm.FavSportOther.createDependencyTo("FavSport", "Other");
+objForm.FavSportOther.description = "favorite professional sport";
+objForm.FavSportOther.disabled(true);
+
+// if a favorite sport has been selected, require the Favorite Team field
+objForm.FavTeam.createDependencyTo("FavSport");
+objForm.FavTeam.description = "favorite team";
+
+// disable the FavTeam select box
+objForm.FavTeam.disabled(true);
+// disable the TeamSelection select box
+objForm.TeamSelection.disabled(true);
+
+// mirror the value of the "TeamSelection" field to the "FavTeam" field
+objForm.TeamSelection.mirrorTo("objForm.FavTeam");
+
+// if a sport is selected, then grab the list of professional teams
+// matching the sport the user selected. If the "Other" field was
+// chosen, the make user type the name of the sport in the "Other"
+// box as well as manually type the "Favorite Team" in.
+function selectSport(){
+	var value = objForm.FavSport.getValue();
+	// if the option "Other" is selected, then enable the FavTeam & FavSportOther
+	// fields, otherwise disable them
+	if( value == "Other" ){
+		// enable the FavTeam & FavSportOther fields
+		objForm.FavTeam.disabled(false);
+		objForm.FavSportOther.disabled(false);
+		// update the "Other" box with the last value stored in the field
+		objForm.FavSportOther.resetLast();
+		// clear the "TeamSelection" select box
+		objForm.TeamSelection.obj.length = 0;
+		// disable the TeamSelection field
+		objForm.TeamSelection.disabled(true);
+		// clear the "FavTeam" box
+		objForm.FavTeam.setValue(null);
+	} else {
+		// disable the FavTeam & FavSportOther fields
+		objForm.FavTeam.disabled(true);
+		objForm.FavSportOther.disabled(true);
+		// clear the "Other" box if it was the last sport selected
+		if( objForm.FavSport.lastValue == "Other" ) objForm.FavSportOther.setValue(null);
+		// enable the TeamSelection field
+		objForm.TeamSelection.disabled(false);
+		// populate the TeamSelection field with the correct pro teams
+		objForm.TeamSelection.populate(stcSports[value]);
+	}
+
+}
+
+// create a structure to store all the professional teams
+stcSports = new Object();
+stcSports.nba = new Object();
+stcSports.nfl = new Object();
+stcSports.mls = new Object();
+stcSports.nhl = new Object();
+
+// structure containing the NBA Teams
+stcSports.nba["atl"] = "Atlanta";
+stcSports.nba["bos"] = "Boston";
+stcSports.nba["cha"] = "Charlotte";
+stcSports.nba["chi"] = "Chicago";
+stcSports.nba["cle"] = "Cleveland";
+stcSports.nba["dal"] = "Dallas";
+stcSports.nba["den"] = "Denver";
+stcSports.nba["det"] = "Detroit";
+stcSports.nba["gsw"] = "Golden State";
+stcSports.nba["hou"] = "Houston";
+stcSports.nba["ind"] = "Indiana";
+stcSports.nba["lac"] = "LA Clippers";
+stcSports.nba["lal"] = "LA Lakers";
+stcSports.nba["mia"] = "Miami";
+stcSports.nba["mil"] = "Milwaukee";
+stcSports.nba["min"] = "Minnesota";
+stcSports.nba["njn"] = "New Jersey";
+stcSports.nba["nyk"] = "New York";
+stcSports.nba["orl"] = "Orlando";
+stcSports.nba["phi"] = "Philadelphia";
+stcSports.nba["pho"] = "Phoenix";
+stcSports.nba["por"] = "Portland";
+stcSports.nba["sac"] = "Sacramento";
+stcSports.nba["sas"] = "San Antonio";
+stcSports.nba["sea"] = "Seattle";
+stcSports.nba["tor"] = "Toronto";
+stcSports.nba["uth"] = "Utah";
+stcSports.nba["van"] = "Vancouver";
+stcSports.nba["was"] = "Washington";
+
+// structure containing the NFL Teams
+stcSports.nfl["ari"] = "Arizona";
+stcSports.nfl["atl"] = "Atlanta";
+stcSports.nfl["bal"] = "Baltimore";
+stcSports.nfl["buf"] = "Buffalo";
+stcSports.nfl["car"] = "Carolina";
+stcSports.nfl["chi"] = "Chicago";
+stcSports.nfl["cin"] = "Cincinnati";
+stcSports.nfl["cle"] = "Cleveland";
+stcSports.nfl["dal"] = "Dallas";
+stcSports.nfl["den"] = "Denver";
+stcSports.nfl["det"] = "Detroit";
+stcSports.nfl["gnb"] = "Green Bay";
+stcSports.nfl["ind"] = "Indianapolis";
+stcSports.nfl["jac"] = "Jacksonville";
+stcSports.nfl["kan"] = "Kansas City";
+stcSports.nfl["mia"] = "Miami";
+stcSports.nfl["min"] = "Minnesota";
+stcSports.nfl["nwe"] = "New England";
+stcSports.nfl["nor"] = "New Orleans";
+stcSports.nfl["nyg"] = "NY Giants";
+stcSports.nfl["nyj"] = "NY Jets";
+stcSports.nfl["oak"] = "Oakland";
+stcSports.nfl["phi"] = "Philadelphia";
+stcSports.nfl["pit"] = "Pittsburgh";
+stcSports.nfl["sdg"] = "San Diego";
+stcSports.nfl["sfo"] = "San Francisco";
+stcSports.nfl["sea"] = "Seattle";
+stcSports.nfl["stl"] = "St. Louis";
+stcSports.nfl["tam"] = "Tampa Bay";
+stcSports.nfl["ten"] = "Tennessee";
+stcSports.nfl["was"] = "Washington";
+
+// structure containing the MLS Teams
+stcSports.mls["cob"] = "Columbus";
+stcSports.mls["mia"] = "Miami";
+stcSports.mls["nwy"] = "New York";
+stcSports.mls["tam"] = "Tampa Bay";
+stcSports.mls["nwe"] = "New England";
+stcSports.mls["was"] = "Washington DC";
+stcSports.mls["dal"] = "Dallas";
+stcSports.mls["san"] = "San Jose";
+stcSports.mls["chi"] = "Chicago";
+stcSports.mls["los"] = "Los Angeles";
+stcSports.mls["col"] = "Colorado";
+stcSports.mls["kas"] = "Kansas City";
+
+// structure containing the NHL Teams
+stcSports.nhl["ana"] = "Anaheim";
+stcSports.nhl["atl"] = "Atlanta";
+stcSports.nhl["bos"] = "Boston";
+stcSports.nhl["buf"] = "Buffalo";
+stcSports.nhl["cgy"] = "Calgary";
+stcSports.nhl["car"] = "Carolina";
+stcSports.nhl["chi"] = "Chicago";
+stcSports.nhl["col"] = "Colorado";
+stcSports.nhl["cob"] = "Columbus";
+stcSports.nhl["dal"] = "Dallas";
+stcSports.nhl["det"] = "Detroit";
+stcSports.nhl["edm"] = "Edmonton";
+stcSports.nhl["fla"] = "Florida";
+stcSports.nhl["los"] = "Los Angeles";
+stcSports.nhl["min"] = "Minnesota";
+stcSports.nhl["mon"] = "Montreal";
+stcSports.nhl["nas"] = "Nashville";
+stcSports.nhl["njd"] = "New Jersey";
+stcSports.nhl["nyi"] = "NY Islanders";
+stcSports.nhl["nyr"] = "NY Rangers";
+stcSports.nhl["ott"] = "Ottawa";
+stcSports.nhl["phi"] = "Philadelphia";
+stcSports.nhl["pho"] = "Phoenix";
+stcSports.nhl["pit"] = "Pittsburgh";
+stcSports.nhl["san"] = "San Jose";
+stcSports.nhl["stl"] = "St. Louis";
+stcSports.nhl["tam"] = "Tampa Bay";
+stcSports.nhl["tor"] = "Toronto";
+stcSports.nhl["van"] = "Vancouver";
+stcSports.nhl["was"] = "Washington";
+//-->
+</script>
+
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="../images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="../images/right.gif"><IMG SRC="../images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="../images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

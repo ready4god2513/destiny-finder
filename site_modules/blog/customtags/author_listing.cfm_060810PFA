@@ -1,0 +1,22 @@
+<cfset obj_queries = CreateObject("component","blog.cfcs.queries")>
+<cfset qAuthors = obj_queries.author_list()>
+
+<ul>
+	<cfoutput query="qAuthors">
+		
+		<cfset qPosts = obj_queries.author_post_list(author_id="#qAuthors.user_id#",publish_date="1",addl_where="AND blog_active = 1")>
+		
+		<cfif qPosts.recordcount GT 0>
+			<li>
+				<a href="index.cfm?page=blog&author=#qAuthors.user_id#" class="<cfif NOT isDefined('URL.author') OR URL.author NEQ qAuthors.user_id>author_tip_link</cfif>">#qAuthors.user_first_name# #qAuthors.user_last_name#</a>
+				<cfset qAuthor = obj_queries.author_detail(author_id="#qAuthors.user_id#")>
+				<div class="author_tip">
+					<cfif LEN(qAuthor.user_image) GT 0>
+						<img src="#qAuthor.user_image#" align="left">
+					</cfif>
+						#qAuthor.user_description#
+				</div>
+			</li>
+		</cfif>
+	</cfoutput>
+</ul>

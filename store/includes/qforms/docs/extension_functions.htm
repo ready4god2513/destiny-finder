@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: General Functions Library</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">General Functions Library</B></P>
+
+<DL>
+	<DT><A NAME="_createFields"><B>_createFields(object struct, [string type])</B></A></DT>
+	<DD>
+		This function will create form fields based upon the structure passed to the function.
+		The form field's name will be equal to the structure's key and the value of the form
+		field will be equal to that of the key's value. The struct argument is required.
+
+		<P>The type argument is optional and is used to specify the form field type to be created.
+		Valid values are any valid TYPE attributes for the <CODE>&lt;INPUT&gt;</CODE> tag. The
+		default value is "Hidden".
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_isLength"><B>_isLength(string text, [int length], [string type])</B></A></DT>
+	<DD>
+		This function will check to make sure the strings value is equal to length argument's
+		value. It does this by stripping out all non-valid characters and comparing the length
+		of the new string to argument length. If the lengths match, then <B>true</B> is returned,
+		otherwise <B>false</B> is returned.
+
+		<P>The length argument is an optional argument, which specifies the length that a valid
+		phone number should be. The default value is 10.
+
+		<P>The type argument is an optional parameter that defaults to "numeric." Valid values
+		for the "type" argument are "numeric", "alpha" and "alphanumeric". Any character that
+		does not match the type specified will be removed when comparing the lengths.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_getEventType"><B>_getEventType(string type)</B></A></DT>
+	<DD>
+		The _getEventType() function which returns the correct event handler that should be used when
+		you wish to add an event that should happen as soon as the field value has been updated. This
+		will return "onclick" for checkboxes and radio button, "onchange" for select boxes and
+		"onblur" for all other field types.
+
+		<P>The type argument is a required parameter that should be equal to the "type" property
+		of the form field you wish to attach the event to.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_getState"><B>_getState(string postalAbbr)</B></A></DT>
+	<DD>
+		This function will return the full name of any valid 2-digit US postal abbreviation.
+		The function will return <B>null</B> if the 2-digit postal abbreviation is invalid.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_getURLParams"><B>_getURLParams()</B></A></DT>
+	<DD>
+		This function will return all of the URL parameters as a structure.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_listSum"><B>_listSum(string list, [string delimiters])</B></A></DT>
+	<DD>
+		This function will sum all the totals in a list and return the value. The
+		string argument is required.
+
+		<P>The delimiters argument is optional, and defaults to a comma.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_listToArray"><B>_listToArray(string list, [string delimiters])</B></A></DT>
+	<DD>
+		This function will take a string list and return an array with all the values as an
+		element of the array. This function actually trims all whitespacing from the items in
+		the array before returning the value. The string argument is required.
+
+		<P>The delimiters argument is optional, and defaults to a comma.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_ltrim"><B>_ltrim(string text)</B></A></DT>
+	<DD>
+		This function trims all whitespace from the left side of the string and returns the new value.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_rtrim"><B>_rtrim(string text)</B></A></DT>
+	<DD>
+		This function trims all whitespace from the right side of the string and returns the new value.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_sortOptions"><B>_sortOptions(objext field, [string order], [boolean byText])</B></A></DT>
+	<DD>
+		This function will sort a select boxes' option array in either ascending or descending
+		order by either the option's value or text value. The field argument is required.
+
+		<P>The order argument is an optional argument specifying the order which to sort by.
+		Valid values are "asc" and "desc". "Asc" will sort the option array in an ascending
+		fashion. "Desc" will sort the array in a descending fashion. The default value is "asc".
+
+		<P>The byText argument is optional value that defines whether to sort by the option's
+		text value or by it's actual value. Valid values are <B>true</B> and <B>false</B>. The default value
+		is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_stripInvalidChars"><B>_stripInvalidChars(string text, [string type])</B></A></DT>
+	<DD>
+		This function removes any non-valid characters from the string and returns the new
+		string. Valid characters are defined by the type argument. The string argument is
+		required.
+
+		<P>The type argument is an optional parameter that defaults to "numeric." Valid values
+		for the "type" argument are "numeric", "alpha" and "alphanumeric". Any character that
+		does not match the type specified will be removed.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_transferOptions"><B>_transferOptions(object field1, object field2, [boolean sort], [string type], [boolean selectItems], [boolean reset])</B></A></DT>
+	<DD>
+		This function will transfer the contents from select box field1 into select box field2.
+
+		<P>The sort argument is an optional argument that can be used to specify whether the
+		options in the field argument should be resorted in ascending order by the options text
+		value once the transfer is complete. Valid values are <B>true</B> and <B>false</B>. The default value
+		is <B>true</B>.
+
+		<P>The type argument is an optional argument that is used to specify whether only the
+		selected items should be moved, or whether all the items should be moved. Valid values
+		are "selected" and "all". The default value is "selected."
+
+		<P>The selectItems argument is an optional argument used to specify whether or not the
+		moved items should be selected by default when moved to the new box. Valid values are
+		<B>true</B> and <B>false</B>. The default value is <B>true</B>.
+
+		<P>The reset argument is an optional argument used to determine whether or not the target
+		select box should be cleared before moving the specified options. Valid values are <B>true</B>
+		and <B>false</B>. The default value is <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_trim"><B>_trim(string text)</B></A></DT>
+	<DD>
+		This function trims all whitespace from both side of the string and returns the new value.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./extension_validation.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./bonus_extensions.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>

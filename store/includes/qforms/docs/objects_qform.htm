@@ -1,0 +1,440 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<HTML>
+<HEAD>
+	<TITLE>qForms JavaScript API: "qForm" Objects</TITLE>
+	<!--// load the documentation style sheet //-->
+	<LINK REL="StyleSheet" HREF="./css/docs.css" TYPE="text/css" MEDIA="screen">
+</HEAD>
+
+<BODY BGCOLOR="#ffffff">
+
+<P><TABLE WIDTH="800" BORDER="0" CELLSPACING="0" CELLPADDING="0" ALIGN="Center">
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/top.gif" WIDTH="800" HEIGHT="132" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="60" BACKGROUND="./images/left.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+	<TD ALIGN="Left" VALIGN="Top">
+	<!--// [start] insert main content //-->
+
+<P><B CLASS="Heading">"qForm" Objects</B></P>
+
+<P>In the properties and methods below, <B><I>obj</I></B> is an abbreviation for
+the object name you specified when you called the qForm constructor. Arguments in
+bracket ("[ ]") are optional.</P>
+
+<P><A NAME="Properties"><B>Properties</B></A><br/>
+<DL>
+	<DT><A NAME="_allowSubmitOnError"><B><I>obj</I>._allowSubmitOnError</B></A></DT>
+	<DD>
+		The _allowSubmitOnError property determines whether or not a user should be given the
+		choice to submit a form even if errors occurred. If set to <B>true</B>, the user be given the
+		choice to submit the data without correcting the errors. When set to <B>false</B>, the form
+		will not be submitted until all the errors are corrected. The default value is the value
+		of <B>qFormAPI.allowSubmitOnError</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_fields"><B><I>obj</I>._fields</B></A></DT>
+	<DD>
+		The fields property contains an array of all the form elements that have been
+		initialized into the qForms JSAPI.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_form"><B><I>obj</I>._form</B></A></DT>
+	<DD>
+		The form property contains the string pointer to the current form object.
+		(Example: "document.frmExample".)
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_locked"><B><I>obj</I>._locked</B></A></DT>
+	<DD>
+		The locked property is used to prevent a form from being edited. Valid values are
+		<B>true</B> or <B>false</B>. When set to <B>true</B>, all elements on the form are locked and cannot be
+		edited. When set to <B>false</B>, then the form is not locked.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_name"><B><I>obj</I>._name</B></A></DT>
+	<DD>
+		The name of the current form being edited. This would be equal to the FORM tag's "NAME" attribute.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="errorFields"><B><I>obj</I>._queue.errorFields</B></A></DT>
+	<DD>
+		The errorFields queue is list containing all the fields that contained an error. When the
+		obj.fieldName.throwError() method is called, this property is checked to make sure an error
+		for the current field hasn't already been thrown. This ensures that only one error per field
+		will be generated.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="errors"><B><I>obj</I>._queue.errors</B></A></DT>
+	<DD>
+		The errors queue is an array of all the validation errors that have
+		occurred from running the "validate"-style validation methods.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validation"><B><I>obj</I>._queue.validation</B></A></DT>
+	<DD>
+		The validation queue is an array of all the validation checks that need to be performed.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_parent"><B><I>obj</I>._parent</B></A></DT>
+	<DD>
+		A string containing the DOM path to form object. If form object is not in a
+		layer on another frame, then the parent object is <B>null</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_pointers"><B><I>obj</I>._pointers</B></A></DT>
+	<DD>
+		The pointers property is an associative array (or structure) that can be used as a
+		pointer to the actual Field objects in the form. The keys for this structure are
+		stored in lower case.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_showAlerts"><B><I>obj</I>._showAlerts</B></A></DT>
+	<DD>
+		The _showAlerts property determines whether or not alerts should be displayed by
+		default. If set to <B>true</B>, then when applicable, the user will see alert() boxes
+		describing the error that occurred. When set to <B>false</B>, the user will not be alerted
+		and the errors will simply be return when the function is called. The default value
+		is <B>true</B>.
+		<BLOCKQUOTE><B>NOTE:</B> When set to <B>false</B>, the form will get submitted even
+		if there were validation errors. This means in order to account for the errors,
+		you'll need to manually trap them. You can use the obj.onSubmit event to dump the
+		array of errors into a hidden form, or even save the errors in a WDDX packet.</BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_skipValidation"><B><I>obj</I>._skipValidation</B></A></DT>
+	<DD>
+		The _skipValidation property determines whether or not the validation
+		rules should be enforced. By default, this value is set to <b>false</b>,
+		which means any validation rules are enforced as normal. If set
+		to <b>true</b>, then all validation rules will be skipped. This is
+		useful if you want to save the form without running the validation
+		rules.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="_status"><B><I>obj</I>._status</B></A></DT>
+	<DD>
+		The current status of form object. If the status equals "submitting" then the form
+		object is already been submitted and can not be submitted again when calling the
+		obj.submit() method.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="obj"><B><I>obj</I>.obj</B></A></DT>
+	<DD>
+		The obj property contains a pointer to the physical form object. This can be used if
+		you ever need to access unsupported methods or properties of the form object.
+	</DD>
+</DL>
+
+<br/><br/>
+<P><A NAME="Methods"><B>Methods</B></A><br/>
+<DL>
+	<DT><A NAME="addEvent"><B><I>obj</I>.addEvent(string event, string command, [boolean append])</B></A></DT>
+	<DD>
+		The addEvent method will dynamically attach the specified command to the requested form event.
+
+		<P>The event argument is the name of the event to attach the command to. This is a required parameter.
+
+		<P>The command argument is JavaScript code to attach to the event.
+
+		<P>The append argument is an optional argument that accepts either the value <B>true</B> or <B>false</B>. If <B>true</B>,
+		then the command will be attached to the end of any existing instructions already in the specified
+		event. If <B>false</B>, then the event will be attached in front of any other instructions. The default
+		value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="addField"><B><I>obj</I>.addField(string field)</B></A></DT>
+	<DD>
+		The addField method will dynamically attach a field to qForm object.
+		This is useful when creating forms field using DHTML.
+
+		<P>The field argument is required and should be equal to the field name
+		of a field within the qForms form.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="addMethod"><B><I>obj</I>.addMethod(string name, object function, [string type])</B></A></DT>
+	<DD>
+		The addMethod method will dynamically create a new method that can be used with the qForms API.
+
+		<P>The name argument is the name of the new method to create. This is a required parameter.
+
+		<P>The function argument is either a pointer to an existing function, or a string to which will be
+		converted into the new method.
+
+		<P>The type argument is an optional argument that accepts either the value "form" or "field". If
+		the value "form" is passed, then the method created will be attached at the form object level,
+		if "field" is passed, then the method will be attached at the field object level. The default value is "form."
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="addValidator"><B><I>obj</I>.addValidator(string name, object/string function)</B></A></DT>
+	<DD>
+		The addValidator method will dynamically initialize a new validation routine. When a new
+		validator is created, two new methods are created: a validateXXXX() and an isXXXX() method
+		(where XXXX is equal to the name argument.) The "validate" methods are used to initialize
+		validation on the form. These type of methods return no value. The "is" methods will return
+		<B>true</B> if no error occurred, or <B>false</B> if an error did occur.
+
+		<P>The name argument is the base name of the new validation procedure. This is a required
+		parameter.
+
+		<P>The function argument is either a pointer to an existing function, or a string to which
+		will be converted into the new method.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="changedFields"><B><I>obj</I>.changedFields()</B></A></DT>
+	<DD>
+		The changedFields method returns a structure of only the fields that have changed. This very
+		useful when combined with WDDX, because you'll have the ability to pass only the fields whose
+		values have changed back to the server for updating.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="checkForErrors"><B><I>obj</I>.checkForErrors()</B></A></DT>
+	<DD>
+		The checkForErrors method checks to make sure that all required fields have been filled in
+		and then runs all the validation rules that have been initialized for the form object.
+
+		<P>When the checkForErrors method is run, it will clear the existing error queue, and place
+		any errors within the error queue array.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="disabled"><B><I>obj</I>.disabled([boolean status])</B></A></DT>
+	<DD>
+		The disabled method will disable all the elements on the form. This will prevent the user
+		from being able to change any elements on the form. If the browser supports the HTML 4
+		"disabled" property, then the form is set to disabled, otherwise the custom qForm "locked"
+		property is used. This provides for a cross browser compatible method of disabling a form.
+
+		<P>The status arguement is an optional argument which allows you to specify whether the
+		form should be disabled (<B>true</B>) or enabled (<B>false</B>.) By default, if no argument is given
+		the status of the form's disabled status is toggled.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="dump"><B><I>obj</I>.dump()</B></A></DT>
+	<DD>
+		The dump method will display all the current form field names and their values in an alert box.
+		This is useful for debugging your forms to makes sure that the values you're expecting are
+		being returned.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="forceValidation"><B><I>obj</I>.forceValidation(string fields, [boolean value])</B></A></DT>
+	<DD>
+		The forceValidation method allows you to perform a bulk property change to a list of field's
+		"validate" property.
+
+		<P>The fields argument is a list of field's whose "validate" property you'd like to change.
+		This is a required parameter.
+
+		<P>The value argument is an optional argument that accepts either the value <B>true</B> or <B>false</B>. The
+		field's "validate" property will be set to the value of the value argument. The default value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="hasChanged"><B><I>obj</I>.hasChanged()</B></A></DT>
+	<DD>
+		The hasChanged method returns <B>true</B> if any values in the current form have changed
+		from the default values, otherwise it returns <B>false</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="getFields"><B><I>obj</I>.getFields()</B></A></DT>
+	<DD>
+		The getFields method will return all the current form fields and their values as an
+		associative array (also referred to as "structures.") The keys will be equal to the
+		field name (in the same case as entered in the form field element) and the value of
+		the key, will be equal to getValue() method of the field.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="optional"><B><I>obj</I>.optional(string fields)</B></A></DT>
+	<DD>
+		The optional method allows you to perform a bulk property change on to list of field's
+		"required" property.
+
+		<P>The fields argument is a list of field's whose "required" property you'd like to set to
+		<B>false</B>. This is a required parameter.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="onSubmit"><B><I>obj</I>.onSubmit()</B></A></DT>
+	<DD>
+		The onSubmit method contains a copy of the form's original "onSubmit" event
+		and is run any time the form's submit() method is called and no validation
+		errors occur. If the onSubmit() method returns a boolean value, this
+		value will be supplied to the onSubmit event. This means if the obj.onSubmit()
+		method returns false, then the form will not be submitted. If it returns
+		no boolean value or true, the form will be submitted to the server.
+
+		<P>You can also initialize an event to be processed by setting the onSubmit()
+		method to a function. For example:</P>
+
+		<BLOCKQUOTE>
+		<CODE>obj.onSubmit = functionName;</CODE><br/>
+		- or -<br/>
+		<CODE>obj.onSubmit = new Function("// insert your commands here");</CODE><br/>
+		</BLOCKQUOTE>
+
+		<P>If using the above method, you must initialize the onSubmit after the qForms
+		object has been initialized or an error will occur.</P>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="onValidate"><B><I>obj</I>.onValidate()</B></A></DT>
+	<DD>
+		The onValidate method is run when the validate() method is called. You can
+		use the onValidate() method to define additional custom validation rules that
+		don't necessarily comply to the standard validation methods.
+
+		<P>For example, you could check to make sure that at least one field in the form
+		has been filled in or even to make sure that field_A or field_B, but not both
+		are filled in. To alert the user to errors, use the obj.fieldName.throwError()
+		method. Let's take a look at a quick example:</P>
+
+		<BLOCKQUOTE><CODE>
+		function _customValidation(){<br/>
+			&nbsp;&nbsp;if( obj.field_A.getValue() == "" && obj.field_B.getValue() == "" ){<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;obj.field_A.throwError("You must supply a value for either field_A or field_B");<br/>
+			&nbsp;&nbsp;}<br/>
+		}<br/>
+		obj.onValidate = _customValidation;
+		</CODE></BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="removeField"><B><I>obj</I>.removeField(string field)</B></A></DT>
+	<DD>
+		The removeField method will dynamically remove a field from a qForm object.
+		This is useful when creating forms field using DHTML.
+
+		<P>The field argument is required and should be equal to the field name
+		of a field within the qForms form.
+
+		<BLOCKQUOTE><B>NOTE:</B> The removeField() method only works in browsers that
+		support JavaScript v1.2. However, this method is really only
+		useful when adding/removing nodes using DHTML which would require a browser
+		with at least support for JavaScript v1.2.</BLOCKQUOTE>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="required"><B><I>obj</I>.required(string fields, [boolean value])</B></A></DT>
+	<DD>
+		The required method allows you to perform a bulk property change on to list of field's
+		"required" property.
+
+		<P>The fields argument is a list of field's whose "required" property you'd like to change.
+		This is a required parameter.
+
+		<P>The value argument is an optional argument that accepts either the value <B>true</B> or <B>false</B>.
+		The field's "required" property will be set to the value of the value argument. The default
+		value is <B>true</B>.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="reset"><B><I>obj</I>.reset([boolean hardReset])</B></A></DT>
+	<DD>
+		The reset method will reset the all of the form's field to their default values.
+
+		<P>The hardReset argument is an optional boolean value which specifies whether or not
+		all values should be set to <B>null</B>&#151;regardless of their default values. The default
+		value is <B>false</B>, which restore the fields to their default values.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="setFields"><B><I>obj</I>.setFields(object struct, [boolean resetDefault],  [boolean resetAll])</B></A></DT>
+	<DD>
+		The setFields method will populate the form based upon a structure passed to it. The setFields
+		method works well with WDDX, since you can easily deserialize a structure (or associative array)
+		and pass the variable to the setFields structure. Keys in the structure that have no corresponding
+		form fields will be ignored. The keys in the structure do not need to be in the same case as the
+		form field names.
+
+		<P>The setFields method also takes an additional argument "resetDefault" which, when set to <B>true</B>,
+		resets the default values in the form to the given structure. The default value is <B>false</B>, which
+		simply changes the values of the fields found in the structure.
+
+		<P>The "resetAll" arguement determines whether the form's values should be reset before updating
+		the the fields with the values in the structure. By default this value is <B>true</B>, which means
+		all the fields will be reset before populating the form with the value of the structures. If set to
+		false, then only the fields specified in the structure will be changed.</P>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="submit"><B><I>obj</I>.submit()</B></A></DT>
+	<DD>
+		The submit method will run submit the current form object. The submit() method will set
+		the status of the form to "submitting"&#151;which will prevent the form from being submitted
+		more then once. This replace the normal submit() method of a form.
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="submitCheck"><B><I>obj</I>.submitCheck()</B></A></DT>
+	<DD>
+		The submitCheck method is run automatically each time the submit() method is called. This is
+		an internal method used by the qForms API to determine whether or not the form should
+		be submitted to the server. The following tasks are performed:</P>
+		<UL>
+			<LI>Cancels additional submit requests. This prevents multiple form submissions.
+			<LI>Runs the validation rules. If errors occur, a warning will be displayed to the user
+			and the submit request is cancelled.
+			<LI>Runs the onSubmit() method if the form is error-free.
+			<LI>The returned value of the onSubmit() event is then checked. If a boolean value is
+			returned, then the returned value is used to determine whether or not to continue
+			the form submission request, otherwise the form is submitted to the server
+		</UL>
+	</DD>
+</DL>
+<DL>
+	<DT><A NAME="validate"><B><I>obj</I>.validate()</B></A></DT>
+	<DD>
+		The validate method is called automatically when the form's onsubmit event occurs. This
+		method runs the obj.checkForErrors() method to check for any errors. If any errors have
+		occurred, they will be displayed to the user and (by default) the submit event will be
+		cancelled.
+
+		<P>If the form's _allowSubmitOnError is <B>false</B>, then the user will be forced to correct
+		any errors before being allowed to submit the form. If the option is set to <B>true</B>, the
+		user will be given the choice of correcting their errors, or submitting the form as is.
+	</DD>
+</DL>
+
+
+<P ALIGN="Center">
+	[<A HREF="./qformapi.htm">&lt; Back</A>]
+	[<A HREF="./index.htm">Index</A>]
+	[<A HREF="./objects_field.htm">Next &gt;</A>]
+</P>
+
+	<!--// [ end ] insert main content //-->
+	<IMG SRC="./images/spacer.gif" WIDTH="680" HEIGHT="1" BORDER="0" ALT=""><br/>
+	</TD>
+	<TD WIDTH="60" BACKGROUND="./images/right.gif"><IMG SRC="./images/spacer.gif" WIDTH="60" HEIGHT="250" BORDER="0" ALT=""></TD>
+</TR>
+<TR>
+	<TD WIDTH="800" COLSPAN="3"><IMG SRC="./images/bottom.gif" WIDTH="800" HEIGHT="110" BORDER="0" ALT=""></TD>
+</TR>
+</TABLE></P>
+
+</BODY>
+</HTML>
