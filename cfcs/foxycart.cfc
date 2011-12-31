@@ -17,6 +17,9 @@
 			<cfhttpparam name="customer_password_hash" type="FormField" value="#password#" />
 		</cfhttp>
 		
+		<cfset xmlDoc = XmlParse(CFHTTP.FileContent) />
+		
+			
 		<cfreturn true>
 	</cffunction>
 	
