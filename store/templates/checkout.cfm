@@ -27,4 +27,8 @@
 		^^cart^^
 	</div>
 	
+	<div id="destiny-finder-checkout">
+		^^checkout^^
+	</div>
+	
 </cfmodule>
