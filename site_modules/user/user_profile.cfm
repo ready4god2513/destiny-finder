@@ -70,82 +70,84 @@
 	<cfset VARIABLES.action_url = "index.cfm?page=user&edit=1">
 </cfif>
 
-<h2>Beta Version Launches</h2>
-<p>
-	We're excited to unveil the first stage of 
-	destinyfinder.com with the Free Destiny Survey! <br />
-	Take the first step to discover your destiny.<br />
-	We'll be rolling out the rest of this amazing system shortly.
-</p>
-<p>
-	Please give us some basic information so we can help you get started on your 
-	journey of discovering your destiny. The account you create will be used for all 
-	the DestinyFinder products and services. We won't give your email address away or spam you.
-</p>
+<div class="box">
+	<h2>Beta Version Launches</h2>
+	<p>
+		We're excited to unveil the first stage of 
+		destinyfinder.com with the Free Destiny Survey! <br />
+		Take the first step to discover your destiny.<br />
+		We'll be rolling out the rest of this amazing system shortly.
+	</p>
+	<p>
+		Please give us some basic information so we can help you get started on your 
+		journey of discovering your destiny. The account you create will be used for all 
+		the DestinyFinder products and services. We won't give your email address away or spam you.
+	</p>
 
-<h3>What you'll get</h3>
-<p>After doing the 5 min free Destiny Survey you'll receive:</p>
-<ul>
-	<li>Insights on how your design shapes your destiny.</li>
-	<li>Customized results instantly.</li>
-	<li>Access to our Resources section - articles, organization profiles, book recommendations, and more.</li>
-</ul>
+	<h3>What you'll get</h3>
+	<p>After doing the 5 min free Destiny Survey you'll receive:</p>
+	<ul>
+		<li>Insights on how your design shapes your destiny.</li>
+		<li>Customized results instantly.</li>
+		<li>Access to our Resources section - articles, organization profiles, book recommendations, and more.</li>
+	</ul>
 
-<form action="/auth/<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST">
-	<fieldset>
-		<div class="form-field">
-			<label for="user_first_name">First Name</label>
-			<input type="text" name="user_first_name" id="user_first_name" value="<cfoutput>#HTMLEditFormat(qUser.user_first_name)#</cfoutput>" required="required" />
-		</div>
-		
-		<div class="form-field">
-			<label for="user_last_name">Last Name</label>
-			<input type="text" name="user_last_name" id="user_last_name" value="<cfoutput>#HTMLEditFormat(qUser.user_last_name)#</cfoutput>" required="required" />
-		</div>
-		
-		<div class="form-field">
-			<label for="user_email">Email Address</label>
-			<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
-		</div>
-		
+	<form action="/auth/<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST">
+		<fieldset>
+			<div class="form-field">
+				<label for="user_first_name">First Name</label>
+				<input type="text" name="user_first_name" id="user_first_name" value="<cfoutput>#HTMLEditFormat(qUser.user_first_name)#</cfoutput>" required="required" />
+			</div>
+
+			<div class="form-field">
+				<label for="user_last_name">Last Name</label>
+				<input type="text" name="user_last_name" id="user_last_name" value="<cfoutput>#HTMLEditFormat(qUser.user_last_name)#</cfoutput>" required="required" />
+			</div>
+
+			<div class="form-field">
+				<label for="user_email">Email Address</label>
+				<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+			</div>
+
+			<cfif REQUEST.user_id EQ 0>
+				<div class="form-field">
+					<label for="user_email2">Confirm Email</label>
+					<input type="email" name="user_email2" id="user_email2" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+				</div>
+			</cfif>
+
+			<cfif REQUEST.user_id EQ 0>
+				<div class="form-field">
+					<label for="user_password">Password</label>
+					<input type="password" name="user_password" id="user_password" required="required" />
+				</div>
+
+				<div class="form-field">
+					<label for="user_password2">Confirm Password</label>
+					<input type="password" name="user_password2" id="user_password2" required="required" />
+				</div>
+			<cfelse>
+				<div class="form-field">
+					<label for="user_password">Password</label>
+					<input type="password" name="user_password" id="user_password" />
+				</div>
+
+				<div class="form-field">
+					<label for="user_password2">Confirm Password</label>
+					<input type="password" name="user_password2" id="user_password2" />
+				</div>
+			</cfif>
+		</fieldset>
+
 		<cfif REQUEST.user_id EQ 0>
-			<div class="form-field">
-				<label for="user_email2">Confirm Email</label>
-				<input type="email" name="user_email2" id="user_email2" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
-			</div>
-		</cfif>
-		
-		<cfif REQUEST.user_id EQ 0>
-			<div class="form-field">
-				<label for="user_password">Password</label>
-				<input type="password" name="user_password" id="user_password" required="required" />
-			</div>
-		
-			<div class="form-field">
-				<label for="user_password2">Confirm Password</label>
-				<input type="password" name="user_password2" id="user_password2" required="required" />
-			</div>
+	    	  <input type="submit" name="submit" value="Create Account">
 		<cfelse>
-			<div class="form-field">
-				<label for="user_password">Password</label>
-				<input type="password" name="user_password" id="user_password" />
-			</div>
-		
-			<div class="form-field">
-				<label for="user_password2">Confirm Password</label>
-				<input type="password" name="user_password2" id="user_password2" />
-			</div>
+			  <input type="submit" name="submit" value="Update Profile">			
 		</cfif>
-	</fieldset>
-	
-	<cfif REQUEST.user_id EQ 0>
-    	  <input type="submit" name="submit" value="Create Account">
-	<cfelse>
-		  <input type="submit" name="submit" value="Update Profile">			
-	</cfif>
-	
-    <cfif REQUEST.user_id EQ 0>
-		<p>Already a User? <a href="/auth/?page=user">Login here</a></p>
-	</cfif>
-	
-</form>
+
+	    <cfif REQUEST.user_id EQ 0>
+			<p>Already a User? <a href="/auth/?page=user">Login here</a></p>
+		</cfif>
+
+	</form>
+</div>

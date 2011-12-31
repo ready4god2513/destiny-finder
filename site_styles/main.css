@@ -63,7 +63,7 @@ body {
 	background-repeat: repeat-x;
 	}
 
-table {
+table, .box {
 	-moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
