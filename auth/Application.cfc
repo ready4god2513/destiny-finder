@@ -20,11 +20,6 @@
 		 <cfabort>
 	 </cfif>
 	</cfloop>
-    
-    <!--- <cfif cgi.https EQ 'off'>
-    	<cfset vRedirectURL = 'https://www.destinyfinder.com/auth/index.cfm?' & cgi.QUERY_STRING >
-        <cflocation url="#vRedirectURL#" addtoken="yes">
-    </cfif> --->
 
 	<!--- Application name, should be unique --->
 	<cfset this.name = "destinyfinder_dev">

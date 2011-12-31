@@ -41,7 +41,7 @@
     <div class="user_greeting">
             <h2>Account - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)#</h2>
             
-            <a href="https://www.destinyfinder.com/profile/index.cfm?page=user&edit=1">Edit Profile</a>
+            <a href="/profile/index.cfm?page=user&edit=1">Edit Profile</a>
           <table style="border:none;background-color:transparent;">
           <tr>
               <td class="form_label" width="1%">First&nbsp;Name:&nbsp;</td>

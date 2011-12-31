@@ -76,7 +76,7 @@
 		<p>&nbsp;</p>
 		<table width="400" border="0" cellspacing="3" cellpadding="0" class="profile_table">
           <cfset Cffp = CreateObject("component","cfformprotect.cffpVerify").init() />
-		  <cfform action="https://www.destinyfinder.com/auth/#VARIABLES.action_url#" method="post" name="profile" enctype="multipart/form-data">
+		  <cfform action="/auth/#VARIABLES.action_url#" method="post" name="profile" enctype="multipart/form-data">
           <cfinclude template="../../cfformprotect/cffp.cfm">
           <tr>
           <td colspan="2"><h2>Beta Version Launches!</h2><br />
@@ -226,7 +226,7 @@ After doing the 5 min free Destiny Survey you’ll receive:
 				<cfelse>
 					  <input type="submit" name="submit" value="Update Profile">			
 				</cfif>
-                <cfif REQUEST.user_id EQ 0><div><br />Already a User? <a href="https://www.destinyfinder.com/auth/?page=user">Login here</a>.<br /></div></cfif>
+                <cfif REQUEST.user_id EQ 0><div><br />Already a User? <a href="/auth/?page=user">Login here</a>.<br /></div></cfif>
 					  <!---<div align="center" style="color: ##CC0000;font-size:12px;">We are in the testing phase now. To request test access, please email Glen Reed at <a href="glen.reed@destinyfinder.com">glen.reed@destinyfinder.com</a></div><cfif isDefined("url.testuser")>--->
 			    </div></td>
 		  </tr>

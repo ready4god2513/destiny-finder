@@ -83,10 +83,10 @@
      </ul>      
    </div><!---<div class="head_gnav">--->  
    <!---<div><cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0><a href="/profile/index.cfm?page=user">Settings</a></cfif></div>--->
-   <div class="head_gnav_signin"><cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0><a href="https://www.destinyfinder.com/profile/index.cfm?logout=yes">Log Out</a><cfelse><a href="https://www.destinyfinder.com/profile/">Log In</a></cfif></div><!-- <div class="head_gnav_signin"> -->
+   <div class="head_gnav_signin"><cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0><a href="/profile/index.cfm?logout=yes">Log Out</a><cfelse><a href="/profile/">Log In</a></cfif></div><!-- <div class="head_gnav_signin"> -->
    <div class="banner_wrapper">
    		<img src="site_images/bnr_discover_your_destiny_c.jpg" width="588px" height="291px" style="float:left;">
-		<a href="https://www.destinyfinder.com/auth/index.cfm?page=user&create=1"><img class="banner_content" src="site_images/banner_promo_box.png" border="0" width="392px" height="373"></a>
+		<a href="/auth/index.cfm?page=user&create=1"><img class="banner_content" src="site_images/banner_promo_box.png" border="0" width="392px" height="373"></a>
    </div><!-- <div class="banner_wrapper"> -->
    
    <div class="body_content">

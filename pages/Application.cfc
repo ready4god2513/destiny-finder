@@ -22,7 +22,7 @@
 	</cfloop>
 	
     <cfif cgi.https EQ 'off'>
-    	<cfset vRedirectURL = 'https://www.destinyfinder.com/auth/index.cfm?' & cgi.QUERY_STRING >
+    	<cfset vRedirectURL = '/auth/index.cfm?' & cgi.QUERY_STRING >
         <cflocation url="#vRedirectURL#">
     </cfif>
        
