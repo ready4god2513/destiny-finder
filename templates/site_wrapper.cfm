@@ -40,6 +40,12 @@
 <script type="text/javascript" src="/site_scripts/pngfix.js"></script>
 <script type="text/javascript" src="/site_scripts/dropdowns.js"></script>
 
+<cfif isDefined("ATTRIBUTES.additionalStyles")>
+	<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">
+		<link rel="stylesheet" href="<cfoutput>#style#</cfoutput>" type="text/css" media="screen" charset="utf-8" />
+	</cfloop>
+</cfif>
+
 <link rel="stylesheet" type="text/css" href="/site_styles/fancybox.css">
   <script>
 	$(document).ready(function() {
