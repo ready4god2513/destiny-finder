@@ -1,9 +1,0 @@
-<!--- CFWebstore®, version 6.43 --->
-
-<!--- CFWebstore® is ©Copyright 1998-2009 by Dogpatch Software, All Rights Reserved. This code may not be copied or sold without permission of the original author. Dogpatch Software may be contacted at info@cfwebstore.com --->
-
-<!--- Performs all the functions for adding an item to the shopping cart. Called by shopping.order and from act_quickorder.cfm --->
-
-<cfparam name="attributes.product_id" default="0">
-
-<cfset Application.objCart.doAddCartItem(argumentcollection=attributes)>
