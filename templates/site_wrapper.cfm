@@ -29,10 +29,10 @@
     #APPLICATION.sitename#
   </cfif>
   </title>
-  <script type="text/javascript" src="/site_scripts/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="/site_scripts/jquery_easing.js"></script>
 <script type="text/javascript" src="/site_scripts/jquery.fancybox-1.2.1.js"></script>
-<script type='text/javascript' src='/site_scripts/jquery-ui.min.js'></script>
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
 <script type="text/javascript" src="/site_scripts/pngfix.js"></script>
 <script type="text/javascript" src="/site_scripts/jquery.hoverIntent.minified.js"></script>
 <script type="text/javascript" src="/site_scripts/superfish.js"></script>
@@ -101,7 +101,13 @@
 	
     
     	<div class="subpage_banner">
-        	<div id="subpage_title"><cfif isDefined("ATTRIBUTES.page_name")><cfoutput>#ATTRIBUTES.page_name#</cfoutput><cfelse>Account</cfif>&nbsp;</div>
+        	<div id="subpage_title">
+				<cfif isDefined("ATTRIBUTES.page_name")>
+					<cfoutput>#ATTRIBUTES.page_name#</cfoutput>
+				<cfelse>
+					Account
+				</cfif>
+			</div>
           <cfif (isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0) AND (FindNoCase('profile',GetBaseTemplatePath()))>              
               <div id="subpage_nav">  
                 <ul> 
