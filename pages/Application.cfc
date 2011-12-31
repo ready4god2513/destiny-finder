@@ -97,7 +97,7 @@
 		<cfset APPLICATION.contact_email = "tony@webvisionhosting.com">
 
 		
-		<cfset REQUEST.site_url = "http://www.destinyfinder.com/">
+		<cfset REQUEST.site_url = "http://dev.destinyfinder.com/">
 		
 		<!--- FOR BLOG --->
 		<cfset REQUEST.time_offset = 2>

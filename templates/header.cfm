@@ -51,7 +51,7 @@
 <div class="site_wrapper">
   <div class="head">
     <div class="head_logo"><img src="/site_images/transparent.png" width="345" height="110" usemap="#head_logo"></div>
-    	<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="http://www.destinyfinder.com/index2.cfm"></map>
+    	<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="/index2.cfm"></map>
   		<form action="#" method="post" enctype="application/x-www-form-urlencoded">
    	<div class="head_search">
       	<div id="head_search_input">

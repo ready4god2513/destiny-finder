@@ -76,7 +76,7 @@ ORDER BY gateway_sortorder ASC
 					<img src="/site_images/transparent.png" width="345" height="110" usemap="#head_logo">
 				</div>
 				<map name="head_logo">
-					<area shape="rect" coords="0,0,345,110" href="http://www.destinyfinder.com/">
+					<area shape="rect" coords="0,0,345,110" href="/">
 				</map>
 				<form action="#" method="post" enctype="application/x-www-form-urlencoded">
 					<div class="head_search">
