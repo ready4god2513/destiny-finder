@@ -418,7 +418,7 @@ a.home_feature_title:hover{
 	padding:5px;
 	font-size:11px;
 	line-height:15px;
-	/*background-image:url(../site_images/author_tip_bg.jpg);
+	/*background-image:url(/site_images/author_tip_bg.jpg);
 	background-repeat:repeat-x;
 	background-position:top;*/
 	color:#D3C5A5;

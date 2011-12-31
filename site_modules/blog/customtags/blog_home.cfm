@@ -71,7 +71,7 @@
 			</cfif>
 			<a href="index.cfm?page=blog&blog_id=#qPosts.blog_id#" class="home_feature_title">#qPosts.blog_title#</a>
 			<cfif LEN(VARIABLES.blog_media) GT 0>
-				<img src="../site_images/<cfif VARIABLES.blog_media EQ "video">video<cfelseif VARIABLES.blog_media EQ "audio">audio</cfif>_icon.gif">
+				<img src="/site_images/<cfif VARIABLES.blog_media EQ "video">video<cfelseif VARIABLES.blog_media EQ "audio">audio</cfif>_icon.gif">
 			</cfif>
 			<span class="comment_count"><cfmodule template="comment_count.cfm" blog_id="#qPosts.blog_id#"></span>
 			<br/>

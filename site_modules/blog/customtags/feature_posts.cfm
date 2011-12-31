@@ -30,7 +30,7 @@
 		</cfif>
 		<a href="/blog/index.cfm?page=blog&blog_id=#qBlogFeature.blog_id#">#qBlogFeature.blog_title#</a> 
 		<cfif LEN(VARIABLES.blog_media) GT 0>
-			<img src="../site_images/<cfif VARIABLES.blog_media EQ "video">video<cfelseif ATTRIBUTES.blog_media EQ "audio">audio</cfif>_icon.gif">
+			<img src="/site_images/<cfif VARIABLES.blog_media EQ "video">video<cfelseif ATTRIBUTES.blog_media EQ "audio">audio</cfif>_icon.gif">
 		</cfif>
 		<cfif ATTRIBUTES.comments EQ "yes">
 			<span class="comment_count"><cfmodule template="comment_count.cfm" blog_id="#qBlogFeature.blog_id#"></span>

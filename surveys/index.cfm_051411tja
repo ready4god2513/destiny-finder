@@ -1,4 +1,0 @@
-<link rel="stylesheet" type="text/css" href="../site_styles/home2.css">
-		<cfinclude template="../templates/header.cfm">
-			<div class="body_content"></div><!-- <div class="body_content"> -->		
-		<cfinclude template="../templates/footer.cfm">	

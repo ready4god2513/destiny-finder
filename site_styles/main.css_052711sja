@@ -42,7 +42,7 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
 	background-color:#3e3f53;
-	background-image: Url(../site_images/body_bg_rpt.jpg);
+	background-image: Url(/site_images/body_bg_rpt.jpg);
 	background-repeat: repeat-x;
 }
 
@@ -64,7 +64,7 @@ body {
 .head {
 	width: 960px;
 	height: 138px;
-	background-image: Url(../site_images/head_bg.jpg);
+	background-image: Url(/site_images/head_bg.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -81,7 +81,7 @@ body {
 	height: 29px;
 	margin: 57px 0px 0px 0px;
 	padding: 7px 0px 0px 0px;
-	background-image: Url(../site_images/head_search_bg.jpg);
+	background-image: Url(/site_images/head_search_bg.jpg);
 	background-repeat:no-repeat;
 	background-position:right;
 }
@@ -91,7 +91,7 @@ body {
 	height: 23px;
 	float:left;
 	margin: 0px 0px 0px 218px;
-	background-image: Url(../site_images/head_search_input_bg.gif);
+	background-image: Url(/site_images/head_search_input_bg.gif);
 	background-repeat:no-repeat;	
 }
 
@@ -138,7 +138,7 @@ body {
 	height: 48px;
 	float: left;
 	padding: 0px 0px 0px 7px;
-	background-image: Url(../site_images/head_gnav_bg_rpt.jpg);
+	background-image: Url(/site_images/head_gnav_bg_rpt.jpg);
 	background-repeat: repeat-x;
 }
 
@@ -147,7 +147,7 @@ body {
 	height: 33px;
 	float:left;
 	padding: 15px 0px 0px 11px;
-	background-image: Url(../site_images/head_gnav_signin_bg_rpt.jpg);
+	background-image: Url(/site_images/head_gnav_signin_bg_rpt.jpg);
 	background-repeat: repeat-x;
 	z-index: 1;
 }
@@ -286,7 +286,7 @@ form#login_box a:hover{
 	height:132px;
 	float:left;
 	padding: 52px 0px 0px 26px;
-	background-image:Url(../site_images/foot_bg.jpg);
+	background-image:Url(/site_images/foot_bg.jpg);
 	background-repeat: no-repeat;
 	line-height: 18px;
 }

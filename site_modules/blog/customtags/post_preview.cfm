@@ -15,7 +15,7 @@
 		<a href="index.cfm?page=blog&blog_id=#ATTRIBUTES.post_id#" class="blog_preview_title">#ATTRIBUTES.post_title#</a> 
 		<!--- 
 		<cfif LEN(ATTRIBUTES.post_media) GT 0>
-			<img src="../site_images/<cfif ATTRIBUTES.post_media EQ "video">video<cfelseif ATTRIBUTES.post_media EQ "audio">audio</cfif>_icon.gif">
+			<img src="/site_images/<cfif ATTRIBUTES.post_media EQ "video">video<cfelseif ATTRIBUTES.post_media EQ "audio">audio</cfif>_icon.gif">
 		</cfif>
 		--->
 		<br/>

@@ -59,7 +59,7 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:12px;
 	background-color:#3e3f53;
-	background-image: Url(../site_images/body_bg_rpt.jpg);
+	background-image: Url(/site_images/body_bg_rpt.jpg);
 	background-repeat: repeat-x;
 	}
 
@@ -98,7 +98,7 @@ h2 {
 .head {
 	width: 960px;
 	height: 138px;
-	background-image: Url(../site_images/head_bg.jpg);
+	background-image: Url(/site_images/head_bg.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -115,7 +115,7 @@ h2 {
 	height: 29px;
 	margin: 57px 0px 0px 0px;
 	padding: 7px 0px 0px 0px;
-	background-image: Url(../site_images/head_search_bg.jpg);
+	background-image: Url(/site_images/head_search_bg.jpg);
 	background-repeat:no-repeat;
 	background-position:right;
 }
@@ -125,7 +125,7 @@ h2 {
 	height: 23px;
 	float:left;
 	margin: 0px 0px 0px 218px;
-	background-image: Url(../site_images/head_search_input_bg.gif);
+	background-image: Url(/site_images/head_search_input_bg.gif);
 	background-repeat:no-repeat;	
 }
 
@@ -172,7 +172,7 @@ h2 {
 	height: 48px;
 	float: left;
 	padding: 0px 0px 0px 7px;
-	background-image: Url(../site_images/head_gnav_bg_rpt.jpg);
+	background-image: Url(/site_images/head_gnav_bg_rpt.jpg);
 	background-repeat: repeat-x;
 }
 
@@ -181,7 +181,7 @@ h2 {
 	height: 33px;
 	float:left;
 	padding: 15px 0px 0px 11px;
-	background-image: Url(../site_images/head_gnav_signin_bg_rpt.jpg);
+	background-image: Url(/site_images/head_gnav_signin_bg_rpt.jpg);
 	background-repeat: repeat-x;
 	z-index: 1;
 }
@@ -224,7 +224,7 @@ h2 {
 	padding-top:35px;
 	padding-left:21px;
 	float:left;
-	background-image: Url(../site_images/subpage_banner.jpg);
+	background-image: Url(/site_images/subpage_banner.jpg);
 	background-repeat:no-repeat;
 	z-index:1;
 	}
@@ -254,13 +254,13 @@ h2 {
 	height:23px;
 	float:left;
 	margin:0px 3px 10px 3px;
-	background-image:Url(../site_images/subpage_nav_bg_rpt.jpg);
+	background-image:Url(/site_images/subpage_nav_bg_rpt.jpg);
 	background-repeat:repeat-x;
 	}
 	
 #subpage_nav a {
 	float:left;
-	background:url("../site_images/subpage_tab_lft.jpg") no-repeat left top;
+	background:url("/site_images/subpage_tab_lft.jpg") no-repeat left top;
 	margin:0;
 	color:#7c7c84;
 	font-size:13px;
@@ -271,7 +271,7 @@ h2 {
 #subpage_nav span {
 	height:23px;
 	float:left;
-	background:url("../site_images/subpage_tab_rt.jpg") no-repeat right top;	
+	background:url("/site_images/subpage_tab_rt.jpg") no-repeat right top;	
 	padding-right:20px;
 	padding-top:4px;
 	padding-bottom:2px;
@@ -298,14 +298,14 @@ h2 {
 
 .subpage_content_banner {
 	width:960px;
-	background:url("../site_images/sub_body_bg_top.jpg") no-repeat top;
+	background:url("/site_images/sub_body_bg_top.jpg") no-repeat top;
 	float:left;
 	}
 	
 .page_content {
 	width:940px;
 	padding:0px 10px 0 10px;
-	background:url("../site_images/page_content_bg.jpg") no-repeat top;
+	background:url("/site_images/page_content_bg.jpg") no-repeat top;
 	float:left;
 	background-color:#f7f1e4;
 	z-index:2;
@@ -497,7 +497,7 @@ form#login_box a:hover{
 .body_right_col {
 	width:295px;
 	float:left;
-	background-image: Url(../site_images/right_col_bg_rpt_x.jpg);
+	background-image: Url(/site_images/right_col_bg_rpt_x.jpg);
 	background-repeat: repeat-x;
 }
 	
@@ -506,7 +506,7 @@ form#login_box a:hover{
 	height:80px;
 	float:left;
 	padding: 52px 0px 0px 26px;
-	background-image:Url(../site_images/foot_bg.jpg);
+	background-image:Url(/site_images/foot_bg.jpg);
 	background-repeat: no-repeat;
 	line-height: 18px;
 }
