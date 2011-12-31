@@ -102,8 +102,15 @@
             </li>
 		  </cfoutput>
      </ul>      
-   </div><!---<div class="head_gnav">--->  
-   <div class="head_gnav_signin"><cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0><a href="https://www.destinyfinder.com/profile/index.cfm?logout=yes">Log Out</a><cfelse><a href="/profile/">Log In</a></cfif></div><!-- <div class="head_gnav_signin"> -->
+   </div>
+	<div class="head_gnav_signin">
+		<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+			<a href="https://destinyfinder.foxycart.com/cart">Cart</a>
+			<a href="/profile/index.cfm?logout=yes">Log Out</a>
+		<cfelse>
+			<a href="/profile/">Log In</a>
+		</cfif>
+	</div>
 	
     
     	<div class="subpage_banner">
