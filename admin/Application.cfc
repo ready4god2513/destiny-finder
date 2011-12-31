@@ -113,23 +113,6 @@
 		<cfset REQUEST.temp_upload_dir = "">
 		<cfset REQUEST.flowplayer_license = "##@5c81662604b323f2b38">
 		
-		<!--- MANAGE UNIVERSAL AUTHOR LOGIN 
-		<cfset obj_login = CreateObject("component","cfcs.login")>
-		
-		<cfif isDefined('URL.logout')>
-			<cfset obj_login.logout()>
-			<!--- <cflocation url="/index.cfm" addtoken="no"> --->
-		</cfif>
-		
-		<!--- THIS VARIABLE EITHER STORES THE USER_ID OR 0 IF A USER IS NOT LOGGED IN --->
-		<cfset REQUEST.user_id = obj_login.is_logged_in()>
-
-		<cfif REQUEST.user_id EQ 0>
-			<cfmodule template="/templates/login.cfm">
-			<cfabort>
-		</cfif>
-		--->
-		
 		<cfreturn true>
 	</cffunction>
 

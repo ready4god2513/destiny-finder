@@ -3,7 +3,8 @@
 	output="no"
 	hint="I handle the login details">
 	
-	<cfset obj_queries = CreateObject("component","cfcs.queries")>
+	<cfset obj_queries = CreateObject("component","cfcs.queries") />
+	<cfset foxyCart = CreateObject("component", "cfcs.foxycart") />
 	
 	<cffunction name="is_logged_in" returntype="string" output="false" hint="I check to see if there is a user logged in">
 		
@@ -34,6 +35,7 @@
 					<cfset SESSION.user_id = VARIABLES.login_result>
 					
 					<cfset VARIABLES.site_notification = "login_sucess">
+					<cfset foxyCart.save_user("#FORM.username#", "#HASH(FORM.password)#")>
 					<cflocation url="#REQUEST.site_url#profile/?page=profiler" addtoken="no">
 					<cfreturn VARIABLES.site_notification>
 				</cflock>
