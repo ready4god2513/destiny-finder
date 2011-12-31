@@ -118,12 +118,12 @@
 		<cfif REQUEST.user_id EQ 0>
 			<div class="form-field">
 				<label for="user_password">Password</label>
-				<input type="password" name="user_password" id="user_password" value="<cfoutput>#HTMLEditFormat(qUser.user_password)#</cfoutput>" required="required" />
+				<input type="password" name="user_password" id="user_password" required="required" />
 			</div>
 		
 			<div class="form-field">
 				<label for="user_password2">Confirm Password</label>
-				<input type="password" name="user_password2" id="user_password2" value="<cfoutput>#HTMLEditFormat(qUser.user_password2)#</cfoutput>" required="required" />
+				<input type="password" name="user_password2" id="user_password2" required="required" />
 			</div>
 		<cfelse>
 			<div class="form-field">
