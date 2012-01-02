@@ -28,7 +28,7 @@
 		<fieldset>
 			<div class="form-field">
 				<label for="user_email">Email Address</label>
-				<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+				<input type="email" name="user_email" id="user_email" required="required" />
 			</div>
 			<div class="form-field">
 				<label for="user_password">Password</label>

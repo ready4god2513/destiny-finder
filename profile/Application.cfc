@@ -50,7 +50,7 @@
 
 	
 	<cfset APPLICATION.webadmin_email = "tony@webvisionhosting.com">
-	<cfset APPLICATION.webadmin_ip = "68.229.193.96">
+	<cfset APPLICATION.webadmin_ip = "68.229.193.96|71.146.9.94">
 
 		
 	<!--- Run when application starts up --->
