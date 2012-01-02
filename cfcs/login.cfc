@@ -35,7 +35,8 @@
 					<cfset SESSION.user_id = VARIABLES.login_result>
 					
 					<cfset VARIABLES.site_notification = "login_sucess">
-					<cfset foxyCart.save_user("#FORM.username#", "#HASH(FORM.password)#")>
+					<cfset foxyCart.save_user(username = "#FORM.username#", password = "#HASH(FORM.password)#") />
+					
 					<cflocation url="#REQUEST.site_url#profile/?page=profiler" addtoken="no">
 					<cfreturn VARIABLES.site_notification>
 				</cflock>
