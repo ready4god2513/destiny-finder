@@ -2726,6 +2726,16 @@ form div.form-field {
 form div.form-field label {
   padding-right: 10px;
 }
+form div.form-field label.error {
+  padding: 0 0 0 10px;
+  color: red;
+  font-size: 0.9em;
+  display: block;
+  float: none;
+  width: auto;
+  text-align: left;
+  display: inline;
+}
 .result {
   width: 500px;
   margin: 10px 30px 0px 100px;
