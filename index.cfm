@@ -27,20 +27,16 @@
     #APPLICATION.sitename#
   </cfif>
   </title>
-  <script type="text/javascript" src="/site_scripts/jquery.min.js"></script>
-  <script type="text/javascript" src="/site_scripts/jquery_easing.js"></script>
-  <script type="text/javascript" src="/site_scripts/jquery.fancybox-1.2.1.js"></script>
-  <script type="text/javascript" src="/site_scripts/pngfix.js"></script>
-  <script type="text/javascript" src="/site_scripts/jquery.hoverIntent.minified.js"></script>
-  <script type="text/javascript" src="/site_scripts/superfish.js"></script>
-  <script type="text/javascript" src="/site_scripts/dropdowns.js"></script>
-  <script>
-	$(document).ready(function() {
-		jQuery(function(){
-				jQuery('ul.sf-menu').superfish();
-			});
-	});
-  </script>
+	<script type="text/javascript" src="/site_scripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/site_scripts/jquery_easing.js"></script>
+	<script type="text/javascript" src="/site_scripts/jquery.fancybox-1.2.1.js"></script>
+	<script type="text/javascript" src="/site_scripts/pngfix.js"></script>
+	<script type="text/javascript" src="/site_scripts/jquery.hoverIntent.minified.js"></script>
+	<script type="text/javascript" src="/site_scripts/superfish.js"></script>
+	<script type="text/javascript" src="/site_scripts/dropdowns.js"></script>
+	<script type="text/javascript" src="/site_scripts/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="/site_scripts/main.js"></script>
+  
   <cfif LEN(ATTRIBUTES.meta_desc) GT 0>
     <meta name="description" content="#ATTRIBUTES.meta_desc#" />
   </cfif>

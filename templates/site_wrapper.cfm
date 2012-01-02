@@ -38,7 +38,9 @@ ORDER BY gateway_sortorder ASC
 	<script type="text/javascript" src="/site_scripts/superfish.js"></script>
 	<script type="text/javascript" src="/site_scripts/jquery.form.js"></script>
 	<script type="text/javascript" src="/site_scripts/pngfix.js"></script>
+	<script type="text/javascript" src="/site_scripts/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="/site_scripts/dropdowns.js"></script>
+	<script type="text/javascript" src="/site_scripts/main.js"></script>
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
 		<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">
@@ -47,13 +49,6 @@ ORDER BY gateway_sortorder ASC
 	</cfif>
 
 	<link rel="stylesheet" type="text/css" href="/site_styles/fancybox.css" />
-	<script>
-	$(document).ready(function() {
-		jQuery(function(){
-			jQuery('ul.sf-menu').superfish();
-		});
-	});
-	</script>
 	<cfif LEN(ATTRIBUTES.meta_desc) GT 0>
 		<meta name="description" content="#ATTRIBUTES.meta_desc#" />
 	</cfif>
