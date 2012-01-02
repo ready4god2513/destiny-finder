@@ -30,16 +30,8 @@ ORDER BY gateway_sortorder ASC
 		</cfif>
 	</title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/site_scripts/jquery_easing.js"></script>
-	<script type="text/javascript" src="/site_scripts/jquery.fancybox-1.2.1.js"></script>
-	<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
-	<script type="text/javascript" src="/site_scripts/pngfix.js"></script>
-	<script type="text/javascript" src="/site_scripts/jquery.hoverIntent.minified.js"></script>
-	<script type="text/javascript" src="/site_scripts/superfish.js"></script>
-	<script type="text/javascript" src="/site_scripts/jquery.form.js"></script>
-	<script type="text/javascript" src="/site_scripts/pngfix.js"></script>
-	<script type="text/javascript" src="/site_scripts/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="/site_scripts/dropdowns.js"></script>
+	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+	<script type="text/javascript" src="/site_scripts/libs.min.js"></script>
 	<script type="text/javascript" src="/site_scripts/main.js"></script>
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
