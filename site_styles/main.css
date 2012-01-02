@@ -2495,14 +2495,14 @@ body {
   background-repeat: repeat-x;
 }
 table, .box {
-  -moz-border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -khtml-border-radius: 20px;
-  border-radius: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
+  border-radius: 10px;
   background-color: #ffffff;
   border: 1px solid #e9ddc7;
-  padding: 20px 40px 20px 40px;
-  margin: 20px 0 0 0;
+  padding: 20px;
+  margin: 20px 0;
 }
 h1 {
   font-size: 18px;
@@ -2750,16 +2750,6 @@ h3 {
 #form_wrapper h2 {
   font-size: 16px;
   color: #a82b33;
-}
-#form_wrapper table {
-  /*width:400px;
-		height:240px;
-		float:left;
-		background-color:#ffffff;
-		border:1px solid #e9ddc7;
-		padding:20px 40px 20px 40px;
-		margin:20px 0px 0px 10px;*/
-
 }
 #login_box {
   width: 250px;
