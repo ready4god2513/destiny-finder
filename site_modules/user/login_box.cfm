@@ -9,7 +9,10 @@
     <cfset VARIABLES.process_login = obj_login.login_form_action()>
     
     <cfif VARIABLES.process_login EQ "login_fail">
-        <cfset VARIABLES.login_message = "I'm sorry your username and password did not match.">
+		<div class="alert-message error">
+			<a class="close" href="#">×</a>
+			<p><strong>Login Failed.</strong> We couldn't find an account in our system with the username and password you provided.</p>
+		</div>
     <cfelse>
         <cflocation url="/profile/?page=profiler" addtoken="no">
         <cfabort>
@@ -24,7 +27,7 @@
 		Take the first step to discover your destiny.<br />
 		We'll be rolling out the rest of this amazing system shortly.
 	</p>
-	<form action="<cfoutput>#ATTRIBUTES.processing_url#</cfoutput>" action="POST">
+	<form action="<cfoutput>#ATTRIBUTES.processing_url#</cfoutput>" action="POST" id="login-form">
 		<fieldset>
 			<div class="form-field">
 				<label for="user_email">Email Address</label>
