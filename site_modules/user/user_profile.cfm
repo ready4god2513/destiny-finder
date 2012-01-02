@@ -107,6 +107,7 @@
 			<div class="form-field">
 				<label for="user_email">Email Address</label>
 				<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+				<span class="help-inline">Your e-mail is used for logging in</span>
 			</div>
 
 			<cfif REQUEST.user_id EQ 0>
@@ -139,11 +140,13 @@
 			</cfif>
 		</fieldset>
 
-		<cfif REQUEST.user_id EQ 0>
-	    	  <input type="submit" name="submit" value="Create Account">
-		<cfelse>
-			  <input type="submit" name="submit" value="Update Profile">			
-		</cfif>
+		<div class="actions">
+			<cfif REQUEST.user_id EQ 0>
+		    	  <input type="submit" name="submit" value="Create Account" class="btn primary" />
+			<cfelse>
+				  <input type="submit" name="submit" value="Update Profile" class="btn primary" />		
+			</cfif>
+		</div>
 
 	    <cfif REQUEST.user_id EQ 0>
 			<p>Already a User? <a href="/auth/?page=user">Login here</a></p>

@@ -35,9 +35,12 @@
 				<input type="password" name="user_password" id="user_password" required="required" />
 			</div>
 		</fieldset>
-		<input type="submit" name="submit" value="Create Account" />
+		
+		<div class="actions">
+			<input type="submit" name="submit" value="Create Account" class="btn primary" />
+		</div>
 	</form>
 	
-	<p>Not a user yet? <a href="index.cfm?page=user&create=1">Click here to create a free account.</a></p>
+	<p>Not a user yet? <a href="/auth/?page=user&create=1">Click here to create a free account.</a></p>
 </div>
 	

@@ -1,38 +1,4 @@
-
-@import url("superfish.css"); 
-
-/* CSS RESET */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
+@import url("main.css");
 
 
 img {
@@ -40,10 +6,8 @@ img {
 }
 
 body {
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
 	background-color:#3e3f53;
-	background-image: Url(/site_images/body_bg_rpt.jpg);
+	background-image: url(/site_images/body_bg_rpt.jpg);
 	background-repeat: repeat-x;
 }
 
@@ -91,7 +55,7 @@ ul li {
 .head {
 	width: 960px;
 	height: 138px;
-	background-image: Url(/site_images/head_bg.jpg);
+	background-image: url(/site_images/head_bg.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -118,7 +82,7 @@ ul li {
 	height: 23px;
 	float:left;
 	margin: 0px 0px 0px 218px;
-	background-image: Url(/site_images/head_search_input_bg.gif);
+	background-image: url(/site_images/head_search_input_bg.gif);
 	background-repeat:no-repeat;	
 }
 
@@ -165,7 +129,7 @@ ul li {
 	height: 48px;
 	float: left;
 	padding: 0px 0px 0px 7px;
-	background-image: Url(/site_images/head_gnav_bg_rpt.jpg);
+	background-image: url(/site_images/head_gnav_bg_rpt.jpg);
 	background-repeat: repeat-x;
 }
 
@@ -174,7 +138,7 @@ ul li {
 	height: 48px;
 	float:left;
 	padding: 15px 0px 0px 11px;
-	background-image: Url(/site_images/head_gnav_signin_bg_rpt.jpg);
+	background-image: url(/site_images/head_gnav_signin_bg_rpt.jpg);
 	background-repeat: repeat-x;
 	z-index: 1;
 }
@@ -208,7 +172,7 @@ ul li {
 	float:left;
 	margin-top:-15px;
 	padding: 35px 0px 0px 25px;
-	background-image: Url(/site_images/banner_bg.jpg);
+	background-image: url(/site_images/banner_bg.jpg);
 	background-repeat: no-repeat;
 	z-index: 1;
 }
@@ -242,7 +206,7 @@ ul li {
 	font-size: 20px;
 	padding:7px 0 0 10px;
 	float:left;
-	background-image:Url(/site_images/section_title_bg1.jpg);
+	background-image:url(/site_images/section_title_bg1.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -254,7 +218,7 @@ ul li {
 	font-size: 20px;
 	padding:7px 0 0 10px;
 	float:left;
-	background-image:Url(/site_images/section_title_bg2.jpg);
+	background-image:url(/site_images/section_title_bg2.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -266,7 +230,7 @@ ul li {
 	font-size: 20px;
 	padding:7px 0 0 10px;
 	float:left;
-	background-image:Url(/site_images/section_title_bg3.jpg);
+	background-image:url(/site_images/section_title_bg3.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -278,7 +242,7 @@ ul li {
 	font-size: 20px;
 	padding:7px 0 0 10px;
 	float:left;
-	background-image:Url(/site_images/section_title_bg4.jpg);
+	background-image:url(/site_images/section_title_bg4.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -287,7 +251,7 @@ ul li {
 	height:50%;
 	float:left;
 	padding-top: 14px;
-	background-image:Url(/site_images/section_text_bg.jpg);
+	background-image:url(/site_images/section_text_bg.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -315,7 +279,7 @@ ul li {
 	padding:7px 0 0 10px;
 	margin:15px 0 3px 0;
 	float:left;
-	background-image:Url(/site_images/rt_col_section_title_bg.jpg);
+	background-image:url(/site_images/rt_col_section_title_bg.jpg);
 	background-repeat: no-repeat;
 }
 
@@ -399,7 +363,7 @@ ul li {
 	width:295px;
 	height:560px;
 	float:left;
-	background-image: Url(/site_images/right_col_bg_rpt_x.jpg);
+	background-image: url(/site_images/right_col_bg_rpt_x.jpg);
 	background-repeat: repeat-x;
 }
 
@@ -408,7 +372,7 @@ ul li {
 	height:80px;
 	float:left;
 	padding: 52px 0px 0px 26px;
-	background-image:Url(/site_images/foot_bg.jpg);
+	background-image:url(/site_images/foot_bg.jpg);
 	background-repeat: no-repeat;
 	line-height: 18px;
 	position:relative;

@@ -1,9 +1,0 @@
-.sortable { list-style-type: none; margin: 0; padding: 0; width: 75%;margin-bottom:10px;}
-.sortable li { border:1px solid #F7F1E4;margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; color:#a82b33;}
-.sortable li span { position: absolute; margin-left: -1.3em; }
-.ui-sortable-helper {background-color:#F7F1E4;}
-
-.sort_result {
-	border:0px solid #3e3f53;
-	display:none;
-}

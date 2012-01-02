@@ -1,22 +1,6 @@
 @import "bootstrap/bootstrap";
 @import "superfish.css";
 
-/* CSS RESET */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, img, ins, kbd, q, s, samp, small, strike, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video 
-{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-}
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section 
-{
-	display: block; 
-}
-
 body 
 {
 	color: #565555; 
@@ -49,8 +33,6 @@ img
 
 body
 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
 	background-color: #3e3f53;
 	background-image: url(/site_images/body_bg_rpt.jpg);
 	background-repeat: repeat-x;
@@ -66,7 +48,6 @@ table, .box
 	border: 1px solid #e9ddc7;
 	padding: 20px 40px 20px 40px;
 	margin: 20px 0 0 0;
-	float: left;
 }
 
 h1
@@ -404,24 +385,17 @@ h3
 	color: #a82b33;
 }
 
-form#login_box
+
+form
 {
-	td
+	div.form-field
 	{
-		text-align: left;
-		color: #692109;
-	}
-	span
-	{
-		color: #565555;
-	}
-	a
-	{
-		color: #a82b33;
-		text-decoration: none;
-		&:hover
+		
+		margin:10px 0;
+		
+		label
 		{
-			text-decoration: underline;
+			padding-right:10px;
 		}
 	}
 }
