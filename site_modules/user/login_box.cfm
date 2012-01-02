@@ -1,10 +1,10 @@
-<cfparam name="ATTRIBUTES.processing_url" default="index.cfm">
-<cfparam name="ATTRIBUTES.destination_url" default="index.cfm">
+<cfparam name="ATTRIBUTES.processing_url" default="/auth">
+<cfparam name="ATTRIBUTES.destination_url" default="/auth">
 
 <cfset obj_login = CreateObject("component","cfcs.login")>
 
 
-<cfif isDefined('FORM.user_name')>
+<cfif isDefined("FORM.user_name")>
 	<!--- RUN THE LOGIN FUNCTION --->
     <cfset VARIABLES.process_login = obj_login.login_form_action()>
     
@@ -30,8 +30,8 @@
 	<form action="<cfoutput>#ATTRIBUTES.processing_url#</cfoutput>" method="POST" id="login-form">
 		<fieldset>
 			<div class="form-field">
-				<label for="user_email">Email Address</label>
-				<input type="email" name="user_email" id="user_email" required="required" />
+				<label for="user_name">Email Address</label>
+				<input type="email" name="user_name" id="user_name" required="required" />
 			</div>
 			<div class="form-field">
 				<label for="user_password">Password</label>
