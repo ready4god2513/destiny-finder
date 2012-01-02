@@ -132,7 +132,7 @@ ORDER BY gateway_sortorder ASC
 	</div>
 	<div class="footer_wrapper">
 		<div class="footer_menu_cols">
-			<a href="/index.cfm">Home</a><br />
+			<a href="/">Home</a><br />
 			<a href="/about/">About Us</a>   
 		</div>
 		<div class="footer_menu_cols">

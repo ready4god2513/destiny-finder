@@ -147,7 +147,7 @@
 <!--    FOOTER BEGINS HERE      -->
    <div class="footer_wrapper">
    		<div class="footer_menu_cols">
-            <a href="/index2.cfm">Home</a><br />
+            <a href="/">Home</a><br />
             <a href="/about/index.cfm">About Us</a>   
         </div>
         <div class="footer_menu_cols">
@@ -165,25 +165,7 @@
         <div class="footer_menu_cols">
             <a href="/blog/">Blog</a><br />
             <a href="#">Legal</a>
-        </div> 
-        
-   		<!---<div class="footer_nav_wrapper">
-			<ul class="footer_nav_wrapper">
-				<li style="margin-right: 50px;"><a href="#">Home</a></li>
-				<li style="margin-right: 28px;"><a href="#">Products &amp; Services</a></li>
-				<li style="margin-right: 48px;"><a href="#">Coaching</a></li>
-				<li style="margin-right: 32px;"><a href="#">Free Resources</a></li>
-				<li style="margin-right: 32px;"><a href="#">Site Map</a></li>
-			</ul><!-- <ul class="footer_links_1"> -->
-            <br />
-			<ul class="footer_nav_wrapper">
-				<li style="margin-right: 32px;"><a href="#">About Us</a></li>
-				<li style="margin-right: 65px;"><a href="#">Assessments</a></li>
-				<li style="margin-right: 32px;"><a href="#">Online Store</a></li>
-				<li style="margin-right: 93px;"><a href="#">Help</a></li>
-				<li style="margin-right: 32px;"><a href="#">Legal</a></li>
-			</ul><!-- <ul class="footer_links_2"> -->
-		</div><!-- <div class="footer_nav_wrapper"> -->--->
+        </div>
    </div><!-- <div class="footer_wrapper"> -->
    
    
