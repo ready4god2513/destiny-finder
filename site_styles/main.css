@@ -3051,14 +3051,6 @@ form#login_box a:hover {
   padding: 30px 40px 20px 40px;
   margin: 70px 0px 0px 100px;
 }
-label {
-  color: #3e3f53;
-  margin: 3px 0;
-  padding: 4px 0 0 25px;
-  font-size: 1.4em;
-  background-repeat: no-repeat;
-  background-color: #F7F1E4;
-}
 .percent_complete_label {
   width: 144px;
   float: left;
