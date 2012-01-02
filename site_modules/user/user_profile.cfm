@@ -92,7 +92,7 @@
 		<li>Access to our Resources section - articles, organization profiles, book recommendations, and more.</li>
 	</ul>
 
-	<form action="/auth/index.cfm?page=user&amp;<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="signup-form">
+	<form action="/auth/index.cfm?page=user&<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="signup-form">
 		<fieldset>
 			<div class="form-field">
 				<label for="user_first_name">First Name</label>
