@@ -65,9 +65,9 @@
 	
 
 <cfif REQUEST.user_id EQ 0>
-	<cfset VARIABLES.action_url = "index.cfm?page=user&create=1">
+	<cfset VARIABLES.action_url = "create=1">
 <cfelse>
-	<cfset VARIABLES.action_url = "index.cfm?page=user&edit=1">
+	<cfset VARIABLES.action_url = "edit=1">
 </cfif>
 
 <div class="box">
@@ -92,7 +92,7 @@
 		<li>Access to our Resources section - articles, organization profiles, book recommendations, and more.</li>
 	</ul>
 
-	<form action="/auth/<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="signup-form">
+	<form action="/auth/index.cfm?page=user&amp;<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="signup-form">
 		<fieldset>
 			<div class="form-field">
 				<label for="user_first_name">First Name</label>
