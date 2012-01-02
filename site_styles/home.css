@@ -65,45 +65,6 @@ ul li {
 	margin: 20px 0px 0px 20px;
 	float: left;
 }
-
-.head_search {
-    background-image: url("/site_images/head_search_bg.jpg");
-    background-position: right center;
-    background-repeat: no-repeat;
-    float: left;
-    height: 29px;
-    margin: 57px 0 0;
-    padding: 7px 0 0;
-    width: 594px;
-}
-
-#head_search_input {
-	width: 135px;
-	height: 23px;
-	float:left;
-	margin: 0px 0px 0px 218px;
-	background-image: url(/site_images/head_search_input_bg.gif);
-	background-repeat:no-repeat;	
-}
-
-.head_search_input_field {
-	width: 120px;
-	margin: 4px 0px 0px 10px;
-	/*padding: 0px;*/
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	background: transparent;
-	color: #b8722a;
-	position:absolute;
-	/*text-align:left;*/
-}
-
-.head_search_button {
-	float: left;
-	margin-right: 32px;
-}
-
 #head_menu_links {
 	float: left;
 	margin-top: 4px;

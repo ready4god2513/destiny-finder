@@ -111,44 +111,6 @@ h2 {
 	float: left;
 }
 
-.head_search {
-	float:left;
-	width: 595px;
-	height: 29px;
-	margin: 57px 0px 0px 0px;
-	padding: 7px 0px 0px 0px;
-	background-image: Url(/site_images/head_search_bg.jpg);
-	background-repeat:no-repeat;
-	background-position:right;
-}
-
-#head_search_input {
-	width: 135px;
-	height: 23px;
-	float:left;
-	margin: 0px 0px 0px 218px;
-	background-image: Url(/site_images/head_search_input_bg.gif);
-	background-repeat:no-repeat;	
-}
-
-.head_search_input_field {
-	width: 128px;
-	margin: 4px 0px 0px 10px;
-	/*padding: 0px;*/
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	background: transparent;
-	color: #b8722a;
-	position:absolute;
-	/*text-align:left;*/
-}
-
-.head_search_button {
-	float: left;
-	margin-right: 32px;
-}
-
 #head_menu_links {
 	float: left;
 	margin-top: 4px;

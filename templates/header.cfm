@@ -52,19 +52,6 @@
   <div class="head">
     <div class="head_logo"><img src="/site_images/transparent.png" width="345" height="110" usemap="#head_logo"></div>
     	<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="/index2.cfm"></map>
-  		<form action="#" method="post" enctype="application/x-www-form-urlencoded">
-   	<div class="head_search">
-      	<div id="head_search_input">
-         <input type="text" class="head_search_input_field" onFocus="this.value='';" value="Search">
-     	</div><!---<div class="head_search_input">--->
-		<div class="head_search_button">
-			<input type="image" value="submit_search" src="/site_images/head_search_btn.gif" alt="" name="submit_search"> 
-		</div><!---<div class="head_search_button">--->
-		<div id="head_menu_links">
-			<a href="#">Help</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Contact</a>&nbsp;&nbsp;|<a href="#"><img src="/site_images/head_btn_social_fb.gif" class="head_social_button" width="16" height="16"></a><a href="#"><img src="/site_images/head_btn_social_t.gif" class="head_social_button" height="16"></a>
-		</div><!---<div class="head_menu_links">--->
-    </div><!---<div class="head_search">--->
-		</form>
         </div><!---<div class="head">--->
   <div class="head_gnav">
     <ul class="sf-menu">

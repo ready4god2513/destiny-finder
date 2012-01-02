@@ -49,22 +49,8 @@
 <div class="site_wrapper">
   <div class="head">
     <div class="head_logo"><img src="site_images/transparent.png" width="345" height="110" usemap="#head_logo"></div>
-    	<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="/"></map>
-  		<form action="#" method="post" enctype="application/x-www-form-urlencoded">
-   	<div class="head_search">
-      	<div id="head_search_input">
-         <input type="text" class="head_search_input_field" onFocus="this.value='';" value="Search">
-     	</div><!---<div class="head_search_input">--->
-		<div class="head_search_button">
-			<input type="image" value="submit_search" src="site_images/head_search_btn.gif" alt="" name="submit_search"> 
-		</div><!---<div class="head_search_button">--->
-		<div id="head_menu_links">
-			<a href="#">Help</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/about/index.cfm?page=contact">Contact</a>&nbsp;&nbsp;|<a href="#"><img src="site_images/head_btn_social_fb.gif" class="head_social_button" width="16" height="16"></a><a href="#"><img src="site_images/head_btn_social_t.gif" class="head_social_button" height="16"></a>
-		</div><!---<div class="head_menu_links">--->
-    </div><!---<div class="head_search">--->
-		</form>
-        <!---<div style="width:45px;float:left;margin:15px 0px 0px 527px;">&nbsp;<cfif isDefined("SESSION.user_id") AND val(SESSION.user_id) GT 0><a href="/profile/index.cfm?logout=yes">Logout</a></cfif></div>--->
-  </div><!---<div class="head">--->
+    	<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="/"></map>	
+	</div><!---<div class="head">--->
   <div class="head_gnav">
     <ul class="sf-menu">
       <li><a href="/index.cfm"><span>Home</span></a></li>
