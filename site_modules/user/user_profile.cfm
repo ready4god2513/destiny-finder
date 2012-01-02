@@ -57,12 +57,8 @@
 	<cfset qUser.user_city = "#FORM.user_city#">	
 	<cfset qUser.user_state = "#FORM.user_state#">	
 	<cfset qUser.user_zip = "#FORM.user_zip#">	
-	<cfset qUser.user_phone = "#FORM.user_phone#">	
-
-		
+	<cfset qUser.user_phone = "#FORM.user_phone#">
 </cfif>
-
-	
 
 <cfif REQUEST.user_id EQ 0>
 	<cfset VARIABLES.action_url = "create=1">
