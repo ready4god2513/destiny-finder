@@ -46,7 +46,6 @@
   </cfif>
 </cfoutput>
 <link rel="stylesheet" type="text/css" href="site_styles/home.css">
-<link rel="stylesheet" type="text/css" href="site_scripts/fancy.css">
 </head>
 <body>
 <div class="site_wrapper">
