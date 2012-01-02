@@ -5,4 +5,7 @@ $(function(){
 	
 	// Form Validations
 	$("form").validate();
+	
+	// Modal Box
+	$("a.enlarge_link").fancybox();
 });

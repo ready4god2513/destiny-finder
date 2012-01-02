@@ -32,8 +32,3 @@
 	</div><!---<div class="page_content">--->
                    					
 </cfif>
-<script>
-	$(function(){
-		$("a.enlarge_link").fancybox(); 
-	});
-</script>

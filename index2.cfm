@@ -217,11 +217,5 @@
    
    
 </div><!-- class="site_wrapper" -->
-<script>
-		$(document).ready(function() 
-			{
-				 $("a.enlarge_link").fancybox(); 
-			}); 
-</script>
 </body>
 </html>
