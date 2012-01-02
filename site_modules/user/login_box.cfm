@@ -27,7 +27,7 @@
 		Take the first step to discover your destiny.<br />
 		We'll be rolling out the rest of this amazing system shortly.
 	</p>
-	<form action="<cfoutput>#ATTRIBUTES.processing_url#</cfoutput>" action="POST" id="login-form">
+	<form action="<cfoutput>#ATTRIBUTES.processing_url#</cfoutput>" method="POST" id="login-form">
 		<fieldset>
 			<div class="form-field">
 				<label for="user_email">Email Address</label>
@@ -40,7 +40,7 @@
 		</fieldset>
 		
 		<div class="actions">
-			<input type="submit" name="submit" value="Create Account" class="btn primary" />
+			<input type="submit" name="submit" value="Login" class="btn primary" />
 		</div>
 	</form>
 	
