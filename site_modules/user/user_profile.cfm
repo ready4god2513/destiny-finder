@@ -126,12 +126,12 @@
 			<cfelse>
 				<div class="form-field">
 					<label for="user_password">Password</label>
-					<input type="password" name="user_password" id="user_password" />
+					<input type="password" name="user_password" id="user_password" minlength="6" />
 				</div>
 
 				<div class="form-field">
 					<label for="user_password2">Confirm Password</label>
-					<input type="password" name="user_password2" id="user_password2" />
+					<input type="password" name="user_password2" id="user_password2" minlength="6" />
 				</div>
 			</cfif>
 		</fieldset>
