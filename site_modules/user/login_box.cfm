@@ -1,16 +1,11 @@
-<cfparam name="ATTRIBUTES.processing_url" default="/auth">
-<cfparam name="ATTRIBUTES.destination_url" default="/auth">
-
 <cfset obj_login = CreateObject("component","cfcs.login")>
-
 
 <cfif isDefined("FORM.user_name")>
 	<!--- RUN THE LOGIN FUNCTION --->
     <cfset VARIABLES.process_login = obj_login.login_form_action()>
     
     <cfif VARIABLES.process_login EQ "login_fail">
-		<div class="alert-message error">
-			<a class="close" href="#">×</a>
+		<div class="alert-message block-message error">
 			<p><strong>Login Failed.</strong> We couldn't find an account in our system with the username and password you provided.</p>
 		</div>
     <cfelse>
@@ -27,7 +22,7 @@
 		Take the first step to discover your destiny.<br />
 		We'll be rolling out the rest of this amazing system shortly.
 	</p>
-	<form action="<cfoutput>#ATTRIBUTES.processing_url#</cfoutput>" method="POST" id="login-form">
+	<form action="/auth/index.cfm" method="POST" id="login-form">
 		<fieldset>
 			<div class="form-field">
 				<label for="user_name">Email Address</label>
@@ -35,7 +30,7 @@
 			</div>
 			<div class="form-field">
 				<label for="user_password">Password</label>
-				<input type="password" name="user_password" id="user_password" required="required" />
+				<input type="password" name="password" id="user_password" required="required" />
 			</div>
 		</fieldset>
 		
