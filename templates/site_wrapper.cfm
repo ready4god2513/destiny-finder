@@ -58,15 +58,27 @@ ORDER BY gateway_sortorder ASC
 	<link rel="stylesheet" type="text/css" href="/site_styles/word_sort.css" />
 	</head>
 	<body>
-		<div class="site_wrapper">
-			<div class="head">
-				<div class="head_logo">
-					<img src="/site_images/transparent.png" width="345" height="110" usemap="#head_logo">
+		<div class="container">
+			<header>
+				<div class="row">
+					<div class="span11">
+						<img src="/site_images/transparent.png" width="345" height="110" />
+					</div>
+
+					<nav class="span5">
+						<ul>
+							<li><a href="https://destinyfinder.foxycart.com/cart">Cart</a></li>
+							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
+							<cfelse>
+								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
+								<li><a href="/auth/">Login</a></li>
+							</cfif>
+						</ul>
+					</nav>
 				</div>
-				<map name="head_logo">
-					<area shape="rect" coords="0,0,345,110" href="/">
-				</map>
-			</div><!---<div class="head">--->
+			</header>
+			
 			<div class="head_gnav">
 				<ul class="sf-menu">
 					<li><a href="/index.cfm"><span>Home</span></a></li>
@@ -82,16 +94,7 @@ ORDER BY gateway_sortorder ASC
 					</cfoutput>
 				</ul>      
 			</div>
-			<div class="head_gnav_signin">
-				<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
-					<a href="https://destinyfinder.foxycart.com/cart">Cart</a>
-					<a href="/profile/index.cfm?logout=yes">Log Out</a>
-				<cfelse>
-					<a href="/profile/">Log In</a>
-				</cfif>
-			</div>
-
-
+			
 			<div class="subpage_banner">
 				<div id="subpage_title">
 					<cfif isDefined("ATTRIBUTES.page_name")>
