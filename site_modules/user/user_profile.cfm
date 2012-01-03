@@ -1,52 +1,39 @@
 <cfset obj_user = CreateObject("component","cfcs.users")>
 <cfset obj_queries = CreateObject("component","cfcs.queries")>
 
-<cfif isDefined('FORM.submit')>
-    <cfset Cffp = CreateObject("component","cfformprotect.cffpVerify").init() />
-    <!--- now we can test the form submission --->
-    <cfif Cffp.testSubmission(form)>
- 	 <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#")> 
-    <cfelse>
-      <cflocation url="/index.cfm" addtoken="no">
-      <cfabort>	
-	</cfif>
+<cfif isDefined("FORM.submit")>
+    <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#") />
 </cfif>
 
 <cfif REQUEST.user_id NEQ 0>
 	<cfset qUser = obj_queries.user_detail(user_id="#REQUEST.user_id#")>
-<cfelse>
-
-	
 </cfif>
-	<cfparam name="qUser.user_first_name" default="">	
-	<cfparam name="qUser.user_last_name" default="">	
-	<cfparam name="qUser.user_email" default="">	
-	<cfparam name="qUser.user_address1" default="">	
-	<cfparam name="qUser.user_address2" default="">	
-	<cfparam name="qUser.user_city" default="">	
-	<cfparam name="qUser.user_state" default="">	
-	<cfparam name="qUser.user_zip" default="">	
-	<cfparam name="qUser.user_phone" default="">	
-	<cfparam name="qUser.user_image" default="">	
-	<cfparam name="qUser.user_description" default="">	
-	<cfparam name="qUser.user_store_id" default="">
-    
-	<cfparam name="FORM.user_first_name" default="">	
-	<cfparam name="FORM.user_last_name" default="">	
-	<cfparam name="FORM.user_email" default="">	
-	<cfparam name="FORM.user_address1" default="">	
-	<cfparam name="FORM.user_address2" default="">	
-	<cfparam name="FORM.user_city" default="">	
-	<cfparam name="FORM.user_state" default="">	
-	<cfparam name="FORM.user_zip" default="">	
-	<cfparam name="FORM.user_phone" default="">	
-	<cfparam name="FORM.user_image" default="">	
-	<cfparam name="FORM.user_description" default="">	
-<cfif isDefined('VARIABLES.create_account_message')>
 
-	<cfif isDefined('URL.fileerror')>
-		<cfset VARIABLES.create_account_message = "upload fail">
-	</cfif>
+<cfparam name="qUser.user_first_name" default="">	
+<cfparam name="qUser.user_last_name" default="">	
+<cfparam name="qUser.user_email" default="">	
+<cfparam name="qUser.user_address1" default="">	
+<cfparam name="qUser.user_address2" default="">	
+<cfparam name="qUser.user_city" default="">	
+<cfparam name="qUser.user_state" default="">	
+<cfparam name="qUser.user_zip" default="">	
+<cfparam name="qUser.user_phone" default="">	
+<cfparam name="qUser.user_image" default="">	
+<cfparam name="qUser.user_description" default="">	
+<cfparam name="qUser.user_store_id" default="">
+   
+<cfparam name="FORM.user_first_name" default="">	
+<cfparam name="FORM.user_last_name" default="">	
+<cfparam name="FORM.user_email" default="">	
+<cfparam name="FORM.user_address1" default="">	
+<cfparam name="FORM.user_address2" default="">	
+<cfparam name="FORM.user_city" default="">	
+<cfparam name="FORM.user_state" default="">	
+<cfparam name="FORM.user_zip" default="">	
+<cfparam name="FORM.user_phone" default="">	
+<cfparam name="FORM.user_image" default="">	
+<cfparam name="FORM.user_description" default="">
+<cfif isDefined('VARIABLES.create_account_message')>
 
 	<cfmodule template="/site_modules/site_notifications.cfm" message="#VARIABLES.create_account_message#">
 		

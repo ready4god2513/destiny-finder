@@ -25,9 +25,9 @@ ORDER BY gateway_sortorder ASC
 	<title>
 	<cfif LEN(ATTRIBUTES.html_title) GT 0>
 		#ATTRIBUTES.html_title#
-		<cfelse>
-			#APPLICATION.sitename#
-		</cfif>
+	<cfelse>
+		#APPLICATION.sitename#
+	</cfif>
 	</title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
@@ -116,32 +116,32 @@ ORDER BY gateway_sortorder ASC
 
 			<div class="body_content">
 <cfelse>
-	</div> 
-	<div style="background-color:#F7F1E4;">
-		<br class="clear" />
-	</div>
-	<div class="footer_wrapper">
-		<div class="footer_menu_cols">
-			<a href="/">Home</a><br />
-			<a href="/about/">About Us</a>   
+			</div> 
+			<div style="background-color:#F7F1E4;">
+				<br class="clear" />
+			</div>
+			<div class="footer_wrapper">
+				<div class="footer_menu_cols">
+					<a href="/">Home</a><br />
+					<a href="/about/">About Us</a>   
+				</div>
+				<div class="footer_menu_cols">
+					<a href="/products/">Products &amp; Services</a><br />     
+					<a href="/profile/">Destiny Guide 1.0</a>     
+				</div>
+				<div class="footer_menu_cols">
+					<a href="/coaching/">Coaching</a><br />
+				</div> 
+				<div class="footer_menu_cols">
+					<a href="/free/">Resources</a><br />
+					<a href="/about/?page=contact">Contact</a>
+				</div> 
+				<div class="footer_menu_cols">
+					<a href="/privacy/">Privacy</a>
+				</div> 
+			</div>
+			<div class="clear"></div>
 		</div>
-		<div class="footer_menu_cols">
-			<a href="/products/">Products &amp; Services</a><br />     
-			<a href="/profile/">Destiny Guide 1.0</a>     
-		</div>
-		<div class="footer_menu_cols">
-			<a href="/coaching/">Coaching</a><br />
-		</div> 
-		<div class="footer_menu_cols">
-			<a href="/free/">Resources</a><br />
-			<a href="/about/index.cfm?page=contact">Contact</a>
-		</div> 
-		<div class="footer_menu_cols">
-			<a href="/privacy/">Privacy</a>
-		</div> 
-	</div>
-	<br class="clear" />
-	</div>
 	</body>
 	</html>
 </cfif>
