@@ -62,7 +62,8 @@ ORDER BY gateway_sortorder ASC
 			<header>
 				<div class="row">
 					<div class="span11">
-						<img src="/site_images/transparent.png" width="345" height="110" />
+						<img src="site_images/transparent.png" width="345" height="110" usemap="#head_logo" />
+						<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="/"></map>
 					</div>
 
 					<nav class="span5">

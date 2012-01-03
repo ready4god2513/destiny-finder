@@ -2535,7 +2535,7 @@ h3 {
   margin-left: auto;
 }
 header {
-  background: #f9eeda;
+  background: url(../site_images/head_bg.jpg) no-repeat;
 }
 header nav {
   margin: 0;
