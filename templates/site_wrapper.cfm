@@ -71,8 +71,8 @@ ORDER BY gateway_sortorder ASC
 							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
 								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
 							<cfelse>
-								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
 								<li><a href="/auth/">Login</a></li>
+								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
 							</cfif>
 						</ul>
 					</nav>
@@ -117,30 +117,20 @@ ORDER BY gateway_sortorder ASC
 			<div class="body_content">
 <cfelse>
 			</div> 
-			<div style="background-color:#F7F1E4;">
-				<br class="clear" />
+			<div class="footer_wrapper row">
+				<nav class="span12">
+					<ul>
+						<a href="/">Home</a>
+						<a href="/about/">About Us</a>
+						<a href="/products/">Products &amp; Services</a>
+						<a href="/profile/">Destiny Guide 1.0</a>
+						<a href="/coaching/">Coaching</a>
+						<a href="/free/">Resources</a>
+						<a href="/about/?page=contact">Contact</a>
+						<a href="/privacy/">Privacy</a>
+					</ul>
+				</nav>
 			</div>
-			<div class="footer_wrapper">
-				<div class="footer_menu_cols">
-					<a href="/">Home</a><br />
-					<a href="/about/">About Us</a>   
-				</div>
-				<div class="footer_menu_cols">
-					<a href="/products/">Products &amp; Services</a><br />     
-					<a href="/profile/">Destiny Guide 1.0</a>     
-				</div>
-				<div class="footer_menu_cols">
-					<a href="/coaching/">Coaching</a><br />
-				</div> 
-				<div class="footer_menu_cols">
-					<a href="/free/">Resources</a><br />
-					<a href="/about/?page=contact">Contact</a>
-				</div> 
-				<div class="footer_menu_cols">
-					<a href="/privacy/">Privacy</a>
-				</div> 
-			</div>
-			<div class="clear"></div>
 		</div>
 	</body>
 	</html>

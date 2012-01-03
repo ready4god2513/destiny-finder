@@ -2904,44 +2904,22 @@ form div.form-field label.error {
   background-repeat: repeat-x;
 }
 .footer_wrapper {
-  height: 80px;
-  padding: 52px 0px 0px 26px;
   background-image: url(../site_images/foot_bg.jpg);
   background-repeat: no-repeat;
   line-height: 18px;
 }
-.footer_menu_cols {
-  padding: 0px;
-  margin: 0px 32px 0px 0px;
-  float: left;
+.footer_wrapper nav {
+  padding: 20px auto;
 }
-.footer_menu_cols a {
-  color: #692109;
-  font-size: 12px;
-  font-weight: normal;
-  text-decoration: none;
+.footer_wrapper nav ul {
+  padding: 20px 0;
 }
-.footer_menu_cols a:hover {
-  color: #692109;
-  text-decoration: underline;
+.footer_wrapper nav ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 5px 0;
+  width: 180px;
 }
-ul.footer_nav_wrapper {
-  padding: 0px;
-  margin: 0px;
-  float: left;
-}
-ul.footer_nav_wrapper li {
-  list-style: none;
-  display: inline;
-  margin: 0px 0px 3px 0px;
-}
-ul.footer_nav_wrapper a {
-  color: #692109;
-  font-size: 12px;
-  font-weight: normal;
-  text-decoration: none;
-}
-ul.footer_nav_wrapper a:hover {
-  color: #692109;
-  text-decoration: underline;
+.footer_wrapper nav ul li a {
+  margin: 0;
 }
