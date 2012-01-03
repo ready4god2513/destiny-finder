@@ -2912,12 +2912,12 @@ form div.form-field label.error {
   padding: 20px auto;
 }
 .footer_wrapper nav ul {
-  padding: 20px 0;
+  padding: 50px 0 50px 0;
 }
 .footer_wrapper nav ul li {
   display: inline-block;
   margin: 0;
-  padding: 5px 0;
+  padding: 1px 0;
   width: 180px;
 }
 .footer_wrapper nav ul li a {
