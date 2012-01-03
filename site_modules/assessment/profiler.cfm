@@ -21,9 +21,8 @@
 	<!---<cfset VARIABLES.memberships = objAssessments.retrieve_membership(user_id="#REQUEST.user_id#")>--->
 	<cfset VARIABLES.accesskey_id_list = objAssessments.member_accesskeys(user_id="#REQUEST.user_id#")>
 	<cfoutput>
-	<div class="user_greeting"><br />
+	<div class="user_greeting">
 		<h2>Profiler - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)#</h2> 
-        <br />
 	</div>
 	
 	<div class="assessment_wrapper">

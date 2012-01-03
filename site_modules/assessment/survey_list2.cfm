@@ -21,7 +21,7 @@
 	<cfset VARIABLES.memberships = objAssessments.retrieve_membership(user_id="#REQUEST.user_id#")>
 
 	<cfoutput>
-	<div class="user_greeting"><br />
+	<div class="user_greeting">
 		Welcome, #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# <br /><a href="index.cfm?page=user&edit=1">Edit Your Account Profile</a>
 	</div>
 	
