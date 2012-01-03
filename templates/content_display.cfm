@@ -1,12 +1,7 @@
 <cfset VARIABLE.gateway = Replace(CGI.SCRIPT_NAME,'index.cfm','')>
 	
 <cfif qContent.recordcount IS 0>
-	<p>&nbsp;</p>
-	<p>I'm sorry. That page does not exist. Please try selecting a page from the menu bar.</p>
-	<p>&nbsp;</p>
-	<p>&nbsp;</p>
-	<p>&nbsp;</p>
-	<p>&nbsp;</p>
+	<h3>I'm sorry. That page does not exist. Please try selecting a page from the menu bar.</h3>
 <cfelse>
 	<div class="page_content">
 		<cfif isDefined('qContent.content_module') AND LEN(qContent.content_module) GT 0>

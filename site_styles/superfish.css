@@ -112,7 +112,6 @@ ul.sf-menu li a .sf-sub-indicator {
 	padding: 6px 3px 0px 3px;
 	position: relative; /*--Important--*/
 	z-index:9999;
-	background-image: Url(/site_images/head_gnav_spacer.png);
 	background-position: right !IMPORTANT;
 	background-repeat: no-repeat;
 }

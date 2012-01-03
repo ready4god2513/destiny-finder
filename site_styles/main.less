@@ -29,20 +29,22 @@ img
 body
 {
 	background-color: #3e3f53;
-	background-image: url(../site_images/body_bg_rpt.jpg);
+	background-image: url(/site_images/body_bg_rpt.jpg);
 	background-repeat: repeat-x;
 }
 
 table, .box
 {
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	-khtml-border-radius: 10px;
-	border-radius: 10px;
+	.border-radius(10px);
 	background-color: #ffffff;
 	border: 1px solid #e9ddc7;
-	padding: 20px;
+	padding: 20px 40px;
 	margin: 20px 0;
+	
+	&:after
+	{
+		clear:both;
+	}
 }
 
 h1
@@ -93,7 +95,8 @@ h3
 
 header
 {
-	background:url(../site_images/head_bg.jpg) no-repeat;
+	background:url(/site_images/head_bg.jpg) no-repeat;
+	padding:20px auto;
 	
 	nav
 	{
@@ -125,16 +128,79 @@ header
 
 .head_gnav
 {
-	#gradient > .vertical(lighten(rgb(249, 238, 218), 5%), darken(rgb(249, 238, 218), 7%));
+	#gradient > .vertical(lighten(rgb(249, 238, 218), 5%), darken(rgb(249, 238, 218), 2%));
+	
+	ul
+	{
+		li
+		{
+			a
+			{
+				font-weight:bold;
+			}
+		}
+	}
 }
 
-.body_content
+#banner_wrapper 
+{
+	.box-shadow(0 -2px 1px #999);
+	background: url(/site_images/banner_bg.jpg) repeat;
+	height:370px;
+	position:relative;
+	
+	#discover-your-destiny
+	{
+		position:absolute;
+		top:35px;
+		left:25px;
+	}
+	
+	
+	a
+	{
+		position:absolute;
+		right:-10px;
+	}
+}
+
+#home-page
 {
 	height: 100%;
 	background-color: #F7F1E4;
 	background-repeat: repeat;
 	color: #565555;
-	line-height: 16px;
+	
+	h1, h2, h3, h4
+	{
+		color:#a82b33;
+		font-weight:bold;
+		font-size: 20px;
+		padding:7px 10px;
+		background:url(/site_images/section_title_bg1.jpg) no-repeat 0 7px;
+	}
+	
+	.section_content
+	{
+		margin-bottom:50px;
+		
+		strong
+		{
+			color:#692109;
+		}
+		
+		#destiny-guide-img
+		{
+			float:left;
+			width:91px;
+		}
+		
+		#what-is-destiny
+		{
+			float:right;
+			width:167px;
+		}
+	}
 }
 
 .subpage_banner
@@ -143,7 +209,7 @@ header
 	height: 68px;
 	padding: 10px 0;
 	float: left;
-	background-image: url(../site_images/subpage_banner.jpg);
+	background-image: url(/site_images/subpage_banner.jpg);
 	background-repeat: no-repeat;
 	z-index: 1;
 }
@@ -177,13 +243,13 @@ header
 		height: 23px;
 		float: left;
 		margin: 0px 3px 10px 3px;
-		background-image: url(../site_images/subpage_nav_bg_rpt.jpg);
+		background-image: url(/site_images/subpage_nav_bg_rpt.jpg);
 		background-repeat: repeat-x;
 	}
 	a
 	{
 		float: left;
-		background: url("../site_images/subpage_tab_lft.jpg") no-repeat left top;
+		background: url("/site_images/subpage_tab_lft.jpg") no-repeat left top;
 		margin: 0;
 		color: #7c7c84;
 		font-size: 13px;
@@ -194,7 +260,7 @@ header
 	{
 		height: 23px;
 		float: left;
-		background: url("../site_images/subpage_tab_rt.jpg") no-repeat right top;
+		background: url("/site_images/subpage_tab_rt.jpg") no-repeat right top;
 		padding-right: 20px;
 		padding-top: 4px;
 		padding-bottom: 2px;
@@ -224,7 +290,7 @@ header
 
 .subpage_content_banner
 {
-	background: url("../site_images/sub_body_bg_top.jpg") no-repeat top;
+	background: url("/site_images/sub_body_bg_top.jpg") no-repeat top;
 	float: left;
 }
 
@@ -233,8 +299,8 @@ header
 	float:none;
 	clear:both;
 	display:block;
-	padding: 0px 10px 50px 10px;
-	background: url("../site_images/page_content_bg.jpg") no-repeat top;
+	padding: 30px 10px;
+	background: url("/site_images/page_content_bg.jpg") no-repeat top;
 	background-color: #f7f1e4;
 	z-index: 2;
 	
@@ -369,7 +435,7 @@ form
 	float: right;
 	color: white;
 	font-size: 12px;
-	background-image: url(../site_images/red_btn_107x24.jpg);
+	background-image: url(/site_images/red_btn_107x24.jpg);
 	background-repeat: no-repeat;
 	height: 20px;
 	width: 107px;
@@ -383,7 +449,7 @@ form
 	float: right;
 	color: white;
 	font-size: 12px;
-	background-image: url(../site_images/oj_btn_107x24.jpg);
+	background-image: url(/site_images/oj_btn_107x24.jpg);
 	background-repeat: no-repeat;
 	height: 20px;
 	width: 107px;
@@ -497,7 +563,7 @@ form
 	-webkit-border-radius: 20px;
 	-khtml-border-radius: 20px;
 	border-radius: 20px;
-	background-image: url(../site_images/bg_gray_compassb.png);
+	background-image: url(/site_images/bg_gray_compassb.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: #ffffff;
@@ -537,7 +603,7 @@ form
 	height: 23px;
 	float: left;
 	padding: 1px 0px 0px 1px;
-	background: url(../site_images/progbar_bg.png) no-repeat;
+	background: url(/site_images/progbar_bg.png) no-repeat;
 }
 
 .sort_name, .agree_question
@@ -552,13 +618,13 @@ form
 {
 	width: 295px;
 	float: left;
-	background-image: url(../site_images/right_col_bg_rpt_x.jpg);
+	background-image: url(/site_images/right_col_bg_rpt_x.jpg);
 	background-repeat: repeat-x;
 }
 
 .footer_wrapper
 {
-	background-image: url(../site_images/foot_bg.jpg);
+	background-image: url(/site_images/foot_bg.jpg);
 	background-repeat: no-repeat;
 	line-height: 18px;
 	

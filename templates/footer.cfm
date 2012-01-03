@@ -1,27 +1,17 @@
-<!--    FOOTER BEGINS HERE      -->
-   <div class="footer_wrapper">
-   		<div class="footer_menu_cols">
-            <a href="/index2.cfm">Home</a><br />
-            <a href="/about/index.cfm">About Us</a>   
-        </div>
-        <div class="footer_menu_cols">
-            <a href="/products/index.cfm">Products &amp; Services</a><br />
-            <a href="/surveys/index.cfm">Surveys</a>
-        </div>
-        <div class="footer_menu_cols">
-            <a href="/couching/index.cfm">Coaching</a><br />
-            <a href="/index2.cfm">Online Store</a>
-        </div> 
-        <div class="footer_menu_cols">
-            <a href="/free/index.cfm">Free Resources</a><br />
-            <a href="/help/index.cfm">Help</a>
-        </div> 
-        <div class="footer_menu_cols">
-            <a href="/site_map/index.cfm">Site Map</a><br />
-            <a href="/legal/index.cfm">Legal</a>
-        </div> 
-   </div><!-- <div class="footer_wrapper"> -->
-   
-   </div><!-- class="site_wrapper" -->
+<div class="footer_wrapper">
+	<nav class="span12">
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/about/">About Us</a></li>
+			<li><a href="/products/">Products &amp; Services</a></li>
+			<li><a href="/profile/">Destiny Guide 1.0</a></li>
+			<li><a href="/coaching/">Coaching</a></li>
+			<li><a href="/free/">Resources</a></li>
+			<li><a href="/about/?page=contact">Contact</a></li>
+			<li><a href="/privacy/">Privacy</a></li>
+		</ul>
+	</nav>
+</div>
+</div>
 </body>
 </html>
