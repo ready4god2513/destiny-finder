@@ -1,5 +1,5 @@
-<div class="footer_wrapper">
-	<nav class="span12">
+<footer>
+	<nav>
 		<ul>
 			<li><a href="/">Home</a></li>
 			<li><a href="/about/">About Us</a></li>
@@ -11,7 +11,7 @@
 			<li><a href="/privacy/">Privacy</a></li>
 		</ul>
 	</nav>
-</div>
+</footer>
 </div>
 
 <script type="text/javascript">
