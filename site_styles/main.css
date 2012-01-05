@@ -2546,8 +2546,13 @@ header nav {
   padding: 0;
 }
 header nav ul {
-  margin: 0;
-  padding: 10px;
+  display: inline-block;
+  background: white;
+  margin: -5px 0 0 0;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  border: 1px solid #ccc;
   text-align: right;
 }
 header nav ul li {
@@ -2614,13 +2619,9 @@ header nav ul li a {
 #home-page .section_content strong {
   color: #692109;
 }
-#home-page .section_content #destiny-guide-img {
+#home-page .section_content #destiny-guide-img, #home-page .section_content #pic-of-michael {
   float: left;
-  width: 91px;
-}
-#home-page .section_content #what-is-destiny {
-  float: right;
-  width: 167px;
+  margin: 0 10px 10px 0;
 }
 .subpage_banner {
   width: 100%;

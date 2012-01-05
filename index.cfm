@@ -32,8 +32,8 @@ ORDER BY gateway_sortorder ASC
 		<div class="span-one-third">
 			<h1>Destiny Guide 1.0</h1>
 			<div class="section_content">
-				<img src="/site_images/pic_destiny_guide_1.0.jpg" width="90" height="92" id="destiny-guide-img" />
 				<div id="what-is-destiny">
+					<img src="/site_images/pic_destiny_guide_1.0.jpg" width="90" height="92" id="destiny-guide-img" />
 					<strong>
 						The Destiny Survey is just the first step of the Destiny Guide 1.0 System. 
 						The Destiny Guide System is based on 30 years of helping people 
@@ -61,7 +61,7 @@ ORDER BY gateway_sortorder ASC
 			
 			<h4>Ask Michael</h4>
 			<div class="section_content">
-				<img src="/site_images/pic_michael_sm.jpg" width="90" height="82" />
+				<img src="/site_images/pic_michael_sm.jpg" width="90" height="82" id="pic-of-michael"/>
 				<div class="section_content_text">
 					<strong>Ask Michael Brodeur,</strong>
 					<p>
