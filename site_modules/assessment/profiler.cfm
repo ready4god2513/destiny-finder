@@ -34,7 +34,7 @@
     
     <cfquery datasource="#APPLICATION.DSN#" name="qPassionResult">
     	SELECT * FROM Passion_Survey
-        WHERE user_id = #REQUEST.user_id#
+        WHERE user_id = "#REQUEST.user_id#"
         AND development_3 IS NOT NULL
     </cfquery>
     <cfset VARIABLES.PassionComplete = 0>

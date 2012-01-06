@@ -547,14 +547,6 @@
 				</cfquery>
 			
 				<cfset VARIABLES.accesskey_id_list = ValueList(qUserMemberships.AccessKey_ID,',')>
-
-				<!---<cfquery name="qMembership" datasource="#APPLICATION.STORE_DSN#">
-					SELECT Name,AccessKey_ID
-					FROM AccessKeys
-					WHERE accesskey_id IN (SELECT accesskey_id
-					FROM Memberships
-					WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qStoreUser.user_id#"> AND valid = 'true')
-				</cfquery>--->
 			
 			</cfif>
 		
