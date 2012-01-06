@@ -1,6 +1,6 @@
 <cfcomponent output="false">
 
-	<!---<cfif NOT FindNoCase("68.229.193.96|71.146.9.94",cgi.REMOTE_ADDR)>
+	<!---<cfif NOT FindNoCase("68.229.193.96|75.140.100.15",cgi.REMOTE_ADDR)>
     <html>
     <head>
     <title></title>
@@ -66,8 +66,8 @@
 	<cfset this.customtagpaths = "">
 
 	
-	<cfset APPLICATION.webadmin_email = "tony@webvisionhosting.com">
-	<cfset APPLICATION.webadmin_ip = "68.12.182.158|71.146.9.94">
+	<cfset APPLICATION.webadmin_email = "brandonh@ibethel.org">
+	<cfset APPLICATION.webadmin_ip = "68.12.182.158|75.140.100.15">
 
 		
 	<!--- Run when application starts up --->

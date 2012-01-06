@@ -26,7 +26,7 @@
 	<!--- <cfdump var="#VARIABLES.result_set#"> --->
 	
 <!---	<cfloop query="qItems" startrow="#URL.q#" endrow="#URL.q#">--->
-	<div class="assessment_item">
+	<div class="assessment_item box">
 		<cfset VARIABLES.item_result = "">
 		
 		<!---<cfif qResults.recordcount>

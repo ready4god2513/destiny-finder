@@ -42,7 +42,7 @@ function validateForm(form) {
             Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.
 Fill in the "Other" blank if you don't find an answer close enough to your interest.
  </div>--->
-			<input style="margin:20px 0px 20px 250px;" type="image" src="/site_images/next_btn.jpg" name="submit" value="Submit" onClick="validateForm(this);" />
+			<input class="btn primary" type="submit" name="submit" value="Next Step" onClick="validateForm(this);" />
             <input type="hidden" value="<cfoutput>#Encrypt('2,sphere-1,sphere,sphere','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
         

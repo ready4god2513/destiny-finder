@@ -57,8 +57,8 @@
 	<cfset this.customtagpaths = "">
 
 	
-	<cfset APPLICATION.webadmin_email = "tony@webvisionhosting.com">
-	<cfset APPLICATION.webadmin_ip = "68.229.193.96|71.146.9.94">
+	<cfset APPLICATION.webadmin_email = "brandonh@ibethel.org">
+	<cfset APPLICATION.webadmin_ip = "68.229.193.96|75.140.100.15">
 
 		
 	<!--- Run when application starts up --->
@@ -94,7 +94,7 @@
 		<cfset APPLICATION.server_path = REPLACE(GetDirectoryFromPath(CF_TEMPLATE_PATH),"\admin\","\")>
 	
 		
-		<cfset APPLICATION.contact_email = "tony@webvisionhosting.com">
+		<cfset APPLICATION.contact_email = "brandonh@ibethel.org">
 
 		
 		<cfset REQUEST.site_url = "http://dev.destinyfinder.com/">

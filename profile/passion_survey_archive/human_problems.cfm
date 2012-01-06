@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/main.css">
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
-<div class="assessment_radio">
+<div class="assessment_radio box">
 <div class="sort_name">I’m most troubled by the following human problems:</div>
         <br />
         
@@ -21,13 +21,13 @@
 				
 			
              <!---CLIP #1--->
-			<input style="margin:20px 0px 20px 250px; float:left" type="image" src="/site_images/next_btn.jpg" name="submit" value="Submit"/>
+			<input class="btn primary" type="submit" name="submit" value="Next Step" />
            
 		</form>
          <br class="clear"/>
         <div class="percent_complete_label">% of survey completed</div>
         <div class="percent_completed"><img src="/site_images/progbar_pix.png" width="0" height="21"></div>
-</div><!--<div class="assessment_radio">-->
+</div><!--<div class="assessment_radio box">-->
 </div><!--<div class="page_content">-->
 <cfinclude template="/templates/footer.cfm">	
 			

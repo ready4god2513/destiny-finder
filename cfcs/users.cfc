@@ -55,19 +55,6 @@
 							FROM users
 							WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#">
 						</cfquery>
-					
-						<!--- RETRIEVE STORE USER ID AND INSERT IT INTO OUR DATABASE --->
-						<cfquery name="qStoreUser" datasource="#APPLICATION.STORE_DSN#">
-							SELECT User_id
-							FROM Users
-							WHERE username = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#">
-						</cfquery>		
-					
-						<cfquery name="qUpdateUser" datasource="#APPLICATION.DSN#">
-							UPDATE Users
-							SET user_store_id = #qStoreUser.User_id#
-							WHERE user_id = #qUser.user_id#
-						</cfquery>
 										
 						<cfif qUser.recordcount GT 0>
 							<cflock scope="session" type="readonly" timeout="30">

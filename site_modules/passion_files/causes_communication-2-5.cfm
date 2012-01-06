@@ -18,7 +18,7 @@
 				
 			
              <!---CLIP #1--->
-			<input style="margin:20px 0px 20px 250px; float:left" type="image" src="/site_images/next_btn.jpg" name="submit" value="Submit"/>
+			<input class="btn primary" type="submit" name="submit" value="Next Step" />
             <input type="hidden" value="<cfoutput>#Encrypt('12,causes_expressing-2-6,communication,causes_communication','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

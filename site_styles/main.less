@@ -1,5 +1,8 @@
 @import "bootstrap/bootstrap";
-@import "superfish.css";
+@import "mixins";
+@import "superfish";
+@import "fancybox";
+@import "word_sort";
 
 body 
 {
@@ -12,11 +15,13 @@ a
 	{
 		text-decoration: underline;
 	}
+	
 	&:visited
 	{
 		color: #692109;
 		text-decoration: none;
 	}
+	
 	color: #692109;
 	text-decoration: none;
 }
@@ -28,47 +33,31 @@ img
 
 body
 {
-	background-color: #3e3f53;
-	background-image: url(/site_images/body_bg_rpt.jpg);
-	background-repeat: repeat-x;
+	background: #3e3f53 url(/site_images/body_bg_rpt.jpg) repeat-x;
 }
 
-table, .box
+table, .box, .short_desc, .result
 {
-	.border-radius(10px);
+	.border-radius(10px, 10px, 10px, 10px);
 	background-color: #ffffff;
 	border: 1px solid #e9ddc7;
 	padding: 20px 40px;
 	margin: 20px 0;
-	
-	&:after
-	{
-		clear:both;
-	}
 }
 
-h1
+h1, h2
 {
-	font-size: 18px;
 	color: #a82b33;
-	font-weight: bold;
-	margin: 16px 0 6px 0;
 }
 
 h2
 {
-	font-size: 16px;
 	color: #a82b33;
-	font-weight: bold;
-	margin: 16px 0 6px 0;
 }
 
 h3
 {
-	font-size: 12px;
 	color: #333333;
-	font-weight: bold;
-	margin: 16px 0 6px 0;
 }
 
 #table_reset table
@@ -89,8 +78,7 @@ h3
 {
 	width: 960px;
 	height: 100%;
-	margin-right: auto;
-	margin-left: auto;
+	margin:0 auto;
 }
 
 header
@@ -161,7 +149,6 @@ header
 		left:25px;
 	}
 	
-	
 	a
 	{
 		position:absolute;
@@ -207,10 +194,7 @@ header
 	width: 100%;
 	height: 68px;
 	padding: 10px 0;
-	float: left;
-	background-image: url(/site_images/subpage_banner.jpg);
-	background-repeat: no-repeat;
-	z-index: 1;
+	background: url(/site_images/subpage_banner.jpg) no-repeat;
 }
 
 #subpage_title
@@ -227,86 +211,36 @@ header
 	}
 }
 
-#subpage_nav
-{
-	ul
-	{
-		list-style: none;
-		li
-		{
-			display: inline;
-		}
-	}
-	li
-	{
-		height: 23px;
-		float: left;
-		margin: 0px 3px 10px 3px;
-		background-image: url(/site_images/subpage_nav_bg_rpt.jpg);
-		background-repeat: repeat-x;
-	}
-	a
-	{
-		float: left;
-		background: url("/site_images/subpage_tab_lft.jpg") no-repeat left top;
-		margin: 0;
-		color: #7c7c84;
-		font-size: 13px;
-		padding-left: 20px;
-		text-decoration: none;
-	}
-	span
-	{
-		height: 23px;
-		float: left;
-		background: url("/site_images/subpage_tab_rt.jpg") no-repeat right top;
-		padding-right: 20px;
-		padding-top: 4px;
-		padding-bottom: 2px;
-		text-decoration: none;
-	}
-	a:hover
-	{
-		float: left;
-		background-color: #f7f1e4;
-		z-index: 1;
-	}
-}
-
-.subpage_nav_on
-{
-	float: left;
-	background-color: #f7f1e4;
-	/*margin-top: -5px;*/
-}
-
-#subpage_nav li a:hover span
-{
-	float: left;
-	background-color: #f7f1e4;
-	z-index: 1;
-}
-
-.subpage_content_banner
-{
-	background: url("/site_images/sub_body_bg_top.jpg") no-repeat top;
-	float: left;
-}
 
 .body_content
 {
-	float:none;
 	clear:both;
-	display:block;
-	padding: 30px auto;
 	background: url("/site_images/page_content_bg.jpg") no-repeat top;
 	background-color: #f7f1e4;
-	z-index: 2;
 	
-	p
+	#subpage_nav
 	{
-		margin-bottom: 10px;
+		clear:both;
+		padding:10px 0;
+
+		ul
+		{
+			list-style: none;
+			margin:10px;
+
+			li
+			{
+				display: inline-block;
+				margin: 5px;
+			}
+		}
 	}
+	
+	.page_content
+	{
+		margin:20px;
+	}
+	
 }
 
 .profile_table
@@ -353,16 +287,7 @@ form
 }
 
 .result
-{
-	width: 500px;
-	margin: 10px 30px 0px 100px;
-	padding: 20px 40px 20px 30px;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-khtml-border-radius: 20px;
-	border-radius: 20px;
-	background-color: #ffffff;
-	border: 2px solid #e9ddc7;
+{	
 	h2
 	{
 		font-size: 16px;
@@ -376,15 +301,6 @@ form
 
 .assessment_wrapper
 {
-	width: 500px;
-	margin: 25px 30px 0px 100px;
-	padding: 20px 40px 20px 30px;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-khtml-border-radius: 20px;
-	border-radius: 20px;
-	background-color: #ffffff;
-	border: 2px solid #e9ddc7;
 	h2
 	{
 		font-size: 16px;
@@ -429,20 +345,6 @@ form
 	margin-left: 20px;
 }
 
-.results_button
-{
-	float: right;
-	color: white;
-	font-size: 12px;
-	background-image: url(/site_images/oj_btn_107x24.jpg);
-	background-repeat: no-repeat;
-	height: 20px;
-	width: 107px;
-	text-align: center;
-	padding-top: 4px;
-	margin-left: 20px;
-}
-
 .assessment_wrapper
 {
 	ul a:hover
@@ -459,16 +361,6 @@ form
 
 .short_desc
 {
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-khtml-border-radius: 20px;
-	border-radius: 20px;
-	background-color: #ffffff;
-	border: 1px solid #e9ddc7;
-	padding: 35px;
-	margin: 30px 0 10px 100px;
-	width: 530px;
-	float: left;
 	h2
 	{
 		font-size: 16px;
@@ -539,43 +431,11 @@ form
 	}
 }
 
-.assessment_item
-{
-	width: 640px;
-	min-height: 420px;
-	float: left;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-khtml-border-radius: 20px;
-	border-radius: 20px;
-	background-image: url(/site_images/bg_gray_compassb.png);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-color: #ffffff;
-	border: 1px solid #e9ddc7;
-	padding: 30px 40px 20px 40px;
-	margin: 70px 0px 0px 100px;
-}
-
-.assessment_radio
-{
-	width: 640px;
-	float: left;
-	-moz-border-radius: 20px;
-	-webkit-border-radius: 20px;
-	-khtml-border-radius: 20px;
-	border-radius: 20px;
-	background-color: #ffffff;
-	border: 1px solid #e9ddc7;
-	padding: 30px 40px 20px 40px;
-	margin: 70px 0px 0px 100px;
-}
-
 .percent_complete_label
 {
 	width: 144px;
-	float: left;
-	margin: 3px 10px 0px 36px;
+	display:inline-block;
+	margin: 3px 10px 20px 36px;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	font-weight: bold;
@@ -586,9 +446,14 @@ form
 {
 	width: 309px;
 	height: 23px;
-	float: left;
-	padding: 1px 0px 0px 1px;
+	display:inline-block;
+	margin: 3px 0 20px 10px;
 	background: url(/site_images/progbar_bg.png) no-repeat;
+	
+	img
+	{
+		margin:1px 0 0 1px;
+	}
 }
 
 .sort_name, .agree_question

@@ -99,8 +99,7 @@
             	<input type="hidden" name="surveydone" value="1" />
             </cfif>
 			<input type="hidden" name="page" value="#HTMLEditFormat(ATTRIBUTES.page)#" />
-            
-			<input style="margin:20px 0px 20px 250px;" type="image" src="/site_images/<cfif qcount LT qItems.recordcount>next<cfelse>show_results</cfif>_btn.jpg" name="submit" value="Submit"/>
+            <input class="btn primary" type="submit" name="submit" value="<cfif qcount LT qItems.recordcount>Next Step<cfelse>Show Results</cfif>" />
 		</form>
 <br class="clear"/>
         <cfset progbar= (308 / qItems.recordcount) * (ATTRIBUTES.qcount - 1)>

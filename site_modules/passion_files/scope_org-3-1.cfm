@@ -14,7 +14,7 @@
 					<label><input type="radio" name="organizational_type" value="Large and Stable">Large and Stable</label>
 		
              <!---CLIP #1--->
-			<input style="margin:20px 0px 20px 250px; float:left" type="image" src="/site_images/next_btn.jpg" name="submit" value="Submit"/>
+			<input class="btn primary" type="submit" name="submit" value="Next Step" />
             <input type="hidden" value="<cfoutput>#Encrypt('15,scope_group-3-2,organizational_type,scope_org','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

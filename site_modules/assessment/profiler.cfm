@@ -25,7 +25,7 @@
 		<h2>Profiler - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)#</h2> 
 	</div>
 	
-	<div class="assessment_wrapper">
+	<div class="assessment_wrapper box">
 	<h2>Your Available Surveys</h2>
 	<span style="font-size: 11px;line-height:12px;"><br /></span>
     
@@ -82,7 +82,7 @@
         <hr />
 	</cfloop>--->
 
-	</div><!---<div class="assessment_wrapper">--->
+	</div><!---<div class="assessment_wrapper box">--->
 	
 	<!---<div class="result">
 		<h2>Invites:</h2>

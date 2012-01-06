@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/main.css">
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
-<div class="assessment_radio">
+<div class="assessment_radio box">
 <div class="sort_name">Choose the stage you want to be at in 5-10 years:</div>
         <br />
 		<form action="" method="post" id="">
@@ -20,7 +20,7 @@
             Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.
 Fill in the "Other" blank if you don't find an answer close enough to your interest.
  </div>--->
-			<input style="margin:20px 0px 20px 250px;" type="image" src="/site_images/next_btn.jpg" name="submit" value="Submit"/>
+			<input class="btn primary" type="submit" name="submit" value="Next Step" />
 		</form>
         
         <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/site_images/progbar_pix.png" width="0" height="21"></div>

@@ -25,7 +25,7 @@
 		Welcome, #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# <br /><a href="index.cfm?page=user&edit=1">Edit Your Account Profile</a>
 	</div>
 	
-	<div class="assessment_wrapper">
+	<div class="assessment_wrapper box">
 	<h2>Your Available Assessments</h2>
 	<!---<ul>
 		<li class="assessment_list_title">Free Assessments</li>--->

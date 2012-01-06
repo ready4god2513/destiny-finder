@@ -27,7 +27,7 @@
 	</div>
 	
 	<!---<cfdump var="#qResults#">--->
-	<div class="assessment_wrapper">
+	<div class="assessment_wrapper box">
 	<strong>Your Available Assessments:</strong>
 	<ul>
 		<li class="assessment_list_title"><strong>Free Assessments</strong></li>

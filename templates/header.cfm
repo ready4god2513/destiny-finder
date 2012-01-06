@@ -18,6 +18,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+	
 	<!-- Built and combined from /site_scripts/libraries/* -->
 	<script type="text/javascript" src="/site_scripts/libs.min.js"></script>
 	<script type="text/javascript" src="/site_scripts/main.js"></script>
@@ -27,8 +28,7 @@
 			<link rel="stylesheet" href="<cfoutput>#style#</cfoutput>" type="text/css" media="screen" charset="utf-8" />
 		</cfloop>
 	</cfif>
-
-	<link rel="stylesheet" type="text/css" href="/site_styles/fancybox.css" />
+	
 	<cfif LEN(ATTRIBUTES.meta_desc) GT 0>
 		<meta name="description" content="<cfoutput>#ATTRIBUTES.meta_desc#</cfoutput>" />
 	</cfif>
@@ -41,8 +41,6 @@
 	<!--[if IE 8]>
 	<link rel="stylesheet" type="text/css" href="/site_styles/ie8.css" />
 	<![endif]-->
-
-	<link rel="stylesheet" type="text/css" href="/site_styles/word_sort.css" />
 </head>
 <body>
 	<div class="container">
