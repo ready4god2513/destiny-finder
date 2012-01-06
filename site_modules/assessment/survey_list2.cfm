@@ -45,7 +45,7 @@
 		<cfset qPaidAssessments = objAssessments.retrieve_assessments(memberships="#VARIABLES.membership_list#")>
 		<cfloop query="qPaidAssessments">
         <br />
-			<li class="assessment_list_title">#HTMLEditFormat(qPaidAssessments.assessment_name)#<a class="take_survey" href="index.cfm?page=assessment&assessment_id=#val(qPaidAssessments.assessment_id)#" style="color:white;">TAKE SURVEY</a></li>
+			<li class="assessment_list_title">#HTMLEditFormat(qPaidAssessments.assessment_name)#<a class="btn" href="index.cfm?page=assessment&assessment_id=#val(qPaidAssessments.assessment_id)#">TAKE SURVEY</a></li>
 		</cfloop>	
 	<cfelse>
 			<li class="assessment_list_title">- NO PURCHASED SURVEYS -</li>
@@ -54,20 +54,5 @@
     <hr />
 	</ul>
 	</div>
-	
-	<!---<div class="result">
-		<h2>Invites:</h2>
-		<ul>
-			<cfif qInvites.recordcount GT 0>
-				<cfloop query="qInvites">
-					<li>#qInvites.invite_first_name# #qInvites.invite_last_name#
-					</li>
-				</cfloop>
-			<cfelse>
-				<li>- No Invites Have Been Sent -</li>
-			</cfif>
-		</ul>
-		<a href="index.cfm?invite=1">Add Invite</a>
-	</div>--->
 </cfoutput>
 </cfif>

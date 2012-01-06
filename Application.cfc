@@ -1,8 +1,5 @@
 <cfcomponent output="false">
-	<!---<cfif NOT ListContains("68.30.233.215,108.100.97.6,75.16.198.64,68.229.193.96,209.36.244.253,98.238.142.48,192.150.3.7,74.10.105.233",cgi.REMOTE_ADDR)>
- <cflocation url="default.htm">
-    <cfabort>
-    </cfif>--->
+	
 	<cfif FindNoCase("EXEC(", CGI.Query_String) OR FindNoCase("EXEC(", CGI.Script_Name) OR FindNoCase("EXEC(", CGI.Path_Info)>
 		<cfabort>
 	<cfelseif FindNoCase("CAST(", CGI.Query_String) OR FindNoCase("CAST(", CGI.Script_Name) OR FindNoCase("CAST(", CGI.Path_Info)>

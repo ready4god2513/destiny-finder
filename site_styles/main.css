@@ -3922,19 +3922,7 @@ header nav ul li a {
   margin: 5px;
 }
 .body_content .page_content {
-  margin: 20px;
-}
-.profile_table {
-  margin: 40px 30px 0px 100px;
-}
-#form_wrapper {
-  float: left;
-  margin: 65px 30px 0px 100px;
-  width: 600px;
-}
-#form_wrapper h2 {
-  font-size: 16px;
-  color: #a82b33;
+  padding: 20px;
 }
 form div.form-field {
   margin: 10px 0;
@@ -3959,39 +3947,6 @@ form div.form-field label.error {
 .result ul {
   list-style: none;
 }
-.assessment_wrapper h2 {
-  font-size: 16px;
-  color: #a82b33;
-}
-.assessment_wrapper a {
-  color: #ffffff;
-  text-decoration: none;
-}
-.assessment_wrapper a:hover {
-  text-decoration: underline;
-}
-.assessment_wrapper a:visited {
-  color: #692109;
-  text-decoration: none;
-}
-.assessment_wrapper ul {
-  list-style: none;
-}
-.assessment_list_title {
-  font-size: 16px;
-}
-.take_survey {
-  float: right;
-  color: white;
-  font-size: 12px;
-  background-image: url(/site_images/red_btn_107x24.jpg);
-  background-repeat: no-repeat;
-  height: 20px;
-  width: 107px;
-  text-align: center;
-  padding-top: 4px;
-  margin-left: 20px;
-}
 .assessment_wrapper ul a:hover {
   text-decoration: none;
 }
@@ -3999,25 +3954,6 @@ form div.form-field label.error {
   margin-top: 5px;
   color: #e9ddc7;
   border: 1px solid;
-}
-.short_desc h2 {
-  font-size: 16px;
-  color: #a82b33;
-}
-.short_desc ul {
-  margin-left: 0px;
-  padding-left: 0px;
-  list-style-position: outside;
-  width: 800px;
-}
-.short_desc li {
-  margin-left: 0px;
-  padding-left: 0px;
-  font-size: 12px;
-  font-weight: normal;
-  list-style: square;
-  color: #565555;
-  line-height: 16px;
 }
 .user_greeting {
   margin: 45px 30px 0 80px;
@@ -4055,8 +3991,6 @@ form div.form-field label.error {
   width: 144px;
   display: inline-block;
   margin: 3px 10px 20px 36px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 13px;
   font-weight: bold;
   color: #747373;
 }
