@@ -3,7 +3,7 @@
 <cfif qContent.recordcount IS 0>
 	<h3>I'm sorry. That page does not exist. Please try selecting a page from the menu bar.</h3>
 <cfelse>
-	<div class="page_content">
+	<div class="page-content">
 		<cfif isDefined('qContent.content_module') AND LEN(qContent.content_module) GT 0>
 
 			<cfif qContent.content_includefunction EQ "below">
@@ -26,6 +26,6 @@
 		</cfif>
 		
 		<div class="fb-like" data-href="https://www.facebook.com/pages/Destiny-Finder/101856686575972" data-send="true" data-width="450" data-show-faces="true"></div>
-	</div><!---<div class="page_content">--->
+	</div><!---<div class="page-content">--->
                    					
 </cfif>

@@ -2,7 +2,7 @@
 <cfinclude template="/templates/header.cfm">
 <link rel="stylesheet" type="text/css" href="../site_styles/main.css">
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
-<div class="page_content">
+<div class="page-content">
 <div class="assessment_radio box">
 <h3>I feel most passionate about the following social causes:</h3>
         <br />
@@ -27,7 +27,7 @@
         <div class="percent_complete_label">% of survey completed</div>
         <div class="percent_completed"><img src="/site_images/progbar_pix.png" width="0" height="21"></div>
 </div><!--<div class="assessment_radio box">-->
-</div><!--<div class="page_content">-->
+</div><!--<div class="page-content">-->
 <cfinclude template="/templates/footer.cfm">	
 			
 

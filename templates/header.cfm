@@ -9,10 +9,9 @@
 
 	<title dir="ltr">
 		<cfif LEN(ATTRIBUTES.html_title) GT 0>
-			<cfoutput>#ATTRIBUTES.html_title#</cfoutput>
-		<cfelse>
-			<cfoutput>#APPLICATION.sitename#</cfoutput>
+			<cfoutput>#ATTRIBUTES.html_title#</cfoutput> |
 		</cfif>
+		Destiny Finder
 	</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +31,6 @@
 	<script src="/site_scripts/libraries/pngfix.js"></script>
 	<script src="/site_scripts/libraries/superfish.js"></script>
 	<script src="/site_scripts/libraries/swfobject.js"></script>
-	
 	<script src="/site_scripts/main.js"></script>
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>

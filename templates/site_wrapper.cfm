@@ -1,13 +1,15 @@
 <cfquery name="qBlocks" datasource="#APPLICATION.DSN#">
-SELECT * FROM MiscContent
+	SELECT * 
+	FROM MiscContent
 </cfquery>
 <cfquery name="qGateways" datasource="#APPLICATION.DSN#">
-SELECT *
-FROM Gateway_Pages
-WHERE gateway_parent_id = 0 AND gateway_id > 1
-AND gateway_active = 1
-ORDER BY gateway_sortorder ASC
+	SELECT *
+	FROM Gateway_Pages
+	WHERE gateway_parent_id = 0 AND gateway_id > 1
+	AND gateway_active = 1
+	ORDER BY gateway_sortorder ASC
 </cfquery>
+
 <cfparam name="ATTRIBUTES.html_title" default="">
 <cfparam name="ATTRIBUTES.meta_desc" default="">
 <cfparam name="ATTRIBUTES.page_name" default="">
@@ -21,5 +23,6 @@ ORDER BY gateway_sortorder ASC
 	<cfinclude template="header.cfm" />
 	<cfinclude template="banner_display.cfm" />
 <cfelse>
+	</div>
 	<cfinclude template="footer.cfm" />
 </cfif>

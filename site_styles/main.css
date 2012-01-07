@@ -3827,8 +3827,16 @@ header nav ul li a {
   display: inline-block;
   margin: 5px;
 }
-.body_content .page_content {
+.body_content .page-content {
   padding: 10px 20px;
+}
+.single-product {
+  border-bottom: 1px solid #e8e8e8;
+  margin: 20px auto;
+  padding: 10px auto;
+}
+.single-product form, .single-product a.btn {
+  margin: 30px auto;
 }
 form div.form-field {
   margin: 10px 0;

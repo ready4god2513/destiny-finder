@@ -2,7 +2,7 @@
 <cfinclude template="/templates/header.cfm">
 <link rel="stylesheet" type="text/css" href="../site_styles/main.css">
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
-<div class="page_content">
+<div class="page-content">
 <div class="assessment_radio box">
 <h3>Right now I am in the following stage of destiny development:</h3>
         <br />

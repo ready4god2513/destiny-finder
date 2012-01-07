@@ -1,12 +1,10 @@
 
 <!--- query the info on that username --->
 <cfquery name="checkuser" datasource="#APPLICATION.DSN#" maxrows=1 dbtype="ODBC" timeout="5">
-SELECT admin_active, admin_id, admin_fname, admin_lname, admin_username, admin_password,admin_user_type FROM AdminUsers
-WHERE admin_username = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.username#">
+	SELECT *
+	FROM AdminUsers
+	WHERE admin_username = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.username#">
 </cfquery>
-
-
-
 
 <!--- check to see if that username exists --->
 <cfif checkuser.recordcount LT 1>

@@ -19,5 +19,10 @@
 	header_image="#qContent.content_header_img#"
 	html_title="#pageTitle#"
 	meta_desc="" >
-
+	
+	<div class="page-content">
+		<cfinclude template="products/listing.cfm" />
+	
+		<div class="fb-like" data-href="https://www.facebook.com/pages/Destiny-Finder/101856686575972" data-send="true" data-width="450" data-show-faces="true"></div>
+	</div>
 </cfmodule>

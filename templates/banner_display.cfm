@@ -1,11 +1,6 @@
+<cfparam name="ATTRIBUTES.page_name" default="Account">
 <div class="subpage_banner">
-	<div id="subpage_title">
-		<cfif isDefined("ATTRIBUTES.page_name")>
-			<cfoutput>#ATTRIBUTES.page_name#</cfoutput>
-		<cfelse>
-			Account
-		</cfif>
-	</div> 
+	<div id="subpage_title"><cfoutput>#ATTRIBUTES.page_name#</cfoutput></div> 
 </div>
 
 <div class="body_content">
