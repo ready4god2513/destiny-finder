@@ -3200,20 +3200,29 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   margin: 0;
   padding: 0;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 .sortable li {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #f8ead1;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fdf8f0), to(#f8ead1));
+  background-image: -moz-linear-gradient(top, #fdf8f0, #f8ead1);
+  background-image: -ms-linear-gradient(top, #fdf8f0, #f8ead1);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdf8f0), color-stop(100%, #f8ead1));
+  background-image: -webkit-linear-gradient(top, #fdf8f0, #f8ead1);
+  background-image: -o-linear-gradient(top, #fdf8f0, #f8ead1);
+  background-image: linear-gradient(top, #fdf8f0, #f8ead1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf8f0', endColorstr='#f8ead1', GradientType=0);
+  border: 1px solid #f8ead1;
   color: #3e3f53;
-  margin: 0 3px 8px 3px;
-  padding: 0.4em;
-  padding-left: 1.5em;
-  font-size: 1.4em;
-  background-image: url(/site_images/survey_q_bg.jpg);
-  background-repeat: no-repeat;
-}
-.sortable li span {
-  position: absolute;
-  margin-left: -1.3em;
+  margin: 5px;
+  padding: 5px;
 }
 .sort_result {
   display: none;
@@ -3647,6 +3656,9 @@ a:visited {
   color: #692109;
   text-decoration: none;
 }
+br {
+  display: none;
+}
 img {
   border: none;
 }
@@ -3782,7 +3794,6 @@ header nav ul li a {
 }
 .subpage_banner {
   width: 100%;
-  height: 68px;
   padding: 10px 0;
   background: url(/site_images/subpage_banner.jpg) no-repeat;
 }
