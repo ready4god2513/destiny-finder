@@ -1,5 +1,4 @@
 <cfcomponent output="false">
-	
 	<cfif FindNoCase("EXEC(", CGI.Query_String) OR FindNoCase("EXEC(", CGI.Script_Name) OR FindNoCase("EXEC(", CGI.Path_Info)>
 		<cfabort>
 	<cfelseif FindNoCase("CAST(", CGI.Query_String) OR FindNoCase("CAST(", CGI.Script_Name) OR FindNoCase("CAST(", CGI.Path_Info)>
@@ -50,7 +49,7 @@
 
 	
 	<cfset APPLICATION.webadmin_email = "brandonh@ibethel.org">
-	<cfset APPLICATION.webadmin_ip = "68.229.193.96|75.140.100.15">
+	<cfset APPLICATION.webadmin_ip = "68.229.193.96|75.140.100.15|68.189.112.146">
 
 		
 	<!--- Run when application starts up --->
