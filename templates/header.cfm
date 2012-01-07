@@ -19,9 +19,16 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
 	
-	<!-- Built and combined from /site_scripts/libraries/* -->
-	<script type="text/javascript" src="/site_scripts/libs.min.js"></script>
-	<script type="text/javascript" src="/site_scripts/main.js"></script>
+	<!-- Include all of the required libraries -->
+	<script src="/site_scripts/libraries/jquery.form.js"></script>
+	<script src="/site_scripts/libraries/jquery.hoverIntent.minified.js"></script>
+	<script src="/site_scripts/libraries/jquery.validate.min.js"></script>
+	<script src="/site_scripts/libraries/jquery_easing.js"></script>
+	<script src="/site_scripts/libraries/pngfix.js"></script>
+	<script src="/site_scripts/libraries/superfish.js"></script>
+	<script src="/site_scripts/libraries/swfobject.js"></script>
+	
+	<script src="/site_scripts/main.js"></script>
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
 		<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">

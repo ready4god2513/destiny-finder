@@ -4,10 +4,6 @@ $(function(){
 	$("ul.sf-menu").superfish();
 	
 	
-	// Modal Box
-	$("a.enlarge_link").fancybox();
-	
-	
 	// Form Validations
 	$("#signup-form").validate({
 		rules:
