@@ -5,8 +5,8 @@
 	See http://www.bennadel.com/blog/2014-Extending-The-Application-cfc-ColdFusion-Framework-Component-With-CFInclude.htm 
 --->
 
-<cfif cgi.https EQ 'off'>
-	<cfset vRedirectURL = '/auth/index.cfm?' & cgi.QUERY_STRING >
+<cfif cgi.https EQ "off">
+	<cfset vRedirectURL = "/auth/index.cfm?" & cgi.QUERY_STRING >
     <cflocation url="#vRedirectURL#" />
 </cfif>
 

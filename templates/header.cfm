@@ -25,7 +25,7 @@
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
 		<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">
-			<link rel="stylesheet" href="<cfoutput>#style#</cfoutput>" type="text/css" media="screen" charset="utf-8" />
+			<cfoutput><link rel="stylesheet" href="#style#" type="text/css" media="screen" charset="utf-8" /></cfoutput>
 		</cfloop>
 	</cfif>
 	
@@ -36,10 +36,10 @@
 	<link rel="stylesheet" type="text/css" href="/site_styles/main.css" />
 
 	<!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="/site_styles/ie7.css" />
+		<link rel="stylesheet" type="text/css" href="/site_styles/ie7.css" />
 	<![endif]-->
 	<!--[if IE 8]>
-	<link rel="stylesheet" type="text/css" href="/site_styles/ie8.css" />
+		<link rel="stylesheet" type="text/css" href="/site_styles/ie8.css" />
 	<![endif]-->
 </head>
 <body>
