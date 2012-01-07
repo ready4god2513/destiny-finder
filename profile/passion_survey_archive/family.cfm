@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">Family and Individual</div>
+<h3>Family and Individual</h3>
         <br />
         
 		<form action="" method="post" id="">

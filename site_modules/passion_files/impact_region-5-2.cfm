@@ -1,5 +1,5 @@
 
-<div class="sort_name">I feel most drawn to impact the following country or region</div>
+<h2>I feel most drawn to impact the following country or region</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>

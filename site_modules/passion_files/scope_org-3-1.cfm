@@ -1,5 +1,5 @@
 
-<div class="sort_name">The organizational type I’m most comfortable in is:</div>
+<h2>The organizational type I’m most comfortable in is:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Choose one answer that is truest for you.</p>

@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">Choose the stage you want to be at in 3-5 years:</div>
+<h3>Choose the stage you want to be at in 3-5 years:</h3>
         <br />
 		<form action="" method="post" id="">
 			

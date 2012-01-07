@@ -1,5 +1,5 @@
 
-<div class="sort_name">Right now I am in the following stage of destiny development:</div>
+<h2>Right now I am in the following stage of destiny development:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>

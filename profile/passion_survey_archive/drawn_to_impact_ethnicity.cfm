@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">I feel most drawn to impact people with the following ethnicity:</div>
+<h3>I feel most drawn to impact people with the following ethnicity:</h3>
         <br />
         
 		<form action="" method="post" id="">

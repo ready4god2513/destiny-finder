@@ -1,5 +1,5 @@
 
-<div class="sort_name">Choose the stage you want to be at in 5-10 years:</div>
+<h2>Choose the stage you want to be at in 5-10 years:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>

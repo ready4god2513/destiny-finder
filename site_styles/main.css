@@ -3668,19 +3668,14 @@ table,
   padding: 20px 40px;
   margin: 20px 0;
 }
-h1, h2 {
-  color: #a82b33;
+.box h2 {
+  font-size: 0.9em;
 }
-h2 {
+h1, h2 {
   color: #a82b33;
 }
 h3 {
   color: #333333;
-}
-#table_reset table {
-  border: none;
-  margin: 0;
-  padding: 0;
 }
 /* END RESET */
 .clear {
@@ -3883,12 +3878,6 @@ form div.form-field label.error {
 }
 .percent_completed img {
   margin: 1px 0 0 1px;
-}
-.sort_name, .agree_question {
-  color: #a82b33;
-  font-size: 20px;
-  font-weight: normal;
-  margin-bottom: 5px;
 }
 .body_right_col {
   width: 295px;

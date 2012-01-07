@@ -1,5 +1,5 @@
 
-<div class="sort_name">My heart direction is mostly:</div>
+<h2>My heart direction is mostly:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>

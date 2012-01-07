@@ -25,17 +25,8 @@
         <!--- <cfdump var="#VARIABLES.result_set#"> --->
         
         <!---<cfloop query="qItems">--->
-        <div class="assessment_item">
+        <div class="assessment_item box">
 		<cfset VARIABLES.item_result = "">
-        
-        <!---<cfif qResults.recordcount>
-            
-            <cfloop from="1" to="#ArrayLen(VARIABLES.result_set)#" index="i">
-                <cfif VARIABLES.result_set[i].id EQ qItems.item_type_id>
-                    <cfset VARIABLES.item_result = DeSerializeJSON(VARIABLES.result_set[i].result)>
-                </cfif>
-            </cfloop>
-        </cfif>--->
         <cfif VARIABLES.assessment_id EQ 5>
 			<cfset qItems.item_type = 5>
 		</cfif>

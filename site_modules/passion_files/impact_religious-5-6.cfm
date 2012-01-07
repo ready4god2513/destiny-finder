@@ -1,5 +1,5 @@
 
-<div class="sort_name">I feel drawn to work with people of the following religious orientation </div>
+<h2>I feel drawn to work with people of the following religious orientation </h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>

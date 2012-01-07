@@ -60,10 +60,16 @@
 			<input type="button" class="retake#HTMLEditFormat(val(ATTRIBUTES.sort_id))#" value="Retake"/>
 		</cfif>
 		<div class="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper" style="background-color:white;" <cfif ListLen(ATTRIBUTES.item_result) GT 0>style="display:none;"</cfif>>
-        <cfif qcount EQ 1><div style="float:left;margin:0px 40px 20px 0px;">
-            <strong>Instructions:</strong><br />
-            Rank the statements that complete the sentence by dragging the one that is most true about you to the top, and arranging the rest in order with the least true at the bottom. It’s easiest to do this by ranking the first two statements, then rank the third statement with the first two, and so on. </div><!---<cfelseif qcount EQ qItems.recordcount><div style="float:left;margin:20px 30px 0px 60px;">Once you finish, you’ll receive your results instantly in a report onscreen that you can view and print. It will also be stored so that you can access it at any time later.</div>---></cfif>
-        <div class="sort_name">#HTMLEditFormat(qSort.sort_name)#</div>
+        <cfif qcount EQ 1>
+			<p>
+            	<strong>Instructions:</strong><br />
+	            Rank the statements that complete the sentence by dragging the one that is most 
+				true about you to the top, and arranging the rest in order with the least true 
+				at the bottom. It’s easiest to do this by ranking the first two statements, 
+				then rank the third statement with the first two, and so on.
+            </p>
+		</cfif>
+        <h2>#HTMLEditFormat(qSort.sort_name)#</h2>
         <br />
 		<form action="/site_modules/assessment/act_word_sort.cfm" method="post" id="sort_form_#HTMLEditFormat(val(ATTRIBUTES.sort_id))#">
 			

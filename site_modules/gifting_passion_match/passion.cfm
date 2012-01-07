@@ -1,5 +1,5 @@
 
-<div class="sort_name">Gifting and Passion Match</div>
+<h2>Gifting and Passion Match</h2>
         <br />
         <h3>Top 10 Passions</h3>
  

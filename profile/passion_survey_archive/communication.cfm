@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">I feel most fulfilled when communicating with others through the following means:</div>
+<h3>I feel most fulfilled when communicating with others through the following means:</h3>
         <br />
         
 		<form action="" method="post" id="">

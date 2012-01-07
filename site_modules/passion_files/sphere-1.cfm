@@ -20,7 +20,7 @@ function validateForm(form) {
    }
 // --> 
 </script>
-<div class="sort_name">Sphere</div>
+<h2>Sphere</h2>
         <br />
         <h3>Instructions</h3>
 <p>Pick the one sphere you’re drawn to impact.  Only use undecided if you’re really not sure.</p>

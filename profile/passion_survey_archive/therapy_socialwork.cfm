@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">Therapy and Social Work</div>
+<h3>Therapy and Social Work</h3>
         <br />
         <div style="margin:0 0 0 20px; font-size:12px;">
 		<form action="" method="post" id="">

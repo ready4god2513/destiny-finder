@@ -1,5 +1,5 @@
 
-<div class="sort_name">Religion and Spirituality</div>
+<h2>Religion and Spirituality</h2>
         <br />
         <h3>Instructions</h3>
 <p>Pick the two sub-spheres you are drawn to impact. Only use undecided if you’re really not sure.</p>

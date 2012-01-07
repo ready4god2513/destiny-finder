@@ -1,7 +1,7 @@
 
 
 <div class="assessment_radio box">
-<div class="sort_name">Sphere</div>
+<h3>Sphere</h3>
         <br />
 		<form name="sphere" action="act_passion_survey.cfm" method="post" id="">
 			

@@ -1,5 +1,4 @@
-
-<div class="sort_name">The church role I feel most comfortable with is:</div>
+<h2>The church role I feel most comfortable with is:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Choose two answers that are truest for you.</p>

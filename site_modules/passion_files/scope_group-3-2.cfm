@@ -1,5 +1,4 @@
-
-<div class="sort_name">The group size I prefer to work with is</div>
+<h2>The group size I prefer to work with is</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Choose one answer that is truest for you.</p>

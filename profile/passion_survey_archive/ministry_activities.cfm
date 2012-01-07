@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">I am most passionate about impacting others through the following ministry activities.</div>
+<h3>I am most passionate about impacting others through the following ministry activities.</h3>
         <br />
         
 		<form action="" method="post" id="">

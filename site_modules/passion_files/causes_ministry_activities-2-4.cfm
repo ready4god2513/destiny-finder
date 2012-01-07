@@ -1,5 +1,5 @@
  
-<div class="sort_name">I am most passionate about impacting others through the following ministry activities.</div>
+<h2>I am most passionate about impacting others through the following ministry activities.</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select two that are truest for you.</p>

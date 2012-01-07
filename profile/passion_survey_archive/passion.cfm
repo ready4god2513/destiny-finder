@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">I feel most passionate about the following social causes:</div>
+<h3>I feel most passionate about the following social causes:</h3>
         <br />
         
 		<form action="" method="post" id="">

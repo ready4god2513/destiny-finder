@@ -1,5 +1,5 @@
 
-<div class="sort_name">Religious Orientation </div>
+<h2>Religious Orientation</h2>
         <br />
 		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 			

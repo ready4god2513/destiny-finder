@@ -10,7 +10,7 @@
 <cfloop query="qResults">
     <div class="result">
     <cfoutput>
-    <h2>#HTMLEditFormat(qResults.result_id)#</h2>
+    <h3>#HTMLEditFormat(qResults.result_id)#</h3>
     <!---#objAssessments.process_results(result_id="#qResults.result_id#")#--->
 	</cfoutput>
     </div>

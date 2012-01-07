@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
 <div class="page_content">
 <div class="assessment_radio box">
-<div class="sort_name">The group size I prefer to work with is</div>
+<h3>The group size I prefer to work with is</h3>
         <br />
         
 		<form action="" method="post" id="">
