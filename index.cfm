@@ -90,7 +90,7 @@ ORDER BY gateway_sortorder ASC
 					<input type="hidden" value="gahj9deab" name="llr" />
 					<input type="hidden" value="1103934823430" name="m" />
 					<input type="hidden" value="oi" name="p" />
-					<input type="text" value="" name="ea" placeholder="you@your-email.com" />
+					<input type="email" value="" name="ea" placeholder="you@your-email.com" required="required" />
 					<input type="submit" class="btn primary" value="Join" name="go" />
 				</form>
 			</div>

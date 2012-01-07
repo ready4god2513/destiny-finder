@@ -4305,7 +4305,6 @@ header nav ul li a {
 }
 .body_content {
   clear: both;
-  background: url("/site_images/page_content_bg.jpg") no-repeat top;
   background-color: #f7f1e4;
 }
 .body_content #subpage_nav {

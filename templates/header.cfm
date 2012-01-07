@@ -90,5 +90,5 @@
 							parent_gateway="#qGateways.gateway_id#">
 					</li>
 				</cfoutput>
-			</ul>      
+			</ul>
 		</div>

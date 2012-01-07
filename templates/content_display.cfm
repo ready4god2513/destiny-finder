@@ -24,6 +24,8 @@
 		<cfelse>
 			<cfoutput>#qContent.content_content#</cfoutput>
 		</cfif>
+		
+		<div class="fb-like" data-href="https://www.facebook.com/pages/Destiny-Finder/101856686575972" data-send="true" data-width="450" data-show-faces="true"></div>
 	</div><!---<div class="page_content">--->
                    					
 </cfif>
