@@ -1,28 +1,3 @@
-<cfhtmlhead text="
-<link rel='stylesheet' type='text/css' href='/site_styles/blog.css'>
-<script type='text/javascript' src='../site_scripts/calendarDateInput.js'></script>
-<script type='text/javascript' src='../site_scripts/jquery.tools.min.js'></script>
-<script type='text/javascript' src='../site_scripts/gen_validatorv31.js'></script>
-">
-<!--- 
-<script>
-$(document).ready(
-	function(){
-		
-		$(".author_tip_link").tooltip({
-			position:"center left",
-			effect:"fade",
-			offset:[0,-33]
-			});  
-	});
-</script>
---->
-<script>
-	//$('.body_col1').css({'display':'none'});
-	$('.body_col3').css({'display':'none'});
-	//$('.banner_wrapper').css({'display':'none'});
-	//$('.body_col2').css({'width':'960px'});
-</script>
 <div class="blog_wrapper">
 
 
