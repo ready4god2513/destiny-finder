@@ -59,6 +59,7 @@
 
 	<cffunction name="get_results" returntype="query" output="false">
 	<cfargument name="user_id" type="numeric" required="yes">
+		
 		<cfquery name="qResults" datasource="#APPLICATION.DSN#">
 			SELECT * 
 			FROM Results
@@ -532,25 +533,11 @@
 				WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
 			</cfquery>
 		
-			<cfquery name="qStoreUser" datasource="#APPLICATION.STORE_DSN#">
-				SELECT user_id
-				FROM users
-				WHERE username = <cfqueryparam cfsqltype="cf_sql_char" value="#qUsername.user_email#">
-			</cfquery>
-	
-			<cfif qStoreUser.recordcount GT 0>
-				<cfquery name="qUserMemberships" datasource="#APPLICATION.STORE_DSN#">
-					SELECT accesskey_id
-					FROM Memberships
-					WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qStoreUser.user_id#"> 
-					AND valid = 'true'
-				</cfquery>
-			
-				<cfset VARIABLES.accesskey_id_list = ValueList(qUserMemberships.AccessKey_ID,',')>
-			
-			</cfif>
-		
-			<cfreturn VARIABLES.accesskey_id_list>
+			<!-- 
+				We need to query foxycart to check what surveys have been purchased by the user.
+				Optimally we will create a habtm table that stores the permissions of the users.
+			-->
+			<cfreturn "">
 		</cffunction>
     
 		<cffunction name="process_passion_statement" output="true" hint="I produce the passion statement">
