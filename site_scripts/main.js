@@ -35,6 +35,34 @@ $(function(){
 		}
 	});
 	
+	$("#update-account-form").validate({
+		rules:
+		{
+			user_first_name: "required",
+			user_last_name: "required",
+			user_email: 
+			{
+				required: true,
+				email: true
+			},
+			user_email2:
+			{
+				required: true,
+				email: true,
+				equalTo: "#user_email"
+			},
+			user_password: 
+			{
+				minlength: 6
+			},
+			user_password2: 
+			{
+				minlength: 6,
+				equalTo: "#user_password"
+			}
+		}
+	});
+	
 	$("#login-form").validate({
 		rules:
 		{

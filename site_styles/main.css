@@ -3224,6 +3224,9 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   margin: 5px;
   padding: 5px;
 }
+.sortable li:hover {
+  cursor: move;
+}
 .sort_result {
   display: none;
 }
@@ -3643,6 +3646,7 @@ a.blog_button:link, a.blog_button:visited {
   font-size: 12px;
 }
 body {
+  background: #3e3f53 url(/site_images/body_bg_rpt.jpg) repeat-x;
   color: #565555;
 }
 a {
@@ -3662,9 +3666,6 @@ br {
 img {
   border: none;
 }
-body {
-  background: #3e3f53 url(/site_images/body_bg_rpt.jpg) repeat-x;
-}
 table,
 .box,
 .short_desc,
@@ -3679,6 +3680,9 @@ table,
   border: 1px solid #e9ddc7;
   padding: 20px 40px;
   margin: 20px 0;
+}
+div#myEventWatcherDiv {
+  display: none;
 }
 .box h2 {
   font-size: 0.9em;
@@ -3824,7 +3828,7 @@ header nav ul li a {
   margin: 5px;
 }
 .body_content .page_content {
-  padding: 20px;
+  padding: 10px 20px;
 }
 form div.form-field {
   margin: 10px 0;

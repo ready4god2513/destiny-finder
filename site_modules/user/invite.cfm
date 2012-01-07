@@ -5,8 +5,7 @@
 		#objAssessment.invite_friend(user_id="#REQUEST.user_id#")#
 		Submitted
 	</cfif>
-
-
+	
 	<form action="#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#" method="post" name="profile" enctype="multipart/form-data">
 		<fieldset>
 			<div class="form-field">
