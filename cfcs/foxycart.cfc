@@ -23,10 +23,10 @@
 	
 	<cffunction name="auth_token" returntype="string" output="false" hint="I authenticate a user via the FoxyCart API">
 		<cfargument name="customer_id" type="string" require="yes" />		
-		<cfargument name="timestamp"	type="string" require="yes" />
+		<cfargument name="timestamp" type="string" require="yes" />
 		
 		
-		<cfreturn "#ARGUMENTS.customer_id# | #ARGUMENTS.timestamp# | #apiToken#">
+		<cfreturn Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#apiToken#", "SHA-1")>
 	</cffunction>
 	
 	
@@ -44,6 +44,7 @@
 		</cfhttp>
 		
 		<cfset xmlDoc = XmlParse(CFHTTP.FileContent) />
+		
 		<cfreturn xmlDoc.foxydata.customer_id.xmlText>
 	</cffunction>
 	
