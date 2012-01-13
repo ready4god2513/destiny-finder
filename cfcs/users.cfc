@@ -55,11 +55,15 @@
 							FROM users
 							WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#">
 						</cfquery>
-						
-						<!--- BEGIN ADD TO CONSTANT CONTACT --->
-						<!--- END ADD TO CONSTANT CONTACT --->
 									
 						<cfif qUser.recordcount GT 0>
+							
+							<!--- BEGIN ADD TO CONSTANT CONTACT --->
+							<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/9">
+							<cfset newUser = createObject("component", "cfcs.constantcontact.Contact").init(emailAddress = #FORM.user_email#, firstName = #FORM.user_first_name#, lastName = #FORM.user_last_name#, contactLists = #contactList#)>
+							<cfset result = createObject("component", "cfcs.constantcontact.ContactsCollection").addContact(contact = #newUser#)>
+							<!--- END ADD TO CONSTANT CONTACT --->
+							
 							<cflock scope="session" type="readonly" timeout="30">
 								<cfset SESSION.user_id = qUser.user_id>
 							</cflock>

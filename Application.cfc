@@ -109,7 +109,7 @@
 		<!--- THIS VARIABLE EITHER STORES THE USER_ID OR 0 IF A USER IS NOT LOGGED IN --->
 		<cfset REQUEST.user_id = obj_login.is_logged_in()>
 			
-		<!--- BEGIN CONSTANT CONTACT --->
+			
 		<!--- Modify your credentials here --->
 		<cfset application.ccUsername = "destinyfinder"> 
 		<cfset application.ccPassword = "cecilia">
@@ -121,7 +121,6 @@
 		<cfset application.path = "https://api.constantcontact.com">
 		<cfset application.apiPath = "https://api.constantcontact.com/ws/customers/#application.ccUsername#">
 		<cfset application.doNotInclude = "Active,Do Not Mail,Removed">
-		<!--- END CONSTANT CONTACT --->
 		
 		<cfreturn true>
 	</cffunction>
