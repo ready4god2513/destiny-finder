@@ -108,6 +108,20 @@
             
 		<!--- THIS VARIABLE EITHER STORES THE USER_ID OR 0 IF A USER IS NOT LOGGED IN --->
 		<cfset REQUEST.user_id = obj_login.is_logged_in()>
+			
+		<!--- BEGIN CONSTANT CONTACT --->
+		<!--- Modify your credentials here --->
+		<cfset application.ccUsername = "destinyfinder"> 
+		<cfset application.ccPassword = "cecilia">
+		<cfset application.apiKey = "71c7fffd-b05b-40ba-95c6-581942d36fb7">
+
+		<!--- Typical modifications should end here --->
+		<cfset application.optInSource = "ACTION_BY_CUSTOMER">
+		<cfset application.debug = "true">
+		<cfset application.path = "https://api.constantcontact.com">
+		<cfset application.apiPath = "https://api.constantcontact.com/ws/customers/#application.ccUsername#">
+		<cfset application.doNotInclude = "Active,Do Not Mail,Removed">
+		<!--- END CONSTANT CONTACT --->
 		
 		<cfreturn true>
 	</cffunction>
