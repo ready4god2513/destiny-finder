@@ -3,8 +3,19 @@
 <cfoutput>
 	<cfif isDefined('FORM.submit')>
 		#objAssessment.invite_friend(user_id="#REQUEST.user_id#")#
-		Submitted
+		
+		<div class="alert-message block-message success">
+			Awesome!  Thank you.  <strong>Your friend will be notified.</strong>  
+			You will be sent the results as soon as your friend completes the test.
+		</div>
+		
 	</cfif>
+	
+	<h2>Invite a Friend</h2>
+	<p>
+		Ask a friend to take the test on your behalf to gain a better understanding of how
+		your gifts are viewed by your peers.
+	</p>
 	
 	<form action="#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#" method="post" name="profile" enctype="multipart/form-data">
 		<fieldset>
