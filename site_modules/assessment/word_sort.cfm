@@ -75,7 +75,7 @@
 			
              <!--- MANAGE CONVERSION OF SORTABLE CLICK AND DRAG QUESTIONS TO SIMPLE RADIO BUTTON FUNCTIONALITY AS NEEDED--->
         	<cfparam name="REQUEST.radio_convert" default="0">
-			<cfif Find("MSIE 9.0",LCase(CGI.ALL_HTTP)) GT 0 OR Find("mobile",LCase(CGI.ALL_HTTP)) GT 0 OR ATTRIBUTES.assessment_id EQ 4>
+			<cfif Find("MSIE 9.0",LCase(CGI.ALL_HTTP)) GT 0 OR Find("mobile",LCase(CGI.ALL_HTTP)) GT 0>
             	<cfset REQUEST.radio_convert = 1>
         	</cfif>
             <cfif REQUEST.radio_convert NEQ 1>
