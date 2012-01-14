@@ -3,27 +3,27 @@
         <h3>Instructions</h3>
 		<p>Choose one answer that is truest for you.</p>
         
-		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
-			
-					<label><input type="radio" name="group_size" value="One-on-one">One-on-one</label>
-					<label><input type="radio" name="group_size" value="Small Group">Small Group (10+)</label>
-					<label><input type="radio" name="group_size" value="Mid-sized Group">Mid-sized Group (50+)</label>
-					<label><input type="radio" name="group_size" value="Large Group">Large Group (100+)</label>
-					<label><input type="radio" name="group_size" value="Mega-size Group">Mega-size Group (1000+)</label>
-                    <label><input type="radio" name="group_size" value="International – Itinerate">International – Itinerate</label>
-		
-		
-				
+		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
+			<div class="input">
+				<ul class="inputs-list">
+					<li><label><input type="radio" name="group_size" value="One-on-one">One-on-one</label></li>
+					<li><label><input type="radio" name="group_size" value="Small Group">Small Group (10+)</label></li>
+					<li><label><input type="radio" name="group_size" value="Mid-sized Group">Mid-sized Group (50+)</label></li>
+					<li><label><input type="radio" name="group_size" value="Large Group">Large Group (100+)</label></li>
+					<li><label><input type="radio" name="group_size" value="Mega-size Group">Mega-size Group (1000+)</label></li>
+                    <li><label><input type="radio" name="group_size" value="International – Itinerate">International – Itinerate</label></li>
+				</ul>
+			</div>
 			
              <!---CLIP #1--->
-			<input class="btn primary" type="submit" name="submit" value="Next Step" />
+			<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('16,role_church-4-1,group_size,scope_group','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>
         <cfset progbar= (308 / 27) * (VARIABLES.vCount - 1)>
         <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/site_images/progbar_pix.png" width="<cfoutput>#progbar#</cfoutput>" height="21"></div>
     
-<!---#1
+<!---
 	   <div style="float:left;margin:10px 40px 0px 40px;">
           Instructions:<br />
             Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.

@@ -20,7 +20,7 @@
 				
 			
              <!---CLIP #1--->
-			<input class="btn primary" type="submit" name="submit" value="Next Step" />
+			<div
            
 		</form>
          <br class="clear"/>
@@ -32,7 +32,7 @@
 			
 
             
-<!---#1
+<!---
 	   <div style="float:left;margin:10px 40px 0px 40px;">
           Instructions:<br />
             Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.

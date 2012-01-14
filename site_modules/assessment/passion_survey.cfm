@@ -13,62 +13,29 @@
 
 <cfparam name="ATTRIBUTES.sort_id" default="#VARIABLES.vCount#">
 <cfoutput>
-
-<div id="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result" class="sort_result" style="background-color:white;">
+	<div id="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result" class="sort_result" style="background-color:white;">
 		
-</div>
+	</div>
 
-<div class="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper" style="background-color:white;">
-<cfinclude template="../passion_files/#HTMLEditFormat(VARIABLES.passion_file)#">
-</div>
-<script type='text/javascript'>
-	<!---$(function() {
-		$('##sortable#ATTRIBUTES.sort_id#').sortable(
-			{
-			update: function(event, ui) 
-				{					
-					$('##serialize#ATTRIBUTES.sort_id#').val($("##sortable#ATTRIBUTES.sort_id#").sortable("serialize"));
-				} 			
-			});
-
-		$('##sortable#ATTRIBUTES.sort_id#').disableSelection();
-	});--->
-	
-	$(function(){
-		//AJAX submit
-		$('##sort_form_#HTMLEditFormat(val(ATTRIBUTES.sort_id))#').submit(function() { 
-			//alert('Submitted' + $(this).attr("id"));
-			$(this).ajaxSubmit(submitOptions#ATTRIBUTES.sort_id#);
-			return false;
-			});
-	});
-		
-		//Parameters for ajaxSubmit
-		var submitOptions#ATTRIBUTES.sort_id# = {
-		target: '##sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result',
-		beforeSubmit:showProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#,
-		success: hideProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#,
-		type:'post',
-		url: '/site_modules/assessment/act_passion_survey.cfm'
-		};
-	
-		function showProcessing#ATTRIBUTES.sort_id#() {
-
-			$(".sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper").fadeOut(500);
-		} 
-	
-		function hideProcessing#ATTRIBUTES.sort_id#() {
-		   $("##processingMessage").addClass("hideElement");
-		   setTimeout(function() {
-		   $("##sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result").fadeIn(500);
-			}, 500); 
-		}
-		
-		$('.retake#ATTRIBUTES.sort_id#').click(
-			function(){
-				$(".retake#HTMLEditFormat(val(ATTRIBUTES.sort_id))#").hide();
-				$(".sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper").fadeIn(500);
-			}
-		);
-</script>
+	<div class="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper" style="background-color:white;">
+	<cfinclude template="../passion_files/#HTMLEditFormat(VARIABLES.passion_file)#">
+	</div>
 </cfoutput>
+
+<script>
+	$(function(){
+		$(".survey-form").ajaxForm({
+			target: ".assessment_item",
+			type: "POST",
+			url: "/site_modules/assessment/act_passion_survey.cfm",
+			beforeSubmit: function()
+			{
+				$(".assessment_item").fadeOut();
+			},
+			success: function()
+			{
+				$(".assessment_item").fadeIn();
+			}
+		});
+	});
+</script>

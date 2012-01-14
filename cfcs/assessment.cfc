@@ -545,7 +545,7 @@
 	        <cfset objQueries = CreateObject("component","cfcs.queries")>
 			<cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>
 	        <cfset qPassionResults = objQueries.passion_results(user_id="#REQUEST.user_id#")>		
-			<div style="margin: 70px 0px 0px 100px; color: ##a82b33; font-size: 18px; font-weight: bold">Destiny Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qPassionResults.last_modified,'mmm dd, yyyy')#</div>
+			<div>Destiny Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qPassionResults.last_modified,'mmm dd, yyyy')#</div>
 	    <div class="short_desc">
 	    <h2>Passion Statement</h2><br>
 	<p>I am most passionate about bringing my primary kingdom impact in the sphere of <strong>#HTMLEditFormat(qPassionResults.sphere)#</strong>, specifically working in the area of <strong>#HTMLEditFormat(ListGetAt(qPassionResults.sphere_sub1,1))#</strong> and/or <strong>#HTMLEditFormat(ListGetAt(qPassionResults.sphere_sub1,2))#</strong>.</p>

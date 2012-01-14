@@ -13,17 +13,17 @@
 		</cfif>
 		Destiny Finder
 	</title>
+	<cfif LEN(ATTRIBUTES.meta_desc) GT 0>
+		<meta name="description" content="<cfoutput>#ATTRIBUTES.meta_desc#</cfoutput>" />
+	</cfif>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 	
 	<!-- Include all of the required libraries -->
+	<script src="/site_scripts/libraries/modernizr.js"></script>
 	<script src="/site_scripts/libraries/jquery.form.js"></script>
 	<script src="/site_scripts/libraries/jquery.hoverIntent.minified.js"></script>
 	<script src="/site_scripts/libraries/jquery.validate.min.js"></script>
@@ -32,15 +32,12 @@
 	<script src="/site_scripts/libraries/superfish.js"></script>
 	<script src="/site_scripts/libraries/swfobject.js"></script>
 	<script src="/site_scripts/main.js"></script>
+	
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
 		<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">
 			<cfoutput><link rel="stylesheet" href="#style#" type="text/css" media="screen" charset="utf-8" /></cfoutput>
 		</cfloop>
-	</cfif>
-	
-	<cfif LEN(ATTRIBUTES.meta_desc) GT 0>
-		<meta name="description" content="<cfoutput>#ATTRIBUTES.meta_desc#</cfoutput>" />
 	</cfif>
 	
 	<link rel="stylesheet" type="text/css" href="/site_styles/main.css" />

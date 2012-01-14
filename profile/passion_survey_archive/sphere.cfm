@@ -3,7 +3,7 @@
 <div class="assessment_radio box">
 <h3>Sphere</h3>
         <br />
-		<form name="sphere" action="act_passion_survey.cfm" method="post" id="">
+		<form name="sphere" action="act_passion_survey.cfm" class="survey-form" method="post" id="">
 			
 					<label><input type="radio" name="sphere" value="1">Family and Individual</label>
 					<label><input type="radio" name="sphere" value="2">Culture and Lifestyle</label>
@@ -21,7 +21,7 @@
             Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.
 Fill in the "Other" blank if you don't find an answer close enough to your interest.
  </div>--->
-			<input class="btn primary" type="submit" name="submit" value="Next Step" />
+			<div
 		</form>
         
         <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/site_images/progbar_pix.png" width="0" height="21"></div>
