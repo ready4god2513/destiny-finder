@@ -1,7 +1,7 @@
 <h2>Sphere</h2>
 <h3>Instructions</h3>
 <p>Pick the one sphere you're drawn to impact.  Only use undecided if you're really not sure.</p>
-<form name="form" action="act_passion_survey.cfm" class="survey-form" data-test-num="<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>" method="post">
+<form name="form" action="act_passion_survey.cfm" class="survey-form" method="post">
 	<div class="input">
 		<ul class="inputs-list">
 			<li><label><input type="radio" name="sphere" value="Family and Individual">Family and Individual</label></li>

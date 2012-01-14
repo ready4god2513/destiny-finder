@@ -6,7 +6,7 @@
 	
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="business_economics" validate="required:true, minlength:2" value="Finance, Investment, Insurance and Realestate">Finance, Investment, Insurance and Real estate</label></li>
+			<li><label><input type="checkbox" name="business_economics" value="Finance, Investment, Insurance and Realestate">Finance, Investment, Insurance and Real estate</label></li>
 			<li><label><input type="checkbox" name="business_economics" value="Science, Technology, Energy and R&amp;D">Science, Technology, Energy and R&amp;D</label></li>
 			<li><label><input type="checkbox" name="business_economics" value="Manufacturing, Distribuation and Service">Manufacturing, Distribution and Service</label></li>
 			<li><label><input type="checkbox" name="business_economics" value="Trades, Transportation, and Technical Services">Trades, Transportation, and Technical Services</label></li>

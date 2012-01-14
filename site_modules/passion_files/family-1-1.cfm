@@ -8,7 +8,7 @@
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="family"  validate="required:true, minlength:2" value="Family">Family</label></li>
+			<li><label><input type="checkbox" name="family" value="Family">Family</label></li>
 			<li><label><input type="checkbox" name="family" value="Education">Education</label></li>
 			<li><label><input type="checkbox" name="family" value="Health and Wellness">Health and Wellness</label></li>
 			<li><label><input type="checkbox" name="family" value="Therapy and Social Work">Therapy and Social Work</label></li>

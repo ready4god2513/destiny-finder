@@ -16,25 +16,39 @@
 	<div id="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result" class="sort_result" style="background-color:white;">
 		
 	</div>
+	
+	<div id="validation-errors" class="alert-message block-message error hide"></div>
 
 	<div class="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper" style="background-color:white;">
-	<cfinclude template="../passion_files/#HTMLEditFormat(VARIABLES.passion_file)#">
+		<cfinclude template="../passion_files/#HTMLEditFormat(VARIABLES.passion_file)#">
 	</div>
 </cfoutput>
 
 <script>
 	$(function(){
-		$(".survey-form").ajaxForm({
-			target: ".assessment_item",
-			type: "POST",
-			url: "/site_modules/assessment/act_passion_survey.cfm",
-			beforeSubmit: function()
+		$(".survey-form input[type=checkbox]").attr("validate", "required:true, minlength:2");
+		$(".survey-form input[type=radio]").attr("validate", "required:true");
+		$.metadata.setType("attr", "validate");
+		
+		$(".survey-form").validate({
+			errorLabelContainer: $("#validation-errors"),
+			errorElement: "p",
+			submitHandler: function(form)
 			{
-				$(".assessment_item").fadeOut();
-			},
-			success: function()
-			{
-				$(".assessment_item").fadeIn();
+				$(form).ajaxSubmit({
+					target: ".assessment_item",
+					type: "POST",
+					url: "/site_modules/assessment/act_passion_survey.cfm",
+					beforeSubmit: function()
+					{
+
+						$(".assessment_item").fadeOut();
+					},
+					success: function()
+					{
+						$(".assessment_item").fadeIn();
+					}
+				});
 			}
 		});
 	});
