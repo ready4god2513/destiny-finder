@@ -105,7 +105,7 @@
 			<div class="clearfix">
 				<label for="user_email">Email Address</label>
 				<div class="input">
-					<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" <cfif REQUEST.user_id EQ 0>disabled="disabled"</cfif> />
+					<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" <cfif REQUEST.user_id GT 0>disabled="disabled"</cfif> />
 					<span class="help-inline">Your e-mail is used for logging in</span>
 				</div>
 			</div>

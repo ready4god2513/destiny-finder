@@ -87,5 +87,8 @@
 							parent_gateway="#qGateways.gateway_id#">
 					</li>
 				</cfoutput>
+				<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+					<li><a href="/profile/?page=profiler">My Account</a></li>
+				</cfif>
 			</ul>
 		</div>

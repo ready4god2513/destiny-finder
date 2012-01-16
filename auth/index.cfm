@@ -5,11 +5,6 @@
 <cfparam name="VARIABLES.gateway_id" default="">
 <cfparam name="VARIABLES.subtitle" default="Profile">
 
-<!--- THIS MODULE FINDS THE FIRST PAGE TO CALL FROM A GATEWAY
-<cfmodule template="/templates/initial_page_call.cfm"
-	gateway="#URL.gateway#"
-> --->
-
 <cfparam name="URL.page" default="#VARIABLES.page#">
 
 <!--- RETRIEVE THE PAGE CONTENT --->
