@@ -19,6 +19,12 @@
 			<div class="post-body">
 				#qPost.blog_content#
 			</div>
+			<footer>
+				<div class="get-social span3 offset1">
+					<div class="fb-like" data-send="false" data-href="#currentURL#" data-layout="box_count" data-width="50" data-show-faces="false"></div>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="#currentURL#" data-lang="en" data-count="vertical">Tweet</a>
+				</div>
+			</footer>
 		</article>
 	</cfoutput>
 	
