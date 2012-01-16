@@ -3,21 +3,22 @@
 <cfset obj_queries = CreateObject("component","site_modules.blog.cfcs.queries")>
 
 <cfset qPost = obj_queries.retrieve_blog(blog_id="#URL.blog_id#",admin="#ATTRIBUTES.admin#",author_id="#ATTRIBUTES.author_id#")>
-
+<cfset currentURL = "http://#CGI.HTTP_HOST#/blog/index.cfm?page=blog&amp;blog_id=#URL.blog_id#" />
 <cfif qPost.recordcount GT 0>
 	<cfset qAuthor = obj_queries.author_detail(author_id="#qPost.blog_user_id#")>
 	
 	<cfoutput query="qPost">
 		<article class="single-blog-post">
-			<header>
-				<h2>#qPost.blog_title#</h2>
-				<span class="blog_author">by <a href="index.cfm?page=blog&author=#qPost.blog_user_id#">#qAuthor.user_first_name# #qAuthor.user_last_name#</a></span> 
-				<span class="blog_date">on #DateFormat(qPost.blog_date, 'mmm dd, yyyy')#</span>
+			<header class="row">
+				<h2 class="span6">#qPost.blog_title#</h2>
+				<div class="get-social span3 offset1">
+					<div class="fb-like" data-send="false" data-href="#currentURL#" data-layout="box_count" data-width="50" data-show-faces="false"></div>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="#currentURL#" data-lang="en" data-count="vertical">Tweet</a>
+				</div>
 			</header>
-			#qPost.blog_content#
-			<footer>
-				POSTED BY <a href="index.cfm?page=blog&author=#qPost.blog_user_id#">#Ucase("#qAuthor.user_first_name# #qAuthor.user_last_name#")#</a> ON <span class="blog_date">#DateFormat(qPost.blog_date,'mmm dd, yyyy')#</span>
-			</footer>
+			<div class="post-body">
+				#qPost.blog_content#
+			</div>
 		</article>
 	</cfoutput>
 	

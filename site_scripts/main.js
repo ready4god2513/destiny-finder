@@ -90,5 +90,10 @@ $(function(){
 	
 	// Remove inline styles as they tend to break things
 	$("*").removeAttr("style");
+	$("p")
+	    .filter(function() {
+	        return $.trim($(this).text()) === ""
+	    })
+	    .remove();
 	
 });

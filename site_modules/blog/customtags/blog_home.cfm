@@ -35,7 +35,7 @@
 				post_title="#qPosts.blog_title#"
 				post_author_id="#qPosts.blog_user_id#"
 				post_author_name="#qAuthor.user_first_name# #qAuthor.user_last_name#"
-				post_content="#qPosts.blog_content#"
+				post_content="#qPosts.blog_shorttext#"
 				post_date="#qPosts.blog_publish_date#"
 				post_thumb="#qPosts.blog_thumb#">		
 		</cfloop>

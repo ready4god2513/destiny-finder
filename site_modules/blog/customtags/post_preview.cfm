@@ -7,12 +7,22 @@
 <cfparam name="ATTRIBUTES.post_media" default="">
 <cfparam name="ATTRIBUTES.post_thumb" default="">
 
+<cfset urlToLike = "http://#CGI.HTTP_HOST#/blog/index.cfm?page=blog&amp;blog_id=#ATTRIBUTES.post_id#" />
+
 <cfoutput>
 	<article class="single-blog-post">
-		<header>
-			<h2><a href="/blog/index.cfm?page=blog&blog_id=#ATTRIBUTES.post_id#">#ATTRIBUTES.post_title#</a></h2>
-			<span class="blog_date">on #DateFormat(ATTRIBUTES.post_date, 'mmm dd, yyyy')#</span>
+		<header class="row">
+			<h2 class="span6"><a href="/blog/index.cfm?page=blog&amp;blog_id=#ATTRIBUTES.post_id#">#ATTRIBUTES.post_title#</a></h2>
+			<div class="get-social span3 offset1">
+				<div class="fb-like" data-send="false" data-layout="box_count" data-href="#urlToLike#" data-width="50" data-show-faces="false"></div>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="#urlToLike#" data-lang="en" data-count="vertical">Tweet</a>
+			</div>
 		</header>
-		#ATTRIBUTES.post_content#
+		<div class="post-body">
+			#ATTRIBUTES.post_content#
+			
+			<a href="/blog/index.cfm?page=blog&amp;blog_id=#ATTRIBUTES.post_id#" class="btn danger">Continue Reading</a>
+		</div>
+		
 	</article>
 </cfoutput>

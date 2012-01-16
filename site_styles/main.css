@@ -3325,8 +3325,9 @@ header nav ul li a {
 }
 #blog-wrapper article header, #blog-wrapper article footer {
   background: none;
-  margin: 10px 0;
-  padding: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: auto;
 }
 #blog-wrapper article header span, #blog-wrapper article footer span {
   font-weight: bold;
