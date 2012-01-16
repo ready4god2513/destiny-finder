@@ -8,22 +8,11 @@
 <cfparam name="ATTRIBUTES.post_thumb" default="">
 
 <cfoutput>
-	<div class="blog_preview_wrapper">
-		<cfif LEN(ATTRIBUTES.post_thumb) GT 0>
-			<img src="#ATTRIBUTES.post_thumb#" class="blog_thumb_image" align="left">
-		</cfif>
-		<a href="index.cfm?page=blog&blog_id=#ATTRIBUTES.post_id#" class="blog_preview_title">#ATTRIBUTES.post_title#</a> 
-		<!--- 
-		<cfif LEN(ATTRIBUTES.post_media) GT 0>
-			<img src="/site_images/<cfif ATTRIBUTES.post_media EQ "video">video<cfelseif ATTRIBUTES.post_media EQ "audio">audio</cfif>_icon.gif">
-		</cfif>
-		--->
-		<br/>
-		<span class="blog_preview_date">#UCASE(DateFormat(ATTRIBUTES.post_date, 'dddd, mmm dd, yyyy'))#</span>
-		<div class="blog_preview_shorttext">
-			#ATTRIBUTES.post_short_description#
-			<br/><br/>
-			<a href="index.cfm?page=blog&blog_id=#ATTRIBUTES.post_id#" class="blog_button">READ MORE</a><cfmodule template="comment_count.cfm" blog_id="#ATTRIBUTES.post_id#" fancy_display="1">&nbsp;&nbsp;|&nbsp;&nbsp;<span class="blog_preview_author">POSTED BY <a href="index.cfm?page=blog&author=#ATTRIBUTES.post_author_id#">#ATTRIBUTES.post_author_name#</a></span>
-		</div>
-	</div>
+	<article class="single-blog-post">
+		<header>
+			<h2><a href="/blog/index.cfm?page=blog&blog_id=#ATTRIBUTES.post_id#">#ATTRIBUTES.post_title#</a></h2>
+			<span class="blog_date">on #DateFormat(ATTRIBUTES.post_date, 'mmm dd, yyyy')#</span>
+		</header>
+		#ATTRIBUTES.post_content#
+	</article>
 </cfoutput>
