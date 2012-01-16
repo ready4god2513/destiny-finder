@@ -91,42 +91,42 @@
 				
 					<cfif LEN(FORM.user_password) GT 0>
 						<cfset FORM.user_password = HASH(FORM.user_password)>
-					</cfif>			
-                	
-					<!--- RETRIEVE STORE USER ID AND INSERT IT INTO OUR DATABASE --->
-						<cfquery name="qStoreUser" datasource="#APPLICATION.DSN#">
-							SELECT user_store_id
-							FROM Users
-							WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
-						</cfquery>
+					</cfif>
+					
+					<cfquery name="u" datasource="#APPLICATION.dsn#">
+						SELECT *
+						FROM users
+						WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
+					</cfquery>
+					
+					<cfset ccDetails = createObject("component", "cfcs.constantcontact.ContactsCollection").searchByEmail(emailAddress = #u.user_email#) />
+                	<cfset ccDetails = #ccDetails[1]# />
+
 					<cfquery name="Update_User" datasource="#APPLICATION.dsn#">
 						UPDATE users
 							SET 
-							<!---user_address1 = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_address1#">,
-							user_address2 = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_address2#">,					
-							user_city = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_city#">,
-							user_state = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_state#">,
-							user_zip = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_zip#">,--->
 							<cfif LEN(FORM.user_password) GT 0>
 								user_password = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_password#">,
 							</cfif>
-	                        user_first_name = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_first_name#">,
+							marketing_opt_in = <cfqueryparam cfsqltype="cf_sql_bit" value="#FORM.marketing_opt_in#">,
+							user_first_name = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_first_name#">,
 							user_last_name = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_last_name#">
-							<!---user_username = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_username#">--->
-							<!---user_phone = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_phone#">--->
 							WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
 					</cfquery>
-				
-					<cfif isDefined("qStoreUser.user_store_id") AND LEN(qStoreUser.user_store_id) GT 0>
-						<cfif LEN(FORM.user_password) GT 0>
-	                        <cfquery name="qUpdateStore" datasource="#APPLICATION.STORE_DSN#">
-	                            UPDATE Users
-	                            SET password = <cfqueryparam  cfsqltype="cf_sql_char" value="#HASH(FORM.user_password)#">
-								<!---username = <cfqueryparam  cfsqltype="cf_sql_char" value="#FORM.user_username#">--->
-	                            WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qStoreUser.user_store_id#">
-	                        </cfquery>
-						</cfif>
+					
+					<!--- BEGIN ADD TO CONSTANT CONTACT --->
+					<!--- We will always add them to the system list--->
+					<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/1">
+						
+					<!--- Check to see if we should add them to the marketing list --->
+					<cfif isDefined("FORM.marketing_opt_in") and #FORM.marketing_opt_in# GT 0>
+						<cfset contactList[2] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/9">
 					</cfif>
+					
+					<cfset ccDetails.contactLists = #contactList# />
+					<cfset ccDetails.firstName = #FORM.user_first_name# />
+					<cfset ccDetails.lastName = #FORM.user_last_name# />
+					<cfset result = createObject("component", "cfcs.constantcontact.ContactsCollection").updateContact(contact = #ccDetails#)>
 					<cfset VARIABLES.site_notification = "profile_updated">
 			
 					<cfreturn VARIABLES.site_notification>						

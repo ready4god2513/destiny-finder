@@ -182,7 +182,7 @@
 		<cfinvoke component="Utility" 
 				method="CTCTRequest" 
 				requestMethod="GET" 
-				address="#application.apiPath#/contacts?email=#arguments.emailAddress#" 
+				address="#application.apiPath#/contacts?email=#URLEncodedFormat(arguments.emailAddress)#" 
 				returnVariable="local.contactsXml"/>
 		
 		<cfset local.searchXml = xmlParse(local.contactsXml)>
