@@ -59,7 +59,14 @@
 						<cfif qUser.recordcount GT 0>
 							
 							<!--- BEGIN ADD TO CONSTANT CONTACT --->
-							<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/9">
+							<!--- We will always add them to the system list--->
+							<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/1">
+								
+							<!--- Check to see if we should add them to the marketing list --->
+							<cfif isDefined("FORM.marketing_opt_in") and #FORM.marketing_opt_in#>
+								<cfset contactList[2] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/9">
+							</cfif>
+							
 							<cfset newUser = createObject("component", "cfcs.constantcontact.Contact").init(emailAddress = #FORM.user_email#, firstName = #FORM.user_first_name#, lastName = #FORM.user_last_name#, contactLists = #contactList#)>
 							<cfset result = createObject("component", "cfcs.constantcontact.ContactsCollection").addContact(contact = #newUser#)>
 							<!--- END ADD TO CONSTANT CONTACT --->
