@@ -102,7 +102,7 @@
 		
 		<cfif isDefined('URL.logout')>
 			<cfset obj_login.logout()>
-			<!--- <cflocation url="/index.cfm" addtoken="no"> --->
+			<cflocation url="/index.cfm" addtoken="no">
 		</cfif>
 		
             
