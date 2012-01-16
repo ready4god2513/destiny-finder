@@ -37,7 +37,7 @@
 						<cfquery name="Insert_User" datasource="#APPLICATION.dsn#">
 							INSERT INTO	Users
 								(user_first_name,user_last_name,user_username,user_email,user_password,
-									user_datecreated,user_type,user_active)
+									user_datecreated,user_type,user_active, marketing_opt_in)
 							VALUES
 								(<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_first_name#">,
 								<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_last_name#">,
@@ -46,7 +46,8 @@
 								<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_password#">,
 								<cfqueryparam cfsqltype="cf_sql_date" value="#FORM.user_datecreated#">,
 								2,
-								1
+								1,
+								<cfqueryparam cfsqltype="cf_sql_bit" value="#FORM.marketing_opt_in#">
 								)
 						</cfquery>
 					
