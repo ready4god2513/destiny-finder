@@ -74,15 +74,5 @@
 			<cfmodule template="customtags/category_listing.cfm">
 		</div>
 
-		<div class="blog_col_box">
-			<h4>ARCHIVES</h4>
-			<cfmodule template="customtags/archive_listing.cfm">
-		</div>
-
-		<div class="blog_col_box">
-			<h4>AUTHORS</h4>
-			<cfmodule template="customtags/author_listing.cfm">
-		</div>
-
 	</div>
 </div>

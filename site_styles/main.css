@@ -3325,6 +3325,7 @@ header nav ul li a {
 }
 #blog-wrapper article header, #blog-wrapper article footer {
   background: none;
+  border: none;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: auto;
@@ -3332,6 +3333,20 @@ header nav ul li a {
 #blog-wrapper article header span, #blog-wrapper article footer span {
   font-weight: bold;
   font-size: 0.9em;
+}
+#blog-wrapper article footer {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background: #f4ebd8;
+  margin-top: 50px;
+  padding: 5px;
+}
+#blog-wrapper article .get-social {
+  text-align: right;
 }
 .head_gnav {
   background-color: #f8ead1;
