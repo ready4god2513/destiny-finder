@@ -3,6 +3,10 @@ $(function(){
 	// Drop Down Menu
 	$("ul.sf-menu").superfish();
 	
+	$.validator.setDefaults({ 
+	    errorElement: "em"
+	});
+	
 	
 	// Form Validations
 	$("#signup-form").validate({
@@ -31,6 +35,10 @@ $(function(){
 				required: true,
 				minlength: 6,
 				equalTo: "#user_password"
+			},
+			agree_to_terms:
+			{
+				required: true
 			}
 		}
 	});

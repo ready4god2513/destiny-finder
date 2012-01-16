@@ -3838,22 +3838,6 @@ header nav ul li a {
 .single-product form, .single-product a.btn {
   margin: 30px auto;
 }
-form div.form-field {
-  margin: 10px 0;
-}
-form div.form-field label {
-  padding-right: 10px;
-}
-form div.form-field label.error {
-  padding: 0 0 0 10px;
-  color: red;
-  font-size: 0.9em;
-  display: block;
-  float: none;
-  width: auto;
-  text-align: left;
-  display: inline;
-}
 .result h2 {
   font-size: 16px;
   color: #a82b33;
@@ -3881,6 +3865,10 @@ form div.form-field label.error {
 }
 .user_greeting td {
   padding: 3px;
+}
+em.error {
+  color: #900;
+  padding: 0 5px;
 }
 .user_greeting_form_title {
   text-align: right;

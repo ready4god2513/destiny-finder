@@ -86,50 +86,75 @@
 	
 	<form action="/auth/index.cfm?page=user&<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="<cfoutput>#form_name#</cfoutput>">
 		<fieldset>
-			<div class="form-field">
+			<div class="clearfix">
 				<label for="user_first_name">First Name</label>
-				<input type="text" name="user_first_name" id="user_first_name" value="<cfoutput>#HTMLEditFormat(qUser.user_first_name)#</cfoutput>" required="required" />
+				<div class="input">
+					<input type="text" name="user_first_name" id="user_first_name" value="<cfoutput>#HTMLEditFormat(qUser.user_first_name)#</cfoutput>" required="required" />
+				</div>
 			</div>
 
-			<div class="form-field">
+			<div class="clearfix">
+
 				<label for="user_last_name">Last Name</label>
-				<input type="text" name="user_last_name" id="user_last_name" value="<cfoutput>#HTMLEditFormat(qUser.user_last_name)#</cfoutput>" required="required" />
+				<div class="input">
+					<input type="text" name="user_last_name" id="user_last_name" value="<cfoutput>#HTMLEditFormat(qUser.user_last_name)#</cfoutput>" required="required" />
+				</div>
 			</div>
 
-			<div class="form-field">
+
+			<div class="clearfix">
+
 				<label for="user_email">Email Address</label>
-				<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
-				<span class="help-inline">Your e-mail is used for logging in</span>
+				<div class="input">
+					<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+					<span class="help-inline">Your e-mail is used for logging in</span>
+				</div>
 			</div>
 
+
 			<cfif REQUEST.user_id EQ 0>
-				<div class="form-field">
+				<div class="clearfix">
 					<label for="user_email2">Confirm Email</label>
-					<input type="email" name="user_email2" id="user_email2" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+					<div class="input">
+						<input type="email" name="user_email2" id="user_email2" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
+					</div>
 				</div>
 			</cfif>
 
-			<cfif REQUEST.user_id EQ 0>
-				<div class="form-field">
-					<label for="user_password">Password</label>
-					<input type="password" name="user_password" id="user_password" required="required" />
+			<div class="clearfix">
+				<label for="user_password">Password</label>
+				<div class="input">
+					<input type="password" name="user_password" id="user_password"<cfif REQUEST.user_id EQ 0> required="required"</cfif> />
 				</div>
+			</div>
 
-				<div class="form-field">
-					<label for="user_password2">Confirm Password</label>
-					<input type="password" name="user_password2" id="user_password2" required="required" />
+			<div class="clearfix">
+				<label for="user_password2">Confirm Password</label>
+				<div class="input">
+					<input type="password" name="user_password2" id="user_password2"<cfif REQUEST.user_id EQ 0> required="required"</cfif> />
 				</div>
-			<cfelse>
-				<div class="form-field">
-					<label for="user_password">Password</label>
-					<input type="password" name="user_password" id="user_password" />
-				</div>
+			</div>
 
-				<div class="form-field">
-					<label for="user_password2">Confirm Password</label>
-					<input type="password" name="user_password2" id="user_password2" />
+			<div class="clearfix">
+				<div class="input">
+					<ul class="inputs-list">
+						<cfif REQUEST.user_id EQ 0>
+							<li>
+								<label>
+									<input type="checkbox" name="agree_to_terms" value="1" id="agree-to-terms" />
+									<span>I agree to the <a href="/profile/?gateway=1" target="_blank">Terms of Use</a></span>
+								</label>
+							</li>
+						</cfif>
+						<li>
+							<label>
+								<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" />
+								<span>Yes, I want to receive updates from Destiny Finder</span>
+							</label>
+						</li>
+					</ul>
 				</div>
-			</cfif>
+			</div>
 		</fieldset>
 
 		<div class="actions">
@@ -141,7 +166,7 @@
 		</div>
 
 	    <cfif REQUEST.user_id EQ 0>
-			<p>Already a User? <a href="/auth/?page=user">Login here</a></p>
+			<p>Already have an account? <a href="/auth/?page=user">Login here</a></p>
 		</cfif>
 
 	</form>

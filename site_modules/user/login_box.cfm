@@ -24,13 +24,18 @@
 	</p>
 	<form action="/auth/index.cfm" method="POST" id="login-form">
 		<fieldset>
-			<div class="form-field">
+			<div class="clearfix">
+
 				<label for="user_name">Email Address</label>
-				<input type="email" name="user_name" id="user_name" required="required" />
+				<div class="input">
+					<input type="email" name="user_name" id="user_name" required="required" />
+				</div>
 			</div>
-			<div class="form-field">
+			<div class="clearfix">
 				<label for="user_password">Password</label>
-				<input type="password" name="password" id="user_password" required="required" />
+				<div class="input">
+					<input type="password" name="password" id="user_password" required="required" />
+				</div>
 			</div>
 		</fieldset>
 		
@@ -39,6 +44,6 @@
 		</div>
 	</form>
 	
-	<p>Not a user yet? <a href="/auth/?page=user&create=1">Click here to create a free account.</a></p>
+	<p>Don't have an account yet? <a href="/auth/?page=user&create=1">Click here to create a free account.</a></p>
 </div>
 	
