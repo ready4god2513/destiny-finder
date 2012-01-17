@@ -26,6 +26,7 @@
 	<script src="/site_scripts/libraries/modernizr.js"></script>
 	<script src="/site_scripts/libraries/jquery.metadata.js"></script>
 	<script src="/site_scripts/libraries/jquery.form.js"></script>
+	<script src="/site_scripts/libraries/jquery.sortable.js"></script>
 	<script src="/site_scripts/libraries/jquery.hoverIntent.minified.js"></script>
 	<script src="/site_scripts/libraries/jquery.validate.min.js"></script>
 	<script src="/site_scripts/libraries/jquery_easing.js"></script>

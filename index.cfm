@@ -48,9 +48,7 @@ ORDER BY gateway_sortorder ASC
 					<div class="clear"></div>
 				</div>
 			
-				<a href="/blog/">
-					<img src="/site_images/blog_304x90.png" alt="Destiny Finder Blog" width="304" height="90" />
-				</a>
+				<cfinclude template="site_modules/blog/customtags/popular_blog_posts.cfm" />
 			</div>
 		
 			<div class="span-one-third">

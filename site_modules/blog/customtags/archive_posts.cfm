@@ -1,39 +1,18 @@
-<cfset obj_queries = CreateObject("component","site_modules.blog.cfcs.queries")>
-<cfset qPosts = obj_queries.archive_posts()>
+<cfquery name="recentBlogPosts" datasource="#APPLICATION.dsn#">
+	SELECT *
+	FROM Blogs
+	ORDER BY blog_date DESC
+</cfquery>
 
-
-<div class="archive_title">
-	<cfoutput>Archive Listing For #MonthAsString(URL.month)# #Year#:</cfoutput>
-</div><!-- class="archive_title" -->
-
-<div class="post_list">
+<section id="recent-posts">
+	<h4>Recent Articles</h4>
 	<ul>
-	<cfoutput query="qPosts">
-		<cfset VARIABLES.post_media = "">
-
-		<cfif LEN(qPosts.blog_media) GT 0>
-			<cfif findnocase(RIGHT(qPosts.blog_media,3),"flv,mp4")>
-				<cfset VARIABLES.post_media = "video">
-			<cfelseif findnocase(RIGHT(qPosts.blog_media,3),"mp3")>
-				<cfset VARIABLES.post_media = "audio">
-			</cfif>
-		<cfelseif LEN(qPosts.blog_youtube) GT 0>
-			<cfset VARIABLES.post_media = "video">
-		</cfif>	
-		
-		<cfset qAuthor = obj_queries.author_detail(author_id="#qPosts.blog_user_id#")>
-		<li>
-			<cfmodule template="post_preview.cfm"
-				post_id="#qPosts.blog_id#"
-				post_title="#qPosts.blog_title#"
-				post_author_id="#qPosts.blog_user_id#"
-				post_author_name="#qAuthor.user_first_name# #qAuthor.user_last_name#"
-				post_short_description="#qPosts.blog_shorttext#"
-				post_date="#qPosts.blog_publish_date#"
-				post_media="#VARIABLES.post_media#"
-				post_thumb="#qPosts.blog_thumb#"
-			>			
-		</li>
-	</cfoutput>
+		<cfoutput query="recentBlogPosts">
+			<cfset postURL = "http://#CGI.HTTP_HOST#/blog/index.cfm?page=blog&amp;blog_id=#recentBlogPosts.blog_id#" />
+			<li>
+				<a href="#postURL#">#recentBlogPosts.blog_title#</a>
+				<a href="#postURL###disqus_thread" data-disqus-identifier="#Hash(postURL)#" class="comment-count">#recentBlogPosts.blog_title#</a>
+			</li>
+		</cfoutput>
 	</ul>
-</div><!-- class="post_list" -->
+</section>

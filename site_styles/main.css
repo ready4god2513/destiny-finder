@@ -3348,6 +3348,31 @@ header nav ul li a {
 #blog-wrapper article .get-social {
   text-align: right;
 }
+#popular-posts, #recent-posts {
+  margin: 20px 0;
+}
+#popular-posts ul, #recent-posts ul {
+  display: block;
+  margin: 10px 0 10px 10px;
+  padding: 0;
+}
+#popular-posts ul li, #recent-posts ul li {
+  display: block;
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+#popular-posts ul li a, #recent-posts ul li a {
+  font-weight: bold;
+  text-decoration: none;
+}
+#popular-posts ul li a.comment-count, #recent-posts ul li a.comment-count {
+  color: #222;
+  display: block;
+  font-size: 0.9em;
+  font-weight: normal;
+  margin: 2px 5px;
+}
 .head_gnav {
   background-color: #f8ead1;
   background-repeat: repeat-x;

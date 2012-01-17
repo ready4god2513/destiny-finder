@@ -66,13 +66,9 @@
 	</div>
 
 	<div class="span4 offset1">
-		<a href="index.cfm?page=blog" class="btn">Blog</a> 
-		<a href="/feed.xml" class="btn">RSS Feed</a>
-		
-		<div class="blog_col_box">
-			<h4>CATEGORIES</h4>
-			<cfmodule template="customtags/category_listing.cfm">
-		</div>
-
+		<a href="/blog?page=blog" class="btn">Blog</a>
+		<a href="/profile/index.cfm?page=assessment&assessment_id=1&gift_type_id=1" class="btn success">Take our Free Test</a>
+		<cfinclude template="customtags/popular_blog_posts.cfm" />
+		<cfinclude template="customtags/archive_posts.cfm" />
 	</div>
 </div>
