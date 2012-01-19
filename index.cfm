@@ -31,7 +31,7 @@ ORDER BY gateway_sortorder ASC
 		
 			<div class="span-one-third">
 				<h1>Destiny Guide 1.0</h1>
-				<div class="section_content">
+				<div class="section-content">
 					<div id="what-is-destiny">
 						<img src="/site_images/pic_destiny_guide_1.0.jpg" width="90" height="92" id="destiny-guide-img" />
 						<strong>
@@ -47,42 +47,27 @@ ORDER BY gateway_sortorder ASC
 					</div>
 					<div class="clear"></div>
 				</div>
-			
-				<cfinclude template="site_modules/blog/customtags/popular_blog_posts.cfm" />
 			</div>
 		
 			<div class="span-one-third">
 				<h2>Testimonials</h2>
-				<div class="section_content">
+				<div class="section-content">
 					<iframe width="280" height="190" src="http://www.youtube.com/embed/NKKUJn01nyY" frameborder="0" allowfullscreen></iframe>
 				</div>
-			
-				<h4>Ask Michael</h4>
-				<div class="section_content">
-					<img src="/site_images/pic_michael_sm.jpg" width="90" height="82" id="pic-of-michael"/>
-					<div class="section_content_text">
-						<strong>Ask Michael Brodeur,</strong>
-						<p>
-							DestinyFinder CEO, what is your most burning question about finding your destiny?
-						</p>
-						<p>
-							<a href="#">Coming Soon!</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		
-			<div class="span-one-third">
+				
 				<h2>Free Survey</h2>
-				<div class="section_content">
+				<div class="section-content">
 					<ul>
 						<li>5 minute survey reveals your inner design</li>
 						<li>Learn how your design shapes your destiny</li>
 						<li>Receive your free customized results instantly</li>
 					</ul>
 				</div>
+			</div>
+		
+			<div class="span-one-third">
 			
-				<div class="section_content">
+				<div class="section-content">
 					<form method="post" target="_blank" action="http://visitor.r20.constantcontact.com/d.jsp" name="ccoptin">
 						<h4>Join our Mailing List</h4>
 						<input type="hidden" value="gahj9deab" name="llr" />
@@ -93,12 +78,7 @@ ORDER BY gateway_sortorder ASC
 					</form>
 				</div>
 			
-				<a href="#">
-					<img src="/site_images/DF-Book-icon1.jpg" width="252" height="74" />
-				</a>
-				<a href="#">
-					<img src="/site_images/ProfilerModule.jpg" width="252" height="74" />
-				</a>
+				<cfinclude template="site_modules/blog/customtags/popular_blog_posts.cfm" />
 			</div>
 		</div>
 	</div>

@@ -2,9 +2,6 @@
 
 <cfif FindNoCase("destinyfinder",CGI.HTTP_REFERER)>
 
-	<!---<cfset VARIABLES.result = Replace(FORM.sort_serialized,'item[]=','','ALL')>
-	<cfset VARIABLES.result = Replace(VARIABLES.result,'&',',','ALL')>--->
-
     <cfif isDefined("FORM.nxpz3")>
     	<cfset vHiddenList = DEcrypt(FORM.nxpz3,'keyei3v2','CFMX_COMPAT','Hex')>
     	<cfset VARIABLES.vCount = ListGetAt(vHiddenList,1) + 1>
@@ -20,7 +17,6 @@
         </cfquery>
         
         <cfif ResultExists.recordcount EQ 0 AND VARIABLES.vFormField EQ 'sphere'>
-        	<!---<cfinsert datasource="#APPLICATION.DSN#" tablename="Passion_Survey" formfields="user_id,#VARIABLES.vFormField#,last_modified">--->
         	<cfquery datasource="#APPLICATION.DSN#">
             	INSERT INTO Passion_Survey (
                 user_id,
@@ -33,9 +29,8 @@
             </cfquery> 
         <cfelse>
         	<cfquery datasource="#APPLICATION.DSN#">
-            	UPDATE Passion_Survey SET
-                #VARIABLES.vDBColumn# = '#Evaluate("FORM." & VARIABLES.vFormField)#',
-                last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#"> 
+            	UPDATE Passion_Survey
+				SET last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#"> 
                 WHERE user_id = #FORM.user_id#
             </cfquery>
         </cfif>
@@ -66,12 +61,11 @@
 
     </cfif>
     <cfif isDefined("FORM.surveydone")>
-		<!---<cflocation url="/profile/?page=resultintro" >--->
-    <script type="text/javascript">
-		<!-- //
-		top.location.href = '/profile/?page=viewresult&assessment_id=5';
-		// -->
-	</script>
+	    <script type="text/javascript">
+			<!-- //
+			top.location.href = '/profile/?page=viewresult&assessment_id=5';
+			// -->
+		</script>
 	<cfelse>
     	<cflocation addtoken="yes" url="/site_modules/assessment/passion_survey.cfm?assessment_id=5&nxpb3=#Encrypt('#VARIABLES.vCount#,#VARIABLES.vNextQuestion#','keyei3v2','CFMX_COMPAT','Hex')#">
 	</cfif>

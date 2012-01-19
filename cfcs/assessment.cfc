@@ -371,31 +371,13 @@
 					</cfcase>
 				</cfswitch>
 		</cfloop>
-		<!---<br/><br/>	
-		<strong>GIFT COUNT: </strong>--->	
+		
 		<cfquery name="uResult" datasource="#APPLICATION.DSN#">
 			UPDATE Results
 			SET
 			result_gift_count = <cfqueryparam cfsqltype="char" value="#SerializeJSON(VARIABLES.gift_count)#">
 			WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
-		</cfquery> 
-	
-		<!---<cfdump var="#VARIABLES.gift_count#">
-		<div align="center"><cfchart
-	       format="png"
-	       scalefrom="0"
-	       scaleto="40">
-	      <cfchartseries
-	          type="bar"
-	          serieslabel="Free Survey Core Gift Result"
-	          seriescolor="gray">
-	        <cfchartdata item="Apostle" value="#VARIABLES.gift_count[1].counter#">
-	        <cfchartdata item="Prophet" value="#VARIABLES.gift_count[2].counter#">
-	        <cfchartdata item="Evangelist" value="#VARIABLES.gift_count[3].counter#">
-	        <cfchartdata item="Pastor" value="#VARIABLES.gift_count[4].counter#">
-	        <cfchartdata item="Teacher" value="#VARIABLES.gift_count[5].counter#">
-	      </cfchartseries>
-	    </cfchart></div>--->
+		</cfquery>
     
 		<cfloop from="1" to="#ArrayLen(VARIABLES.gift_count)#" index="i">
 			<cfif VARIABLES.gift_count[i].counter GT VARIABLES.dominant_gift.count>
@@ -404,62 +386,31 @@
 			</cfif>
 		</cfloop>
     
-	    <!---<cfloop from="1" to="#ArrayLen(VARIABLES.gift_count)#" index="i">
-			<cfif VARIABLES.gift_count[i].counter GT VARIABLES.secondary_gift.count AND VARIABLES.gift_count[i].id NEQ VARIABLES.dominant_gift.id>
-				<cfset VARIABLES.secondary_gift.id = VARIABLES.gift_count[i].id>
-				<cfset VARIABLES.secondary_gift.count = VARIABLES.gift_count[i].counter>
-			</cfif>
-		</cfloop>--->
-    
     
 	    <cfquery name="qThisResult" datasource="#APPLICATION.DSN#">
 	    Select 
 	    <cfif assessment_id GTE 2>gift_primary<cfelse>gift_brief</cfif> AS ThisResult from gifts
 	    Where gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">
 	    </cfquery>
-	    <!---<cfdump var="#qThisResult#">--->
+	
 	    <cfquery name="qUser" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Users
 			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
 		</cfquery>
-		<!---<br/><br/>
-		<strong>Primary GIFT: </strong>--->
+		
 	    <cfif qThisResult.recordcount GT 0>
-	    <div style="margin: 70px 0px 0px 100px; color: ##a82b33; font-size: 18px; font-weight: bold">Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
-	    <div class="short_desc">#qThisResult.ThisResult#
-	    </div>
-	    <cfif isDefined("assessment_id")>
-	    <cfquery name="qGetClosing" datasource="#APPLICATION.DSN#">
-			SELECT assessment_closing_text
-			FROM Assessments
-			WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
-		</cfquery>
-	    <div class="short_desc">#qGetClosing.assessment_closing_text#
-	    </div>
+	    	<div>Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
+		    <div class="short_desc">#qThisResult.ThisResult#</div>
+		    <cfif isDefined("assessment_id")>
+			    <cfquery name="qGetClosing" datasource="#APPLICATION.DSN#">
+					SELECT assessment_closing_text
+					FROM Assessments
+					WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
+				</cfquery>
+		    	<div class="short_desc">#qGetClosing.assessment_closing_text#</div>
+		    </cfif>
 	    </cfif>
-	    </cfif><!---<cfdump var="#VARIABLES.gift_count#">
-		<div align="center"><cfchart labelmask=""
-	       format="png"
-	       scalefrom="0"
-	       scaleto="40"
-	       showmarkers="no"
-	       showlegend="no">
-	      <cfchartseries
-	          type="bar"
-	          serieslabel="Free Survey Core Gift Result"
-	          seriescolor="gray">
-	        <cfchartdata item="Apostle" value="#VARIABLES.gift_count[1].counter#">
-	        <cfchartdata item="Prophet" value="#VARIABLES.gift_count[2].counter#">
-	        <cfchartdata item="Evangelist" value="#VARIABLES.gift_count[3].counter#">
-	        <cfchartdata item="Pastor" value="#VARIABLES.gift_count[4].counter#">
-	        <cfchartdata item="Teacher" value="#VARIABLES.gift_count[5].counter#">
-	      </cfchartseries>
-	    </cfchart></div>--->
-		<!---<cfdump var="#VARIABLES.dominant_gift#">
-	    <strong>Secondary GIFT: </strong>
-	    <cfdump var="#VARIABLES.secondary_gift#">--->
-	
 	</cffunction>
 
 

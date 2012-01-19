@@ -19,17 +19,23 @@
 	
 	<form action="#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#" method="post" name="profile" enctype="multipart/form-data">
 		<fieldset>
-			<div class="input">
+			<div class="clearfix">
 				<label for="user_first_name">First Name</label>
-				<input type="text" name="user_first_name" id="user_first_name" required="required" />
+				<div class="input">
+					<input type="text" name="user_first_name" id="user_first_name" required="required" />
+				</div>
 			</div>
-			<div class="input">
+			<div class="clearfix">
 				<label for="user_last_name">Last Name</label>
-				<input type="text" name="user_last_name" id="user_last_name" required="required" />
+				<div class="input">
+					<input type="text" name="user_last_name" id="user_last_name" required="required" />
+				</div>
 			</div>
-			<div class="input">
+			<div class="clearfix">
 				<label for="user_email">Email Address</label>
-				<input type="email" name="user_email" id="user_email" required="required" />
+				<div class="input">
+					<input type="email" name="user_email" id="user_email" required="required" />
+				</div>
 			</div>
 		</fieldset>
 		<div class="actions">

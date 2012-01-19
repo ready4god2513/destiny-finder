@@ -3424,13 +3424,13 @@ header nav ul li a {
   padding: 7px 10px;
   background: url(/site_images/section_title_bg1.jpg) no-repeat 0 7px;
 }
-#home-page .section_content {
+#home-page .section-content {
   margin-bottom: 50px;
 }
-#home-page .section_content strong {
+#home-page .section-content strong {
   color: #692109;
 }
-#home-page .section_content #destiny-guide-img, #home-page .section_content #pic-of-michael {
+#home-page .section-content #destiny-guide-img, #home-page .section-content #pic-of-michael {
   float: left;
   margin: 0 10px 10px 0;
 }

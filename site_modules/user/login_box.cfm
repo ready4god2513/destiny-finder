@@ -25,7 +25,6 @@
 	<form action="/auth/index.cfm" method="POST" id="login-form">
 		<fieldset>
 			<div class="clearfix">
-
 				<label for="user_name">Email Address</label>
 				<div class="input">
 					<input type="email" name="user_name" id="user_name" required="required" />

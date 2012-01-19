@@ -14,11 +14,3 @@
 	#objAssessments.process_passion_statement(user_id="#val(REQUEST.user_id)#")#
 </cfif>
 </cfoutput>
-<!---<cfoutput>#objAssessments.compile_results(user_id="#REQUEST.user_id#",result_id="#qResults.result_id#", assessment_id="#URL.assessment_id#",gift_type_id="#URL.gift_type_id#")#
-<br />
-&dagger;
-</cfoutput>--->
-
-<!---<cfloop query="qResults">
-    <cfoutput>#objAssessments.process_results(result_id="#qResults.result_id#",assessment_id="#URL.assessment_id#",gift_type_id="#URL.gift_type_id#")#</cfoutput>
-</cfloop>--->

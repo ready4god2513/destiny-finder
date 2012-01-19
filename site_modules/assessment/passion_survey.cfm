@@ -1,4 +1,3 @@
-
 <cfparam name="URL.assessment_id" default="5">
 <cfparam name="URL.user_id" default="#REQUEST.user_id#">
 <cfparam name="ATTRIBUTES.assessment_id" default="#val(URL.assessment_id)#">

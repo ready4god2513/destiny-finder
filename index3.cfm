@@ -75,42 +75,42 @@
    <div class="body_content">
    		<div class="section_wrapper" style="height: 360px;">
 			<div><h1>Destiny Guide 1.0</h1></div>
-            <div class="section_content"><div style="width:90px; height:236px; float:left; margin-right:8px;"><img src="site_images/pic_destiny_guide_1.0.jpg" width="90" height="92"></div>
-           <div class="section_content_text">
+            <div class="section-content"><div style="width:90px; height:236px; float:left; margin-right:8px;"><img src="site_images/pic_destiny_guide_1.0.jpg" width="90" height="92"></div>
+           <div class="section-content_text">
                     The Destiny Survey is just the first step of the Destiny Guide 1.0 System. The Destiny Guide System is based on 30 years of helping people discover their destiny. It contains:
                     <ul>
                         <li>The <strong>Destiny Profiler</strong>, a comprehensive assessment of 10 dimensions of gifting, core traits, personality, personal passion and more.</li>
                         <li>The <strong>Destiny Planner</strong>, a coach-directed, individualized action plan based on your profile.</li>
                         <li>The <strong>Destiny Activator</strong>, in which a coach helps you find a mentor and an opportunity to use your gifts in your target area.</li>
                     </ul>
-                </div><!-- <div class="section_content_text"> -->
-            </div><!-- <div class="section_content"> -->
+                </div><!-- <div class="section-content_text"> -->
+            </div><!-- <div class="section-content"> -->
 		</div><!-- <div class="section_wrapper"> -->
         
         <div class="section_wrapper" style="height: 360px;">
             <div><h2>Testimonials</h2></div>
-            <div class="section_content">
+            <div class="section-content">
             	<iframe width="304" height="206" src="http://www.youtube.com/embed/MfMwV6rMjiQ" frameborder="0" allowfullscreen></iframe>
-            <!---<a id="destinyvid" title="Fullfill Your Destiny" href="http://www.youtube.com/watch?v=MfMwV6rMjiQ&feature=player_embedded#at=41"><img style="margin-left:16px" src="site_images/btn_videoplayer.png" width="270" height="147"></a>---></div><!-- <div class="section_content"> -->
+            <!---<a id="destinyvid" title="Fullfill Your Destiny" href="http://www.youtube.com/watch?v=MfMwV6rMjiQ&feature=player_embedded#at=41"><img style="margin-left:16px" src="site_images/btn_videoplayer.png" width="270" height="147"></a>---></div><!-- <div class="section-content"> -->
         </div> <!--<div class="section_wrapper">-->
 
         <div class="section_wrapper">
             <div><h3>News</h3></div>
-            <div class="section_content">
-            	<div class="section_content_text" style="width:290px;">Destiny Guide 1.0 launches at Jesus Culture
+            <div class="section-content">
+            	<div class="section-content_text" style="width:290px;">Destiny Guide 1.0 launches at Jesus Culture
                 <p>DestinyFinder's flagship product, Destiny Guide 1.0, will make its official launch at the Jesus Culture Awakening conference Aug. 3-5, 2011 at Allstate Arena, Chicago.<br /><!---<a href="#">More...</a>---></p>
-                </div><!--<div class="section_content_text">-->
-            </div><!-- <div class="section_content"> -->
+                </div><!--<div class="section-content_text">-->
+            </div><!-- <div class="section-content"> -->
 		</div> <!--<div class="section_wrapper">-->
         
         <div class="section_wrapper">
             <div><h4>Ask Michael</h4></div>
-            <div class="section_content">
+            <div class="section-content">
               <div style="width:90px; height:200px; float:left; margin-right:8px;"><img src="site_images/pic_michael_sm.jpg" width="90" height="82"></div>
-                <div class="section_content_text">Ask Michael Brodeur,
+                <div class="section-content_text">Ask Michael Brodeur,
                     <p>DestinyFinder CEO, what is your most burning question about finding your destiny.<br /><a href="#">Ask Now...</a></p>
-                </div><!-- <div class="section_content_text"> -->
-            </div><!--<div class="section_content">--> 
+                </div><!-- <div class="section-content_text"> -->
+            </div><!--<div class="section-content">--> 
    		</div><!--<div class="section_wrapper">-->
    </div>
    
@@ -118,14 +118,14 @@
    <div class="rt_col_section_wrapper">
 			<h2>Destiny Guide 1.0</h2>
             <div style="width:90px; height:236px; float:left; margin-right:4px;"><img src="site_images/pic_destiny_guide_1.0.jpg" width="90" height="92"></div>
-           <div class="section_content_text">
+           <div class="section-content_text">
                     The Destiny Survey is just the first step of the Destiny Guide 1.0 System. The Destiny Guide System is based on 30 years of helping people discover their destiny. It contains:
                     <ul>
                         <li>The <strong>Destiny Profiler</strong>, a comprehensive assessment of 10 dimensions of gifting, core traits, personality, personal passion and more.</li>
                         <li>The <strong>Destiny Planner</strong>, a coach-directed, individualized action plan based on your profile.</li>
                         <li>The <strong>Destiny Activator</strong>, in which a coach helps you find a mentor and an opportunity to use your gifts in your target area.</li>
                     </ul>
-                </div><!-- <div class="section_content_text"> -->
+                </div><!-- <div class="section-content_text"> -->
          <br class="clear" />   
         <a href="/blog/"><img style="margin:10px 0 0 3px;" src="site_images/btn_blog_read_latest.jpg" width="263" height="80" /></a>
 		</div><!-- <div class="section_wrapper"> -->

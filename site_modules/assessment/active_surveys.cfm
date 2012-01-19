@@ -60,37 +60,3 @@
 	</ul>
 	</ul>
 	</div>
-	<!---<br />
-	<div class="result">
-		<h2>Invite A Friend</h2>
-        <br />
-        Have your friends do the survey about you. This will give you valuable additional feedback.<br /><br />
-		<a href="index.cfm?invite=1">Send an invite</a>
-        <br /><br />Active Invitations<br />
-		<ul>
-			<cfif qInvites.recordcount GT 0>
-				<cfloop query="qInvites">
-					<li>#qInvites.invite_first_name# #qInvites.invite_last_name#
-						<br/>
-						<cfset qIResult = objAssessments.retrieve_result(user_id="#REQUEST.user_id#",invite="#qInvites.invite_uid#")>
-						<!---<cfdump var="#qIResult#">--->
-					#objAssessments.compile_results(user_id="#REQUEST.user_id#",invite="#qInvites.invite_uid#")#
-					</li>
-				</cfloop>
-			<cfelse>
-				<li>- No Invites Have Been Sent -</li>
-			</cfif>
-		</ul>
-	</div>
-	
-	<cfloop query="qResults">
-		<div class="result">
-		<h2>Survey Results: ###qResults.result_id#</h2>
-		#objAssessments.process_results(result_id="#qResults.result_id#")#
-		</div>
-	</cfloop>--->
-	
-	<!---<div class="result">
-		<h2>Compiled Results</h2>
-		#objAssessments.compile_results(user_id="#REQUEST.user_id#")#
-	</div>--->
