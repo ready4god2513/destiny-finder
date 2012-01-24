@@ -9,7 +9,7 @@
 			method="POST"
 			port="443"
 			userAgent="DestinyFinder">
-			<cfhttpparam name="api_token" type="FormField" value="#APPLICATION.foxyCart.apiToken#" />
+			<cfhttpparam name="api_token" type="FormField" value="#APPLICATION.foxyCart.apiKey#" />
 			<cfhttpparam name="api_action" type="FormField" value="customer_save" />
 			<cfhttpparam name="customer_email" type="FormField" value="#ARGUMENTS.username#" />
 			<cfhttpparam name="customer_password_hash" type="FormField" value="#ARGUMENTS.password#" />
@@ -22,7 +22,7 @@
 		<cfargument name="customer_id" type="string" require="yes" />		
 		<cfargument name="timestamp" type="string" require="yes" />
 		
-		<cfreturn Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#APPLICATION.foxyCart.apiToken#", "SHA-1")>
+		<cfreturn Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#APPLICATION.foxyCart.apiKey#", "SHA-1")>
 	</cffunction>
 	
 	
@@ -34,7 +34,7 @@
 			method="POST"
 			port="443"
 			userAgent="DestinyFinder">
-			<cfhttpparam name="api_token" type="FormField" value="#APPLICATION.foxyCart.apiToken#" />
+			<cfhttpparam name="api_token" type="FormField" value="#APPLICATION.foxyCart.apiKey#" />
 			<cfhttpparam name="api_action" type="FormField" value="customer_get" />
 			<cfhttpparam name="customer_email" type="FormField" value="#ARGUMENTS.email#" />
 		</cfhttp>
