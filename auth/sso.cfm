@@ -7,10 +7,10 @@
 
 	<cfset foxyCart.save_user(username = "#user.user_email#", password = "#user.user_password#") />
 	<cfset customer_id = foxyCart.find_foxycart_customer_id(email = "#user.user_email#") />
-	<cfset timestamp = Round(GetTickCount() / 1000 + (60 * 60 * 24 * 7)) />
+	<cfset timestamp = url["timestamp"] + 86400 />
 	<cfset auth_token = foxyCart.auth_token(customer_id = #customer_id#, timestamp = #timestamp#) />
 	<cfset redirect_url = "https://destinyfinder.foxycart.com/checkout?fc_auth_token=#auth_token#&fcsid=#url["fcsid"]#&fc_customer_id=#customer_id#&timestamp=#timestamp#" />
-	
+
 	<cflocation url="#redirect_url#" />
 <cfelse>
 	<cflocation url="/auth" />

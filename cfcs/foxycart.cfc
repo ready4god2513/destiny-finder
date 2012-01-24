@@ -25,7 +25,6 @@
 		<cfargument name="customer_id" type="string" require="yes" />		
 		<cfargument name="timestamp" type="string" require="yes" />
 		
-		
 		<cfreturn Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#apiToken#", "SHA-1")>
 	</cffunction>
 	

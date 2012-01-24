@@ -5,6 +5,7 @@
 		price="19.99"
 		description="Includes Destiny, Motivational, Supernatural and Passion Surveys (and Destiny Mission Statement, to be released Sept 2011, free upgrade)"
 		image="ProfilerModule.jpg"
+		product_id="#Hash("profiler")#"
 		available=true>
 	</cfmodule>
 	
@@ -13,6 +14,7 @@
 		price="19.99"
 		description="(To be released Fall2011) Includes Soul Survey, 1 hr. Coaching, Action Plan"
 		image="PlannerModule.jpg"
+		product_id="#Hash("planner")#"
 		available=false>
 	</cfmodule>
 	
@@ -21,6 +23,7 @@
 		price="19.99"
 		description="(To be released Fall 2011) Includes 1 hr. Coaching, Mentor and Internship templates, Tracker Tool"
 		image="ActivatorModule.jpg"
+		product_id="#Hash("activator")#"
 		available=false>
 	</cfmodule>
 	
