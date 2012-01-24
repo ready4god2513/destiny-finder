@@ -95,6 +95,9 @@
 		<cfset REQUEST.from_email = "noreply@destinyfinder.com">
 		<cfset REQUEST.site_path= "">
 		<cfset REQUEST.temp_upload_dir = "">
+			
+		<!--- FOR FOXYCART --->
+		<cfset APPLICATION.foxyCart = { apiKey = "eNsgJKP1KlMIImFkrizBmaSdlFSwUydYdw9R7SHH4pkGFVVW8lsqlatBJbXv", baseURL = "https://destinyfinder.foxycart.com/api" }>
 		
 		
 		<!--- MANAGE UNIVERSAL LOGIN --->
