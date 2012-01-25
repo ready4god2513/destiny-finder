@@ -1,8 +1,5 @@
 $(function(){
 	
-	// Drop Down Menu
-	$("ul.sf-menu").superfish();
-	
 	$.validator.setDefaults({ 
 	    errorElement: "em"
 	});
@@ -95,5 +92,9 @@ $(function(){
 	$("p").filter(function() {
 		return $.trim($(this).text()) === ""
 	}).remove();
+	
+	
+	// Dropdown Menu
+	$("#topbar").dropdown();
 	
 });

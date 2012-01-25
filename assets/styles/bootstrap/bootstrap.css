@@ -1299,11 +1299,10 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   background-color: #e2d5f0;
 }
 /* Patterns.less
- * Repeatable UI elements outside the base styles provided from the scaffolding
- * ---------------------------------------------------------------------------- */
+* Repeatable UI elements outside the base styles provided from the scaffolding
+* ---------------------------------------------------------------------------- */
 .topbar {
   height: 40px;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;

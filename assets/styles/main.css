@@ -1769,11 +1769,10 @@ table .headerSortUp.purple, table .headerSortDown.purple {
   background-color: #e2d5f0;
 }
 /* Patterns.less
- * Repeatable UI elements outside the base styles provided from the scaffolding
- * ---------------------------------------------------------------------------- */
+* Repeatable UI elements outside the base styles provided from the scaffolding
+* ---------------------------------------------------------------------------- */
 .topbar {
   height: 40px;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -3062,139 +3061,6 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 
     More info at: http://lesselements.com
 -----------------------------------------------------*/
-/*** ESSENTIAL STYLES ***/
-ul.sf-menu {
-  margin: 0;
-  padding: 0;
-  width: 960px;
-  height: 50px;
-  list-style: none;
-  margin-left: auto;
-  margin-right: auto;
-  background-repeat: no-repeat;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-}
-ul.sf-menu li {
-  list-style: none;
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  padding: 17px 18px 12px 18px;
-}
-ul.sf-menu a {
-  margin-right: auto;
-  margin-left: auto;
-  /*text-indent: -9999px;*/
-  /*--Push text off of page--*/
-
-  color: #a82b33;
-  text-decoration: none;
-}
-.sf-menu a {
-  position: relative;
-  float: left;
-}
-.sf-menu .sfHover a {
-  background-repeat: no-repeat;
-  background-position: right top;
-}
-.sf-menu .sfHover a:active, .sf-menu .sfHover a:focus {
-  background-image: none;
-}
-.sf-menu a span {
-  display: block;
-  /* padding:5px; */
-
-  text-align: center;
-}
-.sf-menu .sfHover a span {
-  background-repeat: no-repeat;
-  background-position: left top;
-}
-.sf-menu .sfHover a:active span, .sf-menu .sfHover a:focus span {
-  background-image: none;
-}
-.sf-menu ul {
-  position: absolute;
-  top: -999em;
-  margin: 10px 0 0 0px;
-  background-color: #f7f1e4;
-  padding: 0px;
-  width: 15em;
-  font-weight: normal;
-}
-.sf-menu ul ul {
-  margin: -1px 0px 0px 42px;
-}
-.sf-menu ul li {
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-  border-right: 1px solid #9b7d5b;
-  border-bottom: 1px solid #9b7d5b;
-  border-left: 1px solid #9b7d5b;
-  background-image: none;
-}
-.sf-menu ul a, .sf-menu ul a:link, .sf-menu ul a:visited {
-  background-image: none;
-  font-size: 13px;
-  padding: 7px 0px 7px 10px;
-}
-.sf-menu ul a:hover {
-  color: #a82b33;
-}
-ul.sf-menu li a .sf-sub-indicator {
-  display: none;
-  float: left;
-  background-color: #ff0000;
-  background-image: none;
-  padding: 0px;
-}
-.sf-menu li:hover {
-  visibility: inherit;
-  /* fixes IE7 'sticky bug' */
-
-}
-.sf-menu li {
-  float: left;
-  margin: 0px 3px 0px 0px;
-  padding: 6px 3px 0px 3px;
-  position: relative;
-  /*--Important--*/
-
-  z-index: 9999;
-  background-position: right !IMPORTANT;
-  background-repeat: no-repeat;
-}
-.sf-menu-last {
-  background-image: none !IMPORTANT;
-}
-.sf-menu li:hover ul, .sf-menu li.sfHover ul {
-  left: 0;
-  top: 2.5em;
-  /* match top ul list item height */
-
-  z-index: 99;
-}
-ul.sf-menu li:hover li ul, ul.sf-menu li.sfHover li ul {
-  top: -999em;
-}
-ul.sf-menu li li:hover ul, ul.sf-menu li li.sfHover ul {
-  left: 10em;
-  /* match ul width */
-
-  top: 0;
-}
-ul.sf-menu li li:hover li ul, ul.sf-menu li li.sfHover li ul {
-  top: -999em;
-}
-ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
-  left: 10em;
-  /* match ul width */
-
-  top: 0;
-}
 .sortable {
   list-style-type: none;
   margin: 0;
@@ -3203,24 +3069,15 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   margin-bottom: 50px;
 }
 .sortable li {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background-color: #f8ead1;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fdf8f0), to(#f8ead1));
-  background-image: -moz-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: -ms-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdf8f0), color-stop(100%, #f8ead1));
-  background-image: -webkit-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: -o-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: linear-gradient(top, #fdf8f0, #f8ead1);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf8f0', endColorstr='#f8ead1', GradientType=0);
-  border: 1px solid #f8ead1;
-  color: #3e3f53;
+  background: #e0f5fe;
+  border: 1px solid #ade6fe;
+  color: #222;
   margin: 5px;
   padding: 5px;
 }
@@ -3231,64 +3088,20 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   display: none;
 }
 body {
-  background: #3e3f53 url(/assets/images/body_bg_rpt.jpg) repeat-x;
-  color: #565555;
-}
-a {
-  color: #692109;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-a:visited {
-  color: #692109;
-  text-decoration: none;
+  background: #f8f8f8;
+  color: #222;
 }
 br {
   display: none;
 }
-img {
-  border: none;
-}
-table,
-.box,
-.short_desc,
-.result {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background-color: #ffffff;
-  border: 1px solid #e9ddc7;
-  padding: 20px 40px;
-  margin: 20px 0;
-}
 div#myEventWatcherDiv {
   display: none;
 }
-.box h2 {
-  font-size: 0.9em;
-}
-h1, h2 {
-  color: #a82b33;
-}
-h3 {
-  color: #333333;
-}
-/* END RESET */
 .clear {
   clear: both;
 }
-.site_wrapper {
-  width: 960px;
-  height: 100%;
-  margin: 0 auto;
-}
 header {
-  background: url(/assets/images/head_bg.jpg) no-repeat;
+  background: #d8eaf6;
   padding: 20px auto;
 }
 header nav {
@@ -3298,17 +3111,9 @@ header nav {
 }
 header nav ul {
   display: inline-block;
-  background: white;
-  margin: -5px 10px 0 0;
+  margin: 10px;
   padding: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
   font-size: 0.9em;
-  border: 1px solid #ccc;
 }
 header nav ul li {
   display: inline-block;
@@ -3341,7 +3146,7 @@ header nav ul li a {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #f4ebd8;
+  background: #f7f7f7;
   margin-top: 50px;
   padding: 5px;
 }
@@ -3373,28 +3178,7 @@ header nav ul li a {
   font-weight: normal;
   margin: 2px 5px;
 }
-.head_gnav {
-  background-color: #f8ead1;
-  background-repeat: repeat-x;
-  background-image: -khtml-gradient(linear, left top, left bottom, from(#fdf8f0), to(#f8ead1));
-  background-image: -moz-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: -ms-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdf8f0), color-stop(100%, #f8ead1));
-  background-image: -webkit-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: -o-linear-gradient(top, #fdf8f0, #f8ead1);
-  background-image: linear-gradient(top, #fdf8f0, #f8ead1);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdf8f0', endColorstr='#f8ead1', GradientType=0);
-}
-.head_gnav ul li a {
-  font-weight: bold;
-}
 #banner_wrapper {
-  -webkit-box-shadow: 0 -2px 1px #999999;
-  -moz-box-shadow: 0 -2px 1px #999999;
-  box-shadow: 0 -2px 1px #999999;
-  -webkit-box-shadow: 0 -2px 1px #999999;
-  -moz-box-shadow: 0 -2px 1px #999999;
-  box-shadow: 0 -2px 1px #999999;
   background: url(/assets/images/banner_bg.jpg) repeat;
   height: 370px;
   position: relative;
@@ -3408,64 +3192,14 @@ header nav ul li a {
   position: absolute;
   right: -10px;
 }
-#home-page {
-  height: 100%;
-  background-color: #F7F1E4;
-  background-repeat: repeat;
-  color: #565555;
+.body-content {
+  background: #fff;
+  clear: both;
 }
-#home-page h1,
-#home-page h2,
-#home-page h3,
-#home-page h4 {
-  color: #a82b33;
-  font-weight: bold;
-  font-size: 20px;
-  padding: 7px 10px;
-  background: url(/assets/images/section_title_bg1.jpg) no-repeat 0 7px;
-}
-#home-page .section-content {
-  margin-bottom: 50px;
-}
-#home-page .section-content strong {
-  color: #692109;
-}
-#home-page .section-content #destiny-guide-img, #home-page .section-content #pic-of-michael {
-  float: left;
-  margin: 0 10px 10px 0;
-}
-.subpage_banner {
-  width: 100%;
-  padding: 10px 0;
-  background: url(/assets/images/subpage_banner.jpg) no-repeat;
-}
-#subpage_title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #ffffff;
+.body-content #page-title {
   padding: 20px;
 }
-#subpage_title h2 {
-  color: #A82B33;
-  font-size: 16px;
-}
-.body_content {
-  clear: both;
-  background-color: #f7f1e4;
-}
-.body_content #subpage_nav {
-  clear: both;
-  padding: 10px 0;
-}
-.body_content #subpage_nav ul {
-  list-style: none;
-  margin: 10px;
-}
-.body_content #subpage_nav ul li {
-  display: inline-block;
-  margin: 5px;
-}
-.body_content .page-content {
+.body-content .page-content {
   padding: 10px 20px;
 }
 .single-product {
@@ -3476,13 +3210,6 @@ header nav ul li a {
 .single-product form, .single-product a.btn {
   margin: 30px auto;
 }
-.result h2 {
-  font-size: 16px;
-  color: #a82b33;
-}
-.result ul {
-  list-style: none;
-}
 .assessment_wrapper ul a:hover {
   text-decoration: none;
 }
@@ -3491,21 +3218,8 @@ header nav ul li a {
   color: #e9ddc7;
   border: 1px solid;
 }
-.user_greeting {
-  margin: 10px 0;
-}
-.user_greeting table {
-  height: 300px;
-  background-color: #ffffff;
-  border: 1px solid #e9ddc7;
-  padding: 20px 40px 20px 30px;
-  margin: 20px 0px 0px 10px;
-}
-.user_greeting td {
-  padding: 3px;
-}
 em.error {
-  color: #900;
+  color: #9d261d;
   padding: 0 5px;
 }
 .user_greeting_form_title {
@@ -3528,18 +3242,13 @@ em.error {
 .percent_completed img {
   margin: 1px 0 0 1px;
 }
-.body_right_col {
-  width: 295px;
-  float: left;
-  background-image: url(/assets/images/right_col_bg_rpt_x.jpg);
-  background-repeat: repeat-x;
-}
 footer {
-  background: url(/assets/images/foot_bg.jpg) no-repeat;
+  background: none;
   margin: 0;
   padding: 20px;
 }
 footer nav {
+  background: #fff;
   padding: 20px auto;
   width: 500px;
 }

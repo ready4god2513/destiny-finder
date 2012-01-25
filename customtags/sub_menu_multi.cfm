@@ -16,9 +16,6 @@
 <cfparam name="URL.gateway" default="">
 
 
-
-
-
 <!--- RETRIEVE MENU ITEMS ASSIGNED TO THIS GATEWAY --->
 <cfquery name="qMenu" datasource="#REQUEST.DSN#">
 	SELECT menu_type,menu_item_id,menu_gateway_id
@@ -47,15 +44,8 @@
 <cfset VARIABLES.submenuindex = 0>
 
 <cfif (qMenu.recordcount GT 0 AND VARIABLES.display_menu EQ 1) OR (qMenu.recordcount GT 0 AND ATTRIBUTES.menu_type EQ "leftnav")>
-
-	<!--- FOR LEFT NAVIGATION ONLY, WILL CREATE A DIV ELEMENT THAT WILL ACCOMMODATE THE ACCORDION EFFECT --->
-	<!--- TO PREVENT NESTED ACCORDIONS, ONLY SHOW FOR MENUS BELOW TIER 2 --->
-	<!--- <cfoutput> **DEBUG** ATTRIBUTES.submenuheader EQ "yes" AND ATTRIBUTES.tier LT 3 = #ATTRIBUTES.submenuheader# EQ "yes" AND #ATTRIBUTES.tier# LT 2</cfoutput> --->
-	<cfif ATTRIBUTES.submenuheader EQ "yes" AND ATTRIBUTES.tier EQ 2>
-		<div class="submenu">	
-	</cfif>
 	
-	<ul <cfif ATTRIBUTES.menu_type EQ "leftnav" AND ATTRIBUTES.tier GT 2>class="subtier"</cfif>>
+	<ul class="dropdown-menu">
 	
 	<cfoutput query="qMenu">
 	
@@ -98,7 +88,7 @@
 														<cfset VARIABLES.additional_url_var = "&submenuheader=" & (ATTRIBUTES.submenuindex - 1)>
 													</cfif>
 																									
-													<cfset VARIABLES.menu_page = '<li><a href="#ATTRIBUTES.gateway_path#index.cfm?page=#qPage.content_action#&gateway=#ATTRIBUTES.gateway_url#&parent_gateway=#ATTRIBUTES.parent_gateway##VARIABLES.additional_url_var##qPage.content_additional_url_var#" class="#VARIABLES.subpage_class#">#VARIABLES.subpage_indent##qPage.content_name#</a></li>'>
+													<cfset VARIABLES.menu_page = '<li><a href="#ATTRIBUTES.gateway_path#index.cfm?page=#qPage.content_action#&gateway=#ATTRIBUTES.gateway_url#&parent_gateway=#ATTRIBUTES.parent_gateway##VARIABLES.additional_url_var##qPage.content_additional_url_var#">#VARIABLES.subpage_indent##qPage.content_name#</a></li>'>
 												</cfif>
 											</cfif>
 										</cfif>
@@ -136,7 +126,7 @@
 				<!--- CREATE VARIABLES FOR THE LINK'S HREF ATTRIBUTE --->
 				<cfset VARIABLES.link_string = "#ATTRIBUTES.gateway_path#index.cfm?gateway=#VARIABLES.passed_gateway#&parent_gateway=#ATTRIBUTES.parent_gateway#&submenuheader=#VARIABLES.submenuindex_for_gateway_link#">
 								
-				<li><a href="#VARIABLES.link_string#" class="<cfif ATTRIBUTES.menu_type EQ "leftnav" AND ATTRIBUTES.tier LT 2>submenuheader<cfelse>subtier_gateway</cfif>">#qGateway.gateway_name#</a>
+				<li><a href="#VARIABLES.link_string#">#qGateway.gateway_name#</a>
 				
 				<cfif ATTRIBUTES.menu_type EQ "leftnav">
 					<cfset VARIABLES.submenuheader = "yes">
@@ -165,10 +155,6 @@
 		</cfif>
 	</cfoutput> 
 	</ul>
-		
-	<cfif ATTRIBUTES.submenuheader EQ "yes" AND ATTRIBUTES.tier EQ 2>
-		</div><!-- class="submenu" -->
-	</cfif>
 
 </cfif>
 <!--- END MODULE <cfoutput>#ATTRIBUTES.tier#</cfoutput>--->

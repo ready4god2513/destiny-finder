@@ -1,29 +1,11 @@
 @import "bootstrap/bootstrap";
 @import "mixins";
-@import "superfish";
 @import "word_sort";
 
 body 
 {
-	background: #3e3f53 url(/assets/images/body_bg_rpt.jpg) repeat-x;
-	color: #565555; 
-}
-
-a
-{
-	&:hover
-	{
-		text-decoration: underline;
-	}
-	
-	&:visited
-	{
-		color: #692109;
-		text-decoration: none;
-	}
-	
-	color: #692109;
-	text-decoration: none;
+	background: #f8f8f8;
+	color: #222; 
 }
 
 br
@@ -31,60 +13,19 @@ br
 	display:none;
 }
 
-img
-{
-	border: none;
-}
-
-table, .box, .short_desc, .result
-{
-	.rounded(10px);
-	background-color: #ffffff;
-	border: 1px solid #e9ddc7;
-	padding: 20px 40px;
-	margin: 20px 0;
-}
-
 div#myEventWatcherDiv
 {
 	display:none;
 }
-
-.box
-{
-	h2
-	{
-		font-size:0.9em;
-	}
-}
-
-h1, h2
-{
-	color: #a82b33;
-}
-
-h3
-{
-	color: #333333;
-}
-
-/* END RESET */
 
 .clear
 {
 	clear: both;
 }
 
-.site_wrapper
-{
-	width: 960px;
-	height: 100%;
-	margin:0 auto;
-}
-
 header
 {
-	background:url(/assets/images/head_bg.jpg) no-repeat;
+	background:rgb(216, 234, 246);
 	padding:20px auto;
 	
 	nav
@@ -96,12 +37,9 @@ header
 		ul
 		{
 			display: inline-block;
-			background: white;
-			margin: -5px 10px 0 0;
+			margin: 10px;
 			padding: 5px;
-			.rounded(5px);
 			font-size: 0.9em;
-			border: 1px solid #ccc;
 			
 			li
 			{
@@ -144,7 +82,7 @@ header
 		footer
 		{
 			.rounded(5px);
-			background:darken(#F7F1E4, 3%);
+			background:darken(#fff, 3%);
 			margin-top:50px;
 			padding:5px
 		}
@@ -192,25 +130,8 @@ header
 	}
 }
 
-.head_gnav
-{
-	#gradient > .vertical(lighten(rgb(249, 238, 218), 5%), darken(rgb(249, 238, 218), 2%));
-	
-	ul
-	{
-		li
-		{
-			a
-			{
-				font-weight:bold;
-			}
-		}
-	}
-}
-
 #banner_wrapper 
 {
-	.box-shadow(0 -2px 1px #999);
 	background: url(/assets/images/banner_bg.jpg) repeat;
 	height:370px;
 	position:relative;
@@ -229,82 +150,15 @@ header
 	}
 }
 
-#home-page
-{
-	height: 100%;
-	background-color: #F7F1E4;
-	background-repeat: repeat;
-	color: #565555;
-	
-	h1, h2, h3, h4
-	{
-		color:#a82b33;
-		font-weight:bold;
-		font-size: 20px;
-		padding:7px 10px;
-		background:url(/assets/images/section_title_bg1.jpg) no-repeat 0 7px;
-	}
-	
-	.section-content
-	{
-		margin-bottom:50px;
-		
-		strong
-		{
-			color:#692109;
-		}
-		
-		#destiny-guide-img, #pic-of-michael
-		{
-			float:left;
-			margin:0 10px 10px 0;
-		}
-	}
-}
 
-.subpage_banner
+.body-content
 {
-	width: 100%;
-	padding: 10px 0;
-	background: url(/assets/images/subpage_banner.jpg) no-repeat;
-}
-
-#subpage_title
-{
-	font-size: 20px;
-	font-weight: bold;
-	color: #ffffff;
-	padding:20px;
-	
-	h2
-	{
-		color: #A82B33;
-		font-size: 16px;
-	}
-}
-
-
-.body_content
-{
+	background:#fff;
 	clear:both;
-	background-color: #f7f1e4;
 	
-	#subpage_nav
+	#page-title
 	{
-		clear:both;
-		padding:10px 0;
-
-		ul
-		{
-			list-style: none;
-			margin:10px;
-
-			li
-			{
-				display: inline-block;
-				margin: 5px;
-			}
-		}
+		padding:20px;
 	}
 	
 	.page-content
@@ -326,19 +180,6 @@ header
 	}
 }
 
-.result
-{	
-	h2
-	{
-		font-size: 16px;
-		color: #a82b33;
-	}
-	ul
-	{
-		list-style: none;
-	}
-}
-
 .assessment_wrapper
 {
 	ul a:hover
@@ -354,26 +195,9 @@ header
 	}
 }
 
-.user_greeting
-{
-	margin: 10px 0;
-	table
-	{
-		height: 300px;
-		background-color: #ffffff;
-		border: 1px solid #e9ddc7;
-		padding: 20px 40px 20px 30px;
-		margin: 20px 0px 0px 10px;
-	}
-	td
-	{
-		padding: 3px;
-	}
-}
-
 em.error
 {
-	color:#900;
+	color:@red;
 	padding:0 5px;
 }
 
@@ -406,22 +230,16 @@ em.error
 	}
 }
 
-.body_right_col
-{
-	width: 295px;
-	float: left;
-	background-image: url(/assets/images/right_col_bg_rpt_x.jpg);
-	background-repeat: repeat-x;
-}
 
 footer
 {
-	background: url(/assets/images/foot_bg.jpg) no-repeat;
+	background: none;
 	margin:0;
 	padding:20px;
 	
 	nav
 	{
+		background:#fff;
 		padding:20px auto;
 		width:500px;
 		

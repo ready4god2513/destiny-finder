@@ -1,0 +1,17 @@
+.sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 50px;
+}
+.sortable li {
+  margin: 5px;
+  padding: 5px;
+}
+.sortable li:hover {
+  cursor: move;
+}
+.sort_result {
+  display: none;
+}

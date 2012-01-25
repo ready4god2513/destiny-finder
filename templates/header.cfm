@@ -18,38 +18,29 @@
 	</cfif>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-	
+
 	<!-- Include all of the required libraries -->
 	<script src="/assets/scripts/libraries/modernizr.js"></script>
+	<script src="/assets/scripts/libraries/bootstrap.dropdown.js"></script>
 	<script src="/assets/scripts/libraries/jquery.metadata.js"></script>
 	<script src="/assets/scripts/libraries/jquery.form.js"></script>
 	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
 	<script src="/assets/scripts/libraries/jquery.hoverIntent.minified.js"></script>
 	<script src="/assets/scripts/libraries/jquery.validate.min.js"></script>
 	<script src="/assets/scripts/libraries/jquery_easing.js"></script>
-	<script src="/assets/scripts/libraries/pngfix.js"></script>
-	<script src="/assets/scripts/libraries/superfish.js"></script>
-	<script src="/assets/scripts/libraries/swfobject.js"></script>
 	<script src="/assets/scripts/main.js"></script>
-	
+
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
 		<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">
 			<cfoutput><link rel="stylesheet" href="#style#" type="text/css" media="screen" charset="utf-8" /></cfoutput>
 		</cfloop>
 	</cfif>
-	
-	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
 
-	<!--[if IE 7]>
-		<link rel="stylesheet" type="text/css" href="/assets/styles/ie7.css" />
-	<![endif]-->
-	<!--[if IE 8]>
-		<link rel="stylesheet" type="text/css" href="/assets/styles/ie8.css" />
-	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
 </head>
 <body>
 	<div class="container">
@@ -66,31 +57,37 @@
 						<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
 							<li><a href="/profile/?page=profiler">My Account</a></li>
 							<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
-						<cfelse>
-							<li><a href="/auth/">Login</a></li>
-							<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
-						</cfif>
-					</ul>
-				</nav>
+							<cfelse>
+								<li><a href="/auth/">Login</a></li>
+								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
+							</cfif>
+						</ul>
+					</nav>
+				</div>
+			</header>
+
+			<div class="topbar-wrapper">
+				<div class="topbar" data-dropdown="dropdown" >
+					<div class="topbar-inner">
+						<div class="container">
+							<ul class="nav">
+								<li><a href="/index.cfm"><span>Home</span></a></li>
+								<cfoutput query="qGateways">
+									<li class="dropdown">
+										<a href="##" class="dropdown-toggle">#qGateways.gateway_name#</a>
+										<cfmodule template="/customtags/sub_menu_multi.cfm"
+											gateway="#qGateways.gateway_id#"	
+											gateway_page_name="#qGateways.gateway_name#"
+											gateway_path="#qGateways.gateway_path#"		
+											parent_gateway="#qGateways.gateway_id#">
+									</li>
+								</cfoutput>
+								<li><a href="/store">Store</a></li>
+								<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+									<li><a href="/auth/account">My Account</a></li>
+								</cfif>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
-		</header>
-		
-		<div class="head_gnav">
-			<ul class="sf-menu">
-				<li><a href="/index.cfm"><span>Home</span></a></li>
-				<cfoutput query="qGateways">
-					<li class="head_gnav_menu <cfif qGateways.recordcount EQ qGateways.currentrow>sf-menu-last</cfif>">
-						<a href="#qGateways.gateway_path##qGateways.gateway_landing_page#" <cfif ATTRIBUTES.gateway_id EQ qGateways.gateway_id>class="gateway_active"</cfif> ><span>#qGateways.gateway_name#</span></a>
-						<cfmodule template="/customtags/sub_menu_multi.cfm"
-							gateway="#qGateways.gateway_id#"	
-							gateway_page_name="#qGateways.gateway_name#"
-							gateway_path="#qGateways.gateway_path#"		
-							parent_gateway="#qGateways.gateway_id#">
-					</li>
-				</cfoutput>
-					<li><a href="/store">Store</a></li>
-				<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
-					<li><a href="/auth/account">My Account</a></li>
-				</cfif>
-			</ul>
-		</div>

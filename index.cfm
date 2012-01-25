@@ -26,7 +26,7 @@ ORDER BY gateway_sortorder ASC
 		<div class="clear"></div>
 	</div>
 
-	<div id="home-page" class="body_content">
+	<div id="home-page" class="body-content">
 		<div class="row">
 		
 			<div class="span-one-third">

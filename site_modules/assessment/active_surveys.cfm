@@ -35,7 +35,7 @@
 	
 	<!---<cfdump var="#qResults#">--->
 	<div class="assessment_wrapper box">
-	<h2>Your Available Surveys:</h2>
+	<h4>Your Available Surveys:</h4>
 	<ul>
 		<li class="assessment_list_title"><strong>Free Survey</strong></li>
 		<ul>
