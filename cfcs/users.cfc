@@ -10,6 +10,7 @@
 
 	
 		<cfparam name="VARIABLES.user_image" default="">
+		<cfparam name="FORM.marketing_opt_in" default="0">
 
 		<cfif isDefined("FORM.user_email")>
 			<cfset FORM.user_username = FORM.user_email>

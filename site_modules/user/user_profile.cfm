@@ -146,7 +146,6 @@
 							</li>
 						</cfif>
 						<li>
-							<input type="hidden" name="marketing_opt_in" value="0" />
 							<label>
 								<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" />
 								<span>Yes, I want to receive updates from Destiny Finder</span>
