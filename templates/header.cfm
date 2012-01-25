@@ -23,17 +23,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 	
 	<!-- Include all of the required libraries -->
-	<script src="/site_scripts/libraries/modernizr.js"></script>
-	<script src="/site_scripts/libraries/jquery.metadata.js"></script>
-	<script src="/site_scripts/libraries/jquery.form.js"></script>
-	<script src="/site_scripts/libraries/jquery.sortable.js"></script>
-	<script src="/site_scripts/libraries/jquery.hoverIntent.minified.js"></script>
-	<script src="/site_scripts/libraries/jquery.validate.min.js"></script>
-	<script src="/site_scripts/libraries/jquery_easing.js"></script>
-	<script src="/site_scripts/libraries/pngfix.js"></script>
-	<script src="/site_scripts/libraries/superfish.js"></script>
-	<script src="/site_scripts/libraries/swfobject.js"></script>
-	<script src="/site_scripts/main.js"></script>
+	<script src="/assets/scripts/libraries/modernizr.js"></script>
+	<script src="/assets/scripts/libraries/jquery.metadata.js"></script>
+	<script src="/assets/scripts/libraries/jquery.form.js"></script>
+	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
+	<script src="/assets/scripts/libraries/jquery.hoverIntent.minified.js"></script>
+	<script src="/assets/scripts/libraries/jquery.validate.min.js"></script>
+	<script src="/assets/scripts/libraries/jquery_easing.js"></script>
+	<script src="/assets/scripts/libraries/pngfix.js"></script>
+	<script src="/assets/scripts/libraries/superfish.js"></script>
+	<script src="/assets/scripts/libraries/swfobject.js"></script>
+	<script src="/assets/scripts/main.js"></script>
 	
 
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
@@ -42,13 +42,13 @@
 		</cfloop>
 	</cfif>
 	
-	<link rel="stylesheet" type="text/css" href="/site_styles/main.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
 
 	<!--[if IE 7]>
-		<link rel="stylesheet" type="text/css" href="/site_styles/ie7.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/styles/ie7.css" />
 	<![endif]-->
 	<!--[if IE 8]>
-		<link rel="stylesheet" type="text/css" href="/site_styles/ie8.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/styles/ie8.css" />
 	<![endif]-->
 </head>
 <body>
@@ -56,7 +56,7 @@
 		<header>
 			<div class="row">
 				<div class="span11">
-					<img src="/site_images/transparent.png" width="345" height="110" usemap="#head_logo" />
+					<img src="/assets/images/transparent.png" width="345" height="110" usemap="#head_logo" />
 					<map name="head_logo"><area shape="rect" coords="0,0,345,110" href="/"></map>
 				</div>
 
@@ -90,7 +90,7 @@
 				</cfoutput>
 					<li><a href="/store">Store</a></li>
 				<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
-					<li><a href="/profile/?page=profiler">My Account</a></li>
+					<li><a href="/auth/account">My Account</a></li>
 				</cfif>
 			</ul>
 		</div>

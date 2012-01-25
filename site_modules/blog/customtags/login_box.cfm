@@ -45,7 +45,7 @@
 		  </tr>
 		  		  <tr>
 			<td colspan="2"><div align="right">
-			  <a href="javascript: document.form.submit();" style="text-decoration: none;">Login</a><!--- <input type="image" src="/site_images/login_arrow.gif" name="submit" style="border: none; margin: 2px 10px 2px 10px;" align="absmiddle"> --->
+			  <a href="javascript: document.form.submit();" style="text-decoration: none;">Login</a><!--- <input type="image" src="/assets/images/login_arrow.gif" name="submit" style="border: none; margin: 2px 10px 2px 10px;" align="absmiddle"> --->
 		    </div></td>
             <td></td>
 		  </tr>

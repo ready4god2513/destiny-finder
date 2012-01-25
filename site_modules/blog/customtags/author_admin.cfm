@@ -46,7 +46,7 @@
 					#DateFormat(qPostList.blog_publish_date,"mmm dd, yyyy")#
 				</div>
 				<div class="admin_column" style="width:25px;">
-					<img src="/site_images/#qPostList.blog_active#.gif">
+					<img src="/assets/images/#qPostList.blog_active#.gif">
 				</div>
 				<div class="admin_column" style="width:100px;">
 					<a href="index.cfm?page=blog&admin=1&blog_id=#qPostList.blog_id#">[ VIEW ]</a> 

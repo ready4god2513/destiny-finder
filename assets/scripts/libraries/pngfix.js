@@ -2,7 +2,7 @@ jQuery.fn.supersleight = function(settings) {
 	settings = jQuery.extend({
 		imgs: true,
 		backgrounds: true,
-		shim: '/site_images/x.gif',
+		shim: '/assets/images/x.gif',
 		apply_positioning: true
 	}, settings);
 	

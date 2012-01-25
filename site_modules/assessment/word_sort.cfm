@@ -109,7 +109,7 @@
 		</form>
 <br class="clear"/>
         <cfset progbar= (308 / qItems.recordcount) * (ATTRIBUTES.qcount - 1)>
-        <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/site_images/progbar_pix.png" width="#HTMLEditFormat(val(progbar))#" height="21"></div>
+        <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/assets/images/progbar_pix.png" width="#HTMLEditFormat(val(progbar))#" height="21"></div>
         
 		</div>
 				<script type='text/javascript'>

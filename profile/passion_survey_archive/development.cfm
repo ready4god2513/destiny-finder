@@ -1,7 +1,7 @@
 
 <cfinclude template="/templates/header.cfm">
-<link rel="stylesheet" type="text/css" href="../site_styles/main.css">
-<link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
+<link rel="stylesheet" type="text/css" href="../assets/styles/main.css">
+<link rel="stylesheet" type="text/css" href="../assets/styles/word_sort.css">
 <div class="page-content">
 <div class="assessment_radio box">
 <h3>Right now I am in the following stage of destiny development:</h3>
@@ -23,7 +23,7 @@ Fill in the "Other" blank if you don't find an answer close enough to your inter
 			<div
 		</form>
         
-        <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/site_images/progbar_pix.png" width="0" height="21"></div>
+        <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/assets/images/progbar_pix.png" width="0" height="21"></div>
 </div>  
 </div>
 <cfinclude template="/templates/footer.cfm">	

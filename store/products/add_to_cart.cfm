@@ -5,7 +5,7 @@
 			<div class="row">
 
 				<div class="span5">
-					<img src="/site_images/#ATTRIBUTES.image#" alt="#ATTRIBUTES.product_name#"/>
+					<img src="/assets/images/#ATTRIBUTES.image#" alt="#ATTRIBUTES.product_name#"/>
 				</div>
 
 				<div class="offset1 span7">
@@ -17,7 +17,7 @@
 							<input type="hidden" name="name" value="#ATTRIBUTES.product_name#" />
 							<input type="hidden" name="price" value="#ATTRIBUTES.price#" />
 							<input type="hidden" name="product_id" value="#ATTRIBUTES.product_id#" />
-							<input type="hidden" name="image" value="#REQUEST.site_url#/site_images/#ATTRIBUTES.image#" />
+							<input type="hidden" name="image" value="#REQUEST.site_url#/assets/images/#ATTRIBUTES.image#" />
 							<input type="submit" value="Add to Cart" class="btn primary" />
 						</form>
 					<cfelse>

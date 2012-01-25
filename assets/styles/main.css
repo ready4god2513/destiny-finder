@@ -3231,7 +3231,7 @@ ul.sf-menu li li li:hover ul, ul.sf-menu li li li.sfHover ul {
   display: none;
 }
 body {
-  background: #3e3f53 url(/site_images/body_bg_rpt.jpg) repeat-x;
+  background: #3e3f53 url(/assets/images/body_bg_rpt.jpg) repeat-x;
   color: #565555;
 }
 a {
@@ -3288,7 +3288,7 @@ h3 {
   margin: 0 auto;
 }
 header {
-  background: url(/site_images/head_bg.jpg) no-repeat;
+  background: url(/assets/images/head_bg.jpg) no-repeat;
   padding: 20px auto;
 }
 header nav {
@@ -3395,7 +3395,7 @@ header nav ul li a {
   -webkit-box-shadow: 0 -2px 1px #999999;
   -moz-box-shadow: 0 -2px 1px #999999;
   box-shadow: 0 -2px 1px #999999;
-  background: url(/site_images/banner_bg.jpg) repeat;
+  background: url(/assets/images/banner_bg.jpg) repeat;
   height: 370px;
   position: relative;
 }
@@ -3422,7 +3422,7 @@ header nav ul li a {
   font-weight: bold;
   font-size: 20px;
   padding: 7px 10px;
-  background: url(/site_images/section_title_bg1.jpg) no-repeat 0 7px;
+  background: url(/assets/images/section_title_bg1.jpg) no-repeat 0 7px;
 }
 #home-page .section-content {
   margin-bottom: 50px;
@@ -3437,7 +3437,7 @@ header nav ul li a {
 .subpage_banner {
   width: 100%;
   padding: 10px 0;
-  background: url(/site_images/subpage_banner.jpg) no-repeat;
+  background: url(/assets/images/subpage_banner.jpg) no-repeat;
 }
 #subpage_title {
   font-size: 20px;
@@ -3523,7 +3523,7 @@ em.error {
   height: 23px;
   display: inline-block;
   margin: 3px 0 20px 10px;
-  background: url(/site_images/progbar_bg.png) no-repeat;
+  background: url(/assets/images/progbar_bg.png) no-repeat;
 }
 .percent_completed img {
   margin: 1px 0 0 1px;
@@ -3531,11 +3531,11 @@ em.error {
 .body_right_col {
   width: 295px;
   float: left;
-  background-image: url(/site_images/right_col_bg_rpt_x.jpg);
+  background-image: url(/assets/images/right_col_bg_rpt_x.jpg);
   background-repeat: repeat-x;
 }
 footer {
-  background: url(/site_images/foot_bg.jpg) no-repeat;
+  background: url(/assets/images/foot_bg.jpg) no-repeat;
   margin: 0;
   padding: 20px;
 }

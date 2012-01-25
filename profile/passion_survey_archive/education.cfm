@@ -1,7 +1,7 @@
 
 <cfinclude template="/templates/header.cfm">
-<link rel="stylesheet" type="text/css" href="../site_styles/main.css">
-<link rel="stylesheet" type="text/css" href="../site_styles/word_sort.css">
+<link rel="stylesheet" type="text/css" href="../assets/styles/main.css">
+<link rel="stylesheet" type="text/css" href="../assets/styles/word_sort.css">
 <div class="page-content">
 <div class="assessment_radio box">
 <h3>Education</h3>
@@ -24,7 +24,7 @@
 		</form>
          <br class="clear"/>
         <div class="percent_complete_label">% of survey completed</div>
-        <div class="percent_completed"><img src="/site_images/progbar_pix.png" width="0" height="21"></div>
+        <div class="percent_completed"><img src="/assets/images/progbar_pix.png" width="0" height="21"></div>
 </div><!--<div class="assessment_radio box">-->
 </div><!--<div class="page-content">-->
 <cfinclude template="/templates/footer.cfm">	

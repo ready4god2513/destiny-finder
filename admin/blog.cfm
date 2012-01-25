@@ -215,16 +215,16 @@ WHERE blog_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#url.blog_id#">
 	  <div align="left"><strong>Post Media:</strong></div>
   
 	<cfhtmlhead text="
-	<script type='text/javascript' src='/site_scripts/jquery.min.js'></script>
-	<script type='text/javascript' src='/site_scripts/flowplayer-3.0.6.min.js'></script>
-	<script type='text/javascript' src='/site_scripts/flowplayer.playlist-3.0.5.min.js'></script>
+	<script type='text/javascript' src='/assets/scripts/jquery.min.js'></script>
+	<script type='text/javascript' src='/assets/scripts/flowplayer-3.0.6.min.js'></script>
+	<script type='text/javascript' src='/assets/scripts/flowplayer.playlist-3.0.5.min.js'></script>
 	<script>
 	
-	$f('player',{src: '/site_scripts/flowplayer.commercial-3.0.7.swf', wmode: 'transparent'}, 
+	$f('player',{src: '/assets/scripts/flowplayer.commercial-3.0.7.swf', wmode: 'transparent'}, 
 		{
 		 key: '#REQUEST.flowplayer_license#',
 		 playlist: 
-			[ '/site_images/default_media_splash.jpg', {url: '..#qPost.blog_media#', autoPlay: false} ]
+			[ '/assets/images/default_media_splash.jpg', {url: '..#qPost.blog_media#', autoPlay: false} ]
 		
 		});
 	

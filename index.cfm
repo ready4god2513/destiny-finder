@@ -19,9 +19,9 @@ ORDER BY gateway_sortorder ASC
 <cfinclude template="templates/header.cfm" />
 
 	<div id="banner_wrapper">
-		<img src="site_images/bnr_discover_your_destiny_c.jpg" id="discover-your-destiny" />
+		<img src="assets/images/bnr_discover_your_destiny_c.jpg" id="discover-your-destiny" />
 		<a href="/auth/index.cfm?page=user&amp;create=1">
-			<img id="banner_content" src="site_images/banner_promo_box.png" />
+			<img id="banner_content" src="assets/images/banner_promo_box.png" />
 		</a>
 		<div class="clear"></div>
 	</div>
@@ -33,7 +33,7 @@ ORDER BY gateway_sortorder ASC
 				<h1>Destiny Guide 1.0</h1>
 				<div class="section-content">
 					<div id="what-is-destiny">
-						<img src="/site_images/pic_destiny_guide_1.0.jpg" width="90" height="92" id="destiny-guide-img" />
+						<img src="/assets/images/pic_destiny_guide_1.0.jpg" width="90" height="92" id="destiny-guide-img" />
 						<strong>
 							The Destiny Survey is just the first step of the Destiny Guide 1.0 System. 
 							The Destiny Guide System is based on 30 years of helping people 
