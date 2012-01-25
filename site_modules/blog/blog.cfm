@@ -1,4 +1,4 @@
-<div class="row" id="blog-wrapper">
+<div class="row">
 
 	<div class="span10">
 		<cfif isDefined('URL.author')>

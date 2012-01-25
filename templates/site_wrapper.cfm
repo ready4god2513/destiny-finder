@@ -23,6 +23,5 @@
 	<cfinclude template="header.cfm" />
 	<cfinclude template="banner_display.cfm" />
 <cfelse>
-	</div>
 	<cfinclude template="footer.cfm" />
 </cfif>

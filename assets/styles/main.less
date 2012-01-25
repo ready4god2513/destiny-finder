@@ -4,7 +4,7 @@
 
 body 
 {
-	background: #f8f8f8;
+	background: url(http://subtlepatterns.com/patterns/soft_wallpaper.png) repeat;
 	color: #222; 
 }
 
@@ -23,33 +23,33 @@ div#myEventWatcherDiv
 	clear: both;
 }
 
-header
+header#top
 {
 	background:rgb(216, 234, 246);
 	padding:20px auto;
-	
+
 	nav
 	{
 		margin:0;
 		padding:0;
 		text-align:right;
-		
+
 		ul
 		{
 			display: inline-block;
 			margin: 10px;
 			padding: 5px;
 			font-size: 0.9em;
-			
+
 			li
 			{
 				display:inline-block;
 				margin:0;
 				padding:0;
-				
+
 				a
 				{
-					color:rgb(156, 59, 24);
+					color:@blue;
 					margin:0;
 					padding:5px;
 				}
@@ -58,202 +58,44 @@ header
 	}
 }
 
-#blog-wrapper
+.content 
 {
-	article
-	{
-		margin:30px 0 50px 0;
-		
-		header, footer
-		{
-			background:none;
-			border:none;
-			margin-top:10px;
-			margin-bottom:10px;
-			padding:auto;
-			
-			span
-			{
-				font-weight:bold;
-				font-size:0.9em;
-			}
-		}
-		
-		footer
-		{
-			.rounded(5px);
-			background:darken(#fff, 3%);
-			margin-top:50px;
-			padding:5px
-		}
-		
-		.get-social
-		{
-			text-align:right;
-		}
-	}
-}
-
-
-#popular-posts, #recent-posts
-{
-	margin:20px 0;
+	background-color: #f8f8f8;
+	padding: 20px;
+	margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
 	
-	ul
+	#main-body
 	{
-		display:block;
-		margin:10px 0 10px 10px;
-		padding:0;
-
-		li
-		{
-			display:block;
-			list-style:none;
-			margin:10px 0;
-			padding:0;
-
-			a
-			{
-				font-weight:bold;
-				text-decoration:none;
-
-				&.comment-count
-				{
-					color:#222;
-					display:block;
-					font-size:0.9em;
-					font-weight:normal;
-					margin:2px 5px;
-				}
-			}
-		}
-	}
-}
-
-#banner_wrapper 
-{
-	background: url(/assets/images/banner_bg.jpg) repeat;
-	height:370px;
-	position:relative;
-	
-	#discover-your-destiny
-	{
-		position:absolute;
-		top:35px;
-		left:25px;
-	}
-	
-	a
-	{
-		position:absolute;
-		right:-10px;
-	}
-}
-
-
-.body-content
-{
-	background:#fff;
-	clear:both;
-	
-	#page-title
-	{
+		background:#fff;
+		margin:40px 0;
 		padding:20px;
-	}
-	
-	.page-content
-	{
-		padding:10px 20px;
-	}
-	
-}
-
-.single-product
-{
-	border-bottom:1px solid #e8e8e8;
-	margin:20px auto;
-	padding:10px auto;
-	
-	form, a.btn
-	{
-		margin:30px auto;
-	}
-}
-
-.assessment_wrapper
-{
-	ul a:hover
-	{
-		text-decoration: none;
-	}
-	
-	hr
-	{
-		margin-top: 5px;
-		color: #e9ddc7;
-		border: 1px solid;
-	}
-}
-
-em.error
-{
-	color:@red;
-	padding:0 5px;
-}
-
-
-.user_greeting_form_title
-{
-	text-align: right;
-}
-
-.percent_complete_label
-{
-	width: 144px;
-	display:inline-block;
-	margin: 3px 10px 20px 36px;
-	font-weight: bold;
-	color: #747373;
-}
-
-.percent_completed
-{
-	width: 309px;
-	height: 23px;
-	display:inline-block;
-	margin: 3px 0 20px 10px;
-	background: url(/assets/images/progbar_bg.png) no-repeat;
-	
-	img
-	{
-		margin:1px 0 0 1px;
+		.drop-shadow(0, 0, 1px, 0.2);
 	}
 }
 
 
-footer
+footer#bottom
 {
 	background: none;
 	margin:0;
-	padding:20px;
-	
+	padding:20px 0;
+
 	nav
 	{
-		background:#fff;
+		background:#f8f8f8;
+		margin:20px auto;
 		padding:20px auto;
-		width:500px;
-		
+
 		ul
 		{
-			padding:30px 0 50px 0;
-			
+			padding:10px 0;
+
 			li
 			{
 				display:inline-block;
 				margin:0;
 				padding:1px 0;
-				width:140px;
-				
+
 				a
 				{
 					margin:0;
