@@ -20,9 +20,6 @@
 	<cfset qInvites = objAssessments.retrieve_invites(user_id="#REQUEST.user_id#")>
 	<cfset VARIABLES.accesskey_id_list = objAssessments.member_accesskeys(user_id="#REQUEST.user_id#")>
 	<cfoutput>
-	<div class="user_greeting">
-		<h2>Profiler - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)#</h2> 
-	</div>
 	
 	<div class="assessment_wrapper box">
 	<h4>Your Available Surveys</h4>
@@ -43,8 +40,8 @@
 
 	<table>
 	    <cfloop query="qAssessments">
-			<tr>
-				<td>#HTMLEditFormat(qAssessments.assessment_name)#</td>
+			<tr class="#qAssessments.assessment_name#">
+				<th>#HTMLEditFormat(qAssessments.assessment_name)#</th>
 				<td>
 					<!--- <cfif (ListContains(VARIABLES.accesskey_id_list,qAssessments.assessment_access_key) OR qAssessments.assessment_id EQ 1)> --->
 					<cfif true>

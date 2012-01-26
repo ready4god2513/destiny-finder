@@ -33,8 +33,12 @@
 	<cfparam name="qUser.user_store_id" default="">	
     
 	<cfoutput>
-		<h2>Account - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)#</h2>
-
+		<div class="row">
+			<h2 class="span12">My Account</h2>
+			<div class="pull-right span3">
+				<a href="/auth/account" class="btn info">Account Overview</a>
+			</div>
+		</div>
 		<cfmodule template="/site_modules/user/user_profile.cfm">
 	</cfoutput>
 </cfif>

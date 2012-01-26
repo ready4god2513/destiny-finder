@@ -55,7 +55,7 @@
 						<ul>
 							<li><a href="https://destinyfinder.foxycart.com/cart">Cart</a></li>
 							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
-								<li><a href="/profile/?page=profiler">My Account</a></li>
+								<li><a href="/auth/account">My Account</a></li>
 								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
 							<cfelse>
 								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
