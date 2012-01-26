@@ -57,37 +57,37 @@
 							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
 								<li><a href="/profile/?page=profiler">My Account</a></li>
 								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
-								<cfelse>
-									<li><a href="/auth/">Login</a></li>
-									<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
+							<cfelse>
+								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
+								<li><a href="/auth/">Login</a></li>
+							</cfif>
+						</ul>
+					</nav>
+				</div>
+			</header>
+
+			<div class="topbar-wrapper">
+				<div class="topbar" data-dropdown="dropdown" >
+					<div class="topbar-inner">
+						<div class="container">
+							<ul class="nav">
+								<li><a href="/index.cfm"><span>Home</span></a></li>
+								<cfoutput query="qGateways">
+									<li class="dropdown">
+										<a href="##" class="dropdown-toggle">#qGateways.gateway_name#</a>
+										<cfmodule template="/customtags/sub_menu_multi.cfm"
+											gateway="#qGateways.gateway_id#"	
+											gateway_page_name="#qGateways.gateway_name#"
+											gateway_path="#qGateways.gateway_path#"		
+											parent_gateway="#qGateways.gateway_id#">
+									</li>
+								</cfoutput>
+								<li><a href="/store">Store</a></li>
+								<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+									<li><a href="/auth/account">My Account</a></li>
 								</cfif>
 							</ul>
-						</nav>
-					</div>
-				</header>
-
-				<div class="topbar-wrapper">
-					<div class="topbar" data-dropdown="dropdown" >
-						<div class="topbar-inner">
-							<div class="container">
-								<ul class="nav">
-									<li><a href="/index.cfm"><span>Home</span></a></li>
-									<cfoutput query="qGateways">
-										<li class="dropdown">
-											<a href="##" class="dropdown-toggle">#qGateways.gateway_name#</a>
-											<cfmodule template="/customtags/sub_menu_multi.cfm"
-												gateway="#qGateways.gateway_id#"	
-												gateway_page_name="#qGateways.gateway_name#"
-												gateway_path="#qGateways.gateway_path#"		
-												parent_gateway="#qGateways.gateway_id#">
-										</li>
-									</cfoutput>
-									<li><a href="/store">Store</a></li>
-									<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
-										<li><a href="/auth/account">My Account</a></li>
-									</cfif>
-								</ul>
-							</div>
 						</div>
 					</div>
 				</div>
+			</div>
