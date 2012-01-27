@@ -16,97 +16,10 @@
 	overflow: visible;
 
 	// Links get text shadow
-	a {
-		color: @grayLight;
-		text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-	}
-
-	// Hover and active states
-	// h3 for backwards compatibility
-	h3 a:hover,
-	.brand:hover,
-	ul .active > a {
-		background-color: #333;
-		background-color: rgba(255,255,255,.05);
-		color: @white;
-		text-decoration: none;
-	}
-
-	// Website name
-	// h3 left for backwards compatibility
-	h3 {
-		position: relative;
-	}
-	h3 a,
-	.brand {
-		float: left;
-		display: block;
-		padding: 8px 20px 12px;
-		margin-left: -20px; // negative indent to left-align the text down the page
-		color: @white;
-		font-size: 20px;
-		font-weight: 200;
-		line-height: 1;
-	}
-
-	// Plain text in topbar
-	p {
-		margin: 0;
-		line-height: 40px;
-		a:hover {
-			background-color: transparent;
-			color: @white;
-		}
-	}
-
-	// Search Form
-	form {
-		float: left;
-		margin: 5px 0 0 0;
-		position: relative;
-		.opacity(100);
-	}
-	// Todo: remove from v2.0 when ready, added for legacy
-	form.pull-right {
-		float: right;
-	}
-	input {
-		background-color: #444;
-		background-color: rgba(255,255,255,.3);
-		#font > .sans-serif(13px, normal, 1);
-		padding: 4px 9px;
-		color: @white;
-		color: rgba(255,255,255,.75);
-		border: 1px solid #111;
-		.border-radius(4px);
-		@shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.25);
-		.box-shadow(@shadow);
-		.transition(none);
-
-		// Placeholder text gets special styles; can't be bundled together though for some reason
-		&:-moz-placeholder {
-			color: @grayLighter;
-		}
-		&::-webkit-input-placeholder {
-			color: @grayLighter;
-		}
-		// Hover states
-		&:hover {
-			background-color: @grayLight;
-			background-color: rgba(255,255,255,.5);
-			color: @white;
-		}
-		// Focus states (we use .focused since IE8 and down doesn't support :focus)
-		&:focus,
-		&.focused {
-			outline: 0;
-			background-color: @white;
-			color: @grayDark;
-			text-shadow: 0 1px 0 @white;
-			border: 0;
-			padding: 5px 10px;
-			.box-shadow(0 0 3px rgba(0,0,0,.15));
-		}
+	a 
+	{
+		color: #fff;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0,.25);
 	}
 }
 
@@ -114,10 +27,11 @@
 // For backwards compatibility, include .topbar .fill
 .topbar-inner,
 .topbar .fill {
-	background-color: #222;
-	#gradient > .vertical(#333, #222);
+	background-color: @blue;
+	#gradient > .vertical(darken(@blue, 10%), darken(@blue, 30%));
 	@shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1);
 	.box-shadow(@shadow);
+	.rounded(5px);
 }
 
 
@@ -172,27 +86,25 @@
 	li.open .menu,
 	.dropdown-toggle:hover,
 	.dropdown.open .dropdown-toggle {
-		background: #444;
-		background: rgba(255,255,255,.05);
+		background: darken(@blue, 10%);
 	}
 	// .menu-dropdown for backwards compatibility
 	.menu-dropdown,
 	.dropdown-menu {
-		background-color: #333;
+		background: darken(@blue, 10%);
 		// a.menu for backwards compatibility
 		a.menu,
 		.dropdown-toggle {
 			color: @white;
 			&.open {
-				background: #444;
-				background: rgba(255,255,255,.05);
+				background: lighten(@blue, 10%);
 			}
 		}
 		li a {
-			color: #999;
+			color: @white;
 			text-shadow: 0 1px 0 rgba(0,0,0,.5);
 			&:hover {
-				#gradient > .vertical(#292929,#191919);
+				#gradient > .vertical(darken(@blue, 30%), darken(@blue, 20%));
 				color: @white;
 			}
 		}

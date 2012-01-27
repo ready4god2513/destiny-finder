@@ -48,7 +48,7 @@
 			<header id="top">
 				<div class="row">
 					<div class="span11">
-						<a href="/"><img src="/assets/images/transparent.png" width="345" height="110" /></a>
+						<a href="/"><img src="/assets/images/logo.png" /></a>
 					</div>
 
 					<nav class="span5">
