@@ -46,10 +46,10 @@
 					<!--- <cfif (ListContains(VARIABLES.accesskey_id_list,qAssessments.assessment_access_key) OR qAssessments.assessment_id EQ 1)> --->
 					<cfif true>
 						<cfif (isDefined("VARIABLES.Result_List") AND ListContains(VARIABLES.Result_List,qAssessments.assessment_id) GT 0) OR (qAssessments.assessment_id EQ 5 AND VARIABLES.PassionComplete EQ 1)>
-			            	<a class="btn primary" href="index.cfm?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RETAKE</a>	
-							<a class="btn success" href="index.cfm?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RESULT</a>
+			            	<a class="btn primary" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RETAKE</a>	
+							<a class="btn success" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RESULT</a>
 						<cfelse>
-			            	<a class="btn primary" href="index.cfm?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">TAKE SURVEY</a>	
+			            	<a class="btn primary" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">TAKE SURVEY</a>	
 						</cfif> 
 					<cfelse>
 			        	 <a class="btn disabled" href="##">COMING SOON</a> 
