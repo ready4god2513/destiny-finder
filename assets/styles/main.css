@@ -3020,10 +3020,11 @@ h1 a,
 h4,
 h4 a {
   color: #013145;
+  margin-bottom: 15px;
 }
 h2, h2 a {
   color: #025577;
-  margin: 15px 0;
+  margin-bottom: 15px;
 }
 h3, h3 a {
   color: #0378a9;
@@ -3080,16 +3081,16 @@ header#top nav ul li:last-child a {
   margin-bottom: 15px;
   padding: 10px;
 }
-#sidebar #popular-posts ul {
+#popular-posts ul, #archive-posts ul, #recent-posts ul {
   margin: 0;
   padding: 0;
 }
-#sidebar #popular-posts ul li {
+#popular-posts ul li, #archive-posts ul li, #recent-posts ul li {
   display: block;
   margin: 7px 0;
   padding: 0;
 }
-#sidebar #popular-posts ul li .comment-count {
+#popular-posts ul li .comment-count, #archive-posts ul li .comment-count, #recent-posts ul li .comment-count {
   color: #666 !important;
   display: block;
   font-size: 0.8em;
@@ -3109,11 +3110,10 @@ header#top nav ul li:last-child a {
   margin-bottom: 10px;
   padding: 20px;
 }
-.content #main a {
-  color: #46a546;
-}
 .content #main article {
   border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 15px;
+  padding: 10px 0;
 }
 footer#bottom {
   background: none;

@@ -21,7 +21,7 @@
 		<div class="post-body">
 			#ATTRIBUTES.post_content#
 			
-			<a href="/blog/index.cfm?page=blog&amp;blog_id=#ATTRIBUTES.post_id#" class="btn danger">Continue Reading</a>
+			<a href="/blog/index.cfm?page=blog&amp;blog_id=#ATTRIBUTES.post_id#" class="btn info">Continue Reading</a>
 		</div>
 		
 	</article>

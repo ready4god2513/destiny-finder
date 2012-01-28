@@ -9,6 +9,7 @@
 
 	<article>
 		<cfinclude template="../site_modules/blog/customtags/popular_blog_posts.cfm" />
+		<p><a href="/blog">Read More Articles</a></p>
 	</article>
 
 	<article>

@@ -1,6 +1,6 @@
 <cfset VARIABLE.gateway = Replace(CGI.SCRIPT_NAME,'index.cfm','')>
 <div class="row">
-	<div class="span10">
+	<div class="span11">
 		<section id="main">
 			<cfif qContent.recordcount IS 0>
 				<h3>I'm sorry. That page does not exist. Please try selecting a page from the menu bar.</h3>
