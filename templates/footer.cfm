@@ -3,17 +3,36 @@
 			<div id="social-media-footer">
 				<div class="fb-like" data-href="https://www.facebook.com/pages/Destiny-Finder/101856686575972" data-send="true" data-width="450" data-show-faces="true"></div>
 			</div>
-	
-			<nav>
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/about/">About Us</a></li>
-					<li><a href="/products/">Products &amp; Services</a></li>
-					<li><a href="/profile/">Destiny Guide 1.0</a></li>
-					<li><a href="/free/">Resources</a></li>
-					<li><a href="/about/?page=contact">Contact</a></li>
-				</ul>
-			</nav>
+			
+			<div class="row">
+				
+				<div class="span4">
+					<a href="/"><img src="/assets/images/logo.png" id="footer-logo" /></a>
+				</div>
+				
+				<nav class="span11 offset1">
+					<div class="row">
+						<ul class="span5">
+							<li><a href="/">Home</a></li>
+							<li><a href="/about/">About Us</a></li>
+							<li><a href="/products/">Products &amp; Services</a></li>
+							<li><a href="/free/">Resources</a></li>
+						</ul>
+
+						<ul class="span5">
+							<li><a href="https://destinyfinder.foxycart.com/cart">Cart</a></li>
+							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+								<li><a href="/auth/account">My Account</a></li>
+								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
+							<cfelse>
+								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
+								<li><a href="/auth/">Login</a></li>
+							</cfif>
+							<li><a href="/about/?page=contact">Contact</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
 		</footer>
 	</div>
 </div>

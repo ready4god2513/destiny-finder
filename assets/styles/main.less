@@ -8,14 +8,30 @@ body
 	color: #222; 
 }
 
-br
+h1, h1 a, h4, h4 a
+{
+	color:darken(@blue, 30%);
+}
+
+h2, h2 a
+{
+	color:darken(@blue, 20%);
+	margin:15px 0;
+}
+
+h3, h3 a
+{
+	color:darken(@blue, 10%);
+}
+
+br, div#myEventWatcherDiv
 {
 	display:none;
 }
 
-div#myEventWatcherDiv
+p
 {
-	display:none;
+	line-height:200%;
 }
 
 .clear
@@ -25,12 +41,17 @@ div#myEventWatcherDiv
 
 header#top
 {
-	background:rgb(216, 234, 246);
+	background:lighten(@blue, 50%);
 	padding:20px auto;
+	
+	#header-logo
+	{
+		margin:20px 10px;
+	}
 
 	nav
 	{
-		margin:0;
+		margin:10px 0 0 0;
 		padding:0;
 		text-align:right;
 
@@ -49,9 +70,54 @@ header#top
 
 				a
 				{
-					color:@blue;
-					margin:0;
-					padding:5px;
+					border-right:1px solid darken(@blue, 10%);
+					color:darken(@blue, 20%);
+					font-weight:bold;
+					padding:0 10px;
+				}
+				
+				&:last-child a
+				{
+					border:none;
+				}
+			}
+		}
+	}
+}
+
+.topbar-wrapper
+{
+	margin-bottom:30px;
+}
+
+#sidebar
+{
+	article
+	{
+		background:lighten(@blue, 53%);
+		.drop-shadow(0, 0, 1px, 0.2);
+		margin-bottom:15px;
+		padding:10px;
+	}
+	
+	#popular-posts
+	{
+		ul
+		{
+			margin:0;
+			padding:0;
+			
+			li
+			{
+				display:block;
+				margin:7px 0;
+				padding:0;
+				
+				.comment-count
+				{
+					color:#666 !important;
+					display:block;
+					font-size:0.8em;
 				}
 			}
 		}
@@ -64,12 +130,22 @@ header#top
 	padding: 0 20px;
 	margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
 	
-	#main-body
+	#main
 	{
-		background:#fff;
-		margin:40px 0;
-		padding:20px;
+		a
+		{
+			color:@green;
+		}
+		
 		.drop-shadow(0, 0, 1px, 0.2);
+		background:#fff;
+		margin-bottom:10px;
+		padding:20px;
+		
+		article
+		{
+			border-bottom:1px solid #e8e8e8;
+		}
 	}
 }
 
@@ -77,27 +153,37 @@ header#top
 footer#bottom
 {
 	background: none;
-	margin:0;
 	padding:20px 0;
+	margin:40px 0;
+	
+	#social-media-footer
+	{
+		margin:30px 0;
+	}
+	
+	img#footer-logo
+	{
+		margin-top:10px;
+	}
 
 	nav
 	{
-		background: rgba(255, 255, 255, 0.4);
-		margin:20px auto;
-		padding:20px auto;
-
 		ul
 		{
-			padding:10px 0;
+			background: rgba(255, 255, 255, 0.5);
+			display:block;
+			margin:0 10px 0 0;
 
 			li
 			{
 				display:inline-block;
 				margin:0;
-				padding:1px 0;
+				padding:5px;
+				width:125px;
 
 				a
 				{
+					color:@grayDark;
 					margin:0;
 				}
 			}

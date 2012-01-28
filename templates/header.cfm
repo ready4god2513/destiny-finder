@@ -47,11 +47,11 @@
 	      <div class="content">
 			<header id="top">
 				<div class="row">
-					<div class="span11">
-						<a href="/"><img src="/assets/images/logo.png" /></a>
+					<div class="span6">
+						<a href="/"><img src="/assets/images/logo.png" id="header-logo" /></a>
 					</div>
 
-					<nav class="span5">
+					<nav class="pull-right span10">
 						<ul>
 							<li><a href="https://destinyfinder.foxycart.com/cart">Cart</a></li>
 							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
