@@ -26,7 +26,9 @@
 		<cfset VARIABLES.result_set = ArrayNew(1)>
 	</cfif>
 	
-	<div class="assessment_item box">
+	<div class="assessment_item">
+		
+		<img src="/assets/images/loading.gif" id="loading-icon" style="display:none" />
 		<cfset VARIABLES.item_result = "">
 		
 		<cfswitch expression="#qItems.item_type#">

@@ -25,7 +25,8 @@
         <!--- <cfdump var="#VARIABLES.result_set#"> --->
         
         <!---<cfloop query="qItems">--->
-        <div class="assessment_item box">
+        <div class="assessment_item">
+	
 		<cfset VARIABLES.item_result = "">
         <cfif VARIABLES.assessment_id EQ 5>
 			<cfset qItems.item_type = 5>

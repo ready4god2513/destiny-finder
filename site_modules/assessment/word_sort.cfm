@@ -116,7 +116,7 @@
 				$(function() {
 					$('##sortable#HTMLEditFormat(val(ATTRIBUTES.sort_id))#').sortable(
 						{
-						update: function(event, ui) 
+						update: function(event, ui)
 							{					
 								$('##serialize#HTMLEditFormat(val(ATTRIBUTES.sort_id))#').val($("##sortable#HTMLEditFormat(val(ATTRIBUTES.sort_id))#").sortable("serialize"));
 							} 			
@@ -128,30 +128,30 @@
 				$(function(){
 					//AJAX submit
 					$('##sort_form_#HTMLEditFormat(val(ATTRIBUTES.sort_id))#').submit(function() { 
-						//alert('Submitted' + $(this).attr("id"));
 						$(this).ajaxSubmit(submitOptions#HTMLEditFormat(val(ATTRIBUTES.sort_id))#);
 						return false;
-						});
+					});
 				});
 					
 					//Parameters for ajaxSubmit
 					var submitOptions#HTMLEditFormat(val(ATTRIBUTES.sort_id))# = {
-					target: '##sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result',
-					beforeSubmit:showProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#,
-					success: hideProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#,
-					type:'post',
-					url: '/site_modules/assessment/act_word_sort.cfm'
+						target: '##sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result',
+						beforeSubmit:showProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#,
+						success: hideProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#,
+						type:'post',
+						url: '/site_modules/assessment/act_word_sort.cfm'
 					};
 				
-					function showProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#() {
-
+					function showProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#() 
+					{
 						$(".sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper").fadeOut(500);
 					} 
 				
 					function hideProcessing#HTMLEditFormat(val(ATTRIBUTES.sort_id))#() {
-					   $("##processingMessage").addClass("hideElement");
+							$('.assessment_item').append('<img src="/assets/images/loading.gif" id="loading-icon" />');
 					   setTimeout(function() {
-					   $("##sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result").fadeIn(500);
+					   		$("##sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result").fadeIn(500);
+							$("##loading-icon").remove();
 						}, 500); 
 					}
 					
