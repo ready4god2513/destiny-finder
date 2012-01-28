@@ -21,7 +21,6 @@
 
 <cfif thistag.executionmode EQ 'start'>
 	<cfinclude template="header.cfm" />
-	<cfinclude template="banner_display.cfm" />
 <cfelse>
 	<cfinclude template="footer.cfm" />
 </cfif>

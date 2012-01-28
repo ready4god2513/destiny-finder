@@ -20,7 +20,13 @@
 	html_title="#pageTitle#"
 	meta_desc="" >
 	
-	<div id="main-body">
-		<cfinclude template="products/listing.cfm" />
+	<div class="row">
+		<div class="span11">
+			<section id="main">
+				<cfinclude template="products/listing.cfm" />
+			</section>
+		</div>
+
+		<cfinclude template="../templates/sidebar.cfm" />
 	</div>
 </cfmodule>

@@ -1,14 +1,14 @@
 <cfoutput>
 	<cfif thistag.executionmode EQ "start">
 		
-		<div class="single-product">
+		<article class="single-product">
 			<div class="row">
 
-				<div class="span5">
+				<div class="product-image span3">
 					<img src="/assets/images/#ATTRIBUTES.image#" alt="#ATTRIBUTES.product_name#"/>
 				</div>
 
-				<div class="offset1 span7">
+				<div class="span7">
 					<h4>#ATTRIBUTES.product_name#</h4>
 					<p>#ATTRIBUTES.description#</p>
 
@@ -26,7 +26,7 @@
 				</div>
 
 			</div>
-		</div>
+		</article>
 		
 	</cfif>
 </cfoutput>
