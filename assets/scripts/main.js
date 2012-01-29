@@ -5,6 +5,10 @@ $(function(){
 		$("#rotating-banner").cycle({
 			fx: "fade",
 			pager: "#cycle-nav",
+			pause: true,
+			delay: 2000,
+			width: 590,
+			height: 280,
 			pagerAnchorBuilder: function(idx, slide) 
 			{ 
 				return '<a href="#">&bull;</a>'; 

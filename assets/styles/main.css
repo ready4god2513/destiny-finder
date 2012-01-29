@@ -3077,6 +3077,10 @@ header#top nav ul li a {
 header#top nav ul li:last-child a {
   border: none;
 }
+#rotating-banner {
+  height: 280px;
+  overflow: hidden;
+}
 #cycle-nav {
   text-align: center;
 }

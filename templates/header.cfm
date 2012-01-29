@@ -18,23 +18,7 @@
 	</cfif>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
-
-	<!-- Include all of the required libraries -->
-	<script src="/assets/scripts/libraries/modernizr.js"></script>
-	<script src="/assets/scripts/libraries/bootstrap.dropdown.js"></script>
-	<script src="/assets/scripts/libraries/jquery.metadata.js"></script>
-	<script src="/assets/scripts/libraries/jquery.cycle.js"></script>
-	<script src="/assets/scripts/libraries/jquery.form.js"></script>
-	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
-	<script src="/assets/scripts/libraries/jquery.hoverIntent.minified.js"></script>
-	<script src="/assets/scripts/libraries/jquery.validate.min.js"></script>
-	<script src="/assets/scripts/libraries/jquery_easing.js"></script>
-	<script src="/assets/scripts/main.js"></script>
-
-
+	
 	<cfif isDefined("ATTRIBUTES.additionalStyles")>
 		<cfloop array="#ATTRIBUTES.additionalStyles#" index="style">
 			<cfoutput><link rel="stylesheet" href="#style#" type="text/css" media="screen" charset="utf-8" /></cfoutput>
@@ -44,10 +28,24 @@
 	
 	<!-- BEGIN FOXYCART FILES -->
 	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css" type="text/css" media="screen" charset="utf-8" />
-	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js" type="text/javascript" charset="utf-8"></script>
 	<!-- END FOXYCART FILES -->
 
 	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+
+	<!-- Include all of the required libraries -->
+	<script src="/assets/scripts/libraries/modernizr.js"></script>
+	<script src="/assets/scripts/libraries/bootstrap.dropdown.js"></script>
+	<script src="/assets/scripts/libraries/jquery.form.js"></script>
+	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
+	<script src="/assets/scripts/libraries/jquery.validate.min.js"></script>
+	<script src="/assets/scripts/libraries/jquery.slider.js"></script>
+	<script src="/assets/scripts/main.js"></script>
+	
+	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js"></script>
 </head>
 <body>
 	<div class="container">
