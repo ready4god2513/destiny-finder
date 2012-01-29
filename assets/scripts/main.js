@@ -1,10 +1,22 @@
 $(function(){
-	
+
+	if($("#rotating-banner").length)
+	{
+		$("#rotating-banner").after('<div id="cycle-nav"></div>').cycle({
+			fx: "fade",
+			pager: "#cycle-nav",
+			pagerAnchorBuilder: function(idx, slide) 
+			{ 
+				return '<a href="#">&bull;</a>'; 
+			}
+		});
+	}
+
 	$.validator.setDefaults({ 
-	    errorElement: "em"
+		errorElement: "em"
 	});
-	
-	
+
+
 	// Form Validations
 	$("#signup-form").validate({
 		rules:
@@ -39,7 +51,7 @@ $(function(){
 			}
 		}
 	});
-	
+
 	$("#update-account-form").validate({
 		rules:
 		{
@@ -67,7 +79,7 @@ $(function(){
 			}
 		}
 	});
-	
+
 	$("#login-form").validate({
 		rules:
 		{
@@ -83,18 +95,18 @@ $(function(){
 			}
 		}
 	});
-	
-	
+
+
 	// Remove inline styles as they tend to break things
 	$("*").removeAttr("style");
-	
+
 	// Remove empty paragraph tags.  These often come from the CMS/blog
 	$("p").filter(function() {
 		return $.trim($(this).text()) === ""
-	}).remove();
-	
-	
-	// Dropdown Menu
-	$("#topbar").dropdown();
-	
-});
+		}).remove();
+
+
+		// Dropdown Menu
+		$("#topbar").dropdown();
+
+	});

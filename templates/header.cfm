@@ -26,6 +26,7 @@
 	<script src="/assets/scripts/libraries/modernizr.js"></script>
 	<script src="/assets/scripts/libraries/bootstrap.dropdown.js"></script>
 	<script src="/assets/scripts/libraries/jquery.metadata.js"></script>
+	<script src="/assets/scripts/libraries/jquery.cycle.js"></script>
 	<script src="/assets/scripts/libraries/jquery.form.js"></script>
 	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
 	<script src="/assets/scripts/libraries/jquery.hoverIntent.minified.js"></script>

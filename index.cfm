@@ -20,7 +20,11 @@ ORDER BY gateway_sortorder ASC
 
 <div id="banner_wrapper">
 	<div id="rotating-banner">
-		
+		<img src="http://placehold.it/590x280/336699" />
+		<img src="http://placehold.it/590x280/e8e8e8" />
+		<img src="http://placehold.it/590x280/222222" />
+		<img src="http://placehold.it/590x280/f89406" />
+		<img src="http://placehold.it/590x280/7a43b6" />
 	</div>
 	<div id="free-trial-home">
 		
@@ -36,6 +40,7 @@ ORDER BY gateway_sortorder ASC
 					We believe you've been uniquely designed by God with a personal destiny! 
 					To do something significant for His kingdom. We help you discover your 
 					destiny, maximize your impact and experience real fulfillment.
+					<a href="/about/index.cfm?page=about&gateway=2&parent_gateway=2">More</a>
 				</p>
 			</article>
 
@@ -45,53 +50,54 @@ ORDER BY gateway_sortorder ASC
 				<p>
 					It's here and there's nothing else like it on the planet! Five online surveys 
 					based on spiritual gifts, motivation, passion and more produce a profile of 
-					your basic gifting, calling and direction. Special introductory offer
+					your basic gifting, calling and direction. Special introductory offer. 
+					<a href="/profile/?page=profiler">More</a>
 				</p>
 			</article>
 
 			<article>
 				<h2>Products &amp; Services</h2>
 				<div class="row">
-					<div class="span3">
-						<img src="/assets/images/bg_gray_compass.png">
+					<div class="span2">
+						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
 					</div>
-					<div class="span7">
+					<div class="span8">
 						<h5>Free Trial Destiny Survey</h5>
 						<p>Reveals your inner design. Takes 5 minutes, instant results</p>
-						<p><a href="/">More</a></p>
+						<p><a href="/profile/?page=assessment&assessment_id=1&gift_type_id=1">More</a></p>
 					</div>
 				</div>
 				<div class="row">
-					<div class="span3">
-						<img src="/assets/images/bg_gray_compass.png">
+					<div class="span2">
+						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
 					</div>
-					<div class="span7">
+					<div class="span8">
 						<h5>Profiler</h5>
 						<p>Five surveys based on spiritual gifts, passion and more reveal 
 						your basic destiny direction</p>
-						<p><a href="/">More</a></p>
+						<p><a href="/profile/?page=profiler">More</a></p>
 					</div>
 				</div>
 				<div class="row">	
-					<div class="span3">
-						<img src="/assets/images/bg_gray_compass.png">
+					<div class="span2">
+						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
 					</div>
-					<div class="span7">
+					<div class="span8">
 						<h5>Coaching</h5>
 						<p>Experienced coaches work with you by phone to accelerate 
 						your progress.</p>
-						<p><a href="/">More</a></p>
+						<p><a href="/products/index.cfm?page=coaching&gateway=3&parent_gateway=3">More</a></p>
 					</div>
 				</div>
 				<div class="row">	
-					<div class="span3">
-						<img src="/assets/images/bg_gray_compass.png">
+					<div class="span2">
+						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
 					</div>
-					<div class="span7">
+					<div class="span8">
 						<h5>DestinyFinder Book - Just Published!</h5>
 						<p>Michael Brodeur's work sets the foundation for understanding 
 						and pursuing kingdom-focused personal destiny.</p>
-						<p><a href="/">More</a></p>
+						<p><a href="/products/index.cfm?page=destinyfinderbook&gateway=3&parent_gateway=3">More</a></p>
 					</div>
 				</div>
 			</article>
