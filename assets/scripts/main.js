@@ -2,7 +2,7 @@ $(function(){
 
 	if($("#rotating-banner").length)
 	{
-		$("#rotating-banner").after('<div id="cycle-nav"></div>').cycle({
+		$("#rotating-banner").cycle({
 			fx: "fade",
 			pager: "#cycle-nav",
 			pagerAnchorBuilder: function(idx, slide) 

@@ -18,17 +18,18 @@ ORDER BY gateway_sortorder ASC
 
 <cfinclude template="templates/header.cfm" />
 
-<div id="banner_wrapper">
-	<div id="rotating-banner">
-		<img src="http://placehold.it/590x280/336699" />
-		<img src="http://placehold.it/590x280/e8e8e8" />
-		<img src="http://placehold.it/590x280/222222" />
-		<img src="http://placehold.it/590x280/f89406" />
-		<img src="http://placehold.it/590x280/7a43b6" />
+<div class="row">
+	<div class="span10">
+		<div id="rotating-banner">
+			<img src="http://placehold.it/590x280/336699" />
+			<img src="http://placehold.it/590x280/e8e8e8" />
+			<img src="http://placehold.it/590x280/222222" />
+			<img src="http://placehold.it/590x280/f89406" />
+			<img src="http://placehold.it/590x280/7a43b6" />
+		</div>
+		<div id="cycle-nav"></div>
 	</div>
-	<div id="free-trial-home">
-		
-	</div>
+	<div class="span6"></div>
 </div>
 
 <div class="row">
