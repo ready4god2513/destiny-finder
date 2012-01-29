@@ -3,7 +3,7 @@ $(function(){
 	if($("#rotating-banner").length)
 	{
 		$("#rotating-banner").cycle({
-			fx: "scrollLeft",
+			fx: "fade",
 			pager: "#cycle-nav",
 			pagerAnchorBuilder: function(idx, slide) 
 			{ 
