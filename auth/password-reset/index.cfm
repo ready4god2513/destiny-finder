@@ -13,8 +13,12 @@
 	
 <cfif isDefined("URL.reset") AND isDefined("URL.id") AND isDefined("URL.key")>
 	<cfset authUser = user.findUserByIdAndResetKey(id = URL.id, key = URL.key) />
-	<cfset login = CreateObject("component","cfcs.login") />
-	<cfset login.forceLogin(user = authUser, redirect_after = "/auth/?page=user") />
+	
+	<cfif authUser.recordcount EQ 1>
+		<cfset login = CreateObject("component","cfcs.login") />
+		<cfset login.forceLogin(user = authUser, redirect_after = "/auth/?page=user") />
+	</cfif>
+	
 </cfif>
 
 <cfmodule template="../../templates/site_wrapper.cfm"

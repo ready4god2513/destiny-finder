@@ -34,8 +34,7 @@
 	
 	
 	<cffunction name="login_form_action" returntype="string" output="true"	hint="I handle the login form actions">
-			
-				
+
 			<cfset VARIABLES.login_result = obj_queries.user_verify(user_name = "#FORM.user_name#", 
 																password = "#HASH(FORM.password)#")>
 			
