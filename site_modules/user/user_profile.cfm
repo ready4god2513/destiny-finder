@@ -161,7 +161,7 @@
 				<input type="submit" name="submit" value="Create Account" class="btn primary" />
 			<cfelse>
 				<a href="/profile/?page=profiler" class="btn danger">Cancel Update</a>
- 				<input type="submit" name="submit" value="Update Profile" class="btn primary" />		
+ 				<input type="submit" name="submit" value="Update Account Settings" class="btn primary" />		
 			</cfif>
 		</div>
 

@@ -58,7 +58,7 @@
 								<li><a href="/auth/account">My Account</a></li>
 								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
 							<cfelse>
-								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
+								<li><a href="/auth/?page=user&amp;create=1">Sign Up</a></li>
 								<li><a href="/auth/">Login</a></li>
 							</cfif>
 						</ul>

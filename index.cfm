@@ -33,7 +33,9 @@ ORDER BY gateway_sortorder ASC
 			<article>
 				<h2>About Us</h2>
 				<p>
-					Etiam enim leo, consequat ac ullamcorper a, fringilla a ipsum. Integer odio diam, accumsan ac mollis id, ultrices sed lectus. Vestibulum mattis elit nec enim fringilla rutrum. In sit amet risus ac eros commodo mattis. Proin viverra ultricies erat, at hendrerit metus fermentum et. Vivamus sit amet euismod mi. Nunc ullamcorper, ipsum at interdum egestas, nisi velit consequat magna, ornare fermentum sapien elit eget tellus. Aenean euismod, erat a adipiscing commodo, lorem mi mollis dolor, at porta nisi risus tincidunt sapien. Mauris vel tellus tortor, in luctus turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id nunc turpis, sed dignissim purus. Mauris vestibulum, quam sed eleifend aliquet, erat sapien aliquam turpis, eu pretium nunc urna id felis.
+					We believe you've been uniquely designed by God with a personal destiny! 
+					To do something significant for His kingdom. We help you discover your 
+					destiny, maximize your impact and experience real fulfillment.
 				</p>
 			</article>
 
@@ -41,15 +43,57 @@ ORDER BY gateway_sortorder ASC
 				<h2>News</h2>
 				<h3>Profiler now available!</h3>
 				<p>
-					Etiam enim leo, consequat ac ullamcorper a, fringilla a ipsum. Integer odio diam, accumsan ac mollis id, ultrices sed lectus. Vestibulum mattis elit nec enim fringilla rutrum. In sit amet risus ac eros commodo mattis. Proin viverra ultricies erat, at hendrerit metus fermentum et. Vivamus sit amet euismod mi. Nunc ullamcorper, ipsum at interdum egestas, nisi velit consequat magna, ornare fermentum sapien elit eget tellus. Aenean euismod, erat a adipiscing commodo, lorem mi mollis dolor, at porta nisi risus tincidunt sapien. Mauris vel tellus tortor, in luctus turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id nunc turpis, sed dignissim purus. Mauris vestibulum, quam sed eleifend aliquet, erat sapien aliquam turpis, eu pretium nunc urna id felis.
+					It's here and there's nothing else like it on the planet! Five online surveys 
+					based on spiritual gifts, motivation, passion and more produce a profile of 
+					your basic gifting, calling and direction. Special introductory offer
 				</p>
 			</article>
 
 			<article>
 				<h2>Products &amp; Services</h2>
-				<p>
-					Etiam enim leo, consequat ac ullamcorper a, fringilla a ipsum. Integer odio diam, accumsan ac mollis id, ultrices sed lectus. Vestibulum mattis elit nec enim fringilla rutrum. In sit amet risus ac eros commodo mattis. Proin viverra ultricies erat, at hendrerit metus fermentum et. Vivamus sit amet euismod mi. Nunc ullamcorper, ipsum at interdum egestas, nisi velit consequat magna, ornare fermentum sapien elit eget tellus. Aenean euismod, erat a adipiscing commodo, lorem mi mollis dolor, at porta nisi risus tincidunt sapien. Mauris vel tellus tortor, in luctus turpis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed id nunc turpis, sed dignissim purus. Mauris vestibulum, quam sed eleifend aliquet, erat sapien aliquam turpis, eu pretium nunc urna id felis.
-				</p>
+				<div class="row">
+					<div class="span3">
+						<img src="/assets/images/bg_gray_compass.png">
+					</div>
+					<div class="span7">
+						<h5>Free Trial Destiny Survey</h5>
+						<p>Reveals your inner design. Takes 5 minutes, instant results</p>
+						<p><a href="/">More</a></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span3">
+						<img src="/assets/images/bg_gray_compass.png">
+					</div>
+					<div class="span7">
+						<h5>Profiler</h5>
+						<p>Five surveys based on spiritual gifts, passion and more reveal 
+						your basic destiny direction</p>
+						<p><a href="/">More</a></p>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="span3">
+						<img src="/assets/images/bg_gray_compass.png">
+					</div>
+					<div class="span7">
+						<h5>Coaching</h5>
+						<p>Experienced coaches work with you by phone to accelerate 
+						your progress.</p>
+						<p><a href="/">More</a></p>
+					</div>
+				</div>
+				<div class="row">	
+					<div class="span3">
+						<img src="/assets/images/bg_gray_compass.png">
+					</div>
+					<div class="span7">
+						<h5>DestinyFinder Book - Just Published!</h5>
+						<p>Michael Brodeur's work sets the foundation for understanding 
+						and pursuing kingdom-focused personal destiny.</p>
+						<p><a href="/">More</a></p>
+					</div>
+				</div>
 			</article>
 		</section>
 	</div>
