@@ -18,20 +18,14 @@
 	html_title="#qContent.content_html_title#"
 	meta_desc="#qContent.content_meta_desc#">
 	
-	<div class="row">
-		<div class="span11">
-			<section id="main">
-				<div class="row">
-					<h2 class="span6">My Account</h2>
-					<div class="pull-right">
-						<a href="/auth/index.cfm?page=user" class="btn info">Account Settings</a>
-					</div>
-				</div>
-				<cfinclude template="../../site_modules/assessment/profiler.cfm" />
-			</section>
+	<section id="main">
+		<div class="row">
+			<h2 class="span6">My Account</h2>
+			<div class="pull-right">
+				<a href="/auth/index.cfm?page=user" class="btn info">Account Settings</a>
+			</div>
 		</div>
-
-		<cfinclude template="../../templates/sidebar.cfm" />
-	</div>
+		<cfinclude template="../../site_modules/assessment/profiler.cfm" />
+	</section>
 
 </cfmodule>

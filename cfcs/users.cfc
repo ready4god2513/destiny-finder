@@ -81,7 +81,6 @@
 						<cfif isDefined('return_url')>
 							<cflocation url="#return_url#" addtoken="no">
 						<cfelse>
-							<!---<cflocation url="index.cfm?new=1" addtoken="no">--->
 	                        <cflocation url="#REQUEST.site_url#profile/?page=freesurveyintro" addtoken="no">
 						</cfif>
 					

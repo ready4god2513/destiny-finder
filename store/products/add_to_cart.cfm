@@ -8,7 +8,7 @@
 					<img src="/assets/images/#ATTRIBUTES.image#" alt="#ATTRIBUTES.product_name#"/>
 				</div>
 
-				<div class="span7">
+				<div class="span12">
 					<h4>#ATTRIBUTES.product_name#</h4>
 					<p>#ATTRIBUTES.description#</p>
 

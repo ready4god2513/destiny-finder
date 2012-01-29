@@ -15,7 +15,7 @@
 						<ul class="span5">
 							<li><a href="/">Home</a></li>
 							<li><a href="/about/">About Us</a></li>
-							<li><a href="/products/">Products &amp; Services</a></li>
+							<li><a href="/store/">Products &amp; Services</a></li>
 							<li><a href="/free/">Resources</a></li>
 						</ul>
 
@@ -23,10 +23,9 @@
 							<li><a href="https://destinyfinder.foxycart.com/cart">Cart</a></li>
 							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
 								<li><a href="/auth/account">My Account</a></li>
-								<li><a href="/profile/index.cfm?logout=yes">Log Out</a></li>
+								<li><a href="/profile/?logout=yes">Log Out</a></li>
 							<cfelse>
-								<li><a href="/auth/?page=user&amp;create=1">Create Account</a></li>
-								<li><a href="/auth/">Login</a></li>
+								<li><a href="/auth/">Login / Sign Up</a></li>
 							</cfif>
 							<li><a href="/about/?page=contact">Contact</a></li>
 						</ul>

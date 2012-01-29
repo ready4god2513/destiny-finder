@@ -20,13 +20,8 @@
 	html_title="#pageTitle#"
 	meta_desc="" >
 	
-	<div class="row">
-		<div class="span11">
-			<section id="main">
-				<cfinclude template="products/listing.cfm" />
-			</section>
-		</div>
-
-		<cfinclude template="../templates/sidebar.cfm" />
-	</div>
+	<section id="main">
+		<h2>The Destiny Finder Store</h2>
+		<cfinclude template="products/listing.cfm" />
+	</section>
 </cfmodule>

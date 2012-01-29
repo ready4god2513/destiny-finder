@@ -33,10 +33,9 @@
 <cfparam name="FORM.user_phone" default="">	
 <cfparam name="FORM.user_image" default="">	
 <cfparam name="FORM.user_description" default="">
+	
 <cfif isDefined('VARIABLES.create_account_message')>
-
 	<cfmodule template="/site_modules/site_notifications.cfm" message="#VARIABLES.create_account_message#">
-		
 	<cfset qUser.user_first_name = "#FORM.user_first_name#">	
 	<cfset qUser.user_last_name = "#FORM.user_last_name#">	
 	<cfset qUser.user_address1 = "#FORM.user_address1#">	
@@ -55,28 +54,13 @@
 
 <div class="box">
 	<cfif REQUEST.user_id eq 0>
-		<h2>Beta Version Launches</h2>
+		<h2>Signup for a Free Account</h2>
 		<p>
-			We're excited to unveil the first stage of 
-			destinyfinder.com with the Free Destiny Survey!
+			
+			We need some info to get you started. This account 
+			will be used for all your DestinyFinder activity. It's 
+			totally confidential
 		</p>
-		<p>
-			Take the first step to discover your destiny.
-			We'll be rolling out the rest of this amazing system shortly.
-		</p>
-		<p>
-			Please give us some basic information so we can help you get started on your 
-			journey of discovering your destiny. The account you create will be used for all 
-			the DestinyFinder products and services. We won't give your email address away or spam you.
-		</p>
-
-		<h3>What you'll get</h3>
-		<p>After doing the 5 min free Destiny Survey you'll receive:</p>
-		<ul>
-			<li>Insights on how your design shapes your destiny.</li>
-			<li>Customized results instantly.</li>
-			<li>Access to our Resources section - articles, organization profiles, book recommendations, and more.</li>
-		</ul>
 	</cfif>
 
 	<cfset form_name = "update-account-form">
@@ -84,7 +68,7 @@
 		<cfset form_name = "signup-form">
 	</cfif>
 	
-	<form action="/auth/index.cfm?page=user&<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="<cfoutput>#form_name#</cfoutput>">
+	<form action="/auth/?page=user&<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="<cfoutput>#form_name#</cfoutput>">
 		<fieldset>
 			<div class="clearfix">
 				<label for="user_first_name">First Name</label>
