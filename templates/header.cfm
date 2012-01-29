@@ -40,6 +40,12 @@
 			<cfoutput><link rel="stylesheet" href="#style#" type="text/css" media="screen" charset="utf-8" /></cfoutput>
 		</cfloop>
 	</cfif>
+	
+	
+	<!-- BEGIN FOXYCART FILES -->
+	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css" type="text/css" media="screen" charset="utf-8" />
+	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js" type="text/javascript" charset="utf-8"></script>
+	<!-- END FOXYCART FILES -->
 
 	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
 </head>
@@ -54,7 +60,7 @@
 
 					<nav class="pull-right span10">
 						<ul>
-							<li><a href="https://destinyfinder.foxycart.com/cart">Cart</a></li>
+							<li><a href="https://destinyfinder.foxycart.com/cart?cart=view">Cart</a></li>
 							<li><a href="/pages/?page=support">Support</a></li>
 							<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
 								<li><a href="/auth/account">My Account</a></li>

@@ -18,11 +18,12 @@
 		<cfreturn true>
 	</cffunction>
 	
+	
 	<cffunction name="auth_token" returntype="string" output="false" hint="I authenticate a user via the FoxyCart API">
 		<cfargument name="customer_id" type="string" require="yes" />		
 		<cfargument name="timestamp" type="string" require="yes" />
 		
-		<cfreturn Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#APPLICATION.foxyCart.apiKey#", "SHA-1")>
+		<cfreturn Lcase(Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#APPLICATION.foxyCart.apiKey#", "SHA-256"))>
 	</cffunction>
 	
 	
