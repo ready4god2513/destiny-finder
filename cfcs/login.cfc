@@ -21,6 +21,18 @@
 		
 	</cffunction>
 	
+	
+	<cffunction name="forceLogin" returntype="void" output="false" hint="I force the login for a user">
+		<cfargument name="user" type="query" required="yes" />
+		<cfargument name="redirect_after" type="string" required="no" default="/auth/account/" />
+		
+		<cflock scope="session" type="exclusive" timeout="30">
+			<cfset SESSION.user_id = user.user_id />
+			<cflocation url="#ARGUMENTS.redirect_after#" addtoken="no" />
+		</cflock>
+	</cffunction>
+	
+	
 	<cffunction name="login_form_action" returntype="string" output="true"	hint="I handle the login form actions">
 			
 				

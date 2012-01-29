@@ -2,6 +2,69 @@
 
 	<cfset obj_admin = CreateObject("component","admin.cfcs.admin")>
 	<cfset foxyCart = CreateObject("component", "cfcs.foxycart") />
+	
+	
+	<cffunction name="findUserByEmail" returntype="query" output="false" hint="I find users by their e-mail address">
+		<cfargument name="email" type="string" required="true" />
+		
+		<cfquery name="u" datasource="#APPLICATION.DSN#">
+			SELECT *
+			FROM Users
+			WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.email#">
+		</cfquery>
+		
+		<cfreturn u>
+	</cffunction>
+	
+	<cffunction name="findUserByIdAndResetKey" returntype="query" output="false" hint="I find users by their id and reset key">
+		<cfargument name="key" type="string" required="true" />
+		<cfargument name="id" type="string" required="true" />
+		
+		<cfquery name="u" datasource="#APPLICATION.DSN#">
+			SELECT *
+			FROM Users
+			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_int" value="#ARGUMENTS.id#">
+			AND user_password = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.key#">
+		</cfquery>
+		
+		<cfreturn u>
+	</cffunction>
+	
+	
+	<cffunction name="sendResetInstructions" returntype="boolean" output="false" hint="I lookup users and send them reset instructions">
+		<cfargument name="email" type="string" required="true" />
+		
+		<cfset user = this.findUserByEmail(email = #ARGUMENTS.email#) />
+		
+		<cfif user.recordcount EQ 1>
+			<cfmail 
+				to="#user.user_username#" 
+				from="#APPLICATION.contact_email#" 
+				subject="Destiny Finder Password Reset" 
+				type="html">
+				
+				<p>Dear #user.user_first_name#</p>
+				<p>
+					Someone has requested a link to change your password, and you can do this through the link below.
+				</p>
+
+				<p>
+					<a href="#REQUEST.site_url#auth/password-reset/?reset=true&amp;key=#user.user_password#&amp;id=#user.user_id#">Reset my Password</a>
+				</p>
+
+				<p>
+					If you didn't request this, please ignore this email.
+				</p>
+
+				<p>
+					Your password won't change until you access the link above and create a new one.
+				</p>
+				
+			</cfmail>
+		</cfif>
+			
+		<cfreturn user.recordcount EQ 1>
+	</cffunction>
 
 
 	<cffunction name="process_user_form" returntype="string" output="true" hint="I process the user form">
@@ -26,7 +89,7 @@
 					<cfquery name="Check_user" datasource="#APPLICATION.DSN#">
 						SELECT user_id
 						FROM Users
-						WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#">
+						WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#" />
 					</cfquery>
 
 					<cfif check_user.recordcount GT 0>

@@ -122,8 +122,8 @@
 				<input type="submit" name="submit" value="Login" class="btn primary" />
 			</div>
 		</form>
-
-		<p>Don't have an account yet? <a href="/auth/?page=user&create=1">Click here to create a free account.</a></p>
+		
+		<p>Forget your password?  <a href="/auth/password-reset">Reset it here</a></p>
 	</div>
 </div>
 	
