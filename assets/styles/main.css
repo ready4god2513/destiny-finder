@@ -3085,6 +3085,9 @@ header#top nav ul li:last-child a {
   display: inline-block;
   margin: 3px;
 }
+#cycle-nav a.activeSlide {
+  color: #049cdb;
+}
 .topbar-wrapper {
   margin-bottom: 30px;
 }

@@ -29,7 +29,11 @@ ORDER BY gateway_sortorder ASC
 		</div>
 		<div id="cycle-nav"></div>
 	</div>
-	<div class="span6"></div>
+	<div class="span6">
+		<div id="try-it-free-home">
+			<img src="http://placehold.it/340x280/fff" />
+		</div>
+	</div>
 </div>
 
 <div class="row">
