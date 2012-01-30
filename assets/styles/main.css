@@ -3097,6 +3097,10 @@ header#top nav ul li:last-child a {
 .topbar-wrapper {
   margin-bottom: 30px;
 }
+#sidebar h4 {
+  padding: 5px;
+  text-align: center;
+}
 #sidebar article {
   background: #effaff;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
