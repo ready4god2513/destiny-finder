@@ -27,7 +27,6 @@
                             <td>#objAssessments.compile_results(user_id="#REQUEST.user_id#",invite="#qInvites.invite_uid#")#</td>
                         </tr>
                         
-                        
                     </cfloop>
                     </table>
                 <cfelse>
