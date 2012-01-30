@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" >
 
-	<title dir="ltr">
+	<title>
 		<cfif LEN(ATTRIBUTES.html_title) GT 0>
 			<cfoutput>#ATTRIBUTES.html_title#</cfoutput> |
 		</cfif>
@@ -27,25 +27,25 @@
 	
 	
 	<!-- BEGIN FOXYCART FILES -->
-	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css?v=1327967598" type="text/css" media="screen" charset="utf-8" />
 	<!-- END FOXYCART FILES -->
 
-	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css" />
+	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css?v=1327967598" />
 	
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?v=1327967598"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js?v=1327967598"></script>
 
 	<!-- Include all of the required libraries -->
-	<script src="/assets/scripts/libraries/modernizr.js"></script>
-	<script src="/assets/scripts/libraries/bootstrap.dropdown.js"></script>
-	<script src="/assets/scripts/libraries/jquery.form.js"></script>
-	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
-	<script src="/assets/scripts/libraries/jquery.validate.min.js"></script>
-	<script src="/assets/scripts/libraries/jquery.slider.js"></script>
-	<script src="/assets/scripts/main.js"></script>
+	<script src="/assets/scripts/libraries/modernizr.js?v=1327967598"></script>
+	<script src="/assets/scripts/libraries/bootstrap.dropdown.js?v=1327967598"></script>
+	<script src="/assets/scripts/libraries/jquery.form.js?v=1327967598"></script>
+	<script src="/assets/scripts/libraries/jquery.sortable.js?v=1327967598"></script>
+	<script src="/assets/scripts/libraries/jquery.validate.min.js?v=1327967598"></script>
+	<script src="/assets/scripts/libraries/jquery.slider.js?v=1327967598"></script>
+	<script src="/assets/scripts/main.js?v=1327967598"></script>
 	
-	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js"></script>
+	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js?v=1327967598"></script>
 </head>
 <body>
 	<div class="container">
