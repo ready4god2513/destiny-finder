@@ -45,7 +45,7 @@ ORDER BY gateway_sortorder ASC
 					We believe you've been uniquely designed by God with a personal destiny! 
 					To do something significant for His kingdom. We help you discover your 
 					destiny, maximize your impact and experience real fulfillment.
-					<a href="/about/index.cfm?page=about&gateway=2&parent_gateway=2">More</a>
+					<a href="/about/index.cfm?page=about&amp;gateway=2&amp;parent_gateway=2">More...</a>
 				</p>
 			</article>
 
@@ -56,7 +56,7 @@ ORDER BY gateway_sortorder ASC
 					It's here and there's nothing else like it on the planet! Five online surveys 
 					based on spiritual gifts, motivation, passion and more produce a profile of 
 					your basic gifting, calling and direction. Special introductory offer. 
-					<a href="/profile/?page=profiler">More</a>
+					<a href="/profile/?page=profiler">More...</a>
 				</p>
 			</article>
 
@@ -64,45 +64,51 @@ ORDER BY gateway_sortorder ASC
 				<h2>Products &amp; Services</h2>
 				<div class="row">
 					<div class="span2">
-						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
+						<img src="/assets/images/df-10.jpg" />
 					</div>
 					<div class="span8">
 						<h5>Free Trial Destiny Survey</h5>
-						<p>Reveals your inner design. Takes 5 minutes, instant results</p>
-						<p><a href="/profile/?page=assessment&assessment_id=1&gift_type_id=1">More</a></p>
+						<p>
+							Reveals your inner design. Takes 5 minutes, instant results
+							<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">More...</a>
+						</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="span2">
-						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
+						<img src="/assets/images/profiler.jpg" />
 					</div>
 					<div class="span8">
 						<h5>Profiler</h5>
-						<p>Five surveys based on spiritual gifts, passion and more reveal 
-						your basic destiny direction</p>
-						<p><a href="/profile/?page=profiler">More</a></p>
+						<p>
+							Five surveys based on spiritual gifts, passion and more reveal 
+							your basic destiny direction <a href="/profile/?page=profiler">More...</a>
+						</p>
 					</div>
 				</div>
 				<div class="row">	
 					<div class="span2">
-						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
+						<img src="/assets/images/coaching.jpg" />
 					</div>
 					<div class="span8">
 						<h5>Coaching</h5>
-						<p>Experienced coaches work with you by phone to accelerate 
-						your progress.</p>
-						<p><a href="/products/index.cfm?page=coaching&gateway=3&parent_gateway=3">More</a></p>
+						<p>
+							Experienced coaches work with you by phone to accelerate 
+							your progress. <a href="/products/index.cfm?page=coaching&amp;gateway=3&amp;parent_gateway=3">More</a>
+						</p>
 					</div>
 				</div>
 				<div class="row">	
 					<div class="span2">
-						<img src="/assets/images/pic_destiny_guide_1.0.jpg" />
+						<img src="/assets/images/df-book.jpg" />
 					</div>
 					<div class="span8">
 						<h5>DestinyFinder Book - Just Published!</h5>
-						<p>Michael Brodeur's work sets the foundation for understanding 
-						and pursuing kingdom-focused personal destiny.</p>
-						<p><a href="/products/index.cfm?page=destinyfinderbook&gateway=3&parent_gateway=3">More</a></p>
+						<p>
+							Michael Brodeur's work sets the foundation for understanding 
+							and pursuing kingdom-focused personal destiny.
+							<a href="/products/index.cfm?page=destinyfinderbook&amp;gateway=3&amp;parent_gateway=3">More...</a>
+						</p>
 					</div>
 				</div>
 			</article>

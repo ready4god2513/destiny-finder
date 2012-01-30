@@ -138,11 +138,11 @@
 			<cfif isDefined('assessment_id')>
 				AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
 			</cfif>
-			<!---<cfif isDefined('invite')>
+			<cfif isDefined('invite')>
 				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
 			<cfelse>
 				AND invite_uid IS NULL
-			</cfif>--->
+			</cfif>
 
 		</cfquery>
 
@@ -521,6 +521,7 @@
 			<cfset qResults = retrieve_result(user_id="#user_id#",invite="#invite#",gift_type_id=1)>
 			<cfset qGifts = retrieve_gifts(gift_type_id=1)>
 			<cfset VARIABLES.compiled_gift_count = ArrayNew(1)>
+		    <cfset VARIABLES.dominant_gift = {id = 0, count =0}>
 		
 			<!--- PREPARE CONTAINER FOR KEEPING SCORE OF EACH GIFT --->
 			<cfloop from="1" to="#qGifts.recordcount#" index="i"> 
@@ -531,12 +532,17 @@
 				<cfset VARIABLES.result_gift_count = DeSerializeJSON(qResults.result_gift_count)>
 						
 				<cfloop from="1" to="#ArrayLen(VARIABLES.result_gift_count)#" index="i">
-					<cfset VARIABLES.compiled_gift_count[i].counter = VARIABLES.compiled_gift_count[i].counter + VARIABLES.result_gift_count[i].counter>
-				</cfloop>
-			
+					<cfif VARIABLES.result_gift_count[i].counter GT VARIABLES.dominant_gift.count>
+						<cfset VARIABLES.dominant_gift.id = VARIABLES.result_gift_count[i].id>
+                        <cfset VARIABLES.dominant_gift.count = VARIABLES.result_gift_count[i].counter>
+					</cfif>
+				</cfloop>			
 			</cfoutput>
-		
-			<cfdump var="#VARIABLES.compiled_gift_count#">
+			<cfquery name="qThisResult" datasource="#APPLICATION.DSN#">
+                Select gift_name from gifts
+                Where gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">
+            </cfquery>
+			<cfoutput><cfif Len(qThisResult.gift_name) GT 0>#qThisResult.gift_name#<cfelse>none</cfif></cfoutput>
 		</cffunction>
 
 		<cffunction name="retrieve_invites" output="false" returntype="query" hint="I retrieve invites">
@@ -561,7 +567,9 @@
 
 		<cffunction name="invite_friend" output="false" returntype="string" hint="I invite">
 			<cfargument name="user_id" required="yes" type="numeric">
-		
+			
+            <!---<cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>--->
+            
 			<!--- GENERATE RANDOM UID --->
 			<cfloop index="i" from="1" to="6" step="1">
 				<cfset a = randrange(48,122)>
@@ -573,8 +581,8 @@
 			</cfloop>
 
 			<cfset VARIABLES.invite_uid =LCase("#str_uid[1]##str_uid[2]##str_uid[3]##str_uid[4]##str_uid[5]##str_uid[6]#")>	
-		
-			<cfquery name="iInvite" datasource="#APPLICATION.DSN#">
+			
+            <cfquery name="iInvite" datasource="#APPLICATION.DSN#">
 				INSERT INTO
 					Invites
 					(invite_uid,user_id,invite_email,invite_first_name,invite_last_name)
@@ -582,8 +590,18 @@
 					(<cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.invite_uid#">,#user_id#,<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#">,<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_first_name#">,<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_last_name#">)
 			</cfquery>
 		
-			<cfmail from="noreply@destinyfinder.com" to="#FORM.user_email#" subject="You've been invited.">
-				You've been invited to take an assessment for a friend.
+			<cfmail 
+				from="noreply@destinyfinder.com" 
+				to="#FORM.user_email#" 
+				subject="You've been invited - DestinyFinder"
+				type="html">
+				<p>
+					A friend has invited you to take an online survey.
+				</p>
+                <p>
+					Use the following link to start the survey now:
+					<a href="#REQUEST.site_url#invite/?invite=#VARIABLES.invite_uid#">START THE SURVEY</a>
+				</p>
 			</cfmail>
 		
 		</cffunction>
