@@ -924,7 +924,7 @@ ol {
 }
 li {
   line-height: 18px;
-  color: #808080;
+  color: #000000;
 }
 ul.unstyled {
   list-style: none;
@@ -3022,25 +3022,27 @@ h4,
 h5,
 h6 {
   line-height: 100%;
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
 }
-h1,
-h1 a,
-h4,
-h4 a {
-  color: #013145;
+h1, h1 a {
+  color: #02435e;
 }
-h2, h2 a {
+h2, h2 a, #sidebar h4 {
   color: #025577;
 }
-h3, h3 a {
-  color: #0378a9;
+h3,
+h3 a,
+h4,
+h4 a,
+h5,
+h5 a {
+  color: #17b8fb;
 }
 br, div#myEventWatcherDiv {
   display: none;
 }
 p {
-  line-height: 200%;
+  line-height: 150%;
 }
 .clear {
   clear: both;
