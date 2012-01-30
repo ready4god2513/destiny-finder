@@ -868,14 +868,14 @@ h6 small {
 }
 h1 {
   margin-bottom: 18px;
-  font-size: 30px;
+  font-size: 22px;
   line-height: 36px;
 }
 h1 small {
   font-size: 18px;
 }
 h2 {
-  font-size: 24px;
+  font-size: 18px;
   line-height: 36px;
 }
 h2 small {
@@ -888,13 +888,13 @@ h6 {
   line-height: 36px;
 }
 h3 {
-  font-size: 18px;
+  font-size: 16px;
 }
 h3 small {
   font-size: 14px;
 }
 h4 {
-  font-size: 16px;
+  font-size: 15px;
 }
 h4 small {
   font-size: 12px;
