@@ -54,7 +54,9 @@
 					<cfelse>
 			        	 <a class="btn disabled" href="##">COMING SOON</a> 
 					</cfif>
-                    <cfif qAssessments.assessment_id EQ 1><a style="margin-top: 5px;" href="/profile/?page=invmod">Invite A Friend</a></cfif>
+                    <cfif qAssessments.assessment_id EQ 1>
+						<a href="/profile/?page=invmod" class="btn info">Invite A Friend</a>
+					</cfif>
 				</td>
 			</tr>
 	    </cfloop>
