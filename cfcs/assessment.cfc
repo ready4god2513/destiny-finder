@@ -400,7 +400,15 @@
 		</cfquery>
 		
 	    <cfif qThisResult.recordcount GT 0>
-	    	<div>Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
+			<div class="row">
+				<div class="span7">Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
+				<div class="pull-right">
+					<cfif not isDefined("URL.pdf")>
+						<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn info">Print PDF</a>
+					</cfif>
+				</div>
+			</div>
+	    	
 		    <div class="short_desc">#qThisResult.ThisResult#</div>
 		    <cfif isDefined("assessment_id")>
 			    <cfquery name="qGetClosing" datasource="#APPLICATION.DSN#">
@@ -495,8 +503,19 @@
 			<cfargument name="user_id" required="yes" type="numeric">
 	        <cfset objQueries = CreateObject("component","cfcs.queries")>
 			<cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>
-	        <cfset qPassionResults = objQueries.passion_results(user_id="#REQUEST.user_id#")>		
-			<div>Destiny Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qPassionResults.last_modified,'mmm dd, yyyy')#</div>
+	        <cfset qPassionResults = objQueries.passion_results(user_id="#REQUEST.user_id#")>
+			
+			<div class="row">
+				<div class="span7">
+					Destiny Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qPassionResults.last_modified,'mmm dd, yyyy')#
+				</div>
+				<div class="pull-right">
+					<cfif not isDefined("URL.pdf")>
+						<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn info">Print PDF</a>
+					</cfif>
+				</div>
+			</div>
+			
 	    <div class="short_desc">
 	    <h2>Passion Statement</h2><br>
 	<p>I am most passionate about bringing my primary kingdom impact in the sphere of <strong>#HTMLEditFormat(qPassionResults.sphere)#</strong>, specifically working in the area of <strong>#HTMLEditFormat(ListGetAt(qPassionResults.sphere_sub1,1))#</strong> and/or <strong>#HTMLEditFormat(ListGetAt(qPassionResults.sphere_sub1,2))#</strong>.</p>
@@ -507,7 +526,7 @@
 	In the workplace, I’m most comfortable in the role of <strong>#HTMLEditFormat(ListGetAt(qPassionResults.role_workplace,1))#</strong> or <strong>#HTMLEditFormat(ListGetAt(qPassionResults.role_workplace,2))#</strong>.</p>
 	<p>I want to impact the <strong>#HTMLEditFormat(qPassionResults.impact_age_group)#</strong> age group in <strong>#HTMLEditFormat(qPassionResults.impact_area)#</strong> areas of <cfif qPassionResults.impact_region EQ 'United States'>the </cfif><strong>#HTMLEditFormat(qPassionResults.impact_region)#</strong>, of <strong>#HTMLEditFormat(qPassionResults.impact_ethnicity)#</strong> ethnicity and the <strong>#HTMLEditFormat(qPassionResults.impact_subculture)#</strong> subculture with a <strong>#HTMLEditFormat(qPassionResults.impact_religious)#</strong> religious orientation. </p>
 	<p>At present I’m in the <strong>#HTMLEditFormat(qPassionResults.development_1)#</strong> stage of destiny development. In 3-5 years I want to be in the <strong>#HTMLEditFormat(qPassionResults.development_2)#</strong> stage, and in 5-10 years I want to be in the <strong>#HTMLEditFormat(qPassionResults.development_3)#</strong> destiny development stage.</p>
-	<p>I have a passion to bring kingdom impact and transformation to the people I feel called to, and by God’s grace I will!</p>
+	<p>I have a passion to bring kingdom impact and transformation to the people I feel called to, and by God's grace I will!</p>
 	</div>
 
 		</cffunction>

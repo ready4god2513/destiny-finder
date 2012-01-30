@@ -7,10 +7,23 @@
 <cfset VARIABLES.memberships = objAssessments.retrieve_membership(user_id="#REQUEST.user_id#")>
 
 <cfoutput>
-<cfif URL.assessment_id LTE 4>
-	#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
+	<cfif isDefined("URL.pdf")>
+		<cfdocument
+			format="pdf">
+			<cfif URL.assessment_id LTE 4>
+				#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
 
-<cfelseif URL.assessment_id EQ 5>
-	#objAssessments.process_passion_statement(user_id="#val(REQUEST.user_id)#")#
-</cfif>
+			<cfelseif URL.assessment_id EQ 5>
+				#objAssessments.process_passion_statement(user_id="#val(REQUEST.user_id)#")#
+			</cfif>
+		</cfdocument>
+	<cfelse>
+		<cfif URL.assessment_id LTE 4>
+			#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
+
+		<cfelseif URL.assessment_id EQ 5>
+			#objAssessments.process_passion_statement(user_id="#val(REQUEST.user_id)#")#
+		</cfif>
+	</cfif>
+
 </cfoutput>

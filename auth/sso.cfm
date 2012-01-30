@@ -11,7 +11,7 @@
 	<cfset auth_token = foxyCart.auth_token(customer_id = #customer_id#, timestamp = #timestamp#) />
 	<cfset redirect_url = "https://destinyfinder.foxycart.com/checkout?fc_auth_token=#auth_token#&fcsid=#url["fcsid"]#&fc_customer_id=#customer_id#&timestamp=#timestamp#" />
 
-	<cflocation url="#Lcase(redirect_url)#" />
+	<cflocation url="#Lcase(redirect_url)#" addtoken="no" />
 <cfelse>
 	<cflocation url="/auth" />
 </cfif>
