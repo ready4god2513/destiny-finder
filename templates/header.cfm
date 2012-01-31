@@ -36,14 +36,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?v=1327967598"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js?v=1327967598"></script>
 
-	<!-- Include all of the required libraries -->
-	<script src="/assets/scripts/libraries/modernizr.js?v=1327967598"></script>
-	<script src="/assets/scripts/libraries/bootstrap.dropdown.js?v=1327967598"></script>
-	<script src="/assets/scripts/libraries/jquery.form.js?v=1327967598"></script>
-	<script src="/assets/scripts/libraries/jquery.sortable.js?v=1327967598"></script>
-	<script src="/assets/scripts/libraries/jquery.validate.min.js?v=1327967598"></script>
-	<script src="/assets/scripts/libraries/jquery.slider.js?v=1327967598"></script>
-	<script src="/assets/scripts/main.js?v=1327967598"></script>
+	<!-- Include all of the required libraries -->	
+	<script src="/assets/scripts/min/main-ck.js?v=1327967598"></script>
 	
 	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js?v=1327967598"></script>
 </head>
