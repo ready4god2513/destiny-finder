@@ -79,6 +79,8 @@
 		<cfset APPLICATION.DSN="destinyfinder_dev">
 		<cfset APPLICATION.STORE_DSN = "destinyfinder_store">
 		<cfset APPLICATION.STAGING = 0>
+			
+		<cfset APPLICATION.version = 0.1 />
 		
 		<cfset APPLICATION.sitename = "Destiny Finder">
 		<cfset thispath=GetDirectoryFromPath(CF_TEMPLATE_PATH)>

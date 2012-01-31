@@ -399,6 +399,8 @@
 			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
 		</cfquery>
 		
+		<cfparam name="URL.gift_type_id" default="0" />
+		
 	    <cfif qThisResult.recordcount GT 0>
 			<div class="row">
 				<div class="span7">Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
@@ -504,6 +506,7 @@
 	        <cfset objQueries = CreateObject("component","cfcs.queries")>
 			<cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>
 	        <cfset qPassionResults = objQueries.passion_results(user_id="#REQUEST.user_id#")>
+			<cfparam name="URL.gift_type_id" default="0" />
 			
 			<div class="row">
 				<div class="span7">
