@@ -21,17 +21,19 @@ ORDER BY gateway_sortorder ASC
 <div class="row">
 	<div class="span10">
 		<div id="rotating-banner">
-			<img src="http://placehold.it/590x280/336699" />
-			<img src="http://placehold.it/590x280/e8e8e8" />
-			<img src="http://placehold.it/590x280/222222" />
-			<img src="http://placehold.it/590x280/f89406" />
-			<img src="http://placehold.it/590x280/7a43b6" />
+			<div id="rotating-images">
+				<img src="http://placehold.it/590x280/336699" />
+				<img src="http://placehold.it/590x280/e8e8e8" />
+				<img src="http://placehold.it/590x280/222222" />
+				<img src="http://placehold.it/590x280/f89406" />
+				<img src="http://placehold.it/590x280/7a43b6" />
+			</div>
 		</div>
 		<div id="cycle-nav"></div>
 	</div>
-	<div class="span6">
+	<div class="pull-right">
 		<div id="try-it-free-home">
-			<img src="http://placehold.it/340x280/fff" />
+			<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1"><img src="assets/images/free-trial-home-banner.png" /></a>
 		</div>
 	</div>
 </div>

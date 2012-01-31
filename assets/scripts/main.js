@@ -2,7 +2,7 @@ $(function(){
 
 	if($("#rotating-banner").length)
 	{
-		$("#rotating-banner").cycle({
+		$("#rotating-images").cycle({
 			fx: "fade",
 			pager: "#cycle-nav",
 			pause: true,
