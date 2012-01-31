@@ -196,19 +196,25 @@
 							WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
 					</cfquery>
 					
-					<!--- BEGIN ADD TO CONSTANT CONTACT --->
-					<!--- We will always add them to the system list--->
-					<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/1">
+					<cftry>
 						
-					<!--- Check to see if we should add them to the marketing list --->
-					<cfif isDefined("FORM.marketing_opt_in") and #FORM.marketing_opt_in# GT 0>
-						<cfset contactList[2] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/9">
-					</cfif>
+						<!--- BEGIN ADD TO CONSTANT CONTACT --->
+						<!--- We will always add them to the system list--->
+						<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/1">
+
+						<!--- Check to see if we should add them to the marketing list --->
+						<cfif isDefined("FORM.marketing_opt_in") and #FORM.marketing_opt_in# GT 0>
+							<cfset contactList[2] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/9">
+						</cfif>
+
+						<cfset ccDetails.contactLists = #contactList# />
+						<cfset ccDetails.firstName = #FORM.user_first_name# />
+						<cfset ccDetails.lastName = #FORM.user_last_name# />
+						<cfset result = createObject("component", "cfcs.constantcontact.ContactsCollection").updateContact(contact = #ccDetails#)>
+						
+						<cfcatch type="any"></cfcatch>
+					</cftry>
 					
-					<cfset ccDetails.contactLists = #contactList# />
-					<cfset ccDetails.firstName = #FORM.user_first_name# />
-					<cfset ccDetails.lastName = #FORM.user_last_name# />
-					<cfset result = createObject("component", "cfcs.constantcontact.ContactsCollection").updateContact(contact = #ccDetails#)>
 					<cfset VARIABLES.site_notification = "profile_updated">
 			
 					<cfreturn VARIABLES.site_notification>						
