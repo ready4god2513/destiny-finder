@@ -21,6 +21,7 @@
 <cfparam name="qUser.user_image" default="">	
 <cfparam name="qUser.user_description" default="">	
 <cfparam name="qUser.user_store_id" default="">
+<cfparam name="qUser.marketing_opt_in" default="">
    
 <cfparam name="FORM.user_first_name" default="">	
 <cfparam name="FORM.user_last_name" default="">	
@@ -33,9 +34,19 @@
 <cfparam name="FORM.user_phone" default="">	
 <cfparam name="FORM.user_image" default="">	
 <cfparam name="FORM.user_description" default="">
+<cfparam name="FORM.marketing_opt_in" default="">
 	
 <cfif isDefined('VARIABLES.create_account_message')>
-	<cfmodule template="/site_modules/site_notifications.cfm" message="#VARIABLES.create_account_message#">
+	<cfif VARIABLES.create_account_message EQ "profile_updated">
+		<cfmodule 
+			template="/site_modules/site_notifications.cfm" 
+			success="#VARIABLES.create_account_message#">
+	<cfelse>
+		<cfmodule 
+			template="/site_modules/site_notifications.cfm" 
+			message="#VARIABLES.create_account_message#">
+	</cfif>
+	
 	<cfset qUser.user_first_name = "#FORM.user_first_name#">	
 	<cfset qUser.user_last_name = "#FORM.user_last_name#">	
 	<cfset qUser.user_address1 = "#FORM.user_address1#">	
@@ -44,6 +55,7 @@
 	<cfset qUser.user_state = "#FORM.user_state#">	
 	<cfset qUser.user_zip = "#FORM.user_zip#">	
 	<cfset qUser.user_phone = "#FORM.user_phone#">
+	<cfset qUser.marketing_opt_in = "#FORM.marketing_opt_in#">
 </cfif>
 
 <cfif REQUEST.user_id EQ 0>
@@ -131,7 +143,7 @@
 						</cfif>
 						<li>
 							<label>
-								<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" />
+								<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" <cfif qUser.marketing_opt_in EQ 1>checked="checked"</cfif> />
 								<span>Yes, I want to receive updates from Destiny Finder</span>
 							</label>
 						</li>

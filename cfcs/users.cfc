@@ -169,7 +169,7 @@
 					</cfif>
 			</cfcase>
 		
-			<cfcase value="Update Profile">	
+			<cfcase value="Update Account Settings">	
 				
 					<cfif LEN(FORM.user_password) GT 0>
 						<cfset FORM.user_password = HASH(FORM.user_password)>

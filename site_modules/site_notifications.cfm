@@ -9,6 +9,10 @@
 				<cfcase value="password_reset">
 					You will receive an email with instructions about how to reset your password in a few minutes.
 				</cfcase>
+				
+				<cfcase value="profile_updated">
+					Your profile has been updated.
+				</cfcase>
 			</cfswitch>
 		</div>
 	</cfif>
