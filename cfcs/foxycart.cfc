@@ -23,7 +23,7 @@
 		<cfargument name="customer_id" type="string" require="yes" />		
 		<cfargument name="timestamp" type="string" require="yes" />
 		
-		<cfreturn Lcase(Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#APPLICATION.foxyCart.apiKey#", "SHA-256"))>
+		<cfreturn Hash("#ARGUMENTS.customer_id#|#ARGUMENTS.timestamp#|#APPLICATION.foxyCart.apiKey#", "SHA-1")>
 	</cffunction>
 	
 	

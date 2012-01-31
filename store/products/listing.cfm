@@ -12,7 +12,7 @@
 	<cfmodule template="add_to_cart.cfm"
 		product_name="Planner Module"
 		price="19.99"
-		description="(To be released Fall2011) Includes Soul Survey, 1 hr. Coaching, Action Plan"
+		description="Includes Soul Survey, 1 hr. Coaching, Action Plan"
 		image="PlannerModule.jpg"
 		product_id="#Hash("planner")#"
 		available=false>
@@ -21,7 +21,7 @@
 	<cfmodule template="add_to_cart.cfm"
 		product_name="Activator Module"
 		price="19.99"
-		description="(To be released Fall 2011) Includes 1 hr. Coaching, Mentor and Internship templates, Tracker Tool"
+		description="Includes 1 hr. Coaching, Mentor and Internship templates, Tracker Tool"
 		image="ActivatorModule.jpg"
 		product_id="#Hash("activator")#"
 		available=false>
