@@ -27,37 +27,42 @@
 			</div>
 		</div>
 		
-		<cfif foxyCart.customerPurchasedCode(email = REQUEST.user.user_email, code = "308B35B53DFCA91CA2CA2B8F450AB382")>
-			<cfinclude template="../../site_modules/assessment/profiler.cfm" />
-		</cfif>
+		<cfinclude template="../../site_modules/assessment/profiler.cfm" />
 		
 		<div class="row">
 			<div class="span15">
 				<h3>My Transactions</h3>
 				<cfset transactions = foxyCart.getCustomerTransactions(email = REQUEST.user.user_email) />
 				
-				<table>
-					<thead>
-						<tr>
-							<th>Product</th>
-							<th>Price</th>
-							<th>Quantity</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					<tbody>
-						<cfloop from="1" to="#arraylen(transactions)#" index="i">
-							<cfoutput>
-								<tr>
-									<td>#transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText#</td>
-									<td>#transactions.transaction[i].transaction_details.transaction_detail.product_price.xmlText#</td>
-									<td>#transactions.transaction[i].transaction_details.transaction_detail.product_quantity.xmlText#</td>
-									<td>#DateFormat(transactions.transaction[i].transaction_date.xmlText, "mmm dd, yyyy")#</td>
-								</tr>
-							</cfoutput>
-						</cfloop>
-					</tbody>
-				</table>
+				<cfif arraylen(transactions) GT 0>
+					<table>
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<cfloop from="1" to="#arraylen(transactions)#" index="i">
+								<cfoutput>
+									<tr>
+										<td>#transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText#</td>
+										<td>#transactions.transaction[i].transaction_details.transaction_detail.product_price.xmlText#</td>
+										<td>#transactions.transaction[i].transaction_details.transaction_detail.product_quantity.xmlText#</td>
+										<td>#DateFormat(transactions.transaction[i].transaction_date.xmlText, "mmm dd, yyyy")#</td>
+									</tr>
+								</cfoutput>
+							</cfloop>
+						</tbody>
+					</table>
+				<cfelse>
+					<div class="alert-message block-message warning">
+						You do not yet have any transaction history.
+					</div>
+				</cfif>
+				
 			</div>
 		</div>
 	</section>

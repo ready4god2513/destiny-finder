@@ -1,3 +1,5 @@
+<cfset foxyCart = CreateObject("component","cfcs.foxycart")>
+	
 <cfif REQUEST.user_id EQ 0 AND NOT isDefined('URL.create')>
 
 	<cfmodule template="/site_modules/user/login_box.cfm" >
@@ -21,48 +23,46 @@
 	<cfset VARIABLES.accesskey_id_list = objAssessments.member_accesskeys(user_id="#REQUEST.user_id#")>
 	<cfoutput>
 	
-	<div class="assessment_wrapper box">
-	<h4>Your Available Surveys</h4>
+		<div class="assessment_wrapper box">
+			<h4>Your Available Surveys</h4>
     
-	<cfset VARIABLES.Result_List = ValueList(qResults.assessment_id,',')>
+			<cfset VARIABLES.Result_List = ValueList(qResults.assessment_id,',')>
     
-    <cfquery datasource="#APPLICATION.DSN#" name="qPassionResult">
-    	SELECT * 
-		FROM Passion_Survey
-        WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
-        AND development_3 IS NOT NULL
-    </cfquery>
+		    <cfquery datasource="#APPLICATION.DSN#" name="qPassionResult">
+		    	SELECT * 
+				FROM Passion_Survey
+		        WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
+		        AND development_3 IS NOT NULL
+		    </cfquery>
 
-    <cfset VARIABLES.PassionComplete = 0>
-    <cfif qPassionResult.recordcount GT 0>
-    	<cfset VARIABLES.PassionComplete = 1>
-    </cfif>
-
-	<table>
-	    <cfloop query="qAssessments">
-			<tr class="#qAssessments.assessment_name#">
-				<th>#HTMLEditFormat(qAssessments.assessment_name)#</th>
-				<td>
-					<!--- <cfif (ListContains(VARIABLES.accesskey_id_list,qAssessments.assessment_access_key) OR qAssessments.assessment_id EQ 1)> --->
-					<cfif true>
-						<cfif (isDefined("VARIABLES.Result_List") AND ListContains(VARIABLES.Result_List,qAssessments.assessment_id) GT 0) OR (qAssessments.assessment_id EQ 5 AND VARIABLES.PassionComplete EQ 1)>
-			            	<a class="btn primary" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RETAKE</a>	
-							<a class="btn success" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RESULT</a>
-						<cfelse>
-			            	<a class="btn primary" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">TAKE SURVEY</a>	
-						</cfif> 
-					<cfelse>
-			        	 <a class="btn disabled" href="##">COMING SOON</a> 
-					</cfif>
-                    <cfif qAssessments.assessment_id EQ 1>
-						<a href="/profile/?page=invmod" class="btn info">Invite A Friend</a>
-					</cfif>
-				</td>
-			</tr>
-	    </cfloop>
-	</table>
-   
-	
-	</div>
-</cfoutput>
+		    <cfset VARIABLES.PassionComplete = 0>
+		    <cfif qPassionResult.recordcount GT 0>
+		    	<cfset VARIABLES.PassionComplete = 1>
+		    </cfif>
+		
+			<table>
+			    <cfloop query="qAssessments">
+					<tr class="#qAssessments.assessment_name#">
+						<th>#HTMLEditFormat(qAssessments.assessment_name)#</th>
+						<td>
+							<cfif qAssessments.assessment_id EQ 1 OR (qAssessments.assessment_id NEQ 1 AND foxyCart.customerPurchasedCode(email = REQUEST.user.user_email, code = #Hash("profiler")#))>
+								<cfif (isDefined("VARIABLES.Result_List") AND ListContains(VARIABLES.Result_List,qAssessments.assessment_id) GT 0) OR (qAssessments.assessment_id EQ 5 AND VARIABLES.PassionComplete EQ 1)>
+					            	<a class="btn primary" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RETAKE</a>	
+									<a class="btn success" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">RESULT</a>
+								<cfelse>
+					            	<a class="btn primary" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">TAKE SURVEY</a>	
+								</cfif>
+							<cfelse>
+								<a href="/store/" class="btn danger">Purchase the Profiler</a>
+							</cfif>
+					
+		                    <cfif qAssessments.assessment_id EQ 1>
+								<a href="/profile/?page=invmod" class="btn info">Invite A Friend</a>
+							</cfif>
+						</td>
+					</tr>
+			    </cfloop>
+			</table>
+		</div>
+	</cfoutput>
 </cfif>

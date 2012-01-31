@@ -43,6 +43,11 @@
 		</cfhttp>
 		
 		<cfset local.xmlDoc = XmlParse(CFHTTP.FileContent) />
+		
+		<cfif NOT isDefined("local.xmlDoc.foxydata.transactions")>
+			<cfreturn ArrayNew(1)>
+		</cfif>
+		
 		<cfreturn local.xmlDoc.foxydata.transactions />
 	</cffunction>
 	
