@@ -14,7 +14,7 @@
 <!--- SET VARIABLES FOR DELETE FUNCTION --->
 <cfset VARIABLES.table_primkey_name = "sort_id">
 <cfset VARIABLES.table_title_column = "sort_name">
-<cfset VARIABLES.fieldslist = "sort_name,sort_words,sort_active">
+<cfset VARIABLES.fieldslist = "sort_name,sort_name_alt,sort_words,sort_active">
 
 <!--- Queries to update database if form has been submitted --->
 
@@ -70,6 +70,7 @@
 
 <!--- set blank defaults for new entries --->
 <cfparam name="qSort.sort_name" default="">
+<cfparam name="qSort.sort_name_alt" default="">
 <cfparam name="qSort.sort_active" default="1">
 <cfparam name="qSort.sort_words" default="">
 
@@ -95,6 +96,9 @@
   </tr>
 <tr <cfif bg IS "bg1">bgcolor="#bg1#"<cfset bg = "bg2"><cfelse>bgcolor="#bg2#"<cfset bg = "bg1"></cfif>><td width="22%" valign="top"><strong>Sort Name:</strong></td>
 <td width="78%"><input type="text" size="20" maxlength="100" name="sort_name" value="#qSort.sort_name#" class="form_element">
+</td></tr>
+<tr <cfif bg IS "bg1">bgcolor="#bg1#"<cfset bg = "bg2"><cfelse>bgcolor="#bg2#"<cfset bg = "bg1"></cfif>><td width="22%" valign="top"><strong>Sort Name ALT:</strong></td>
+<td width="78%"><input type="text" size="20" maxlength="100" name="sort_name_alt" value="#qSort.sort_name_alt#" class="form_element">
 </td></tr>
 <tr <cfif bg IS "bg1">bgcolor="#bg1#"<cfset bg = "bg2"><cfelse>bgcolor="#bg2#"<cfset bg = "bg1"></cfif>>
     <td width="30%" valign="top"><strong>Active: </strong></td>
