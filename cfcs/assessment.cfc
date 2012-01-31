@@ -419,6 +419,10 @@
 					WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
 				</cfquery>
 		    	<div class="short_desc">#qGetClosing.assessment_closing_text#</div>
+		
+				<cfif not isDefined("URL.pdf")>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn info">Print PDF</a>
+				</cfif>
 		    </cfif>
 	    </cfif>
 	</cffunction>
@@ -531,6 +535,10 @@
 	<p>At present I’m in the <strong>#HTMLEditFormat(qPassionResults.development_1)#</strong> stage of destiny development. In 3-5 years I want to be in the <strong>#HTMLEditFormat(qPassionResults.development_2)#</strong> stage, and in 5-10 years I want to be in the <strong>#HTMLEditFormat(qPassionResults.development_3)#</strong> destiny development stage.</p>
 	<p>I have a passion to bring kingdom impact and transformation to the people I feel called to, and by God's grace I will!</p>
 	</div>
+	
+	<cfif not isDefined("URL.pdf")>
+		<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn info">Print PDF</a>
+	</cfif>
 
 		</cffunction>
     

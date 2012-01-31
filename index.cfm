@@ -22,18 +22,20 @@ ORDER BY gateway_sortorder ASC
 	<div class="span10">
 		<div id="rotating-banner">
 			<div id="rotating-images">
-				<img src="assets/images/slidepictures/CompassMap.jpg" width="590" height="280" alt="CompassMap">
-				<img src="assets/images/slidepictures/DadandSon.jpg" width="590" height="280" alt="DadandSon">
-				<img src="assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
-				<img src="assets/images/slidepictures/SteppingStones.jpg" width="590" height="280" alt="SteppingStones">
-				<img src="assets/images/slidepictures/TransformYourWorld.jpg" width="590" height="280" alt="TransformYourWorld">
+				<img src="/assets/images/slidepictures/CompassMap.jpg" width="590" height="280" alt="CompassMap">
+				<img src="/assets/images/slidepictures/DadandSon.jpg" width="590" height="280" alt="DadandSon">
+				<img src="/assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
+				<img src="/assets/images/slidepictures/SteppingStones.jpg" width="590" height="280" alt="SteppingStones">
+				<img src="/assets/images/slidepictures/TransformYourWorld.jpg" width="590" height="280" alt="TransformYourWorld">
 			</div>
 		</div>
 		<div id="cycle-nav"></div>
 	</div>
 	<div class="pull-right">
 		<div id="try-it-free-home">
-			<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1"><img src="assets/images/free-trial-home-banner.png" /></a>
+			<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">
+				<img src="/assets/images/free-trial-home-banner.png" />
+			</a>
 		</div>
 	</div>
 </div>
