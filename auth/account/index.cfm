@@ -1,8 +1,5 @@
 <cfset obj_queries = CreateObject("component","cfcs.queries")>
 <cfset foxyCart = CreateObject("component","cfcs.foxycart")>
-	
-<cfdump var="#REQUEST.user#">
-<cfabort>
 
 <cfparam name="URL.gateway" default="1">
 <cfparam name="VARIABLES.page" default="user">
@@ -30,6 +27,11 @@
 			</div>
 		</div>
 		<cfinclude template="../../site_modules/assessment/profiler.cfm" />
+		
+		<div class="row">
+			<h3>My Transactions</h3>
+			<cfdump var="#foxyCart.getCustomerTransactions(email = REQUEST.user.user_email)#">
+		</div>
 	</section>
 
 </cfmodule>

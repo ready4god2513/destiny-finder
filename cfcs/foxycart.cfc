@@ -28,7 +28,7 @@
 	
 	
 	<cffunction name="getCustomerTransactions" returntype="any" output="false" hint="I get any transactions for a user">
-		<cfargument name="user" type="query" require="yes" />
+		<cfargument name="email" type="string" require="yes" />
 		
 		<cfset var local = {}>
 		
@@ -42,7 +42,7 @@
 			<cfhttpparam name="customer_email" type="FormField" value="#ARGUMENTS.email#" />
 		</cfhttp>
 		
-		<cfset xmlDoc = XmlParse(CFHTTP.FileContent) />
+		<cfset local.xmlDoc = XmlParse(CFHTTP.FileContent) />
 		
 		<cfdump var="#local.xmlDoc#" />
 		<cfabort />
