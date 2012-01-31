@@ -47,7 +47,7 @@
 			<header id="top">
 				<div class="row">
 					<div class="span6">
-						<a href="/"><img src="/assets/images/logo.png" id="header-logo" /></a>
+						<a href="/"><img src="/assets/images/logo.png" id="header-logo" width="220" height="65" /></a>
 					</div>
 
 					<nav class="pull-right span10">

@@ -73,7 +73,7 @@
 	<!--- Run before the request is processed --->
 	<cffunction name="onRequestStart" returnType="boolean" output="false">
 		<cfargument name="thePage" type="string" required="true">
-		
+		<cfset var u = CreateObject("component","cfcs.users")>
 		
 		<cfset DSN="destinyfinder_dev">
 		<cfset APPLICATION.DSN="destinyfinder_dev">
@@ -106,6 +106,7 @@
 		<!--- MANAGE UNIVERSAL LOGIN --->
 		<cfset obj_login = CreateObject("component","cfcs.login")>
 		
+		
 		<cfif isDefined('URL.logout')>
 			<cfset obj_login.logout()>
 			<cflocation url="/index.cfm" addtoken="no">
@@ -114,6 +115,10 @@
             
 		<!--- THIS VARIABLE EITHER STORES THE USER_ID OR 0 IF A USER IS NOT LOGGED IN --->
 		<cfset REQUEST.user_id = obj_login.is_logged_in()>
+			
+		<cfif REQUEST.user_id GT 0>
+			<cfset REQUEST.user = u.findById(id = REQUEST.user_id)>
+		</cfif>
 			
 			
 		<!--- Modify your credentials here --->

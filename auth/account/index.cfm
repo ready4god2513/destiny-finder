@@ -1,4 +1,8 @@
-<cfset obj_queries = CreateObject('component','cfcs.queries')>
+<cfset obj_queries = CreateObject("component","cfcs.queries")>
+<cfset foxyCart = CreateObject("component","cfcs.foxycart")>
+	
+<cfdump var="#REQUEST.user#">
+<cfabort>
 
 <cfparam name="URL.gateway" default="1">
 <cfparam name="VARIABLES.page" default="user">
@@ -8,7 +12,7 @@
 <cfparam name="URL.page" default="#VARIABLES.page#">
 
 <!--- RETRIEVE THE PAGE CONTENT --->
-<cfset qContent = obj_queries.get_content(page='#URL.page#')>
+<cfset qContent = obj_queries.get_content(page="#URL.page#")>
 
 <cfmodule template="../../templates/site_wrapper.cfm"
 	page_name="#qContent.content_name#"

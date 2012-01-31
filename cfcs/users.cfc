@@ -16,6 +16,19 @@
 		<cfreturn u>
 	</cffunction>
 	
+	
+	<cffunction name="findById" returntype="query" ouput="false" hint="I find the user by their id">
+		<cfargument name="id" type="any" required="true" />
+		
+		<cfquery name="u" datasource="#APPLICATION.DSN#">
+			SELECT *
+			FROM Users
+			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_int" value="#ARGUMENTS.id#">
+		</cfquery>
+		
+		<cfreturn u>
+	</cffunction>
+	
 	<cffunction name="findUserByIdAndResetKey" returntype="query" output="false" hint="I find users by their id and reset key">
 		<cfargument name="key" type="string" required="true" />
 		<cfargument name="id" type="string" required="true" />
