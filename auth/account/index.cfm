@@ -1,3 +1,5 @@
+<cfinclude template="../../site_modules/require_login.cfm" />
+
 <cfset obj_queries = CreateObject("component","cfcs.queries")>
 <cfset foxyCart = CreateObject("component","cfcs.foxycart")>
 

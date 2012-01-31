@@ -1,3 +1,4 @@
+<cfinclude template="../require_login.cfm" />
 <cfset foxyCart = CreateObject("component","cfcs.foxycart")>
 	
 <cfif REQUEST.user_id EQ 0 AND NOT isDefined('URL.create')>

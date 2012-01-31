@@ -1,3 +1,4 @@
+<cfinclude template="../site_modules/require_login.cfm" />
 <cfset obj_queries = CreateObject('component','cfcs.queries')>
 
 <cfparam name="URL.gateway" default="1">
