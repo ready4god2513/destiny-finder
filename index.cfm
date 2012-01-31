@@ -22,11 +22,11 @@ ORDER BY gateway_sortorder ASC
 	<div class="span10">
 		<div id="rotating-banner">
 			<div id="rotating-images">
-				<img src="http://placehold.it/590x280/336699" />
-				<img src="http://placehold.it/590x280/e8e8e8" />
-				<img src="http://placehold.it/590x280/222222" />
-				<img src="http://placehold.it/590x280/f89406" />
-				<img src="http://placehold.it/590x280/7a43b6" />
+				<img src="assets/images/slidepictures/CompassMap.jpg" width="590" height="280" alt="CompassMap">
+				<img src="assets/images/slidepictures/DadandSon.jpg" width="590" height="280" alt="DadandSon">
+				<img src="assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
+				<img src="assets/images/slidepictures/SteppingStones.jpg" width="590" height="280" alt="SteppingStones">
+				<img src="assets/images/slidepictures/TransformYourWorld.jpg" width="590" height="280" alt="TransformYourWorld">
 			</div>
 		</div>
 		<div id="cycle-nav"></div>
