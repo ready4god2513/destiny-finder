@@ -180,9 +180,6 @@
 						FROM users
 						WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
 					</cfquery>
-					
-					<cfset ccDetails = createObject("component", "cfcs.constantcontact.ContactsCollection").searchByEmail(emailAddress = #u.user_email#) />
-                	<cfset ccDetails = #ccDetails[1]# />
 
 					<cfquery name="Update_User" datasource="#APPLICATION.dsn#">
 						UPDATE users
@@ -199,6 +196,9 @@
 					<cftry>
 						
 						<!--- BEGIN ADD TO CONSTANT CONTACT --->
+						<cfset ccDetails = createObject("component", "cfcs.constantcontact.ContactsCollection").searchByEmail(emailAddress = #u.user_email#) />
+	                	<cfset ccDetails = #ccDetails[1]# />
+	
 						<!--- We will always add them to the system list--->
 						<cfset contactList[1] = "http://api.constantcontact.com/ws/customers/#application.ccUsername#/lists/1">
 
