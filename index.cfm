@@ -68,7 +68,7 @@ ORDER BY gateway_sortorder ASC
 				<h2>Products &amp; Services</h2>
 				<div class="row">
 					<div class="span2">
-						<img src="/assets/images/df-10.jpg" />
+						<img src="/assets/images/compass.png" />
 					</div>
 					<div class="span8">
 						<h5>Free Trial Destiny Survey</h5>

@@ -1,12 +1,12 @@
 <section id="sidebar" class="span5">
 	<article>
 		<h4>From the Founder</h4>
-		<iframe width="260" height="176" src="http://www.youtube.com/embed/GmBTuxvcAA8" frameborder="0" allowfullscreen></iframe>
+		<iframe width="260" height="176" src="http://www.youtube.com/embed/GmBTuxvcAA8?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 	</article>
 
 	<article>
 		<h4>Testimonial</h4>
-		<iframe width="260" height="176" src="http://www.youtube.com/embed/NKKUJn01nyY" frameborder="0" allowfullscreen></iframe>
+		<iframe width="260" height="176" src="http://www.youtube.com/embed/NKKUJn01nyY?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 	</article>
 
 	<article>
