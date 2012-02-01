@@ -27,7 +27,16 @@
 <cfparam name="ATTRIBUTES.qcount" default="#URL.qcount#">
 
 
+<!--- FRIEND CHECK - validate friend invite --->
+	<cfset vIsInvite = 0>
+	<cfset qInvites = objAssessments.retrieve_invites(user_id="#REQUEST.user_id#",invite="#ATTRIBUTES.invite#")>
+	<cfif qInvites.recordcount GT 0>
+    	<cfset vIsInvite = 1>    
+    </cfif>
+<!--- END FRIEND CHECK --->
+
 <cfset qResults = objAssessments.retrieve_result(user_id="#HTMLEditFormat(val(ATTRIBUTES.user_id))#",assessment_id="#HTMLEditFormat(val(ATTRIBUTES.assessment_id))#",invite_uid="#HTMLEditFormat(ATTRIBUTES.invite)#")>
+
 	<cfif qResults.recordcount>
 		<cfset VARIABLES.result_set = DeserializeJSON(qResults.result_set)>
 	<cfelse>
@@ -63,13 +72,25 @@
         <cfif qcount EQ 1>
 			<p>
             	<strong>Instructions:</strong><br />
-	            Rank the statements that complete the sentence by dragging the one that is most 
+                <cfif vIsInvite EQ 1>
+                Rank the statements that complete the sentence by dragging the one that is most 
+				true about your friend to the top, and arranging the rest in order with the least true 
+				at the bottom. It’s easiest to do this by ranking the first two statements, 
+				then rank the third statement with the first two, and so on.
+				<cfelse>
+                Rank the statements that complete the sentence by dragging the one that is most 
 				true about you to the top, and arranging the rest in order with the least true 
 				at the bottom. It’s easiest to do this by ranking the first two statements, 
 				then rank the third statement with the first two, and so on.
+				</cfif>
+	            
             </p>
 		</cfif>
-        <h2>#HTMLEditFormat(qSort.sort_name)#</h2>
+        
+        
+        
+		<!--- The vIsInvite variable is part of the FRIEND CHECK validation found near line 30 --->
+        <h2><cfif vIsInvite EQ 1>#HTMLEditFormat(qSort.sort_name_alt)#<cfelse>#HTMLEditFormat(qSort.sort_name)#</cfif></h2>
         <br />
 		<form action="/site_modules/assessment/act_word_sort.cfm" method="post" id="sort_form_#HTMLEditFormat(val(ATTRIBUTES.sort_id))#">
 			
