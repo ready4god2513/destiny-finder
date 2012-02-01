@@ -10,12 +10,20 @@
 	<cfif isDefined("URL.pdf")>
 		<cfdocument
 			format="pdf">
+			
+			<cfdocumentitem type="header">
+				<img src="/assets/images/logo.png" />
+			</cfdocumentitem>
 			<cfif URL.assessment_id LTE 4>
 				#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
 
 			<cfelseif URL.assessment_id EQ 5>
 				#objAssessments.process_passion_statement(user_id="#val(REQUEST.user_id)#")#
 			</cfif>
+			
+			<cfdocumentitem type="footer">
+				#cfdocument.currentpagenumber# of #cfdocument.totalpagecount#
+			</cfdocumentitem>
 		</cfdocument>
 	<cfelse>
 		<cfif URL.assessment_id LTE 4>
