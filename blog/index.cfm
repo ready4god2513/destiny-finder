@@ -26,16 +26,8 @@
 	html_title="#getBlogContent.blog_title#"
 	meta_desc="#getBlogContent.blog_meta_desc#" >
 	
-	<div class="row">
-		<div class="span11">
-			<section id="main">
-				<!-- Content -->
-				<cfinclude template="../templates/content_display.cfm">			
-			    <!-- End Content -->
-			</section>
-		</div>
-
-		<cfinclude template="../templates/sidebar.cfm" />
-	</div>
+	<!-- Content -->
+	<cfinclude template="../templates/content_display.cfm">			
+    <!-- End Content -->
 
 </cfmodule> 
