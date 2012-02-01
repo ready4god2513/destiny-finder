@@ -83,8 +83,7 @@
 	<cffunction name="process_user_form" returntype="string" output="true" hint="I process the user form">
 		<cfargument name="process" required="yes" type="string">
 		<cfargument name="return_url" required="no" type="string">
-
-	
+		
 		<cfparam name="VARIABLES.user_image" default="">
 		<cfparam name="FORM.marketing_opt_in" default="0">
 
@@ -95,7 +94,9 @@
 	
 		<cfswitch expression="#process#">
 	
-			<cfcase value="Create Account">	
+			<cfcase value="Create Account">
+				
+				
 				
 					<cfset FORM.user_password = HASH(FORM.user_password)>
 				
@@ -152,8 +153,6 @@
 								
 								<cfcatch type="any"></cfcatch>
 							</cftry>
-							
-							
 							
 							<cflock scope="session" type="readonly" timeout="30">
 								<cfset SESSION.user_id = qUser.user_id>

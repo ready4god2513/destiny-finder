@@ -18,10 +18,16 @@
 	gateway_id="#URL.gateway#"
 	header_image="#qContent.content_header_img#"
 	html_title="#pageTitle#"
-	meta_desc="" >
+	meta_desc="">
 	
-	<section id="main">
-		<h2>The Destiny Finder Store</h2>
-		<cfinclude template="products/listing.cfm" />
-	</section>
+	<div class="row">
+		<div class="span11">
+			<section id="main">
+				<h2>The Destiny Finder Store</h2>
+				<cfinclude template="products/listing.cfm" />
+			</section>
+		</div>
+
+		<cfinclude template="../templates/sidebar.cfm" />
+	</div>
 </cfmodule>

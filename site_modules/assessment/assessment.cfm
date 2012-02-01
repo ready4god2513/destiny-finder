@@ -1,4 +1,5 @@
-<cfset objAssessments = CreateObject("component","cfcs.assessment")>
+<cfset objAssessments = CreateObject("component","cfcs.assessment") />
+<cfset foxyCart = CreateObject("component","cfcs.foxycart") />
 
 <cfif isDefined('URL.invite')>
 	<cfset qInvite = objAssessments.retrieve_invites(invite_uid="#URL.invite#")>
@@ -11,6 +12,11 @@
 	<cfset VARIABLES.assessment_id = URL.assessment_id>
 </cfif>
 
+<cfif VARIABLES.assessment_id NEQ 1 AND foxyCart.customerPurchasedCode(email = REQUEST.user.user_email, code = Hash("profiler")) NEQ true>
+	<cflocation url="/auth/account/" addtoken="false" />
+</cfif>
+
+
 <cfparam name="VARIABLES.invite" default="">
 
 <cfif isDefined('VARIABLES.assessment_id') AND isNumeric(VARIABLES.assessment_id)>
@@ -22,9 +28,7 @@
         <cfelse>
             <cfset VARIABLES.result_set = ArrayNew(1)>
         </cfif>
-        <!--- <cfdump var="#VARIABLES.result_set#"> --->
-        
-        <!---<cfloop query="qItems">--->
+
         <div class="assessment_item">
 	
 		<cfset VARIABLES.item_result = "">

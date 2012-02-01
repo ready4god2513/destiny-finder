@@ -1,7 +1,7 @@
 <cfinclude template="../../site_modules/require_login.cfm" />
 
-<cfset obj_queries = CreateObject("component","cfcs.queries")>
-<cfset foxyCart = CreateObject("component","cfcs.foxycart")>
+<cfset obj_queries = CreateObject("component","cfcs.queries") />
+<cfset foxyCart = CreateObject("component","cfcs.foxycart") />
 
 <cfparam name="URL.gateway" default="1">
 <cfparam name="VARIABLES.page" default="user">
@@ -21,21 +21,21 @@
 	html_title="#qContent.content_html_title#"
 	meta_desc="#qContent.content_meta_desc#">
 	
-	<section id="main">
-		<div class="row">
-			<h2 class="span6">My Account</h2>
-			<div class="pull-right">
-				<a href="/auth/index.cfm?page=user" class="btn info">Account Settings</a>
-			</div>
-		</div>
-		
-		<cfinclude template="../../site_modules/assessment/profiler.cfm" />
-		
-		<div class="row">
-			<div class="span15">
+	<div class="row">
+		<div class="span11">
+			<section id="main">
+				<div class="row">
+					<h2 class="span6">My Account</h2>
+					<div class="pull-right">
+						<a href="/auth/index.cfm?page=user" class="btn info">Account Settings</a>
+					</div>
+				</div>
+	
+				<cfinclude template="../../site_modules/assessment/profiler.cfm" />
+	
 				<h3>My Transactions</h3>
 				<cfset transactions = foxyCart.getCustomerTransactions(email = REQUEST.user.user_email) />
-				
+	
 				<cfif arraylen(transactions) GT 0>
 					<table>
 						<thead>
@@ -64,9 +64,10 @@
 						You do not yet have any transaction history.
 					</div>
 				</cfif>
-				
-			</div>
+			</section>
 		</div>
-	</section>
+
+		<cfinclude template="../../templates/sidebar.cfm" />
+	</div>
 
 </cfmodule>

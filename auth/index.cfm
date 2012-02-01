@@ -18,8 +18,8 @@
 	html_title="#qContent.content_html_title#"
 	meta_desc="#qContent.content_meta_desc#" >
 
-        <!-- Content -->
-		<cfinclude template="../templates/content_display.cfm">			
-	    <!-- End Content -->
+	<section id="main">
+		<cfinclude template="../site_modules/user/login_box.cfm">	
+	</section>
 
 </cfmodule> 

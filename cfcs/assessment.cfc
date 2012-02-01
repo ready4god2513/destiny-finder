@@ -44,14 +44,13 @@
 		<cfreturn qAssessments>
 	</cffunction>
 
-	<cffunction name="purchase_assessments" output="false" returntype="query">
-		<cfargument name="memberships" required="no" type="string">
+	<cffunction name="getAssessment" output="false" returntype="query">
+		<cfargument name="id" required="yes" type="string" />
 	
 		<cfquery name="qAssessments" datasource="#APPLICATION.DSN#">
 	        SELECT *
 			FROM Assessments
-			WHERE assessment_active = 1
-			AND assessment_access_key NOT IN (#memberships#)
+			WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.id#">
 		</cfquery>
 
 		<cfreturn qAssessments>
