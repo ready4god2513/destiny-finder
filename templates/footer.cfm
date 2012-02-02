@@ -29,7 +29,7 @@
 							<cfelse>
 								<li><a href="/auth/">Login / Sign Up</a></li>
 							</cfif>
-							<li><a href="/about/?page=contact">Contact</a></li>
+							<li><a href="/about/?page=help">Contact</a></li>
 						</ul>
 					</div>
 				</nav>

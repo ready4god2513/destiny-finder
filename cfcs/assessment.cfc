@@ -620,6 +620,12 @@
 					VALUES
 					(<cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.invite_uid#">,#user_id#,<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#">,<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_first_name#">,<cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_last_name#">)
 			</cfquery>
+			
+			<cfquery name="u" datasource="#APPLICATION.DSN#">
+				SELECT *
+				FROM Users
+				WHERE user_id = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.user_id#">
+			</cfquery>
 		
 			<cfmail 
 				from="noreply@destinyfinder.com" 
@@ -627,12 +633,22 @@
 				subject="You've been invited - DestinyFinder"
 				type="html">
 				<p>
-					A friend has invited you to take an online survey.
+					Hello #FORM.user_first_name#
+				</p>
+				<p>
+					I've just taken the Free Trial Destiny Survey from DestinyFinder.com. This survey is part
+					of a system of online tools that helps people discover and fulfill their destiny. I'd like you
+					to do the survey about me so I can get a more objective picture of myself. Please be as
+					honest as possible.
+				</p>
+				<p>
+					It's fun, free and easy! (only 10 questions)
 				</p>
                 <p>
-					Use the following link to start the survey now:
+					All you need to do is follow this link take the survey:
 					<a href="#REQUEST.site_url#invite/?invite=#VARIABLES.invite_uid#">START THE SURVEY</a>
 				</p>
+				<p>Thanks,<br /> #u.user_first_name#</p>
 			</cfmail>
 		
 		</cffunction>

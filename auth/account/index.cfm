@@ -35,7 +35,7 @@
 	
 				<h3>My Transactions</h3>
 				<cfset transactions = foxyCart.getCustomerTransactions(email = REQUEST.user.user_email) />
-	
+				
 				<cfif arraylen(transactions) GT 0>
 					<table>
 						<thead>
@@ -47,10 +47,16 @@
 							</tr>
 						</thead>
 						<tbody>
-							<cfloop from="1" to="#arraylen(transactions)#" index="i">
+							<cfloop from="1" to="#arraylen(transactions.transaction)#" index="i">
 								<cfoutput>
 									<tr>
-										<td>#transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText#</td>
+										<td>
+											<cfif transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText EQ "1 Hour of Coaching">
+												<a href="/about/?page=coachingintake" class="btn info">Set up Coaching</a>
+											<cfelse>
+												#transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText#
+											</cfif>
+										</td>
 										<td>#transactions.transaction[i].transaction_details.transaction_detail.product_price.xmlText#</td>
 										<td>#transactions.transaction[i].transaction_details.transaction_detail.product_quantity.xmlText#</td>
 										<td>#DateFormat(transactions.transaction[i].transaction_date.xmlText, "mmm dd, yyyy")#</td>

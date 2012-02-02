@@ -59,7 +59,11 @@
 		<cfset var local = {}>
 		<cfset local.transactions = this.getCustomerTransactions(email = ARGUMENTS.email)>
 		
-		<cfloop from="1" to="#arraylen(local.transactions)#" index="i">
+		<cfif NOT isDefined("local.transactions.transaction")>
+			<cfreturn false>
+		</cfif>
+		
+		<cfloop from="1" to="#arraylen(local.transactions.transaction)#" index="i">
 			<cfif local.transactions.transaction[i].transaction_details.transaction_detail.product_code.xmlText EQ ARGUMENTS.code>
 				<cfreturn true>
 			</cfif>

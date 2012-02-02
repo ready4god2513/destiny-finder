@@ -7,7 +7,7 @@
 		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 			<div class="input">
 				<ul class="inputs-list">
-					<li><label><input type="radio" name="subculture" value="Metro Urban/Hipster,">Metro Urban/Hipster,</label></li>
+					<li><label><input type="radio" name="subculture" value="Metro Urban/Hipster">Metro Urban/Hipster</label></li>
 					<li><label><input type="radio" name="subculture" value="Yuppie">Yuppie</label></li>
 					<li><label><input type="radio" name="subculture" value="Student">Student</label></li>
 					<li><label><input type="radio" name="subculture" value="Punk/Hardcore/Skater">Punk/Hardcore/Skater</label></li>

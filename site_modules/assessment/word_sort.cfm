@@ -8,6 +8,7 @@
 
 <cfoutput query="qItems" startrow="#val(URL.qcount)#" maxrows="1">
 
+<cfparam name="FORM.invite" default="" />
 <cfparam name="URL.sort_id" default="#qItems.item_type_id#">
 <cfparam name="URL.type_id" default="#qItems.item_type#">
 <cfparam name="URL.item_result" default="">
@@ -28,25 +29,21 @@
 
 
 <!--- FRIEND CHECK - validate friend invite --->
-	<cfset vIsInvite = 0>
-	<cfset qInvites = objAssessments.retrieve_invites(user_id="#REQUEST.user_id#",invite="#ATTRIBUTES.invite#")>
-	<cfif qInvites.recordcount GT 0>
-    	<cfset vIsInvite = 1>    
-    </cfif>
+<cfif REQUEST.user_id EQ 0>
+	<cfset vIsInvite = true />
+<cfelse>
+	<cfset vIsInvite = Len(URL.invite) GT 0 OR Len(FORM.invite) GT 0 />
+</cfif>
+
 <!--- END FRIEND CHECK --->
 
 <cfset qResults = objAssessments.retrieve_result(user_id="#HTMLEditFormat(val(ATTRIBUTES.user_id))#",assessment_id="#HTMLEditFormat(val(ATTRIBUTES.assessment_id))#",invite_uid="#HTMLEditFormat(ATTRIBUTES.invite)#")>
 
-	<cfif qResults.recordcount>
-		<cfset VARIABLES.result_set = DeserializeJSON(qResults.result_set)>
-	<cfelse>
-		<cfset VARIABLES.result_set = ArrayNew(1)>
-	</cfif>
-    
-    <!--- BEGIN debugging --->
-   <!--- <cfdump var="#qResults#">
-    <cfabort>--->
-    <!--- END debugging --->
+<cfif qResults.recordcount>
+	<cfset VARIABLES.result_set = DeserializeJSON(qResults.result_set)>
+<cfelse>
+	<cfset VARIABLES.result_set = ArrayNew(1)>
+</cfif>
     
 <cfif isNumeric(ATTRIBUTES.sort_id)> 
 	<cfset qSort = objAssessments.retrieve_sort(sort_id="#ATTRIBUTES.sort_id#")>
@@ -87,11 +84,13 @@
             </p>
 		</cfif>
         
-        
-        
-		<!--- The vIsInvite variable is part of the FRIEND CHECK validation found near line 30 --->
-        <h2><cfif vIsInvite EQ 1>#HTMLEditFormat(qSort.sort_name_alt)#<cfelse>#HTMLEditFormat(qSort.sort_name)#</cfif></h2>
-        <br />
+        <h2>
+			<cfif vIsInvite EQ 1>
+				#HTMLEditFormat(qSort.sort_name_alt)#
+			<cfelse>
+				#HTMLEditFormat(qSort.sort_name)#
+			</cfif>
+		</h2>
 		<form action="/site_modules/assessment/act_word_sort.cfm" method="post" id="sort_form_#HTMLEditFormat(val(ATTRIBUTES.sort_id))#">
 			
              <!--- MANAGE CONVERSION OF SORTABLE CLICK AND DRAG QUESTIONS TO SIMPLE RADIO BUTTON FUNCTIONALITY AS NEEDED--->

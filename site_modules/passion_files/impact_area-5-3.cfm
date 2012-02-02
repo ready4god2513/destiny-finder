@@ -6,10 +6,10 @@
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input name="area" type="radio" value="inner city">inner city </label></li>
-			<li><label><input name="area" type="radio" value="urban">urban </label></li>
-			<li><label><input name="area" type="radio" value="suburban">suburban </label></li>
-			<li><label><input name="area" type="radio" value="undecided">undecided </label></li>
+			<li><label><input name="area" type="radio" value="inner city">Inner City </label></li>
+			<li><label><input name="area" type="radio" value="urban">Urban </label></li>
+			<li><label><input name="area" type="radio" value="suburban">Suburban </label></li>
+			<li><label><input name="area" type="radio" value="undecided">Undecided </label></li>
 		</ul>
 	</div>
 

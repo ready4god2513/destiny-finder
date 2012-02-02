@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="span7">
-					<h4>#ATTRIBUTES.product_name#</h4>
+					<h4>#ATTRIBUTES.product_name# - #ATTRIBUTES.price#</h4>
 					<p>#ATTRIBUTES.description#</p>
 
 					<cfif #ATTRIBUTES.available# eq true>

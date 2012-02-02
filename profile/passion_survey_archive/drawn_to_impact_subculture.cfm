@@ -9,7 +9,7 @@
         
 		<form action="" method="post" id="">
 			
-					<label><input type="radio" name="drawn_to_impact_ethnicity" checked value="Metro Urban/Hipster,">Metro Urban/Hipster,</label>
+					<label><input type="radio" name="drawn_to_impact_ethnicity" checked value="Metro Urban/Hipster">Metro Urban/Hipster</label>
 					<label><input type="radio" name="drawn_to_impact_ethnicity" value="Yuppie">Yuppie</label>
 					<label><input type="radio" name="drawn_to_impact_ethnicity" value="Student">Student</label>
 					<label><input type="radio" name="drawn_to_impact_ethnicity" value="Punk/Hardcore/Skater">Punk/Hardcore/Skater</label>
