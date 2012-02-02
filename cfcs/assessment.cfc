@@ -129,7 +129,7 @@
 		<cfquery name="qResult" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Results
-			<cfif isDefined('result_id')>
+			<cfif isDefined("result_id")>
 				WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
 			<cfelse>
 				WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
@@ -137,7 +137,7 @@
 			<cfif isDefined('assessment_id')>
 				AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
 			</cfif>
-			<cfif isDefined('invite')>
+			<cfif isDefined("invite")>
 				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
 			<cfelse>
 				AND invite_uid IS NULL
@@ -547,7 +547,7 @@
 		
 			<cfparam name="invite" default="">
 		
-			<cfset qResults = retrieve_result(user_id="#user_id#",invite="#invite#",gift_type_id=1)>
+			<cfset qResults = retrieve_result(user_id="#user_id#",invite="#invite#")>
 			<cfset qGifts = retrieve_gifts(gift_type_id=1)>
 			<cfset VARIABLES.compiled_gift_count = ArrayNew(1)>
 		    <cfset VARIABLES.dominant_gift = {id = 0, count =0}>
@@ -558,14 +558,16 @@
 			</cfloop>
 
 			<cfoutput query="qResults">
-				<cfset VARIABLES.result_gift_count = DeSerializeJSON(qResults.result_gift_count)>
-						
-				<cfloop from="1" to="#ArrayLen(VARIABLES.result_gift_count)#" index="i">
-					<cfif VARIABLES.result_gift_count[i].counter GT VARIABLES.dominant_gift.count>
-						<cfset VARIABLES.dominant_gift.id = VARIABLES.result_gift_count[i].id>
-                        <cfset VARIABLES.dominant_gift.count = VARIABLES.result_gift_count[i].counter>
-					</cfif>
-				</cfloop>			
+				<cfif IsJSON(qResults.result_gift_count)>
+					<cfset VARIABLES.result_gift_count = DeSerializeJSON(qResults.result_gift_count, false)>
+
+					<cfloop from="1" to="#ArrayLen(VARIABLES.result_gift_count)#" index="i">
+						<cfif VARIABLES.result_gift_count[i].counter GT VARIABLES.dominant_gift.count>
+							<cfset VARIABLES.dominant_gift.id = VARIABLES.result_gift_count[i].id>
+	                        <cfset VARIABLES.dominant_gift.count = VARIABLES.result_gift_count[i].counter>
+						</cfif>
+					</cfloop>
+				</cfif>	
 			</cfoutput>
 			<cfquery name="qThisResult" datasource="#APPLICATION.DSN#">
                 Select gift_name from gifts

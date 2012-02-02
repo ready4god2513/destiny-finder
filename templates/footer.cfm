@@ -17,6 +17,8 @@
 							<li><a href="/about/">About Us</a></li>
 							<li><a href="/store/">Products &amp; Services</a></li>
 							<li><a href="/free/">Resources</a></li>
+							<li><a href="/about/index.cfm?page=privacypolicy">Privacy Policy</a></li>
+							<li><a href="/about/index.cfm?page=termsofuse">Terms of Use</a></li>
 						</ul>
 
 						<ul class="span5">

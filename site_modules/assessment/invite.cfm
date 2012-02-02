@@ -14,13 +14,13 @@
 		<div class="clearfix">
 			<label for="user_first_name">First Name</label>
 			<div class="input">
-				<input type="email" name="user_first_name" id="user_first_name" required="required" />
+				<input type="text" name="user_first_name" id="user_first_name" required="required" />
 			</div>
 		</div>
 		<div class="clearfix">
 			<label for="user_last_name">Last Name</label>
 			<div class="input">
-				<input type="email" name="user_last_name" id="user_last_name" required="required" />
+				<input type="text" name="user_last_name" id="user_last_name" required="required" />
 			</div>
 		</div>
 		<div class="clearfix">
