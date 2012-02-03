@@ -88,7 +88,9 @@
 		<cfset APPLICATION.contact_email = "brandonh@ibethel.org">
 
 		
-		<cfset REQUEST.site_url = "http://dev.destinyfinder.com/">
+		<cfset REQUEST.site_url = "http://dev.destinyfinder.com/" />
+		<cfset APPLICATION.environment = "development" />
+		<cfset this.enforceSSLRequirement() />
 		
 		<!--- FOR BLOG --->
 		<cfset REQUEST.time_offset = 2>
@@ -134,6 +136,112 @@
 		<cfset application.doNotInclude = "Active,Do Not Mail,Removed">
 		
 		<cfreturn true>
+	</cffunction>
+	
+	<!--- Run SSL in production mode --->
+	<cffunction
+		name="enforceSSLRequirement"
+		access="public"
+		returntype="void"
+		output="false"
+		hint="I check to see if the current request aligns properly with the current SSL connection.">
+ 
+		<!--- Definet the local scope. --->
+		<cfset var local = {} />
+ 
+		<!---
+			Get the current directory in case we need to use
+			this for SSL logic.
+		--->
+		<cfset local.directory = listLast(
+			getDirectoryFromPath( cgi.script_name ),
+			"\/"
+			) />
+ 
+		<!---
+			Get the current file in case we need to use this
+			for SSL logic.
+		--->
+		<cfset local.template = listLast(
+			cgi.script_name,
+			"\/"
+			) />
+ 
+		<!---
+			Check to see if the current request is currently
+			using an SSL connection.
+		--->
+		<cfset local.usingSSL = (cgi.https eq "on") />
+ 
+		<!---
+			In production we always want to run SSL
+		--->
+		<cfset local.requiresSSL = APPLICATION.environment EQ "production" />
+ 
+ 
+		<!---
+			At this point, we know if we are currently using
+			SSL or not and we know if the current request
+			requires SSL. Let's use this information to see if
+			we need to perform any redirect.
+		--->
+		<cfif (local.usingSSL eq local.requiresSSL)>
+ 
+			<!---
+				The current page is synched with the SSL
+				requirements of the request (either is requires
+				and IS using an SSL connection or it does not
+				require and is NOT using an SSL connection).
+				Just return out of the function - no further
+				action is required.
+			--->
+			<cfreturn />
+ 
+		<cfelseif local.requiresSSL>
+ 
+			<!---
+				At this point, we know that we need to do some
+				sort of redirect, and because the requrest
+				requires an SSL connection, we know we need to
+				redirect to an HTTPS connection. Let's store the
+				protocol for use in the following CFLocation.
+			--->
+			<cfset local.protocol = "https://" />
+ 
+		<cfelse>
+ 
+			<!---
+				At this point, we know that we need to do some
+				sort of redirect, and because the request does
+				NOT requiere an SSL connection, we know we need
+				to redirect to an HTTP connection. Let's store the
+				protocol for use in the following CFLocation.
+			--->
+			<cfset local.protocol = "http://" />
+ 
+		</cfif>
+ 
+		<!---
+			If we've made it this far, then we are redirecting
+			the user to a different page based on the chosen
+			protocol. Build the target URL.
+		--->
+		<cfset local.url = (
+			local.protocol &
+			cgi.server_name &
+			cgi.script_name &
+			"?" &
+			cgi.query_string
+			) />
+ 
+		<!--- Redirect the use to the target connection. --->
+		<cflocation
+			url="#local.url#"
+			addtoken="false"
+			/>
+ 
+		<!--- Return out (NOTE: we will never make it here). --->
+		<cfreturn />
 	</cffunction>
 
 	

@@ -1,3 +1,7 @@
+<cfif REQUEST.user_id GT 0>
+	<cflocation url="/auth/account" addtoken="no" />
+</cfif>
+
 <cfset obj_queries = CreateObject('component','cfcs.queries')>
 
 <cfparam name="URL.gateway" default="1">

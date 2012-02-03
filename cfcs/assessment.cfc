@@ -125,22 +125,22 @@
 		<cfargument name="result_id" required="no" type="numeric">
 		<cfargument name="user_id" required="no" type="numeric">
 		<cfargument name="invite" required="no" type="string">
-	
+
 		<cfquery name="qResult" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Results
+			WHERE 1 = 1
 			<cfif isDefined("result_id")>
-				WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
-			<cfelse>
-				WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
+				AND result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
+			</cfif>
+			<cfif isDefined("user_id")>
+				AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
 			</cfif>
 			<cfif isDefined('assessment_id')>
 				AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
 			</cfif>
 			<cfif isDefined("invite")>
 				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
-			<cfelse>
-				AND invite_uid IS NULL
 			</cfif>
 
 		</cfquery>
@@ -265,96 +265,29 @@
 				<cfswitch expression="#VARIABLES.result_set[i].type_id#">
 					<cfcase value="1">
 						<cfloop from="1" to="#ArrayLen(VARIABLES.gift_count)#" index="j">
-							<!--- This section needs to be simplified with a CFLOOP to condense this section of code. TJ --->
 	                        <cfif gift_type_id EQ 3>
-                        
-								<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),1)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 9 >
-	                            </cfif>
-                        
-								<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),2)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 8 >
-	                            </cfif>
-                        
-								<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),3)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 7 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 6 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 5 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),6)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 4 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),7)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 3 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),8)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 2 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),9)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 1 >
-	                            </cfif>
+								
+								<cfif ListLen(Replace(VARIABLES.result_set[i].result,'"','','ALL')) GTE i>
+									<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),i)>
+		                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + (10 - 1)>
+		                            </cfif>
+								</cfif>
                             
 	                        <cfelseif gift_type_id EQ 2>
-                        
-								<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),1)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 7 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),2)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 6 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),3)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 5 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 4 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 3 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 2 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 1 >
-	                            </cfif>
+		
+								<cfif ListLen(Replace(VARIABLES.result_set[i].result,'"','','ALL')) GTE i>
+									<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),i)>
+		                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + (8 - 1)>
+		                            </cfif>
+								</cfif>
                             
 	                        <cfelseif gift_type_id EQ 1>
-                        
-	                        	<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),1)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 5 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),2)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 4 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),3)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 3 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 2 >
-	                            </cfif>
-                            
-	                            <cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + 1 >
-	                            </cfif>
+		
+								<cfif ListLen(Replace(VARIABLES.result_set[i].result,'"','','ALL')) GTE i>
+									<cfif VARIABLES.gift_count[j].id EQ ListGetAt(Replace(VARIABLES.result_set[i].result,'"','','ALL'),i)>
+		                                <cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + (6 - 1)>
+		                            </cfif>
+								</cfif>
                             
 							</cfif>
                         

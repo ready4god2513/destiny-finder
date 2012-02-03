@@ -22,7 +22,7 @@ ORDER BY gateway_sortorder ASC
 	<div class="span10">
 		<div id="rotating-banner">
 			<div id="rotating-images">
-				<img src="/assets/images/slidepictures/CompassMap.jpg" width="590" height="280" alt="CompassMap">
+				<img src="/assets/images/slidepictures/ACompass.jpg" width="590" height="280" alt="CompassMap">
 				<img src="/assets/images/slidepictures/DadandSon.jpg" width="590" height="280" alt="DadandSon">
 				<img src="/assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
 				<img src="/assets/images/slidepictures/SteppingStones.jpg" width="590" height="280" alt="SteppingStones">
