@@ -133,7 +133,7 @@
 			<cfif isDefined("result_id")>
 				AND result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
 			</cfif>
-			<cfif isDefined("user_id")>
+			<cfif isDefined("user_id") AND user_id GT 0>
 				AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
 			</cfif>
 			<cfif isDefined('assessment_id')>
@@ -252,14 +252,11 @@
 		<cfset VARIABLES.result_set = DeSerializeJSON(qResult.result_set)>
 		<cfset VARIABLES.gift_count = ArrayNew(1)>
 		<cfset VARIABLES.dominant_gift = {id = 0, count =0}>
-	    <!---<cfset VARIABLES.secondary_gift = {id = 0, count =0}>--->
 	
 		<!--- PREPARE CONTAINER FOR KEEPING SCORE OF EACH GIFT --->
 		<cfloop from="1" to="#qGifts.recordcount#" index="i"> 
 			<cfset VARIABLES.gift_count[i] = {id = qGifts.gift_id[i],counter = 0}>
 		</cfloop>
-	
-	
 	
 		<cfloop from="1" to="#ArrayLen(VARIABLES.result_set)#" index="i">
 				<cfswitch expression="#VARIABLES.result_set[i].type_id#">
@@ -303,7 +300,7 @@
 					</cfcase>
 				</cfswitch>
 		</cfloop>
-		
+			
 		<cfquery name="uResult" datasource="#APPLICATION.DSN#">
 			UPDATE Results
 			SET
@@ -317,6 +314,10 @@
 				<cfset VARIABLES.dominant_gift.count = VARIABLES.gift_count[i].counter>
 			</cfif>
 		</cfloop>
+		
+		<cfif isDefined("URL.invite")>
+			<cfreturn />
+		</cfif>
     
     
 	    <cfquery name="qThisResult" datasource="#APPLICATION.DSN#">

@@ -1,7 +1,8 @@
 <cfset objQueries = CreateObject("component","cfcs.queries")>
 <cfset objAssessments = CreateObject("component","cfcs.assessment")>
-<cfset qResults = objAssessments.retrieve_result(invite="#HTMLEditFormat(URL.invite)#")>
-
+<cfset qResults = objAssessments.retrieve_result(invite="#HTMLEditFormat(URL.invite)#") />
+<cfset objAssessments.process_results(result_id = qResults.result_id) />
+<cfset qResults = objAssessments.retrieve_result(invite="#HTMLEditFormat(URL.invite)#") />
 
 <cfoutput>
 	<div class="result">

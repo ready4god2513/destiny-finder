@@ -63,7 +63,7 @@
 					<li>#HTMLEditFormat(qInvites.invite_first_name)# #HTMLEditFormat(qInvites.invite_last_name)#
 						<br/>
 						<cfset qIResult = objAssessments.retrieve_result(user_id="#REQUEST.user_id#",invite="#HTMLEditFormat(qInvites.invite_uid)#")>
-						<cfdump var="#qIResult#">
+
 					#objAssessments.compile_results(user_id="#REQUEST.user_id#",invite="#qInvites.invite_uid#")#
 					</li>
 				</cfloop>
