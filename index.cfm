@@ -112,7 +112,7 @@ ORDER BY gateway_sortorder ASC
 					<div class="span8">
 						<h5>DestinyFinder Book – Feb 2012 Release</h5>
 						<p>
-							Michael Brodeur’s work sets the foundation for understanding and pursuing kingdom-focused personal destiny.
+							Michael Brodeur's work sets the foundation for understanding and pursuing kingdom-focused personal destiny.
 							<a href="/products/index.cfm?page=destinyfinderbook&amp;gateway=3&amp;parent_gateway=3">More...</a>
 						</p>
 					</div>
