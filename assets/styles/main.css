@@ -3015,15 +3015,6 @@ body {
   background: url(/assets/images/bg.jpg) repeat-x #f0f0f0;
   color: #222;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 100%;
-  margin: 0 0 10px 0;
-}
 h1, h1 a {
   color: #02435e;
 }
@@ -3048,11 +3039,10 @@ p {
   clear: both;
 }
 header#top {
-  background: #e0f5fe;
-  padding: 20px auto;
+  padding: 10px auto;
 }
 header#top #header-logo {
-  margin: 20px 10px;
+  margin: 10px 10px;
 }
 header#top nav {
   margin: 10px 0 0 0;
@@ -3079,8 +3069,31 @@ header#top nav ul li a {
 header#top nav ul li:last-child a {
   border: none;
 }
+.percent_completed {
+  width: 309px;
+  height: 23px;
+  padding: 1px 0px 0px 1px;
+  background: url(/assets/images/progbar_bg.png) no-repeat;
+}
+#try-it-free-home {
+  position: relative;
+  left: 5px;
+  z-index: 100;
+}
+#try-it-free-home img {
+  width: 340px;
+}
 #rotating-banner {
+  background: url(/assets/images/rotating-banner.png) top left no-repeat;
+  height: 330px !important;
+  left: -3px;
+  overflow: hidden;
+  position: relative;
+  width: 637px;
+}
+#rotating-banner #rotating-images {
   height: 280px;
+  margin: 20px 0 0 25px;
   overflow: hidden;
 }
 #cycle-nav {
@@ -3098,11 +3111,12 @@ header#top nav ul li:last-child a {
   margin-bottom: 30px;
 }
 #sidebar h4 {
+  line-height: 100%;
   padding: 5px;
   text-align: center;
 }
 #sidebar article {
-  background: #effaff;
+  background: #fff;
   -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
@@ -3155,7 +3169,7 @@ footer#bottom #social-media-footer {
   margin: 30px 0;
 }
 footer#bottom img#footer-logo {
-  margin-top: 10px;
+  width: 220px;
 }
 footer#bottom nav ul {
   background: rgba(255, 255, 255, 0.5);
@@ -3170,5 +3184,6 @@ footer#bottom nav ul li {
 }
 footer#bottom nav ul li a {
   color: #404040;
+  font-size: 12px;
   margin: 0;
 }
