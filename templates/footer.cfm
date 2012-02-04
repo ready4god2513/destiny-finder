@@ -6,11 +6,11 @@
 			
 			<div class="row">
 				
-				<div class="span4">
-					<a href="/"><img src="/assets/images/logo.png" id="footer-logo" width="220" height="65" /></a>
+				<div class="span5">
+					<a href="/"><img src="/assets/images/logo.png" id="footer-logo" /></a>
 				</div>
 				
-				<nav class="span11 offset1">
+				<nav class="span10 offset1">
 					<div class="row">
 						<ul class="span5">
 							<li><a href="/">Home</a></li>
