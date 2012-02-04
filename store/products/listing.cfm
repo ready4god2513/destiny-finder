@@ -4,7 +4,7 @@
 		<div class="row">
 
 			<div class="product-image span3">
-				<img src="/assets/images/ProfilerModule.jpg" alt="Profiler Module"/>
+				<img src="/assets/images/profiler-module.png" alt="Profiler Module"/>
 			</div>
 
 			<div class="span7">
@@ -37,7 +37,7 @@
 		<div class="row">
 
 			<div class="product-image span3">
-				<img src="/assets/images/ProfilerModule.jpg" alt="1 Hour of Coaching"/>
+				<img src="/assets/images/coaching.png" alt="1 Hour of Coaching"/>
 			</div>
 
 			<div class="span7">

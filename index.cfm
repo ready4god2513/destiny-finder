@@ -92,7 +92,7 @@ ORDER BY gateway_sortorder ASC
 				</div>
 				<div class="row">	
 					<div class="span2">
-						<img src="/assets/images/coaching.jpg" />
+						<img src="/assets/images/coaching.png" />
 					</div>
 					<div class="span8">
 						<h5>Coaching</h5>
