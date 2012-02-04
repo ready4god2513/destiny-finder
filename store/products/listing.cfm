@@ -25,7 +25,7 @@
 					<input type="hidden" name="quantity_max" value="1" />
 					<input type="hidden" name="quantity_min" value="1" />
 					<input type="hidden" name="price" value="9.99" />
-					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/ProfilerModule.jpg" />
+					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/profiler-module.png" />
 					<input type="submit" value="Add to Cart" class="btn primary" />
 				</form>
 			</div>
@@ -60,7 +60,7 @@
 					<input type="hidden" name="quantity_max" value="999" />
 					<input type="hidden" name="quantity_min" value="1" />
 					<input type="hidden" name="price" value="60.00" />
-					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/ActivatorModule.jpg" />
+					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/coaching.png" />
 					<input type="submit" value="Add to Cart" class="btn primary" />
 				</form>
 			</div>
