@@ -27,7 +27,7 @@
 				<div class="row">
 					<h2 class="span6">My Account</h2>
 					<div class="pull-right">
-						<a href="/auth/index.cfm?page=user" class="btn info">Account Settings</a>
+						<a href="/auth/account/settings" class="btn info">Account Settings</a>
 					</div>
 				</div>
 	
