@@ -7,11 +7,11 @@
 
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="radio" name="development" value="Child">Child</label></li>
-			<li><label><input type="radio" name="development" value="Adolescent">Adolescent</label></li>
-			<li><label><input type="radio" name="development" value="Young Adult">Young Adult</label></li>
-			<li><label><input type="radio" name="development" value="Adult">Adult</label></li>
-			<li><label><input type="radio" name="development" value="Senior">Senior</label></li>
+			<li><label><input type="radio" name="development" value="Child">Child (You're mostly in receiving mode, may have a few "household" tasks.)</label></li>
+			<li><label><input type="radio" name="development" value="Adolescent">Adolescent (You have more household tasks, some responsibility, developing rapidly.)</label></li>
+			<li><label><input type="radio" name="development" value="Young Adult">Young Adult (You require less supervision, take more responsibility, separating from parents/leaders.)</label></li>
+			<li><label><input type="radio" name="development" value="Adult">Adult (You're reproducing spiritual children and helping them grow, may be married with actual kids, focused on next generation.)</label></li>
+			<li><label><input type="radio" name="development" value="Senior">Senior (Your kids (spiritual or biological) are on their own, you're providing counsel, help, overseeing, focused on grandchildren)</label></li>
 		</ul>
 	</div>
 
