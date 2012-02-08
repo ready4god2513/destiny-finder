@@ -1,5 +1,3 @@
-
-
 <h2>Family and Individual</h2>
 <br />
 <h3>Instructions</h3>
@@ -8,12 +6,11 @@
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="family" value="Family">Family</label></li>
-			<li><label><input type="checkbox" name="family" value="Education">Education</label></li>
-			<li><label><input type="checkbox" name="family" value="Health and Wellness">Health and Wellness</label></li>
-			<li><label><input type="checkbox" name="family" value="Therapy and Social Work">Therapy and Social Work</label></li>
-			<li><label><input type="checkbox" name="family" value="Senior Care">Senior Care</label></li>
-			<li><label><input type="checkbox" name="family" value="Undecided">Undecided</label></li>
+			<li><label><input type="checkbox" name="family" value="Family">Family (Marriage, parenting, children, orphans, foster care, etc.)</label></li>
+			<li><label><input type="checkbox" name="family" value="Education">Education (Teaching, administration, support, etc.)</label></li>
+			<li><label><input type="checkbox" name="family" value="Health and Wellness">Health and Wellness (Health, medical, wellness, etc.)</label></li>
+			<li><label><input type="checkbox" name="family" value="Therapy and Social Work">Therapy and Social Work (Counseling, family support, bereavement, etc.)</label></li>
+			<li><label><input type="checkbox" name="family" value="Senior Care">Senior Care (Retirement, senior care, hospice, etc.)</label></li>
 		</ul>
 	</div>
 

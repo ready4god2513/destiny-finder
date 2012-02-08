@@ -7,12 +7,11 @@
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="culture_lifestyle" value="Cultural Expression">Cultural Expression</label></li>
-			<li><label><input type="checkbox" name="culture_lifestyle" value="Entertainment, Sports and Games">Entertainment, Sports and Games </label></li>
-			<li><label><input type="checkbox" name="culture_lifestyle" value="Performing and Visual Arts">Performing and Visual Arts</label></li>
-			<li><label><input type="checkbox" name="culture_lifestyle" value="Traditional Media">Traditional Media</label></li>
-			<li><label><input type="checkbox" name="culture_lifestyle" value="Digital Media">Digital Media</label></li>
-			<li><label><input type="checkbox" name="culture_lifestyle" value="Undecided">Undecided</label></li>
+			<li><label><input type="checkbox" name="culture_lifestyle" value="Cultural Expression">Cultural Expression (Cultures, sub-cultures, styles, trends, symbols, etc.)</label></li>
+			<li><label><input type="checkbox" name="culture_lifestyle" value="Entertainment, Sports and Games">Entertainment, Sports and Games (Music, movies, TV, sports, comics, video games, etc.)</label></li>
+			<li><label><input type="checkbox" name="culture_lifestyle" value="Performing and Visual Arts">Performing and Visual Arts (Theater, dance, fashion, photography, graphic arts, fine arts, etc.)</label></li>
+			<li><label><input type="checkbox" name="culture_lifestyle" value="Traditional Media">Traditional Media (TV news, magazines, newspapers, etc.)</label></li>
+			<li><label><input type="checkbox" name="culture_lifestyle" value="Digital Media">Digital Media (Internet, social networking, etc.)</label></li>
 		</ul>
 	</div>
 

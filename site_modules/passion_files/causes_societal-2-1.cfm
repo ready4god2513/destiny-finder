@@ -8,13 +8,13 @@
 	
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="passion" value="Human Reproduction" />Human Reproduction</label></li>
-			<li><label><input type="checkbox" name="passion" value="Broken Families" />Broken Families</label></li>
-			<li><label><input type="checkbox" name="passion" value="Economic issues" />Economic issues</label></li>
-			<li><label><input type="checkbox" name="passion" value="Ignorance" />Ignorance </label></li>
-			<li><label><input type="checkbox" name="passion" value="Justice Issues" />Justice Issues</label></li>
-			<li><label><input type="checkbox" name="passion" value="Political" />Political </label></li>
-			<li><label><input type="checkbox" name="passion" value="None" />None</label></li>
+			<li><label><input type="checkbox" name="passion" value="Human Reproduction" />Human Reproduction (Right to life, abortion, birth control, adoption, crisis pregnancy, euthanasia, stem cell research, genetics, bioethics, etc.)</label></li>
+			<li><label><input type="checkbox" name="passion" value="Broken Families" />Broken Families (Divorce, child neglect, teen problems and issues, abuse physical or emotional, etc.)</label></li>
+			<li><label><input type="checkbox" name="passion" value="Economic issues" />Economic issues (Poverty, homelessness, hunger, unsafe water, disease, etc.)</label></li>
+			<li><label><input type="checkbox" name="passion" value="Ignorance" />Ignorance (Illiteracy, education and empowerment, etc.)</label></li>
+			<li><label><input type="checkbox" name="passion" value="Justice Issues" />Justice Issues (Human trafficking, racism, oppression, etc.)</label></li>
+			<li><label><input type="checkbox" name="passion" value="Political" />Political (War, corruption, legislative process, political ideology, etc.)</label></li>
+			<li><label><input type="checkbox" name="passion" value="Environmental" />Environmental (Recycling, natural resources, endangered species, animal cruelty, climate change, etc.)</label></li>
 		</ul>
 	</div>
 

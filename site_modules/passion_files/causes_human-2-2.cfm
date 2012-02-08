@@ -8,12 +8,12 @@
 			
 			<div class="input">
 				<ul class="inputs-list">
-					<li><label><input type="checkbox" name="human_problems" value="Physical Problems" />Physical Problems</label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Psychological Illness" />Psychological Illness</label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Addictions" />Addictions</label></li>
+					<li><label><input type="checkbox" name="human_problems" value="Physical Problems" />Physical Problems (Sickness, injury, birth defects, disabilities, etc.)</label></li>
+					<li><label><input type="checkbox" name="human_problems" value="Psychological Illness" />Psychological Illness (Depression, bipolar disorder, OCD, ADD, neuroses, etc.)</label></li>
+					<li><label><input type="checkbox" name="human_problems" value="Addictions" />Addictions (substance abuse, sexual addictions, pornography, gambling, eating disorders, etc.)</label></li>
 					<li><label><input type="checkbox" name="human_problems" value="Crime and Imprisonment" />Crime and Imprisonment </label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Sin Issues" />Sin Issues </label></li>
-                    <li><label><input type="checkbox" name="human_problems" value="Spiritual Strongholds " />Spiritual Strongholds </label></li>
+					<li><label><input type="checkbox" name="human_problems" value="Sin Issues" />Sin Issues (Immorality, greed, fear, anger, envy, pride, idolatry, rebellion, homosexual behavior (not orientation))</label></li>
+                    <li><label><input type="checkbox" name="human_problems" value="Spiritual Strongholds " />Spiritual Strongholds (Occult, demonic oppression, etc.)</label></li>
                     <li><label><input type="checkbox" name="human_problems" value="None" />None</label></li>
 				</ul>
 			</div>
