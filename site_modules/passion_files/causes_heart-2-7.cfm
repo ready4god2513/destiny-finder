@@ -8,10 +8,10 @@
 
 	<div class="input">
 		<ul class="inputs-list">
-			<li><label><input type="radio" name="heart" value="Outward" />Outward  </label></li>
-			<li><label><input type="radio" name="heart" value="Inward" />Inward </label></li>
-			<li><label><input type="radio" name="heart" value="Upward" />Upward </label></li>
-			<li><label><input type="radio" name="heart" value="Downward" />Downward </label></li>
+			<li><label><input type="radio" name="heart" value="Outward" />Outward (To reach those outside my group or bring them into my group)</label></li>
+			<li><label><input type="radio" name="heart" value="Inward" />Inward (To build up those inside my group)</label></li>
+			<li><label><input type="radio" name="heart" value="Upward" />Upward (To minister to the Lord, usually alone or in small groups)</label></li>
+			<li><label><input type="radio" name="heart" value="Downward" />Downward (To bring God’s heart, message and power to my group)</label></li>
 			<li><label><input type="radio" name="heart" value="Evenly directed between outward, inward, upward and downward." />Evenly directed between outward, inward, upward and downward.</label></li>
 		</ul>
 	</div>
