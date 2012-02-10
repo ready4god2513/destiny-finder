@@ -85,7 +85,7 @@
 		<cfset APPLICATION.server_path = REPLACE(GetDirectoryFromPath(CF_TEMPLATE_PATH),"\admin\","\")>
 	
 		
-		<cfset APPLICATION.contact_email = "brandonh@ibethel.org">
+		<cfset APPLICATION.contact_email = "info@destinyfinder.com">
 
 		
 		<cfset REQUEST.site_url = "http://dev.destinyfinder.com/" />
@@ -94,7 +94,7 @@
 		
 		<!--- FOR BLOG --->
 		<cfset REQUEST.time_offset = 2>
-		<cfset REQUEST.from_email = "noreply@destinyfinder.com">
+		<cfset REQUEST.from_email = APPLICATION.contact_email>
 		<cfset REQUEST.site_path= "">
 		<cfset REQUEST.temp_upload_dir = "">
 			
