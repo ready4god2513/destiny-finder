@@ -32,10 +32,14 @@
         <div class="assessment_item">
 	
 		<cfset VARIABLES.item_result = "">
+		<cfset item_type = 1>
         <cfif VARIABLES.assessment_id EQ 5>
-			<cfset qItems.item_type = 5>
+			<cfset item_type = 5>
+		<cfelseif VARIABLES.assessment_id EQ 6>
+			<cfset item_type = 6>
 		</cfif>
-            <cfswitch expression="#qItems.item_type#">
+		
+            <cfswitch expression="#item_type#">
                 <cfcase value="1">
                         <cfmodule template="word_sort.cfm"
                             sort_id="#qItems.item_type_id#"
@@ -47,6 +51,17 @@
                             >
                     
                 </cfcase>
+				
+				<!--- Passion Survey --->
+				<cfcase value="6">
+					<cfmodule template="delight_survey.cfm"
+						type_id="#qItems.item_type#"
+						item_result="#VARIABLES.item_result#"
+						user_id="#VARIABLES.user_id#"
+						invite="#VARIABLES.invite#"
+						assessment_id="#VARIABLES.assessment_id#"
+						>
+				</cfcase>
                 
                 <cfdefaultcase>
                         <cfmodule template="passion_survey.cfm"
