@@ -17,6 +17,7 @@
 	
 	<cfset objQueries = CreateObject("component","cfcs.queries")>
 	<cfset objAssessments = CreateObject("component","cfcs.assessment")>
+	<cfset delightSurvey = CreateObject("component","cfcs.delight") /> 
 	<cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>
 	<cfset qAssessments = objAssessments.retrieve_assessments()>    
 	<cfset qResults = objAssessments.get_results(user_id="#REQUEST.user_id#")>
@@ -41,12 +42,18 @@
 		    	<cfset VARIABLES.PassionComplete = 1>
 		    </cfif>
 		
+			<cfset VARIABLES.delightComplete = 0>
+			<cfif delightSurvey.getResults(user_id = REQUEST.user_id).recordcount GT 0>
+				<cfset VARIABLES.delightComplete = 1>
+			</cfif>
+			
+		
 			<table>
 			    <cfloop query="qAssessments">
 					<tr class="#qAssessments.assessment_name#">
 						<th>#HTMLEditFormat(qAssessments.assessment_name)#</th>
 						<cfif qAssessments.assessment_id EQ 1 OR (qAssessments.assessment_id NEQ 1 AND foxyCart.customerPurchasedCode(email = REQUEST.user.user_email, code = #Hash("profiler")#))>
-							<cfif (isDefined("VARIABLES.Result_List") AND ListContains(VARIABLES.Result_List,qAssessments.assessment_id) GT 0) OR (qAssessments.assessment_id EQ 5 AND VARIABLES.PassionComplete EQ 1)>
+							<cfif (isDefined("VARIABLES.Result_List") AND ListContains(VARIABLES.Result_List,qAssessments.assessment_id) GT 0) OR (qAssessments.assessment_id EQ 5 AND VARIABLES.PassionComplete EQ 1)  OR (qAssessments.assessment_id EQ 6 AND VARIABLES.delightComplete EQ 1)>
 				            	<td><a class="btn success" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Retake</a></td>	
 								<td><a class="btn primary" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Result</a></td>
 							<cfelse>
