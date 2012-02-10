@@ -4,8 +4,8 @@
 	<!--- Insert the results of the survey --->
 	<cffunction name="insertRecord" output="false" return="void">
 		<cfargument name="user_id" type="numeric" required="true" />
-		<cfargument name="aptitudes" type="struct" required="true" />
-		<cfargument name="delights" type="struct" required="true" />
+		<cfargument name="aptitudes" type="string" required="true" />
+		<cfargument name="delights" type="string" required="true" />
 		
 		<cfset var local = {} />
 		
@@ -43,6 +43,24 @@
 		</cfquery>
 		
 		<cfreturn local.results />
+	</cffunction>
+	
+	
+	<!--- Compare the arrays to see if there are similarities --->
+	<cffunction name="compareResults" output="false" return="array">
+		<cfargument name="aptitudes" type="string" required="true" />
+		<cfargument name="delights" type="string" required="true" />
+		
+		<cfset var local = {} />
+		<cfset local.matches = ArrayNew(1) />
+		
+		<cfloop list="#ARGUMENTS.aptitudes#" index="i">
+			<cfif ListFindNoCase(ARGUMENTS.delights, i)>
+				<cfset ArrayAppend(local.matches, i)>
+			</cfif>
+		</cfloop>
+		
+		<cfreturn local.matches />
 	</cffunction>
 	
 </cfcomponent>

@@ -12,7 +12,7 @@
 
 <cfoutput>
 	<form action="/profile/?page=assessment&assessment_id=6&gift_type_id=0" method="POST" id="listing-aptitudes">
-		<cfloop from="1" to="20" index="i">
+		<cfloop from="1" to="10" index="i">
 			<div class="clearfix">
 				<label for="aptitudes#i#">#i#.</label>
 				<div class="input">
@@ -35,7 +35,7 @@
 		<p>
 			Don't limit yourself; even if it sounds a bit crazy, if you love to do it, put it down.
 		</p>
-		<cfloop from="1" to="20" index="i">
+		<cfloop from="1" to="10" index="i">
 			<div class="clearfix">
 				<label for="delights#i#">#i#.</label>
 				<div class="input">
