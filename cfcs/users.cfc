@@ -56,21 +56,27 @@
 				subject="Destiny Finder Password Reset" 
 				type="html">
 				
-				<p>Dear #user.user_first_name#</p>
+				<p>Dear #user.user_first_name#,</p>
+				<p>Your password reset is almost complete.</p>
 				<p>
-					Someone has requested a link to change your password, and you can do this through the link below.
+					To finish changing your password, click the link below. You'll be taken to a page where you can securely reset your password.
 				</p>
 
 				<p>
-					<a href="#REQUEST.site_url#auth/password-reset/?reset=true&amp;key=#user.user_password#&amp;id=#user.user_id#">Reset my Password</a>
+					<a href="#REQUEST.site_url#auth/password-reset/?reset=true&amp;key=#user.user_password#&amp;id=#user.user_id#">Change your Password</a>
 				</p>
-
+				
 				<p>
-					If you didn't request this, please ignore this email.
+					If you didn't contact Lowe's to change your password, please delete this email.
 				</p>
-
+				
 				<p>
-					Your password won't change until you access the link above and create a new one.
+					If clicking the button above doesn't work, copy and paste the following link 
+					into your Internet browser:
+				</p>
+				
+				<p>
+					<a href="#REQUEST.site_url#auth/password-reset/?reset=true&key=#user.user_password#&id=#user.user_id#">#REQUEST.site_url#auth/password-reset/?reset=true&key=#user.user_password#&id=#user.user_id#</a>
 				</p>
 				
 			</cfmail>
