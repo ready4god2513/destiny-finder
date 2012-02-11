@@ -67,7 +67,7 @@
 				</p>
 				
 				<p>
-					If you didn't contact Lowe's to change your password, please delete this email.
+					If you didn't contact Destiny Finder to change your password, please delete this email.
 				</p>
 				
 				<p>
