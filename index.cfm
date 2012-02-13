@@ -53,9 +53,23 @@ ORDER BY gateway_sortorder ASC
 
 			<article>
 				<h2>News</h2>
-				<h3>The Destiny Profiler is here!</h3>
+				<h3>BETA Site launches, Profiler FREE for the next 7 days!</h3>
 				<p>
-					It's live now and there's nothing else quite like it! This powerful and practical online tool with five surveys based on spiritual gifts, motivation, passion and more produces a destiny profile of your basic gifting, calling and direction. Special introductory offer.
+					The Profiler is FREE for the next 7 days while we BETA-test the new site. 
+					We need your feedback to make our website, products and services be the 
+					best they can be. Please take the Free Survey, invite friends to take the 
+					Friends Survey, and take the Destiny Profiler surveys for free 
+					(you'll still be sent to the store - the cost will be zero.) All we ask is that 
+					you use the Feedback button available on each page and give us as much 
+					feedback as possible about errors, things that don't make sense, or suggestions. 
+					Thank you for partnering with us to make a difference!
+				</p>
+			</article>
+			
+			<article>
+				<h3>Friends 360 Survey launches</h3>
+				<p>
+					You can now invite your friends to take the free trial destiny survery about you -- get valuable feedback to help you understand your gifting and calling. It's free, it's fun, it's easy.
 					<a href="/profile/?page=profiler">More...</a>
 				</p>
 			</article>
