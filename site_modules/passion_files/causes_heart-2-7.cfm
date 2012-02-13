@@ -1,5 +1,5 @@
 
-<h2>My heart direction is mostly:</h2>
+<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. My heart direction is mostly:</h2>
 <br />
 <h3>Instructions</h3>
 <p>Select one that is truest for you.</p>
@@ -11,7 +11,7 @@
 			<li><label><input type="radio" name="heart" value="Outward" />Outward (To reach those outside my group or bring them into my group)</label></li>
 			<li><label><input type="radio" name="heart" value="Inward" />Inward (To build up those inside my group)</label></li>
 			<li><label><input type="radio" name="heart" value="Upward" />Upward (To minister to the Lord, usually alone or in small groups)</label></li>
-			<li><label><input type="radio" name="heart" value="Downward" />Downward (To bring God’s heart, message and power to my group)</label></li>
+			<li><label><input type="radio" name="heart" value="Downward" />Downward (To bring God's heart, message and power to my group)</label></li>
 			<li><label><input type="radio" name="heart" value="Evenly directed between outward, inward, upward and downward." />Evenly directed between outward, inward, upward and downward.</label></li>
 		</ul>
 	</div>

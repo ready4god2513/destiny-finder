@@ -1,5 +1,5 @@
 
-<h2>The organizational type I’m most comfortable in is:</h2>
+<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. The organizational type I'm most comfortable in is:</h2>
 <br />
 <h3>Instructions</h3>
 <p>Choose one answer that is truest for you.</p>

@@ -1,6 +1,4 @@
-
-<h2>I feel most passionate about the following societal causes:</h2>
-<br />
+<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. I feel most passionate about the following societal causes:</h2>
 <h3>Instructions</h3>
 <p>Select two that are truest for you.</p>
 

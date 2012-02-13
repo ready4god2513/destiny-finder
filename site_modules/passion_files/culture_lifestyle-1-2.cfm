@@ -1,5 +1,5 @@
 
-<h2>Culture and Lifestyle</h2>
+<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. Culture and Lifestyle</h2>
 <br />
 
 <h3>Instructions</h3>

@@ -1,5 +1,5 @@
 
-<h2>I feel most fulfilled when communicating with others through the following means:</h2>
+<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. I feel most fulfilled when communicating with others through the following means:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select two that are truest for you.</p>

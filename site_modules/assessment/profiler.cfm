@@ -48,9 +48,13 @@
 			</cfif>
 			
 		
-			<table>
+			<table id="users-surveys">
 			    <cfloop query="qAssessments">
-					<cfif qAssessments.assessment_id EQ 2>
+					<cfif qAssessments.assessment_id EQ 1>
+						<tr>
+							<th colspan="3">Free Surveys</th>
+						</tr>
+					<cfelseif qAssessments.assessment_id EQ 2>
 						<tr>
 							<th colspan="3">Destiny Profiler (5 surveys) BETA Free!</th>
 						</tr>
