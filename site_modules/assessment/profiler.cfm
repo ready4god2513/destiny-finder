@@ -26,7 +26,7 @@
 	<cfoutput>
 	
 		<div class="assessment_wrapper box">
-			<h4>Your Available Surveys</h4>
+			<h4>Tools</h4>
     
 			<cfset VARIABLES.Result_List = ValueList(qResults.assessment_id,',')>
     
@@ -50,8 +50,14 @@
 		
 			<table>
 			    <cfloop query="qAssessments">
+					<cfif qAssessments.assessment_id EQ 2>
+						<tr>
+							<th colspan="3">Destiny Profiler (5 surveys) BETA Free!</th>
+						</tr>
+					</cfif>
+					
 					<tr class="#qAssessments.assessment_name#">
-						<th>#HTMLEditFormat(qAssessments.assessment_name)#</th>
+						<td>#HTMLEditFormat(qAssessments.assessment_name)#</td>
 						<cfif qAssessments.assessment_id EQ 1 OR (qAssessments.assessment_id NEQ 1 AND foxyCart.customerPurchasedCode(email = REQUEST.user.user_email, code = #Hash("profiler")#))>
 							<cfif (isDefined("VARIABLES.Result_List") AND ListContains(VARIABLES.Result_List,qAssessments.assessment_id) GT 0) OR (qAssessments.assessment_id EQ 5 AND VARIABLES.PassionComplete EQ 1)  OR (qAssessments.assessment_id EQ 6 AND VARIABLES.delightComplete EQ 1)>
 				            	<td><a class="btn success" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Retake</a></td>	
@@ -65,7 +71,7 @@
 					</tr>
 					<cfif qAssessments.assessment_id EQ 1>
 						<tr>
-							<th>Friends 360 Survey (Free)</th>
+							<td>Friends 360 Survey (Free)</td>
 							<td><a href="/profile/?page=invmod" class="btn success">Invite Friends</a></td>
 							<td><a class="btn primary" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Result</a></td>
 						</tr>
