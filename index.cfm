@@ -69,15 +69,7 @@ ORDER BY gateway_sortorder ASC
 			<article>
 				<h3>Friends 360 Survey launches</h3>
 				<p>
-					You can now invite your friends to take the free trial destiny survery about you -- get valuable feedback to help you understand your gifting and calling. It's free, it's fun, it's easy.
-					<a href="/profile/?page=profiler">More...</a>
-				</p>
-			</article>
-			
-			<article>
-				<h3>Friends 360 Survey launches</h3>
-				<p>
-					You can now invite your friends to take the free trial destiny survery about you -- get valuable feedback to help you understand your gifting and calling. It's free, it's fun, it's easy.
+					You can now invite your friends to take the free trial destiny survey about you -- get valuable feedback to help you understand your gifting and calling. It's free, it's fun, it's easy.
 					<a href="/profile/?page=profiler">More...</a>
 				</p>
 			</article>
