@@ -12,10 +12,12 @@
         <cfset FORM.last_modified = #now()#>
         
         <cfquery name="ResultExists" datasource="#APPLICATION.DSN#">
-        	SELECT * FROM Passion_Survey
-            WHERE user_id = #REQUEST.user_id#
+        	SELECT * 
+			FROM Passion_Survey
+            WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
         </cfquery>
-        
+
+		
         <cfif ResultExists.recordcount EQ 0 AND VARIABLES.vFormField EQ 'sphere'>
         	<cfquery datasource="#APPLICATION.DSN#">
             	INSERT INTO Passion_Survey (
@@ -30,8 +32,11 @@
         <cfelse>
         	<cfquery datasource="#APPLICATION.DSN#">
             	UPDATE Passion_Survey
-				SET last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#"> 
-                WHERE user_id = #FORM.user_id#
+				SET last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
+				<cfif StructKeyExists(ResultExists, "#VARIABLES.vFormField#")>
+					, "#VARIABLES.vFormField#" = "#FORM[VARIABLES.vFormField]#"
+				</cfif>
+                WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.user_id#">
             </cfquery>
         </cfif>
 					<!--- 	1 = Family and Individual
