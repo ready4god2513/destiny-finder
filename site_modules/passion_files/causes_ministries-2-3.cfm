@@ -1,4 +1,4 @@
- <h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. I really enjoy being involved in the following types of ministries: </h2>
+ <h2>I really enjoy being involved in the following types of ministries: </h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select two that are truest for you.</p>

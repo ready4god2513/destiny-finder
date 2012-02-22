@@ -1,4 +1,4 @@
-<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. The workplace role I feel most comfortable with is:</h2>
+<h2>The workplace role I feel most comfortable with is:</h2>
 <br />
 <h3>Instructions</h3>
 <p>Choose two answers that are truest for you.</p>

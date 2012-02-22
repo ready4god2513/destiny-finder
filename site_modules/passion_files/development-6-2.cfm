@@ -1,5 +1,5 @@
 
-<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. Choose the stage you want to be at in 3-5 years:</h2>
+<h2>Choose the stage you want to be at in 3-5 years:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>

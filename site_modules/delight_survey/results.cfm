@@ -2,7 +2,7 @@
 <cfset delightResults = delightSurvey.getResults(user_id = REQUEST.user_id) />
 <cfset comparedResults = delightSurvey.compareResults(aptitudes = delightResults.aptitudes, delights = delightResults.delights) />
 
-<h1>Delight Results</h1>
+<h2>Delight Results</h2>
 
 <cfif ArrayLen(comparedResults) GT 0>
 	<ol>

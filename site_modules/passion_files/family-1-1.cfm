@@ -1,4 +1,4 @@
-<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. Family and Individual</h2>
+<h2>Family and Individual</h2>
 <br />
 <h3>Instructions</h3>
 <p>Pick the two sub-spheres you are drawn to impact. Only use undecided if You're really not sure.</p>

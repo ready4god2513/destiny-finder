@@ -1,5 +1,5 @@
 
-<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. My heart direction is mostly:</h2>
+<h2>My heart direction is mostly:</h2>
 <br />
 <h3>Instructions</h3>
 <p>Select one that is truest for you.</p>

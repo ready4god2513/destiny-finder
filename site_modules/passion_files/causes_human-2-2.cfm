@@ -1,4 +1,4 @@
-<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. I'm most troubled by the following human problems:</h2>
+<h2>I'm most troubled by the following human problems:</h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select two that are truest for you.</p>

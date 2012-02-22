@@ -1,5 +1,5 @@
 
-<h2><cfoutput>#(VARIABLES.vCount - 1)#</cfoutput>. I feel drawn to work with people of the following religious orientation </h2>
+<h2>I feel drawn to work with people of the following religious orientation </h2>
         <br />
         <h3>Instructions</h3>
 		<p>Select one that is truest for you.</p>
