@@ -10,8 +10,8 @@
     <cfset VARIABLES.passion_file="sphere-1.cfm">
     <cfset VARIABLES.vCount=1>
 	
-	<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
-	<cfset passionSurvey = passionSurveyObj.beginSurvey(user_id = REQUEST.user_id)>
+	<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
+	<cfset passionSurvey = passionSurveyObj.beginSurvey()>
 </cfif>
 
 <cfparam name="ATTRIBUTES.sort_id" default="#VARIABLES.vCount#">

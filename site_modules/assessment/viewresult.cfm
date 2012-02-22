@@ -6,7 +6,7 @@
 <cfset qInvites = objAssessments.retrieve_invites(user_id="#REQUEST.user_id#")>
 <cfset VARIABLES.memberships = objAssessments.retrieve_membership(user_id="#REQUEST.user_id#")>
 <cfset delightSurvey = CreateObject("component","cfcs.delight") />
-<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
+<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
 
 <cfoutput>
 	<cfif isDefined("URL.pdf")>
@@ -20,7 +20,7 @@
 				#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
 
 			<cfelseif URL.assessment_id EQ 5>
-				#passionSurveyObj.calculateResults(REQUEST.user_id)#
+				#passionSurveyObj.calculateResults(=)#
 			</cfif>
 			
 			<cfdocumentitem type="footer">
@@ -31,7 +31,7 @@
 		<cfif URL.assessment_id LTE 4>
 			#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
 		<cfelseif URL.assessment_id EQ 5>
-			#passionSurveyObj.calculateResults(REQUEST.user_id)#
+			#passionSurveyObj.calculateResults()#
 		<cfelseif URL.assessment_id EQ 6>
 			<cfinclude template="../delight_survey/results.cfm" />
 		</cfif>

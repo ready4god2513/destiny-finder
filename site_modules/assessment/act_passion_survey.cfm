@@ -1,6 +1,6 @@
 <cfset objAssessment = CreateObject("component","cfcs.assessment")>
-<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
-<cfset passionSurvey = passionSurveyObj.findSurvey(user_id = REQUEST.user_id)>
+<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
+<cfset passionSurvey = passionSurveyObj.findSurvey()>
 
 <cfif FindNoCase("destinyfinder",CGI.HTTP_REFERER)>
 

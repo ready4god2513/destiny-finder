@@ -1,8 +1,8 @@
 <cfinclude template="../require_login.cfm" />
 <cfset foxyCart = CreateObject("component","cfcs.foxycart")>
 	
-<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
-<cfset passionSurvey = passionSurveyObj.findSurvey(user_id = REQUEST.user_id)>
+<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
+<cfset passionSurvey = passionSurveyObj.findSurvey()>
 	
 <cfif REQUEST.user_id EQ 0 AND NOT isDefined('URL.create')>
 
