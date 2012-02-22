@@ -1,4 +1,5 @@
-<cfset objAssessment = CreateObject("component","cfcs.assessment")> 
+<cfset objAssessment = CreateObject("component","cfcs.assessment")>
+<cfset passionSurvey = CreateObject("component","cfcs.passion") />
 
 <cfif FindNoCase("destinyfinder",CGI.HTTP_REFERER)>
 
@@ -10,40 +11,22 @@
         <cfset VARIABLES.vDBColumn = ListGetAt(vHiddenList,4)>
         <cfset FORM.user_id = #REQUEST.user_id#>
         <cfset FORM.last_modified = #now()#>
-        
-        <cfquery name="ResultExists" datasource="#APPLICATION.DSN#">
-        	SELECT * 
-			FROM Passion_Survey
-            WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
-        </cfquery>
-
+	
+		<cfdump var="#VARIABLES.vCount#">
+		<cfabort>
+	
+		<cfif VARIABLES.vCount EQ 1>
+			<cfabort />
+		<cfelse>
+			
+		</cfif>
 		
-        <cfif ResultExists.recordcount EQ 0 AND VARIABLES.vFormField EQ 'sphere'>
-        	<cfquery datasource="#APPLICATION.DSN#">
-            	INSERT INTO Passion_Survey (
-                user_id,
-                sphere,
-                last_modified  )
-                VALUES (
-                <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">,
-                <cfqueryparam cfsqltype="cf_sql_varchar" value="#FORM.sphere#">,
-                <cfqueryparam cfsqltype="cf_sql_date" value="#now()#"> )
-            </cfquery> 
-        <cfelse>
-        	<cfquery datasource="#APPLICATION.DSN#">
-            	UPDATE Passion_Survey
-				SET last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
-				<cfif StructKeyExists(ResultExists, "#VARIABLES.vFormField#")>
-					, "#VARIABLES.vFormField#" = "#FORM[VARIABLES.vFormField]#"
-				</cfif>
-                WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#FORM.user_id#">
-            </cfquery>
-        </cfif>
-					<!--- 	1 = Family and Individual
-							2 = Culture and Lifestyle
-							3 = Business and Economics
-							4 = Government, Legal and Non-Profit
-					        5 = Religion and Spirituality   --->
+        
+		<!--- 	1 = Family and Individual
+				2 = Culture and Lifestyle
+				3 = Business and Economics
+				4 = Government, Legal and Non-Profit
+		        5 = Religion and Spirituality   --->
         <cfif VARIABLES.vNextQuestion EQ 'sphere-1'>
        		<cfswitch expression="#FORM.sphere#">
                 <cfcase value="Family and Individual">
@@ -67,9 +50,7 @@
     </cfif>
     <cfif isDefined("FORM.surveydone")>
 	    <script type="text/javascript">
-			<!-- //
-			top.location.href = '/profile/?page=viewresult&assessment_id=5';
-			// -->
+			window.location.href = "/profile/?page=viewresult&assessment_id=5";
 		</script>
 	<cfelse>
     	<cflocation addtoken="yes" url="/site_modules/assessment/passion_survey.cfm?assessment_id=5&nxpb3=#Encrypt('#VARIABLES.vCount#,#VARIABLES.vNextQuestion#','keyei3v2','CFMX_COMPAT','Hex')#">

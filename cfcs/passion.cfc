@@ -34,13 +34,18 @@
 			</cfquery>
 			
 			<cfset local.survey = this.usersSurvey(user_id = ARGUMENTS.user_id) />
-		<cfif>
+		</cfif>
 			
 		<cfreturn local.survey />
 	</cffunction>
 	
 	
-	<cffunction name="usersSurvey" output="false" returnType="boolean">
+	<!--- 
+		Check to see if the user has already taken the survey.
+		Either way, this will return a query.  Use "hasTakenSurvey()"
+		to check if the user has taken the survey or not
+	--->
+	<cffunction name="usersSurvey" output="false" returnType="query">
 		<cfargument name="user_id" type="numeric" required="true" />
 		
 		<cfset var local = {} />
@@ -55,21 +60,19 @@
 	</cffunction>
 	
 	
+	<!---
+		Check to see if the user has taken the survey.  Returns bool
+	--->
 	<cffunction name="hasTakenSurvey" output="false" returnType="boolean">
 		<cfargument name="user_id" type="numeric" required="true" />
-		
-		<cfset var local = {} />
-			
-		<cfquery name="local.surveyResults" datasource="#APPLICATION.DSN#">
-			SELECT *
-			FROM passion_surveys
-			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.user_id#">
-		</cfquery>
-		
-		<cfreturn local.surveyResults.recordcount GT 0 />
+		<cfreturn this.usersSurvey(user_id = ARGUMENTS.user_id).recordcount GT 0 />
 	</cffunction>
 	
 	
+	<!---
+		This adds a key/value to the passion_survey_results table
+		which will then be calculated once the survey has been completed
+	--->
 	<cffunction name="addAnswer" output="false" returnType="void">
 		<cfargument name="passion_survey_id" type="numeric" required="true" />
 		<cfargument name="key" type="string" required="true" />
@@ -79,16 +82,21 @@
 		
 		
 		<cfquery name="local.addingAnswer" datasource="#APPLICATION.DSN#">
-			INSERT INTO passion_survey_results (passion_survey_id, key, value)
+			INSERT INTO passion_survey_results (passion_survey_id, key, value, created_at)
 			VALUES (
 				<cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.passion_survey_id#">,
 				<cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.key#">,
-				<cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.value#">
+				<cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.value#">,
+				<cfqueryparam cfsqltype="cf_sql_timestamp" value="#now()#">
 			)
 		</cfquery>
 		
 	</cffunction>
 	
+	
+	<!--- 
+		Parse through the answers provided and fill out the report for the user.
+	--->
 	<cffunction name="calculateResults" output="true" returnType="void">
 		<cfargument name="user_id" type="numeric" required="true" />
 		

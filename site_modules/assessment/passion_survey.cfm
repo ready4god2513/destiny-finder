@@ -10,6 +10,9 @@
     <cfset VARIABLES.vCount=1>
 </cfif>
 
+<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
+<cfset passionSurvey = passionSurveyObj.beginSurvey(user_id = REQUEST.user_id)>
+
 <cfparam name="ATTRIBUTES.sort_id" default="#VARIABLES.vCount#">
 <cfoutput>
 	<div id="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_result" class="sort_result" style="background-color:white;">
