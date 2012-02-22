@@ -15,6 +15,6 @@
 		</div>
 	</div>
 
-		<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
-		<input type="hidden" value="<cfoutput>#Encrypt('24,development-6-2,development,development_1','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
-	</form>
+	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
+	<input type="hidden" value="<cfoutput>#Encrypt('24,development-6-2,development,development_1','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
+</form>
