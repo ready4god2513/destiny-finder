@@ -25,18 +25,18 @@
 <h3>Instructions</h3>
 <p>Pick the one sphere you're drawn to impact.  Only use undecided if you're really not sure.</p>
 <form name="form" action="act_passion_survey.cfm" class="survey-form" method="post">
-	<div class="input">
-		<ul class="inputs-list">
-			<li><label><input type="radio" name="sphere" value="Family and Individual">Family and Individual</label></li>
-			<li><label><input type="radio" name="sphere" value="Culture and Lifestyle">Culture and Lifestyle</label></li>
-			<li><label><input type="radio" name="sphere" value="Business and Economics">Business and Economics</label></li>
-			<li><label><input type="radio" name="sphere" value="Government Legal and NonProfit">Government, Legal and Non-Profit</label></li>
-			<li><label><input type="radio" name="sphere" value="Religion and Spirituality">Religion and Spirituality</label></li>
-		</ul>
+	<div class="controls">
+		<div class="inputs-list">
+			<label class="radio"><input type="radio" name="sphere" value="Family and Individual">Family and Individual</label>
+			<label class="radio"><input type="radio" name="sphere" value="Culture and Lifestyle">Culture and Lifestyle</label>
+			<label class="radio"><input type="radio" name="sphere" value="Business and Economics">Business and Economics</label>
+			<label class="radio"><input type="radio" name="sphere" value="Government Legal and NonProfit">Government, Legal and Non-Profit</label>
+			<label class="radio"><input type="radio" name="sphere" value="Religion and Spirituality">Religion and Spirituality</label>
+		</div>
 	</div>
 	
 
-	<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
 	<input type="hidden" value="<cfoutput>#Encrypt('2,sphere-1,sphere,sphere','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 

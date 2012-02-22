@@ -84,7 +84,7 @@
 		<fieldset>
 			<div class="clearfix">
 				<label for="user_first_name">First Name</label>
-				<div class="input">
+				<div class="controls">
 					<input type="text" name="user_first_name" id="user_first_name" value="<cfoutput>#HTMLEditFormat(qUser.user_first_name)#</cfoutput>" required="required" />
 				</div>
 			</div>
@@ -92,7 +92,7 @@
 			<div class="clearfix">
 
 				<label for="user_last_name">Last Name</label>
-				<div class="input">
+				<div class="controls">
 					<input type="text" name="user_last_name" id="user_last_name" value="<cfoutput>#HTMLEditFormat(qUser.user_last_name)#</cfoutput>" required="required" />
 				</div>
 			</div>
@@ -100,7 +100,7 @@
 
 			<div class="clearfix">
 				<label for="user_email">Email Address</label>
-				<div class="input">
+				<div class="controls">
 					<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" <cfif REQUEST.user_id GT 0>disabled="disabled"</cfif> />
 					<span class="help-inline">Your e-mail is used for logging in</span>
 				</div>
@@ -110,7 +110,7 @@
 			<cfif REQUEST.user_id EQ 0>
 				<div class="clearfix">
 					<label for="user_email2">Confirm Email</label>
-					<div class="input">
+					<div class="controls">
 						<input type="email" name="user_email2" id="user_email2" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
 					</div>
 				</div>
@@ -118,21 +118,21 @@
 
 			<div class="clearfix">
 				<label for="user_password">Password</label>
-				<div class="input">
+				<div class="controls">
 					<input type="password" name="user_password" id="user_password"<cfif REQUEST.user_id EQ 0> required="required"</cfif> />
 				</div>
 			</div>
 
 			<div class="clearfix">
 				<label for="user_password2">Confirm Password</label>
-				<div class="input">
+				<div class="controls">
 					<input type="password" name="user_password2" id="user_password2"<cfif REQUEST.user_id EQ 0> required="required"</cfif> />
 				</div>
 			</div>
 
 			<div class="clearfix">
-				<div class="input">
-					<ul class="inputs-list">
+				<div class="controls">
+					<ul class="controls">
 						<cfif REQUEST.user_id EQ 0>
 							<li>
 								<label>
@@ -154,10 +154,10 @@
 
 		<div class="form-actions">
 			<cfif REQUEST.user_id EQ 0>
-				<input type="submit" name="submit" value="Create Account" class="btn primary" />
+				<input type="submit" name="submit" value="Create Account" class="btn btn-primary" />
 			<cfelse>
 				<a href="/profile/?page=profiler" class="btn danger">Cancel Update</a>
- 				<input type="submit" name="submit" value="Update Account Settings" class="btn primary" />		
+ 				<input type="submit" name="submit" value="Update Account Settings" class="btn btn-primary" />		
 			</cfif>
 		</div>
 

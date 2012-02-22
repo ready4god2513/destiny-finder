@@ -1,6 +1,11 @@
 $(function(){
 	
 	$(".nav-collapse li.dropdown").children("a").append('<b class="caret"></b>');
+	
+	$("form").addClass("form-horizontal");
+	$("label").addClass("control-label");
+	$("label.checkbox").removeClass("control-label");
+	
 
 	if($("#rotating-banner").length)
 	{

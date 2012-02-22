@@ -24,7 +24,7 @@
 			<input type="hidden" value="1103934823430" name="m" />
 			<input type="hidden" value="oi" name="p" />
 			<input type="email" value="" name="ea" placeholder="you@your-email.com" required="required" class="span3" />
-			<input type="submit" class="btn primary" value="Join" name="go" />
+			<input type="submit" class="btn btn-primary" value="Join" name="go" />
 		</form>
 	</article>
 </section>

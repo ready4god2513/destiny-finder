@@ -11,7 +11,7 @@
         <cfif isDefined('URL.invite')>
         	<cfmodule template="/site_modules/assessment/invite.cfm">
         <cfelse>
-            <p><a href="index.cfm?page=invmod&amp;assessment_id=1&amp;gift_type_id=1&amp;invite=1" class="btn info">Add Invite</a></p>
+            <p><a href="index.cfm?page=invmod&amp;assessment_id=1&amp;gift_type_id=1&amp;invite=1" class="btn btn-info">Add Invite</a></p>
             
 			<cfif qInvites.recordcount GT 0>
 				<table>	

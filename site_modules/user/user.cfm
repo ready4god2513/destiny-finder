@@ -36,7 +36,7 @@
 		<div class="row">
 			<h2 class="span6">My Account</h2>
 			<div class="pull-right">
-				<a href="/auth/account" class="btn info">Back to My Account</a>
+				<a href="/auth/account" class="btn btn-info">Back to My Account</a>
 			</div>
 		</div>
 		<cfmodule template="/site_modules/user/user_profile.cfm">

@@ -5,20 +5,20 @@
 		<p>Select two that are truest for you.</p>
         
 		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
-			<div class="input">
-				<ul class="inputs-list">
-					<li><label><input type="checkbox" name="communication" value="Teaching and Training" />Teaching and Training</label></li>
-					<li><label><input type="checkbox" name="communication" value="Counseling and Consulting" />Counseling and Consulting</label></li>
-					<li><label><input type="checkbox" name="communication" value="Leading and Guiding" />Leading and Guiding</label></li>
-					<li><label><input type="checkbox" name="communication" value="Mentoring and Coaching" />Mentoring and Coaching </label></li>
-					<li><label><input type="checkbox" name="communication" value="Writing and Publishing" />Writing and Publishing</label></li>
-                    <li><label><input type="checkbox" name="communication" value="Public Speaking and Motivating" />Public Speaking and Motivating</label></li>
-                    <li><label><input type="checkbox" name="communication" value="None" />None</label></li>
+			<div class="controls">
+				<div class="inputs-list">
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="Teaching and Training" />Teaching and Training</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="Counseling and Consulting" />Counseling and Consulting</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="Leading and Guiding" />Leading and Guiding</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="Mentoring and Coaching" />Mentoring and Coaching </label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="Writing and Publishing" />Writing and Publishing</label>
+                    <label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="Public Speaking and Motivating" />Public Speaking and Motivating</label>
+                    <label class="checkbox"><input type="checkbox" class="checkbox" name="communication" value="None" />None</label>
 				</ul>
 			</div>
 			
              <!---CLIP #1--->
-			<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+			<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('12,causes_expressing-2-6,communication,causes_communication','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

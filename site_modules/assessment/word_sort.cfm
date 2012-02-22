@@ -128,8 +128,11 @@
             <input class="btn primary" type="submit" name="submit" value="<cfif qcount LT qItems.recordcount>Next Step<cfelse>Show Results</cfif>" />
 		</form>
 <br class="clear"/>
-        <cfset progbar= (308 / qItems.recordcount) * (ATTRIBUTES.qcount - 1)>
-        <div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/assets/images/progbar_pix.png" width="#HTMLEditFormat(val(progbar))#" height="21"></div>
+		<cfset progbar = (ATTRIBUTES.qcount / qItems.recordcount) * 100>
+        <div class="percent_complete_label">% of survey completed</div>
+		<div class="progress progress-info progress-striped active">
+		  <div class="bar" style="width: #progbar#%;"></div>
+		</div>
         
 		</div>
 				<script type='text/javascript'>

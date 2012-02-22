@@ -19,7 +19,7 @@
 		</cfif>
 
 		<cfif REQUEST.user_id EQ 0>
-			<p><a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1" class="btn primary">Create Your Account Today!</a></p>
+			<p><a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1" class="btn btn-primary">Create Your Account Today!</a></p>
 		</cfif>
 	</div>
 

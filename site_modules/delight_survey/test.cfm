@@ -15,7 +15,7 @@
 		<cfloop from="1" to="10" index="i">
 			<div class="clearfix">
 				<label for="aptitudes#i#">#i#.</label>
-				<div class="input">
+				<div class="controls">
 					<input type="text" id="aptitudes#i#" name="aptitudes" class="required" />
 				</div>
 			</div>
@@ -38,14 +38,14 @@
 		<cfloop from="1" to="10" index="i">
 			<div class="clearfix">
 				<label for="delights#i#">#i#.</label>
-				<div class="input">
+				<div class="controls">
 					<input type="text" id="delights#i#" name="delights" class="required" />
 				</div>
 			</div>
 		</cfloop>
 
 		<div class="form-actions">
-			<input type="submit" name="submit" value="Submit Answers" class="btn info" />
+			<input type="submit" name="submit" value="Submit Answers" class="btn btn-info" />
 		</div>
 	</form>
 </cfoutput>

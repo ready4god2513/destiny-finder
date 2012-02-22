@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="span7">
-				<h4>Profiler Module - <strike>$19.99</strike> FREE until February 13th</h4>
+				<h4>Profiler Module - <strike>$19.99</strike> FREE until March 1st</h4>
 				<p>
 					This module is an online tool that produces a destiny profile that is a 
 					comprehensive picture of yourself. Includes the Destiny, Motivational, Supernatural, 
@@ -26,7 +26,7 @@
 					<input type="hidden" name="quantity_min" value="1" />
 					<input type="hidden" name="price" value="0.00" />
 					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/profiler-module.png" />
-					<input type="submit" value="Add to Cart" class="btn primary" />
+					<input type="submit" value="Add to Cart" class="btn btn-primary" />
 				</form>
 			</div>
 
@@ -61,7 +61,7 @@
 					<input type="hidden" name="quantity_min" value="1" />
 					<input type="hidden" name="price" value="60.00" />
 					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/coaching.png" />
-					<input type="submit" value="Add to Cart" class="btn primary" />
+					<input type="submit" value="Add to Cart" class="btn btn-primary" />
 				</form>
 			</div>
 

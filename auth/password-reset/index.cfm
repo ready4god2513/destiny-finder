@@ -46,7 +46,7 @@
 		<div class="row">
 			<h2 class="span6">Password Reset</h2>
 			<div class="pull-right">
-				<a href="/auth/index.cfm?page=user" class="btn info">Back to Login</a>
+				<a href="/auth/index.cfm?page=user" class="btn btn-info">Back to Login</a>
 			</div>
 		</div>
 		
@@ -60,14 +60,14 @@
 			<fieldset>
 				<div class="clearfix">
 					<label for="user_name">Email Address</label>
-					<div class="input">
+					<div class="controls">
 						<input type="email" name="user_name" id="user_name" required="required" />
 					</div>
 				</div>
 			</fieldset>
 
 			<div class="form-actions">
-				<input type="submit" name="submit" value="Send me Reset Instructions" class="btn primary" />
+				<input type="submit" name="submit" value="Send me Reset Instructions" class="btn btn-primary" />
 			</div>
 		</form>
 	</section>

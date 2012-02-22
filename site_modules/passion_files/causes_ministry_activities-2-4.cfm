@@ -5,21 +5,21 @@
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 
-	<div class="input">
-		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="ministry_activities" value="Reaching the lost" />Reaching the lost </label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="Healing the sick" />Healing the sick</label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="Casting out demons" />Casting out demons </label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="Intercession and prayer" />Intercession and prayer</label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="Healing the brokenhearted" />Healing the brokenhearted</label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="Serving the poor" />Serving the poor</label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="Caring for widows and orphans" />Caring for widows and orphans </label></li>
-			<li><label><input type="checkbox" name="ministry_activities" value="None" />None</label></li>
-		</ul>
+	<div class="controls">
+		<div class="inputs-list">
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Reaching the lost" />Reaching the lost </label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Healing the sick" />Healing the sick</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Casting out demons" />Casting out demons </label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Intercession and prayer" />Intercession and prayer</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Healing the brokenhearted" />Healing the brokenhearted</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Serving the poor" />Serving the poor</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="Caring for widows and orphans" />Caring for widows and orphans </label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="ministry_activities" value="None" />None</label>
+		</div>
 	</div>
 
 	<!---CLIP #1--->
-	<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
 	<input type="hidden" value="<cfoutput>#Encrypt('11,causes_communication-2-5,ministry_activities,causes_ministry_activities','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>

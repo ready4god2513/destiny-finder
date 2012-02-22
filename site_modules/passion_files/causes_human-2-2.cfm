@@ -5,20 +5,20 @@
         
 		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 			
-			<div class="input">
-				<ul class="inputs-list">
-					<li><label><input type="checkbox" name="human_problems" value="Physical Problems" />Physical Problems (Sickness, injury, birth defects, disabilities, etc.)</label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Psychological Illness" />Psychological Illness (Depression, bipolar disorder, OCD, ADD, neuroses, etc.)</label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Addictions" />Addictions (substance abuse, sexual addictions, pornography, gambling, eating disorders, etc.)</label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Crime and Imprisonment" />Crime and Imprisonment </label></li>
-					<li><label><input type="checkbox" name="human_problems" value="Sin Issues" />Sin Issues (Immorality, greed, fear, anger, envy, pride, idolatry, rebellion, homosexual behavior (not orientation))</label></li>
-                    <li><label><input type="checkbox" name="human_problems" value="Spiritual Strongholds " />Spiritual Strongholds (Occult, demonic oppression, etc.)</label></li>
-                    <li><label><input type="checkbox" name="human_problems" value="None" />None</label></li>
+			<div class="controls">
+				<div class="inputs-list">
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="Physical Problems" />Physical Problems (Sickness, injury, birth defects, disabilities, etc.)</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="Psychological Illness" />Psychological Illness (Depression, bipolar disorder, OCD, ADD, neuroses, etc.)</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="Addictions" />Addictions (substance abuse, sexual addictions, pornography, gambling, eating disorders, etc.)</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="Crime and Imprisonment" />Crime and Imprisonment </label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="Sin Issues" />Sin Issues (Immorality, greed, fear, anger, envy, pride, idolatry, rebellion, homosexual behavior (not orientation))</label>
+                    <label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="Spiritual Strongholds " />Spiritual Strongholds (Occult, demonic oppression, etc.)</label>
+                    <label class="checkbox"><input type="checkbox" class="checkbox" name="human_problems" value="None" />None</label>
 				</ul>
 			</div>
 			
              <!---CLIP #1--->
-			<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+			<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('9,causes_ministries-2-3,human_problems,causes_human','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

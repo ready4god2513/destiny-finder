@@ -21,25 +21,25 @@
 		<fieldset>
 			<div class="clearfix">
 				<label for="user_first_name">First Name</label>
-				<div class="input">
+				<div class="controls">
 					<input type="text" name="user_first_name" id="user_first_name" required="required" />
 				</div>
 			</div>
 			<div class="clearfix">
 				<label for="user_last_name">Last Name</label>
-				<div class="input">
+				<div class="controls">
 					<input type="text" name="user_last_name" id="user_last_name" required="required" />
 				</div>
 			</div>
 			<div class="clearfix">
 				<label for="user_email">Email Address</label>
-				<div class="input">
+				<div class="controls">
 					<input type="email" name="user_email" id="user_email" required="required" />
 				</div>
 			</div>
 		</fieldset>
 		<div class="form-actions">
-			<input type="submit" name="submit" value="Invite Friend" class="btn primary" />
+			<input type="submit" name="submit" value="Invite Friend" class="btn btn-primary" />
 		</div>
 	</form>
 </cfoutput>

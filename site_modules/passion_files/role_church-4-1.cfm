@@ -5,19 +5,19 @@
 
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
-	<div class="input">
-		<ul class="inputs-list">
-			<li><label><input type="checkbox" name="church_role" value="Worker or Helper">Worker or Helper</label></li>
-			<li><label><input type="checkbox" name="church_role" value="Deacon or Administrator">Deacon or Administrator</label></li>
-			<li><label><input type="checkbox" name="church_role" value="Elder or Ministry Leader">Elder or Ministry Leader</label></li>
-			<li><label><input type="checkbox" name="church_role" value="Associate or Assistant Pastor">Associate or Assistant Pastor</label></li>
-			<li><label><input type="checkbox" name="church_role" value="Senior or Lead Pastor">Senior or Lead Pastor</label></li>
-			<li><label><input type="checkbox" name="church_role" value="None">None</label></li>
-		</ul>
+	<div class="controls">
+		<div class="inputs-list">
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="church_role" value="Worker or Helper">Worker or Helper</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="church_role" value="Deacon or Administrator">Deacon or Administrator</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="church_role" value="Elder or Ministry Leader">Elder or Ministry Leader</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="church_role" value="Associate or Assistant Pastor">Associate or Assistant Pastor</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="church_role" value="Senior or Lead Pastor">Senior or Lead Pastor</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="church_role" value="None">None</label>
+		</div>
 	</div>
 
 	<!---CLIP #1--->
-	<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
 	<input type="hidden" value="<cfoutput>#Encrypt('17,role_workplace-4-2,church_role,role_church','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>

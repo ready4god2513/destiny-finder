@@ -46,11 +46,11 @@
 	      <div class="content">
 			<header id="top">
 				<div id="social-media-buttons" class="row">
-					<div class="offset8 span3 pull-right">
+					<div class="offset8 span3">
 						<a href="https://twitter.com/Destiny_Finder" class="twitter-follow-button" data-show-count="false">Follow @DestinyFinder1</a>
 						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 					</div>
-					<div class="span5 pull-right">
+					<div class="span5">
 						<div class="fb-like" data-href="https://www.facebook.com/destinyfinder1" data-send="false" data-width="250" data-show-faces="false"></div>
 					</div>
 				</div>
@@ -94,8 +94,6 @@
 												parent_gateway="#qGateways.gateway_id#">
 										</li>
 									</cfoutput>
-								</ul>
-								<ul class="nav pull-right">
 									<li><a href="/store">Store</a></li>
 									<li><a href="/blog">Blog</a></li>
 									<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>

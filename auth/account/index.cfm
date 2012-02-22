@@ -27,7 +27,7 @@
 				<div class="row">
 					<h2 class="span6">My Account</h2>
 					<div class="pull-right">
-						<a href="/auth/account/settings" class="btn info">Account Settings</a>
+						<a href="/auth/account/settings" class="btn btn-info">Account Settings</a>
 					</div>
 				</div>
 	
@@ -37,7 +37,7 @@
 				<cfset transactions = foxyCart.getCustomerTransactions(email = REQUEST.user.user_email) />
 				
 				<cfif arraylen(transactions) GT 0>
-					<table>
+					<table class="table table-striped table-bordered table-condensed">
 						<thead>
 							<tr>
 								<th>Product</th>
@@ -52,7 +52,7 @@
 									<tr>
 										<td>
 											<cfif transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText EQ "1 Hour of Coaching">
-												<a href="/about/?page=coachingintake" class="btn info">Set up Coaching</a>
+												<a href="/about/?page=coachingintake" class="btn btn-info">Set up Coaching</a>
 											<cfelse>
 												#transactions.transaction[i].transaction_details.transaction_detail.product_name.xmlText#
 											</cfif>

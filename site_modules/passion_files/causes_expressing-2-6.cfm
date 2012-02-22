@@ -5,21 +5,21 @@
 
 		<form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 			
-			<div class="input">
-				<ul class="inputs-list">
-					<li><label><input type="checkbox" name="expressing" value="Film" />Film </label></li>
-					<li><label><input type="checkbox" name="expressing" value="Performing Arts" />Performing Arts</label></li>
-					<li><label><input type="checkbox" name="expressing" value="Musical Arts" />Musical Arts </label></li>
-					<li><label><input type="checkbox" name="expressing" value="Visual Arts" />Visual Arts </label></li>
-					<li><label><input type="checkbox" name="expressing" value="Crafts and Decorative Arts" />Crafts and Decorative Arts </label></li>
-                    <li><label><input type="checkbox" name="expressing" value="Literature and Poetry" />Literature and Poetry</label></li>
-                    <li><label><input type="checkbox" name="expressing" value="None" />None</label></li>
+			<div class="controls">
+				<div class="inputs-list">
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="Film" />Film </label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="Performing Arts" />Performing Arts</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="Musical Arts" />Musical Arts </label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="Visual Arts" />Visual Arts </label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="Crafts and Decorative Arts" />Crafts and Decorative Arts </label>
+                    <label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="Literature and Poetry" />Literature and Poetry</label>
+                    <label class="checkbox"><input type="checkbox" class="checkbox" name="expressing" value="None" />None</label>
 				</ul>
 			</div>
 				
 			
              <!---CLIP #1--->
-			<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+			<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('13,causes_heart-2-7,expressing,causes_expressing','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>
