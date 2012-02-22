@@ -18,7 +18,7 @@
 			</div>
 			
              <!---CLIP #1--->
-			<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+			<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('12,causes_expressing-2-6,communication,causes_communication','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

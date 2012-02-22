@@ -257,7 +257,7 @@
 
 
 <!---CLIP #1--->
-<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
 <input type="hidden" value="<cfoutput>#Encrypt('20,impact_area-5-3,country,impact_region','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>

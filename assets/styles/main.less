@@ -4,7 +4,7 @@
 
 body 
 {
-	background: url(/assets/images/bg.jpg) repeat-x #f0f0f0;
+	background: url(/assets/images/ice_age.png) repeat;
 	color: #222; 
 }
 
@@ -51,6 +51,21 @@ header#top
 	{
 		width:320px;
 		margin:10px 10px;
+	}
+	
+	.navbar
+	{
+		margin-top:20px;
+		
+		.navbar-inner
+		{
+			.container
+			{
+				background:none;
+				padding:0;
+				width:auto;
+			}
+		}
 	}
 
 	nav
@@ -143,11 +158,6 @@ header#top
 	}
 }
 
-.topbar-wrapper
-{
-	margin-bottom:30px;
-}
-
 #sidebar
 {
 	h4
@@ -191,9 +201,7 @@ header#top
 
 .content 
 {
-	background: #f6f6f6;
-	padding: 0 20px;
-	margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+	background: none;
 	
 	#main
 	{

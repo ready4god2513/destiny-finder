@@ -1,4 +1,6 @@
 $(function(){
+	
+	$(".nav-collapse li.dropdown").children("a").append('<b class="caret"></b>');
 
 	if($("#rotating-banner").length)
 	{

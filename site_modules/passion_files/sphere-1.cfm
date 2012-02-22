@@ -36,7 +36,7 @@
 	</div>
 	
 
-	<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+	<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
 	<input type="hidden" value="<cfoutput>#Encrypt('2,sphere-1,sphere,sphere','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 

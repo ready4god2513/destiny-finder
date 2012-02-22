@@ -66,7 +66,7 @@
 				</div>
 			</fieldset>
 
-			<div class="actions">
+			<div class="form-actions">
 				<input type="submit" name="submit" value="Send me Reset Instructions" class="btn primary" />
 			</div>
 		</form>

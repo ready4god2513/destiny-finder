@@ -13,7 +13,7 @@
 					<li><label><input type="radio" name="development" value="Senior">Senior (Your kids (spiritual or biological) are on their own, you're providing counsel, help, overseeing, focused on grandchildren)</label></li>
 				</ul>
 			</div>
-			<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+			<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('25,development-6-3,development2,development_2','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

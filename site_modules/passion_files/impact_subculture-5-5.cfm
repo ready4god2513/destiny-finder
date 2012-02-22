@@ -23,7 +23,7 @@
 			</div>
 			
              <!---CLIP #1--->
-			<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+			<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
             <input type="hidden" value="<cfoutput>#Encrypt('22,impact_religious-5-6,subculture,impact_subculture','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>

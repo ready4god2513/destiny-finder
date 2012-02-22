@@ -32,14 +32,14 @@
 		</p>
 		<form action="/auth/?page=user&amp;create=1" method="POST" id="signup-form">
 			<fieldset>
-				<div class="clearfix">
+				<div class="controls">
 					<label for="user_first_name">First Name</label>
 					<div class="input">
 						<input type="text" name="user_first_name" id="user_first_name" required="required" />
 					</div>
 				</div>
 
-				<div class="clearfix">
+				<div class="controls">
 
 					<label for="user_last_name">Last Name</label>
 					<div class="input">
@@ -48,17 +48,17 @@
 				</div>
 
 
-				<div class="clearfix">
+				<div class="controls">
 					<label for="user_email">Email Address</label>
 					<div class="input">
 						<input type="email" name="user_email" id="user_email" required="required" />
-						<span class="help-inline">Your e-mail is used for logging in</span>
+						<p class="help-block">Your e-mail is used for logging in</p>
 					</div>
 				</div>
 
 
 				<cfif REQUEST.user_id EQ 0>
-					<div class="clearfix">
+					<div class="controls">
 						<label for="user_email2">Confirm Email</label>
 						<div class="input">
 							<input type="email" name="user_email2" id="user_email2" required="required" />
@@ -66,41 +66,35 @@
 					</div>
 				</cfif>
 
-				<div class="clearfix">
+				<div class="controls">
 					<label for="user_password">Password</label>
 					<div class="input">
 						<input type="password" name="user_password" id="user_password" required="required" />
 					</div>
 				</div>
 
-				<div class="clearfix">
+				<div class="controls">
 					<label for="user_password2">Confirm Password</label>
 					<div class="input">
 						<input type="password" name="user_password2" id="user_password2" required="required" />
 					</div>
 				</div>
 
-				<div class="clearfix">
-					<div class="input">
-						<ul class="inputs-list">
-							<li>
-								<label>
-									<input type="checkbox" name="agree_to_terms" value="1" id="agree-to-terms" />
-									<span>I agree to the <a href="/profile/?gateway=1" target="_blank">Terms of Use</a></span>
-								</label>
-							</li>
-							<li>
-								<label>
-									<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" />
-									<span>Yes, I want to receive updates from Destiny Finder</span>
-								</label>
-							</li>
-						</ul>
+				<div class="control-group">
+					<div class="controls">
+						<label class="checkbox">
+							<input type="checkbox" name="agree_to_terms" value="1" id="agree-to-terms" />
+							<span>I agree to the <a href="/profile/?gateway=1" target="_blank">Terms of Use</a></span>
+						</label>
+						<label class="checkbox">
+							<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" />
+							<span>Yes, I want to receive updates from Destiny Finder</span>
+						</label>
 					</div>
 				</div>
 			</fieldset>
 
-			<div class="actions">
+			<div class="form-actions">
 				<input type="submit" name="submit" value="Create Account" class="btn primary" />
 			</div>
 		</form>
@@ -110,13 +104,13 @@
 		<h2>Login to Existing Account</h2>
 		<form action="/auth/" method="POST" id="login-form">
 			<fieldset>
-				<div class="clearfix">
+				<div class="controls">
 					<label for="user_name">Email Address</label>
 					<div class="input">
 						<input type="email" name="user_name" id="user_name" required="required" />
 					</div>
 				</div>
-				<div class="clearfix">
+				<div class="controls">
 					<label for="user_password">Password</label>
 					<div class="input">
 						<input type="password" name="password" id="user_password" required="required" />
@@ -124,7 +118,7 @@
 				</div>
 			</fieldset>
 
-			<div class="actions">
+			<div class="form-actions">
 				<input type="submit" name="submit" value="Login" class="btn primary" />
 			</div>
 		</form>

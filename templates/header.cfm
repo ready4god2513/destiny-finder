@@ -30,14 +30,14 @@
 	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css?v=1327967598" type="text/css" media="screen" charset="utf-8" />
 	<!-- END FOXYCART FILES -->
 
-	<link rel="stylesheet" type="text/css" href="/assets/styles/min/main.css?v=1327967598" />
+	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css?v=30034893" />
 	
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?v=1327967598"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js?v=1327967598"></script>
 
 	<!-- Include all of the required libraries -->	
-	<script src="/assets/scripts/min/main-ck.js?v=1327967598"></script>
+	<script src="/assets/scripts/main-ck.js?v=1327967598"></script>
 	
 	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js?v=1327967598"></script>
 </head>
@@ -72,31 +72,38 @@
 						</ul>
 					</nav>
 				</div>
-			</header>
-
-			<div class="topbar-wrapper">
-				<div class="topbar" data-dropdown="dropdown" >
-					<div class="topbar-inner">
+				
+				<div class="navbar">
+					<div class="navbar-inner">
 						<div class="container">
-							<ul class="nav">
-								<li><a href="/index.cfm"><span>Home</span></a></li>
-								<cfoutput query="qGateways">
-									<li class="dropdown">
-										<a href="##" class="dropdown-toggle">#qGateways.gateway_name#</a>
-										<cfmodule template="/customtags/sub_menu_multi.cfm"
-											gateway="#qGateways.gateway_id#"	
-											gateway_page_name="#qGateways.gateway_name#"
-											gateway_path="#qGateways.gateway_path#"		
-											parent_gateway="#qGateways.gateway_id#">
-									</li>
-								</cfoutput>
-								<li><a href="/store">Store</a></li>
-								<li><a href="/blog">Blog</a></li>
-								<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
-									<li><a href="/auth/account">My Account</a></li>
-								</cfif>
-							</ul>
+							<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</a>
+							<div class="nav-collapse">
+								<ul class="nav">
+									<li><a href="/index.cfm"><span>Home</span></a></li>
+									<cfoutput query="qGateways">
+										<li class="dropdown">
+											<a href="##" class="dropdown-toggle" data-toggle="dropdown">#qGateways.gateway_name#</a>
+											<cfmodule template="/customtags/sub_menu_multi.cfm"
+												gateway="#qGateways.gateway_id#"	
+												gateway_page_name="#qGateways.gateway_name#"
+												gateway_path="#qGateways.gateway_path#"		
+												parent_gateway="#qGateways.gateway_id#">
+										</li>
+									</cfoutput>
+								</ul>
+								<ul class="nav pull-right">
+									<li><a href="/store">Store</a></li>
+									<li><a href="/blog">Blog</a></li>
+									<cfif isDefined("SESSION.user_id") AND Len(SESSION.user_id) GT 0>
+										<li><a href="/auth/account">My Account</a></li>
+									</cfif>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</header>

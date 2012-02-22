@@ -44,7 +44,7 @@
 			</div>
 		</cfloop>
 
-		<div class="actions">
+		<div class="form-actions">
 			<input type="submit" name="submit" value="Submit Answers" class="btn info" />
 		</div>
 	</form>

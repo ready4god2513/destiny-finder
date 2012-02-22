@@ -19,7 +19,7 @@
 	</div>
 
 	<!---CLIP #1--->
-	<div class="actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
+	<div class="form-actions"><input class="btn primary" type="submit" name="submit" value="Next Step" /></div>
 	<input type="hidden" value="<cfoutput>#Encrypt('11,causes_communication-2-5,ministry_activities,causes_ministry_activities','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>

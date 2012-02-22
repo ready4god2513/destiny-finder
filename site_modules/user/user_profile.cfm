@@ -152,7 +152,7 @@
 			</div>
 		</fieldset>
 
-		<div class="actions">
+		<div class="form-actions">
 			<cfif REQUEST.user_id EQ 0>
 				<input type="submit" name="submit" value="Create Account" class="btn primary" />
 			<cfelse>

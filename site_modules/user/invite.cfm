@@ -38,7 +38,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<div class="actions">
+		<div class="form-actions">
 			<input type="submit" name="submit" value="Invite Friend" class="btn primary" />
 		</div>
 	</form>
