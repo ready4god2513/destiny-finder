@@ -6,7 +6,7 @@
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="clearfix">
 		<div class="controls">
-			<select name="country">
+			<select name="impact_region">
 				<optgroup label="Select a Country">
 					<option value="United States">United States</option>
 					<option value="United Kingdom">United Kingdom</option>
@@ -258,7 +258,7 @@
 
 <!---CLIP #1--->
 <div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
-<input type="hidden" value="<cfoutput>#Encrypt('20,impact_area-5-3,country,impact_region','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
+<input type="hidden" value="<cfoutput>#Encrypt('20,impact_area-5-3,impact_region,impact_region','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>
 

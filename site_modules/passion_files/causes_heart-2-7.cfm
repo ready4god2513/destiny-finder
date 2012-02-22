@@ -8,18 +8,18 @@
 
 	<div class="controls">
 		<div class="inputs-list">
-			<label class="radio"><input type="radio" name="heart" value="Outward" />Outward (To reach those outside my group or bring them into my group)</label>
-			<label class="radio"><input type="radio" name="heart" value="Inward" />Inward (To build up those inside my group)</label>
-			<label class="radio"><input type="radio" name="heart" value="Upward" />Upward (To minister to the Lord, usually alone or in small groups)</label>
-			<label class="radio"><input type="radio" name="heart" value="Downward" />Downward (To bring God's heart, message and power to my group)</label>
-			<label class="radio"><input type="radio" name="heart" value="Evenly directed between outward, inward, upward and downward." />Evenly directed between outward, inward, upward and downward.</label>
+			<label class="radio"><input type="radio" name="causes_heart" value="Outward" />Outward (To reach those outside my group or bring them into my group)</label>
+			<label class="radio"><input type="radio" name="causes_heart" value="Inward" />Inward (To build up those inside my group)</label>
+			<label class="radio"><input type="radio" name="causes_heart" value="Upward" />Upward (To minister to the Lord, usually alone or in small groups)</label>
+			<label class="radio"><input type="radio" name="causes_heart" value="Downward" />Downward (To bring God's heart, message and power to my group)</label>
+			<label class="radio"><input type="radio" name="causes_heart" value="Evenly directed between outward, inward, upward and downward." />Evenly directed between outward, inward, upward and downward.</label>
 		</div>
 	</div>
 
 
 	<!---CLIP #1--->
 	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
-	<input type="hidden" value="<cfoutput>#Encrypt('14,scope_org-3-1,heart,causes_heart','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
+	<input type="hidden" value="<cfoutput>#Encrypt('14,scope_org-3-1,causes_heart,causes_heart','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>
 

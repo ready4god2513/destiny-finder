@@ -6,16 +6,16 @@
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
 		<div class="inputs-list">
-			<label class="radio"><input name="area" type="radio" value="inner city">Inner City </label>
-			<label class="radio"><input name="area" type="radio" value="urban">Urban </label>
-			<label class="radio"><input name="area" type="radio" value="suburban">Suburban </label>
-			<label class="radio"><input name="area" type="radio" value="undecided">Undecided </label>
+			<label class="radio"><input name="impact_area" type="radio" value="inner city">Inner City </label>
+			<label class="radio"><input name="impact_area" type="radio" value="urban">Urban </label>
+			<label class="radio"><input name="impact_area" type="radio" value="suburban">Suburban </label>
+			<label class="radio"><input name="impact_area" type="radio" value="undecided">Undecided </label>
 		</div>
 	</div>
 
 	<!---CLIP #1--->
 	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
-	<input type="hidden" value="<cfoutput>#Encrypt('20,impact_ethnicity-5-4,area,impact_area','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
+	<input type="hidden" value="<cfoutput>#Encrypt('20,impact_ethnicity-5-4,impact_area,impact_area','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>
 
