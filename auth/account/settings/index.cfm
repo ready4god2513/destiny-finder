@@ -113,14 +113,14 @@
 
 					<form action="<cfoutput>#VARIABLES.action_url#</cfoutput>" method="POST" id="<cfoutput>#form_name#</cfoutput>">
 						<fieldset>
-							<div class="clearfix">
+							<div class="control-group">
 								<label for="user_first_name">First Name</label>
 								<div class="controls">
 									<input type="text" name="user_first_name" id="user_first_name" value="<cfoutput>#HTMLEditFormat(qUser.user_first_name)#</cfoutput>" required="required" />
 								</div>
 							</div>
 
-							<div class="clearfix">
+							<div class="control-group">
 
 								<label for="user_last_name">Last Name</label>
 								<div class="controls">
@@ -129,7 +129,7 @@
 							</div>
 
 
-							<div class="clearfix">
+							<div class="control-group">
 								<label for="user_email">Email Address</label>
 								<div class="controls">
 									<input type="email" name="user_email" id="user_email" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" <cfif REQUEST.user_id GT 0>disabled="disabled"</cfif> />
@@ -139,7 +139,7 @@
 
 
 							<cfif REQUEST.user_id EQ 0>
-								<div class="clearfix">
+								<div class="control-group">
 									<label for="user_email2">Confirm Email</label>
 									<div class="controls">
 										<input type="email" name="user_email2" id="user_email2" value="<cfoutput>#HTMLEditFormat(qUser.user_email)#</cfoutput>" required="required" />
@@ -147,38 +147,32 @@
 								</div>
 							</cfif>
 
-							<div class="clearfix">
+							<div class="control-group">
 								<label for="user_password">Password</label>
 								<div class="controls">
 									<input type="password" name="user_password" id="user_password"<cfif REQUEST.user_id EQ 0> required="required"</cfif> />
 								</div>
 							</div>
 
-							<div class="clearfix">
+							<div class="control-group">
 								<label for="user_password2">Confirm Password</label>
 								<div class="controls">
 									<input type="password" name="user_password2" id="user_password2"<cfif REQUEST.user_id EQ 0> required="required"</cfif> />
 								</div>
 							</div>
 
-							<div class="clearfix">
+							<div class="control-group">
 								<div class="controls">
-									<div class="inputs-list">
-										<cfif REQUEST.user_id EQ 0>
-											<li>
-												<label>
-													<input type="checkbox" name="agree_to_terms" value="1" id="agree-to-terms" />
-													<span>I agree to the <a href="/profile/?gateway=1" target="_blank">Terms of Use</a></span>
-												</label>
-											</li>
-										</cfif>
-										<li>
-											<label>
-												<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" <cfif qUser.marketing_opt_in EQ 1>checked="checked"</cfif> />
-												<span>Yes, I want to receive updates from Destiny Finder</span>
-											</label>
-										</li>
-									</ul>
+									<cfif REQUEST.user_id EQ 0>
+										<label class="checkbox">
+											<input type="checkbox" name="agree_to_terms" value="1" id="agree-to-terms" />
+											<span>I agree to the <a href="/profile/?gateway=1" target="_blank">Terms of Use</a></span>
+										</label>
+									</cfif>
+									<label class="checkbox">
+										<input type="checkbox" name="marketing_opt_in" value="1" id="marketing-opt-in" <cfif qUser.marketing_opt_in EQ 1>checked="checked"</cfif> />
+										<span>Yes, I want to receive updates from Destiny Finder</span>
+									</label>
 								</div>
 							</div>
 						</fieldset>

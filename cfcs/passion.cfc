@@ -110,7 +110,7 @@
 		
 		<cfoutput>
 			<h3>Passion Survey Results</h3>
-			<cfdump var="#local.surveyResults#">
+			The results have been stored.  The report will be ready by February 23.
 		</cfoutput>
 		
 	</cffunction>

@@ -4,7 +4,7 @@
 	<cfif isDefined('FORM.submit')>
 		#objAssessment.invite_friend(user_id="#REQUEST.user_id#")#
 		
-		<div class="alert-message block-message success">
+		<div class="alert alert-success">
 			Awesome!  Thank you.  <strong>Your friend will be notified.</strong>  
 			You will be sent the results as soon as your friend completes the test.
 		</div>

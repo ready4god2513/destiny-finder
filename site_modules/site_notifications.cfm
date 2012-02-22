@@ -4,7 +4,7 @@
 	<cfparam name="ATTRIBUTES.success" default="" />
 	
 	<cfif Len(ATTRIBUTES.success) GT 0>
-		<div class="alert-message block-message success">
+		<div class="alert alert-success">
 			<cfswitch expression="#ATTRIBUTES.success#">
 				<cfcase value="password_reset">
 					You will receive an email with instructions about how to reset your password in a few minutes.
