@@ -521,77 +521,7 @@
 			<cfreturn "">
 		</cffunction>
     
-		<cffunction name="process_passion_statement" output="true" hint="I produce the passion statement">
-			<cfargument name="user_id" required="yes" type="numeric">
-	        <cfset objQueries = CreateObject("component","cfcs.queries")>
-			<cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>
-	        <cfset qPassionResults = objQueries.passion_results(user_id="#REQUEST.user_id#")>
-			<cfparam name="URL.gift_type_id" default="0" />
-			
-			<div class="row">
-				<div class="span7">
-					Destiny Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qPassionResults.last_modified,'mmm dd, yyyy')#
-				</div>
-				<div class="pull-right">
-					<cfif not isDefined("URL.pdf")>
-						<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
-					</cfif>
-				</div>
-			</div>
-			
-	    <div class="short_desc">
-	    <h2>Passion Statement</h2><br>
-	<p>I am most passionate about bringing my primary kingdom impact in the sphere of <strong>#HTMLEditFormat(qPassionResults.sphere)#</strong>, specifically working in the area of <strong>#HTMLEditFormat(ListGetAt(qPassionResults.sphere_sub1,1))#</strong> and/or <strong>#HTMLEditFormat(ListGetAt(qPassionResults.sphere_sub1,2))#</strong>.</p>
-	<p>The causes I am most passionate about are <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_societal,1))#</strong> and <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_societal,2))#</strong>. I知 drawn to help people who are afflicted with <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_human,1))#</strong> and <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_human,2))#</strong>.</p>
-	<p>I really enjoy being involved in <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_ministries,1))#</strong> and <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_ministries,2))#</strong> types of ministries. I am most passionate about bringing kingdom impact through <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_ministry_activities,1))#</strong> and <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_ministry_activities,2))#</strong>. </p>
-	<p>I feel the most fulfilled when communicating with others through <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_communication,1))#</strong> and <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_communication,2))#</strong>, and I feel most alive when expressing myself through artistic and creative expressions of <strong>#HTMLEditFormat(ListGetAt(qPassionResults.causes_expressing,1))#</strong> and <strong>#ListGetAt(qPassionResults.causes_expressing,2)#</strong>. My heart direction is mostly <strong>#HTMLEditFormat(qPassionResults.causes_heart)#</strong>.</p>
-	<p>I知 most comfortable in a <strong>#HTMLEditFormat(qPassionResults.scope_org)#</strong> type of organization, and the size of group I prefer to work with is <strong>#HTMLEditFormat(qPassionResults.scope_group)#</strong>. In my church or ministry commitment, I feel most comfortable serving as a <strong>#HTMLEditFormat(ListGetAt(qPassionResults.role_church,1))#</strong> and <strong><strong>#HTMLEditFormat(ListGetAt(qPassionResults.role_church,2))#</strong></strong>. 
-	In the workplace, I知 most comfortable in the role of <strong>#HTMLEditFormat(ListGetAt(qPassionResults.role_workplace,1))#</strong> or <strong>#HTMLEditFormat(ListGetAt(qPassionResults.role_workplace,2))#</strong>.</p>
-	<p>I want to impact the <strong>#HTMLEditFormat(qPassionResults.impact_age_group)#</strong> age group in <strong>#HTMLEditFormat(qPassionResults.impact_area)#</strong> areas of <cfif qPassionResults.impact_region EQ 'United States'>the </cfif><strong>#HTMLEditFormat(qPassionResults.impact_region)#</strong>, of <strong>#HTMLEditFormat(qPassionResults.impact_ethnicity)#</strong> ethnicity and the <strong>#HTMLEditFormat(qPassionResults.impact_subculture)#</strong> subculture with a <strong>#HTMLEditFormat(qPassionResults.impact_religious)#</strong> religious orientation. </p>
-	<p>At present I知 in the <strong>#HTMLEditFormat(qPassionResults.development_1)#</strong> stage of destiny development. In 3-5 years I want to be in the <strong>#HTMLEditFormat(qPassionResults.development_2)#</strong> stage, and in 5-10 years I want to be in the <strong>#HTMLEditFormat(qPassionResults.development_3)#</strong> destiny development stage.</p>
-	<p>I have a passion to bring kingdom impact and transformation to the people I feel called to, and by God's grace I will!</p>
-	</div>
 	
-	<cfif not isDefined("URL.pdf")>
-		<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
-	</cfif>
-
-		</cffunction>
-    
-		<cffunction name="compile_results" output="true" hint="I compile all results and tally score">
-			<cfargument name="user_id" required="yes" type="numeric">
-			<cfargument name="invite" required="no" type="string">
-		
-			<cfparam name="invite" default="">
-		
-			<cfset qResults = retrieve_result(user_id="#user_id#",invite="#invite#")>
-			<cfset qGifts = retrieve_gifts(gift_type_id=1)>
-			<cfset VARIABLES.compiled_gift_count = ArrayNew(1)>
-		    <cfset VARIABLES.dominant_gift = {id = 0, count =0}>
-		
-			<!--- PREPARE CONTAINER FOR KEEPING SCORE OF EACH GIFT --->
-			<cfloop from="1" to="#qGifts.recordcount#" index="i"> 
-				<cfset VARIABLES.compiled_gift_count[i] = {id = qGifts.gift_id[i],counter = 0}>
-			</cfloop>
-
-			<cfoutput query="qResults">
-				<cfif IsJSON(qResults.result_gift_count)>
-					<cfset VARIABLES.result_gift_count = DeSerializeJSON(qResults.result_gift_count, false)>
-
-					<cfloop from="1" to="#ArrayLen(VARIABLES.result_gift_count)#" index="i">
-						<cfif VARIABLES.result_gift_count[i].counter GT VARIABLES.dominant_gift.count>
-							<cfset VARIABLES.dominant_gift.id = VARIABLES.result_gift_count[i].id>
-	                        <cfset VARIABLES.dominant_gift.count = VARIABLES.result_gift_count[i].counter>
-						</cfif>
-					</cfloop>
-				</cfif>	
-			</cfoutput>
-			<cfquery name="qThisResult" datasource="#APPLICATION.DSN#">
-                Select gift_name from gifts
-                Where gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">
-            </cfquery>
-			<cfoutput><cfif Len(qThisResult.gift_name) GT 0>#qThisResult.gift_name#<cfelse>none</cfif></cfoutput>
-		</cffunction>
 
 		<cffunction name="retrieve_invites" output="false" returntype="query" hint="I retrieve invites">
 			<cfargument name="user_id" required="no" type="numeric">

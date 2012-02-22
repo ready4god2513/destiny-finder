@@ -1,5 +1,6 @@
 <cfset objAssessment = CreateObject("component","cfcs.assessment")>
-<cfset passionSurvey = CreateObject("component","cfcs.passion") />
+<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
+<cfset passionSurvey = passionSurveyObj.findSurvey(user_id = REQUEST.user_id)>
 
 <cfif FindNoCase("destinyfinder",CGI.HTTP_REFERER)>
 
@@ -11,15 +12,8 @@
         <cfset VARIABLES.vDBColumn = ListGetAt(vHiddenList,4)>
         <cfset FORM.user_id = #REQUEST.user_id#>
         <cfset FORM.last_modified = #now()#>
-	
-		<cfdump var="#VARIABLES.vCount#">
-		<cfabort>
-	
-		<cfif VARIABLES.vCount EQ 1>
-			<cfabort />
-		<cfelse>
-			
-		</cfif>
+		
+		<cfset passionSurveyObj.addAnswer(passion_survey_id = passionSurvey.id, name = VARIABLES.vFormField, value = FORM[VARIABLES.vFormField])>
 		
         
 		<!--- 	1 = Family and Individual

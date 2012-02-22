@@ -1,6 +1,9 @@
 <cfinclude template="../require_login.cfm" />
 <cfset foxyCart = CreateObject("component","cfcs.foxycart")>
 	
+<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
+<cfset passionSurvey = passionSurveyObj.findSurvey(user_id = REQUEST.user_id)>
+	
 <cfif REQUEST.user_id EQ 0 AND NOT isDefined('URL.create')>
 
 	<cfmodule template="/site_modules/user/login_box.cfm" >
@@ -29,16 +32,9 @@
 			<h3>Tools</h3>
     
 			<cfset VARIABLES.Result_List = ValueList(qResults.assessment_id,',')>
-    
-		    <cfquery datasource="#APPLICATION.DSN#" name="qPassionResult">
-		    	SELECT * 
-				FROM Passion_Survey
-		        WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#REQUEST.user_id#">
-		        AND development_3 IS NOT NULL
-		    </cfquery>
 
 		    <cfset VARIABLES.PassionComplete = 0>
-		    <cfif qPassionResult.recordcount GT 0>
+		    <cfif passionSurvey.recordcount GT 0>
 		    	<cfset VARIABLES.PassionComplete = 1>
 		    </cfif>
 		

@@ -86,18 +86,4 @@
 										
 	</cffunction>
 	
-	<cffunction name="passion_results" returntype="query" output="true" hint="I return user info.">
-		<cfargument name="user_id" type="numeric" required="yes">
-		
-		<cfquery name="qPassionResults" datasource="#APPLICATION.dsn#">
-			SELECT *
-			FROM Passion_Survey
-			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
-		</cfquery>
-								
-		<cfreturn qPassionResults>						
-										
-	</cffunction>
-
-	
 </cfcomponent>

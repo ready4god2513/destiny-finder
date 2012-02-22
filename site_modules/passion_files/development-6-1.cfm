@@ -15,26 +15,6 @@
 		</div>
 	</div>
 
-
-
-	<p>Child (You're mostly in receiving mode, may have a few household tasks.)<br />
-		Adolescent (You have more household tasks, some responsibility, developing rapidly.)<br />
-		Young Adult (You require less supervision, take more responsibility, separating from parents/leaders.)<br />
-		Adult (You're reproducing spiritual children and helping them grow, may be married with actual kids, focused on next generation.)<br />
-		Senior (Your kids (spiritual or biological) are on their own, You're providing counsel, help, overseeing, focused on grandchildren)</p>
-
-		<!--- <div style="float:left;margin:10px 40px 0px 40px;">
-		Instructions:<br />
-		Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.
-		Fill in the "Other" blank if you don't find an answer close enough to your interest.
-		</div>--->
 		<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
 		<input type="hidden" value="<cfoutput>#Encrypt('24,development-6-2,development,development_1','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 	</form>
-	<br class="clear"/>
-
-	
-		
-
-
-

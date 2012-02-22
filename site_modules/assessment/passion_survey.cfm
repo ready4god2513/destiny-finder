@@ -1,6 +1,7 @@
 <cfparam name="URL.assessment_id" default="5">
 <cfparam name="URL.user_id" default="#REQUEST.user_id#">
 <cfparam name="ATTRIBUTES.assessment_id" default="#val(URL.assessment_id)#">
+
 <cfif isDefined("URL.nxpb3")>
 	<cfset vHiddenList = DEcrypt(URL.nxpb3,'keyei3v2','CFMX_COMPAT','Hex')>
 	<cfset VARIABLES.passion_file = ListGetAt(vHiddenList,2) & '.cfm'>
@@ -8,10 +9,10 @@
 <cfelse>
     <cfset VARIABLES.passion_file="sphere-1.cfm">
     <cfset VARIABLES.vCount=1>
+	
+	<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
+	<cfset passionSurvey = passionSurveyObj.beginSurvey(user_id = REQUEST.user_id)>
 </cfif>
-
-<cfset passionSurveyObj = CreateObject("component","cfcs.passion") />
-<cfset passionSurvey = passionSurveyObj.beginSurvey(user_id = REQUEST.user_id)>
 
 <cfparam name="ATTRIBUTES.sort_id" default="#VARIABLES.vCount#">
 <cfoutput>
