@@ -27,7 +27,7 @@
 
 </form>
 
-	<cfset progbar= (308 / 27) * (VARIABLES.vCount - 1)>
-		<div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/assets/images/progbar_pix.png" width="<cfoutput>#progbar#</cfoutput>" height="21"></div>
+	
+		
 
 

@@ -16,7 +16,7 @@
 		
 	</div>
 	
-	<div id="validation-errors" class="alert-message block-message error hide"></div>
+	<div id="validation-errors" class="alert alert-error hide"></div>
 
 	<div class="sort#HTMLEditFormat(val(ATTRIBUTES.sort_id))#_wrapper" style="background-color:white;">
 		<cfinclude template="../passion_files/#HTMLEditFormat(VARIABLES.passion_file)#">

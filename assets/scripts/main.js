@@ -4,7 +4,7 @@ $(function(){
 	
 	$("form").addClass("form-horizontal");
 	$("label").addClass("control-label");
-	$("label.checkbox").removeClass("control-label");
+	$("label.checkbox, label.radio").removeClass("control-label");
 	
 
 	if($("#rotating-banner").length)

@@ -23,8 +23,8 @@
 	<input type="hidden" value="<cfoutput>#Encrypt('11,causes_communication-2-5,ministry_activities,causes_ministry_activities','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>
-<cfset progbar= (308 / 27) * (VARIABLES.vCount - 1)>
-	<div class="percent_complete_label">% of survey completed</div><div class="percent_completed"><img src="/assets/images/progbar_pix.png" width="<cfoutput>#progbar#</cfoutput>" height="21"></div>
+
+	
 
 <!---
 <div style="float:left;margin:10px 40px 0px 40px;">
