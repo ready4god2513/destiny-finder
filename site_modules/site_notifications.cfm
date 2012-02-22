@@ -18,7 +18,7 @@
 	</cfif>
 		
 	<cfif Len(ATTRIBUTES.message) GT 0>
-		<div class="alert-message block-message error">
+		<div class="alert alert-error">
 			<cfswitch expression="#ATTRIBUTES.message#">
 
 				<cfcase value="login_fail">

@@ -11,7 +11,7 @@
     <cfset VARIABLES.process_login = obj_login.login_form_action()>
     
     <cfif VARIABLES.process_login EQ "login_fail">
-		<div class="alert-message block-message error">
+		<div class="alert alert-error">
 			<p><strong>Login Failed.</strong> We couldn't find an account in our system with the username and password you provided.</p>
 		</div>
     <cfelse>
