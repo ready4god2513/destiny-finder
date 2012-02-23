@@ -520,6 +520,42 @@
 			-->
 			<cfreturn "">
 		</cffunction>
+		
+		
+		<cffunction name="compile_results" output="true" hint="I compile all results and tally score">
+			<cfargument name="user_id" required="yes" type="numeric">
+			<cfargument name="invite" required="no" type="string">
+
+			<cfparam name="invite" default="">
+
+			<cfset qResults = retrieve_result(user_id="#user_id#",invite="#invite#")>
+			<cfset qGifts = retrieve_gifts(gift_type_id=1)>
+			<cfset VARIABLES.compiled_gift_count = ArrayNew(1)>
+		    <cfset VARIABLES.dominant_gift = {id = 0, count =0}>
+
+			<!--- PREPARE CONTAINER FOR KEEPING SCORE OF EACH GIFT --->
+			<cfloop from="1" to="#qGifts.recordcount#" index="i"> 
+				<cfset VARIABLES.compiled_gift_count[i] = {id = qGifts.gift_id[i],counter = 0}>
+			</cfloop>
+
+			<cfoutput query="qResults">
+				<cfif IsJSON(qResults.result_gift_count)>
+					<cfset VARIABLES.result_gift_count = DeSerializeJSON(qResults.result_gift_count, false)>
+
+					<cfloop from="1" to="#ArrayLen(VARIABLES.result_gift_count)#" index="i">
+						<cfif VARIABLES.result_gift_count[i].counter GT VARIABLES.dominant_gift.count>
+							<cfset VARIABLES.dominant_gift.id = VARIABLES.result_gift_count[i].id>
+	                        <cfset VARIABLES.dominant_gift.count = VARIABLES.result_gift_count[i].counter>
+						</cfif>
+					</cfloop>
+				</cfif>	
+			</cfoutput>
+			<cfquery name="qThisResult" datasource="#APPLICATION.DSN#">
+                Select gift_name from gifts
+                Where gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">
+            </cfquery>
+			<cfoutput><cfif Len(qThisResult.gift_name) GT 0>#qThisResult.gift_name#<cfelse>none</cfif></cfoutput>
+		</cffunction>
     
 	
 
