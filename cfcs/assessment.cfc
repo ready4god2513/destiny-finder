@@ -417,6 +417,23 @@
         <cfif isDefined("nodisplay") AND nodisplay EQ 1>
         	<cfreturn />
         </cfif>
+
+		<cfchart
+			chartWidth="600"
+			format="flash">
+			<cfchartseries
+				type="bar"
+				serieslabel="Survey Results Breakdown"
+				paintStyle="shade">
+				
+				<cfchartdata item="Apostle" value="#VARIABLES.gift_count[1].counter#">
+				<cfchartdata item="Prophet" value="#VARIABLES.gift_count[2].counter#">
+				<cfchartdata item="Evangelist" value="#VARIABLES.gift_count[3].counter#">
+				<cfchartdata item="Pastor" value="#VARIABLES.gift_count[4].counter#">
+				<cfchartdata item="Teacher" value="#VARIABLES.gift_count[5].counter#">
+			</cfchartseries>
+		</cfchart>
+		
 	    <cfif qThisResult.recordcount GT 0>
 			<div class="row">
 				<div class="span7">Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
@@ -441,6 +458,8 @@
 				</cfif>
 		    </cfif>
 	    </cfif>
+	
+		
 	</cffunction>
 
 

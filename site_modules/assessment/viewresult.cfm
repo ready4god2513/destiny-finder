@@ -20,7 +20,10 @@
 				#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
 
 			<cfelseif URL.assessment_id EQ 5>
-				#passionSurveyObj.calculateResults()#
+				#passionSurveyObj.calculateResults()#\
+				
+			<cfelseif URL.assessment_id EQ 6>
+				<cfinclude template="../delight_survey/results.cfm" />
 			</cfif>
 			
 			<cfdocumentitem type="footer">
@@ -30,8 +33,10 @@
 	<cfelse>
 		<cfif URL.assessment_id LTE 4>
 			#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
+		
 		<cfelseif URL.assessment_id EQ 5>
 			#passionSurveyObj.calculateResults()#
+			
 		<cfelseif URL.assessment_id EQ 6>
 			<cfinclude template="../delight_survey/results.cfm" />
 		</cfif>
