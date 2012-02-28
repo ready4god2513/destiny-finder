@@ -105,7 +105,7 @@
 	--->
 	<cffunction name="getAnswer" output="false" returnType="string">
 		<cfargument name="name" type="string" required="true" />
-		<cfargument name="position" type="numeric" required="false" />
+		<cfargument name="delimiter" type="string" required="false" default="and" />
 		
 		<cfset var local = {} />
 		
@@ -117,16 +117,12 @@
 		</cfquery>
 		
 		<cfif local.surveyResults.recordcount GT 0>
-			<cfif isDefined("ARGUMENTS.position")>
-				<cftry>
-					<cfreturn ListGetAt(local.surveyResults.value, ARGUMENTS.position) />
-					<cfcatch>
-						<cfreturn local.surveyResults.value />
-					</cfcatch>
-				</cftry>
-			<cfelse>
-				<cfreturn local.surveyResults.value />
-			</cfif>
+			<cftry>
+				<cfreturn ListChangeDelims(local.surveyResults.value, ", #ARGUMENTS.delimiter# ") />
+				<cfcatch>
+					<cfreturn local.surveyResults.value />
+				</cfcatch>
+			</cftry>
 		<cfelse>
 			<cfreturn "[none given]" />
 		</cfif>
@@ -144,41 +140,33 @@
 			<h3>Passion Survey Results</h3>
 			<p>
 				I am most passionate about bringing my primary kingdom impact in the sphere of 
-				<strong>#this.getAnswer("sphere")#</strong>, specifically working in the area of 
-				<strong>#this.getAnswer("sphere_sub1", 1)#</strong> and/or 
-				<strong>#this.getAnswer("sphere_sub1", 2)#</strong>.
+				<strong>#this.getAnswer("sphere")#</strong>, specifically working in the area(s) of 
+				<strong>#this.getAnswer("sphere_sub1")#</strong>.
 			</p>
 			<p>
-				The causes I am most passionate about are <strong>#this.getAnswer("causes_societal", 1)#</strong> 
-				and <strong>#this.getAnswer("causes_societal", 2)#</strong>. I'm drawn to 
-				help people who are afflicted with <strong>#this.getAnswer("causes_human", 1)#</strong> 
-				and <strong>#this.getAnswer("causes_human", 2)#</strong>.
+				The causes I am most passionate about are <strong>#this.getAnswer("causes_societal")#</strong>. 
+				I'm drawn to help people who are afflicted with <strong>#this.getAnswer("causes_human")#</strong>.
 			</p>
 			<p>
-				I really enjoy being involved in <strong>#this.getAnswer("causes_ministries", 1)#</strong> and 
-				<strong>#this.getAnswer("causes_ministries", 2)#</strong> types of ministries. I am most passionate 
-				about bringing kingdom impact through <strong>#this.getAnswer("causes_ministry_activities", 1)#</strong> and 
-				<strong>#this.getAnswer("causes_ministry_activities", 2)#</strong>.
+				I really enjoy being involved in <strong>#this.getAnswer("causes_ministries")#</strong> 
+				types of ministries. I am most passionate 
+				about bringing kingdom impact through <strong>#this.getAnswer("causes_ministry_activities")#</strong>.
 			</p>
 			<p>
 				I feel the most fulfilled when communicating with others through 
-				<strong>#this.getAnswer("causes_communication", 1)#</strong> 
-				and <strong>#this.getAnswer("causes_communication", 2)#</strong>, and I feel most alive when expressing 
-				myself through artistic and creative expressions of <strong>#this.getAnswer("causes_expressing", 1)#</strong> 
-				and <strong>#this.getAnswer("causes_expressing", 2)#</strong>. My heart direction is mostly 
-				<strong>#this.getAnswer("causes_heart")#</strong>.
+				<strong>#this.getAnswer("causes_communication")#</strong>, and I feel most alive when expressing 
+				myself through artistic and creative expressions of <strong>#this.getAnswer("causes_expressing")#</strong>. 
+				My heart direction is mostly <strong>#this.getAnswer("causes_heart")#</strong>.
 			</p>
 			<p>
 				I'm most comfortable in a <strong>#this.getAnswer("scope_org")#</strong> 
 				type of organization, and the size of group I prefer to work with is 
 				<strong>#this.getAnswer("scope_group")#</strong>. In my church or ministry commitment, 
-				I feel most comfortable serving as a <strong>#this.getAnswer("role_church", 1)#</strong> 
-				and <strong>#this.getAnswer("role_church", 2)#</strong>.
+				I feel most comfortable serving as a <strong>#this.getAnswer("role_church")#</strong>.
 			</p>
 			<p>	
 				In the workplace, I'm most comfortable in the role of 
-				<strong>#this.getAnswer("role_workplace", 1)#</strong> or 
-				<strong>#this.getAnswer("role_workplace", 2)#</strong>.
+				<strong>#this.getAnswer("role_workplace", "or")#</strong>.
 			</p>
 			<p>
 				I want to impact the <strong>#this.getAnswer("impact_age_group")#</strong> age group in 

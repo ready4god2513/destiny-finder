@@ -270,7 +270,7 @@
 	
 		<!--- PREPARE CONTAINER FOR KEEPING SCORE OF EACH GIFT --->
 		<cfloop from="1" to="#qGifts.recordcount#" index="i"> 
-			<cfset VARIABLES.gift_count[i] = {id = qGifts.gift_id[i],counter = 0}>
+			<cfset VARIABLES.gift_count[i] = {id = qGifts.gift_id[i],counter = 0, name = qGifts.gift_name[i]}>
 		</cfloop>
 	
 	
@@ -418,6 +418,11 @@
         	<cfreturn />
         </cfif>
 
+		<cfquery name="giftTypes" datasource="#APPLICATION.DSN#">
+			SELECT *
+			FROM Gifts
+		</cfquery>
+
 		<cfchart
 			chartWidth="600"
 			format="flash">
@@ -426,11 +431,9 @@
 				serieslabel="Survey Results Breakdown"
 				paintStyle="shade">
 				
-				<cfchartdata item="Apostle" value="#VARIABLES.gift_count[1].counter#">
-				<cfchartdata item="Prophet" value="#VARIABLES.gift_count[2].counter#">
-				<cfchartdata item="Evangelist" value="#VARIABLES.gift_count[3].counter#">
-				<cfchartdata item="Pastor" value="#VARIABLES.gift_count[4].counter#">
-				<cfchartdata item="Teacher" value="#VARIABLES.gift_count[5].counter#">
+				<cfloop array="#VARIABLES.gift_count#" index="gift">
+					<cfchartdata item="#gift.name#" value="#gift.counter#">
+				</cfloop>
 			</cfchartseries>
 		</cfchart>
 		

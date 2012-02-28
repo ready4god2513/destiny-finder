@@ -35,8 +35,6 @@
 
 <script>
 	$(function(){
-		$(".survey-form input[type=checkbox]").attr("validate", "required:true, rangelength:[2, 2]");
-		$(".survey-form input[type=radio]").attr("validate", "required:true");
 		$.metadata.setType("attr", "validate");
 		
 		$(".survey-form").validate({

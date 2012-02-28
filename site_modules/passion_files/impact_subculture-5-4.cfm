@@ -16,7 +16,7 @@
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" value="LGBT">LGBT</label>
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" value="High Society">High Society</label>
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" value="Celebrity">Celebrity</label>
-			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" value="None">None</label>
+			<label class="checkbox"><input type="text" name="drawn_to_impact_ethnicity" placeholder="Other subculture"/></label>
 		</div>
 	</div>
 	

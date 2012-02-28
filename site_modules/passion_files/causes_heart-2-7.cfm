@@ -13,6 +13,7 @@
 			<label class="radio"><input type="radio" name="causes_heart" value="Upward" />Upward (To minister to the Lord, usually alone or in small groups)</label>
 			<label class="radio"><input type="radio" name="causes_heart" value="Downward" />Downward (To bring God's heart, message and power to my group)</label>
 			<label class="radio"><input type="radio" name="causes_heart" value="Evenly directed between outward, inward, upward and downward." />Evenly directed between outward, inward, upward and downward.</label>
+			<label class="checkbox"><input type="text" name="causes_heart" placeholder="Other causes"/></label>
 		</div>
 	</div>
 

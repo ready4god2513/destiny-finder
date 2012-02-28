@@ -11,6 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Military Service">Military Service</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Civil Service">Civil Service</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Law Enforcement">Law Enforcement</label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other impact sphere"/></label>
 		</div>
 	</div>
 

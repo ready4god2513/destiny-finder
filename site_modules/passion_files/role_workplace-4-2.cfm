@@ -12,7 +12,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Associate Leader">Associate Leader</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Primary Leader">Primary Leader</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Regional Leader">Regional Leader</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="None">None</label>
+			<label class="checkbox"><input type="text" name="role_workplace" placeholder="Other workplace role"/></label>
 		</div>
 	</div>
 	<!---CLIP #1--->

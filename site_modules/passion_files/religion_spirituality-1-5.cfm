@@ -13,7 +13,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Non-Profit Organizations">Non-Profit Organizations</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Para-church Ministry">Para-church Ministry</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Outreach and Missions">Outreach and Missions</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Undecided">Undecided</label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other sphere(s)"/></label>
 		</div>
 	</div>
 

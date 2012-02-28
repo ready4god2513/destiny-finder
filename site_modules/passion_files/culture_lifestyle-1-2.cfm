@@ -12,6 +12,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Performing and Visual Arts">Performing and Visual Arts (Theater, dance, fashion, photography, graphic arts, fine arts, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Traditional Media">Traditional Media (TV news, magazines, newspapers, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Digital Media">Digital Media (Internet, social networking, etc.)</label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other impact sphere"/></label>
 		</div>
 	</div>
 
@@ -20,14 +21,3 @@
 	<input type="hidden" value="<cfoutput>#Encrypt('4,causes_societal-2-1,sphere_sub1,sphere_sub1','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>
-
-	
-
-<!---
-<div style="float:left;margin:10px 40px 0px 40px;">
-Instructions:<br />
-Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.
-Fill in the "Other" blank if you don't find an answer close enough to your interest.
-</div>
-
---->

@@ -13,7 +13,7 @@
 					<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Crime and Imprisonment" />Crime and Imprisonment </label>
 					<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Sin Issues" />Sin Issues (Immorality, greed, fear, anger, envy, pride, idolatry, rebellion, homosexual behavior (not orientation))</label>
                     <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Spiritual Strongholds " />Spiritual Strongholds (Occult, demonic oppression, etc.)</label>
-                    <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="None" />None</label>
+                    <label class="checkbox"><input type="text" name="causes_human" placeholder="Other causes"/></label>
 				</ul>
 			</div>
 			

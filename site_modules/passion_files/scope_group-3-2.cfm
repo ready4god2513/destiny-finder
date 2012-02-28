@@ -11,7 +11,8 @@
 					<label class="radio"><input type="radio" name="scope_group" value="Mid-sized Group">Mid-sized Group (50+)</label>
 					<label class="radio"><input type="radio" name="scope_group" value="Large Group">Large Group (100+)</label>
 					<label class="radio"><input type="radio" name="scope_group" value="Mega-size Group">Mega-size Group (1000+)</label>
-                    <label class="radio"><input type="radio" name="scope_group" value="International – Itinerate">International – Itinerate</label>
+                    <label class="radio"><input type="radio" name="scope_group" value="International / Itinerate">International / Itinerate</label>
+					<label class="checkbox"><input type="text" name="scope_group" placeholder="Other group size"/></label>
 				</ul>
 			</div>
 			
