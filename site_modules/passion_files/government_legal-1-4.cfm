@@ -20,14 +20,3 @@
 	<input type="hidden" value="<cfoutput>#Encrypt('6,causes_societal-2-1,sphere_sub1,sphere_sub1','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
 <br class="clear"/>
-
-	
-
-<!---
-<div style="float:left;margin:10px 40px 0px 40px;">
-Instructions:<br />
-Pick the one sphere (A-E) you're drawn to impact. Then pick the two sub-spheres you are drawn to impact. Only use undecided if you're really not sure.
-Fill in the "Other" blank if you don't find an answer close enough to your interest.
-</div>
-
---->
