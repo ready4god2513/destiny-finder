@@ -1,4 +1,3 @@
-
 <cfif REQUEST.user_id EQ 0 AND NOT isDefined('URL.create')>
 
 	<cfmodule template="/site_modules/user/login_box.cfm" >

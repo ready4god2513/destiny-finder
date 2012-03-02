@@ -9,9 +9,7 @@
 		<cfif qResults.recordcount GT 0>
 			<cfset qUser = objQueries.user_detail(user_id="#qResults.user_id#")>        
 			<cfset qInvites = objAssessments.retrieve_invites(invite_uid="#HTMLEditFormat(URL.invite)#")>
-			<h1>Invite A Friend</h1>
-
-			<h2>You're a good friend #HTMLEditFormat(qInvites.invite_first_name)# #HTMLEditFormat(qInvites.invite_last_name)#</h2>
+			<h2>You're a good friend, #HTMLEditFormat(qInvites.invite_first_name)# #HTMLEditFormat(qInvites.invite_last_name)#</h2>
 
 			<h3>Result For #qUser.user_first_name# #qUser.user_last_name#</h3>
 			<p>Your results suggest your friend #qUser.user_first_name# is a	

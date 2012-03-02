@@ -25,6 +25,10 @@
 		</cfloop>
 	</cfif>
 	
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
 	
 	<!-- BEGIN FOXYCART FILES -->
 	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css?v=1327967598" type="text/css" media="screen" charset="utf-8" />

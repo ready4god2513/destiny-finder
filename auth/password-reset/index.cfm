@@ -58,8 +58,7 @@
 		
 		<form action="/auth/password-reset/" method="POST">
 			<fieldset>
-				<div class="clearfix">
-					<label for="user_name">Email Address</label>
+				<div class="control-group">					<label for="user_name">Email Address</label>
 					<div class="controls">
 						<input type="email" name="user_name" id="user_name" required="required" />
 					</div>

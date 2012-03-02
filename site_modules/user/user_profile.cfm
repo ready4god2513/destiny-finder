@@ -1,6 +1,5 @@
 <cfset obj_user = CreateObject("component","cfcs.users")>
 <cfset obj_queries = CreateObject("component","cfcs.queries")>
-
 <cfif isDefined("FORM.submit")>
     <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#") />
 </cfif>

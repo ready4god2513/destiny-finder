@@ -24,7 +24,7 @@
 	    <cfset qItems = objAssessments.retrieve_assessment_items(assessment_id="#VARIABLES.assessment_id#")>
         <cfset qResults = objAssessments.retrieve_result(user_id="#VARIABLES.user_id#",assessment_id="#VARIABLES.assessment_id#",invite_uid="#VARIABLES.invite#")>
         <cfif qResults.recordcount>
-            <cfset VARIABLES.result_set = DeserializeJSON(qResults.result_set)>
+            <cfset VARIABLES.result_set = DeserializeJSON(qResults.result_set, false)>
         <cfelse>
             <cfset VARIABLES.result_set = ArrayNew(1)>
         </cfif>

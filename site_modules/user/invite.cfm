@@ -19,19 +19,19 @@
 	
 	<form action="#CGI.SCRIPT_NAME#?#CGI.QUERY_STRING#" method="post" name="profile" enctype="multipart/form-data">
 		<fieldset>
-			<div class="clearfix">
+			<div class="control-group">
 				<label for="user_first_name">First Name</label>
 				<div class="controls">
 					<input type="text" name="user_first_name" id="user_first_name" required="required" />
 				</div>
 			</div>
-			<div class="clearfix">
+			<div class="control-group">
 				<label for="user_last_name">Last Name</label>
 				<div class="controls">
 					<input type="text" name="user_last_name" id="user_last_name" required="required" />
 				</div>
 			</div>
-			<div class="clearfix">
+			<div class="control-group">
 				<label for="user_email">Email Address</label>
 				<div class="controls">
 					<input type="email" name="user_email" id="user_email" required="required" />

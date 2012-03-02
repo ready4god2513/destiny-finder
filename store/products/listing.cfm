@@ -8,11 +8,11 @@
 			</div>
 
 			<div class="span7">
-				<h4>Profiler Module - <strike>$19.99</strike> FREE until March 1st</h4>
+				<h4>Profiler Module - <strike>$19.99</strike> FREE during BETA test</h4>
 				<p>
 					This module is an online tool that produces a destiny profile that is a 
 					comprehensive picture of yourself. Includes the Destiny, Motivational, Supernatural, 
-					Passion and Delight surveys. You’ll love it or your money back!
+					Passion and Delight surveys. You'll love it or your money back!
 				</p>
 				
 				<p>

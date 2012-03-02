@@ -53,9 +53,9 @@ ORDER BY gateway_sortorder ASC
 
 			<article>
 				<h2>News</h2>
-				<h3>BETA Site launches, Profiler FREE for the next 7 days!</h3>
+				<h3>BETA Site launches, Profiler FREE during BETA test!</h3>
 				<p>
-					The Profiler is FREE for the next 7 days while we BETA-test the new site. 
+					The Profiler is FREE right now while we BETA-test the new site. This won't last!
 					We need your feedback to make our website, products and services be the 
 					best they can be. Please take the Free Survey, invite friends to take the 
 					Friends Survey, and take the Destiny Profiler surveys for free 

@@ -4,8 +4,7 @@
 <h3>Instructions</h3>
 <p>Select one that is truest for you.</p>
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
-	<div class="clearfix">
-		<div class="controls">
+	<div class="control-group">		<div class="controls">
 			<select name="impact_region">
 				<optgroup label="Select a Country">
 					<option value="United States">United States</option>

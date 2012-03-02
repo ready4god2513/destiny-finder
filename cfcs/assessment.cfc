@@ -129,10 +129,12 @@
 		<cfquery name="qResult" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Results
+			WHERE 1 = 1
 			<cfif isDefined("result_id")>
-				WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
-			<cfelse>
-				WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
+				AND result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
+			</cfif>
+			<cfif isDefined("user_id")>
+				AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
 			</cfif>
 			<cfif isDefined('assessment_id')>
 				AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
@@ -178,10 +180,10 @@
 		<cfquery name="qResult" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Results
-			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
-			AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
-			<cfif isDefined('invite') AND LEN(invite) GT 0>
-				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
+			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.user_id#">
+			AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.assessment_id#">
+			<cfif isDefined('ARGUMENTS.invite') AND LEN(invite) GT 0>
+				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.invite#">
 			</cfif>
 		</cfquery>
 	
@@ -211,7 +213,7 @@
 		
 		<cfelse>
 			<!--- IF THERE IS A RECORD FOUND, WE NEED TO PULL THE EXISTING RESULT SET AND DETERMINE IF THIS IS AN UPDATE TO AN EXISTING ITEM OR A NEW ONE--->
-			<cfset VARIABLES.items = DeSerializeJSON(qResult.result_set)>
+			<cfset VARIABLES.items = DeSerializeJSON(qResult.result_set, false)>
 				
 			<cfset VARIABLES.item_found = 0>
 
@@ -231,7 +233,7 @@
 					SET
 					result_set = <cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.result_set#">,
 	                last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
-					WHERE result_id = #qResult.result_id#				
+					WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qResult.result_id#">			
 				</cfquery>
 			
 					
@@ -246,7 +248,7 @@
 					SET
 					result_set = <cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.result_set#">,
 	                last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
-					WHERE result_id = #qResult.result_id#				
+					WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qResult.result_id#">				
 				</cfquery>
 			
 			</cfif>
@@ -263,7 +265,8 @@
 	
 		<cfset qGifts = retrieve_gifts(gift_type_id="#gift_type_id#")>
 		<cfset qResult = retrieve_result(result_id="#result_id#")>
-		<cfset VARIABLES.result_set = DeSerializeJSON(qResult.result_set)>
+			
+		<cfset VARIABLES.result_set = DeSerializeJSON(qResult.result_set, false)>
 		<cfset VARIABLES.gift_count = ArrayNew(1)>
 		<cfset VARIABLES.dominant_gift = {id = 0, count =0}>
 	    <!---<cfset VARIABLES.secondary_gift = {id = 0, count =0}>--->
@@ -375,7 +378,7 @@
 						</cfloop>
 					</cfcase>
 					<cfcase value="2">
-						<cfset VARIABLES.rating = DeSerializeJSON(VARIABLES.result_set[i].result)>
+						<cfset VARIABLES.rating = DeSerializeJSON(VARIABLES.result_set[i].result, false)>
 						<cfloop from="1" to="#ArrayLen(VARIABLES.gift_count)#" index="j">
 							<cfif VARIABLES.gift_count[j].id EQ VARIABLES.rating.gift>
 								<cfset VARIABLES.gift_count[j].counter = VARIABLES.gift_count[j].counter + VARIABLES.rating.rate >
@@ -388,7 +391,8 @@
 		<cfquery name="uResult" datasource="#APPLICATION.DSN#">
 			UPDATE Results
 			SET
-			result_gift_count = <cfqueryparam cfsqltype="char" value="#SerializeJSON(VARIABLES.gift_count)#">
+			result_gift_count = <cfqueryparam cfsqltype="char" value="#SerializeJSON(VARIABLES.gift_count)#">,
+			last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
 			WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
 		</cfquery>
     
