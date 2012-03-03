@@ -13,9 +13,10 @@ $(function(){
 			fx: "fade",
 			pager: "#cycle-nav",
 			pause: true,
-			delay: 2000,
+			timeout: 3000,
 			width: 590,
 			height: 280,
+			speed: 500,
 			pagerAnchorBuilder: function(idx, slide) 
 			{ 
 				return '<a href="#">&bull;</a>'; 

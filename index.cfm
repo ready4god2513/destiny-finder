@@ -22,9 +22,9 @@ ORDER BY gateway_sortorder ASC
 	<div class="span10">
 		<div id="rotating-banner">
 			<div id="rotating-images">
+				<img src="assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
 				<img src="assets/images/slidepictures/DadandSon.jpg" width="590" height="280" alt="DadandSon">
 				<img src="assets/images/slidepictures/ExploreYourPotential.jpg" width="590" height="280" alt="ExploreYourPotential">
-				<img src="assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
 				<img src="assets/images/slidepictures/StepSToneSlide.jpg" width="590" height="280" alt="StepSToneSlide">
 				<img src="assets/images/slidepictures/TransformYourWorld.jpg" width="590" height="280" alt="TransformYourWorld">
 			</div>
