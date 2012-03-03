@@ -12,6 +12,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Performing and Visual Arts">Performing and Visual Arts (Theater, dance, fashion, photography, graphic arts, fine arts, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Traditional Media">Traditional Media (TV news, magazines, newspapers, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Digital Media">Digital Media (Internet, social networking, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="None/Other">None/Other</label>
 			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other impact sphere"/></label>
 		</div>
 	</div>

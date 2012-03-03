@@ -11,6 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Health and Wellness">Health and Wellness (Health, medical, wellness, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Therapy and Social Work">Therapy and Social Work (Counseling, family support, bereavement, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Senior Care">Senior Care (Retirement, senior care, hospice, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="None/Other">None/Other</label>
 			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
 		</div>
 	</div>

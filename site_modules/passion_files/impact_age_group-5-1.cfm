@@ -13,6 +13,7 @@
 					<label class="radio"><input type="radio" name="impact_age_group" value="Gen X (30-45)">30-45 Gen X </label>
 					<label class="radio"><input type="radio" name="impact_age_group" value="Boomer (46-65)">46-65 Boomer</label>
                     <label class="radio"><input type="radio" name="impact_age_group" value="Senior (65+)">65+ Senior</label>
+					<label class="checkbox"><input type="checkbox" class="checkbox" name="impact_age_group" value="None/Other">None/Other</label>
 					<label class="checkbox"><input type="text" name="impact_age_group" placeholder="Other age group"/></label>
 				</ul>
 			</div>

@@ -19,6 +19,7 @@
 <cfelse>
 	<cfoutput>
 		<cfif isDefined("URL.pdf")>
+			<cfheader name="Content-Disposition" value="attachment; filename=Survey-Results.pdf">
 			<cfdocument
 				format="pdf">
 
