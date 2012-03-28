@@ -44,7 +44,7 @@
 			</cfif>
 			
 		
-			<table id="users-surveys" class="table table-striped table-bordered table-condensed">
+			<table id="users-surveys" class="table table-condensed">
 			    <cfloop query="qAssessments">
 					<cfif qAssessments.assessment_id EQ 1>
 						<tr>

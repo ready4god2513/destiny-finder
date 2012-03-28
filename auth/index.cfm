@@ -26,4 +26,4 @@
 		<cfinclude template="../site_modules/user/login_box.cfm">	
 	</section>
 
-</cfmodule> 
+</cfmodule>

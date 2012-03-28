@@ -269,7 +269,7 @@
 		<cfset VARIABLES.result_set = DeSerializeJSON(qResult.result_set, false)>
 		<cfset VARIABLES.gift_count = ArrayNew(1)>
 		<cfset VARIABLES.dominant_gift = {id = 0, count =0}>
-	    <!---<cfset VARIABLES.secondary_gift = {id = 0, count =0}>--->
+	    <cfset VARIABLES.secondary_gift = {id = 0, count =0}>
 	
 		<!--- PREPARE CONTAINER FOR KEEPING SCORE OF EACH GIFT --->
 		<cfloop from="1" to="#qGifts.recordcount#" index="i"> 
@@ -402,12 +402,23 @@
 				<cfset VARIABLES.dominant_gift.count = VARIABLES.gift_count[i].counter>
 			</cfif>
 		</cfloop>
+		
+		<cfloop from="1" to="#ArrayLen(VARIABLES.gift_count)#" index="i">
+			<cfif VARIABLES.gift_count[i].counter GT VARIABLES.secondary_gift.count AND VARIABLES.gift_count[i].id NEQ VARIABLES.dominant_gift.id>
+				<cfset VARIABLES.secondary_gift.id = VARIABLES.gift_count[i].id>
+				<cfset VARIABLES.secondary_gift.count = VARIABLES.gift_count[i].counter>
+			</cfif>
+		</cfloop>
     
     
 	    <cfquery name="qThisResult" datasource="#APPLICATION.DSN#">
-	    Select 
-	    <cfif assessment_id GTE 2>gift_primary<cfelse>gift_brief</cfif> AS ThisResult from gifts
-	    Where gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">
+	    	Select 
+		    <cfif assessment_id GTE 2>gift_primary<cfelse>gift_brief</cfif> AS ThisResult from gifts
+			<cfif assessment_id EQ 2>
+				Where gift_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.secondary_gift.id#">)
+			<cfelse>
+				Where gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#VARIABLES.dominant_gift.id#">
+			</cfif>
 	    </cfquery>
 	
 	    <cfquery name="qUser" datasource="#APPLICATION.DSN#">
@@ -426,45 +437,53 @@
 			SELECT *
 			FROM Gifts
 		</cfquery>
-
-		<cfchart
-			chartWidth="600"
-			format="flash">
-			<cfchartseries
-				type="bar"
-				serieslabel="Survey Results Breakdown"
-				paintStyle="shade">
-				
-				<cfloop array="#VARIABLES.gift_count#" index="gift">
-					<cfchartdata item="#gift.name#" value="#gift.counter#">
-				</cfloop>
-			</cfchartseries>
-		</cfchart>
 		
-	    <cfif qThisResult.recordcount GT 0>
-			<div class="row">
-				<div class="span7">Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
-				<div class="pull-right">
-					<cfif not isDefined("URL.pdf")>
-						<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
-					</cfif>
-				</div>
+		<cfif #assessment_id# NEQ 1>
+			<cfchart
+				chartWidth="600"
+				format="flash">
+				<cfchartseries
+					type="bar"
+					serieslabel="Survey Results Breakdown"
+					paintStyle="shade">
+
+					<cfloop array="#VARIABLES.gift_count#" index="gift">
+						<cfchartdata item="#gift.name#" value="#gift.counter#">
+					</cfloop>
+				</cfchartseries>
+			</cfchart>
+		</cfif>
+		
+		<div class="row">
+			<div class="span7">Survey Result - #HTMLEditFormat(qUser.user_first_name)# #HTMLEditFormat(qUser.user_last_name)# #dateformat(qResult.last_modified,'mmm dd, yyyy')#</div>
+			<div class="pull-right">
+				<cfif not isDefined("URL.pdf")>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+				</cfif>
 			</div>
-	    	
-		    <div class="short_desc">#qThisResult.ThisResult#</div>
-		    <cfif isDefined("assessment_id")>
+		</div>
+		
+		<cfif qThisResult.recordcount GT 0>
+			<cfloop query="qThisResult">
+			    <div class="short_desc">
+					#ThisResult#
+				</div>
+				<hr />
+			</cfloop>
+			
+			<cfif isDefined("assessment_id")>
 			    <cfquery name="qGetClosing" datasource="#APPLICATION.DSN#">
 					SELECT assessment_closing_text
 					FROM Assessments
 					WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
 				</cfquery>
 		    	<div class="short_desc">#qGetClosing.assessment_closing_text#</div>
-		
+
 				<cfif not isDefined("URL.pdf")>
 					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
 				</cfif>
 		    </cfif>
-	    </cfif>
+		</cfif>
 	
 		
 	</cffunction>
