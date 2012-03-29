@@ -13,6 +13,7 @@
 <cfset VARIABLES.memberships = objAssessments.retrieve_membership(user_id="#REQUEST.user_id#")>
 <cfset delightSurvey = CreateObject("component","cfcs.delight") />
 <cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
+<cfset supernaturalSurveyObj = CreateObject("component","cfcs.supernatural").init(user_id = REQUEST.user_id) />
 
 <cfif isDefined("URL.invite")>
 	<cfinclude template="invite_result.cfm">
@@ -26,11 +27,13 @@
 				<cfdocumentitem type="header">
 					<img src="/assets/images/logo.png" />
 				</cfdocumentitem>
-				<cfif URL.assessment_id LTE 4>
+				<cfif URL.assessment_id LTE 3>
 					#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
-
+				<cfelseif URL.assessment_id EQ 4>
+					#supernaturalSurveyObj.outputResults()#
+				
 				<cfelseif URL.assessment_id EQ 5>
-					#passionSurveyObj.calculateResults()#\
+					#passionSurveyObj.calculateResults()#
 
 				<cfelseif URL.assessment_id EQ 6>
 					<cfinclude template="../delight_survey/results.cfm" />
@@ -41,9 +44,10 @@
 				</cfdocumentitem>
 			</cfdocument>
 		<cfelse>
-			<cfif URL.assessment_id LTE 4>
+			<cfif URL.assessment_id LTE 3>
 				#objAssessments.process_results(result_id="#val(qResults.result_id)#", assessment_id="#val(URL.assessment_id)#",gift_type_id="#val(URL.gift_type_id)#")#
-
+			<cfelseif URL.assessment_id EQ 4>
+				#supernaturalSurveyObj.outputResults()#
 			<cfelseif URL.assessment_id EQ 5>
 				#passionSurveyObj.calculateResults()#
 

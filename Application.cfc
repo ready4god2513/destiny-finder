@@ -49,13 +49,11 @@
 
 	
 	<cfset APPLICATION.webadmin_email = "brandonh@ibethel.org">
-	<cfset APPLICATION.webadmin_ip = "68.229.193.96|75.140.100.15|68.189.112.146|71.94.35.210">
+	<cfset APPLICATION.webadmin_ip = "75.140.117.108|68.229.193.96|75.140.100.15|68.189.112.146|71.94.35.210">
 
 		
 	<!--- Run when application starts up --->
 	<cffunction name="onApplicationStart" returnType="boolean" output="true">
-		
-	
 		<cfreturn true>
 	</cffunction>
 

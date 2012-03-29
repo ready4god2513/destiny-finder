@@ -33,7 +33,9 @@
 	
 		<cfset VARIABLES.item_result = "">
 		<cfset item_type = 1>
-        <cfif VARIABLES.assessment_id EQ 5>
+        <cfif VARIABLES.assessment_id EQ 4>
+			<cfset item_type = 4>
+		<cfelseif VARIABLES.assessment_id EQ 5>
 			<cfset item_type = 5>
 		<cfelseif VARIABLES.assessment_id EQ 6>
 			<cfset item_type = 6>
@@ -59,6 +61,16 @@
 						item_result="#VARIABLES.item_result#"
 						user_id="#VARIABLES.user_id#"
 						invite="#VARIABLES.invite#"
+						assessment_id="#VARIABLES.assessment_id#"
+						>
+				</cfcase>
+				
+				<!--- Supernatural Survey --->
+				<cfcase value="4">
+					<cfmodule template="supernatural_survey.cfm"
+						type_id="#qItems.item_type#"
+						item_result="#VARIABLES.item_result#"
+						user_id="#VARIABLES.user_id#"
 						assessment_id="#VARIABLES.assessment_id#"
 						>
 				</cfcase>
