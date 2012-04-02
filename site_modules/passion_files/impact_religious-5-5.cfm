@@ -21,5 +21,6 @@
 
 	<!---CLIP #1--->
 	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
+	<input type="hidden" value="1" name="surveydone" />
 	<input type="hidden" value="<cfoutput>#Encrypt('23,surveydone','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 </form>
