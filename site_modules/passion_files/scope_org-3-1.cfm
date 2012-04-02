@@ -13,7 +13,6 @@
 			<label class="radio"><input type="radio" name="scope_org" value="Small and Adaptive">Small and Adaptive</label>
 			<label class="radio"><input type="radio" name="scope_org" value="Mid-sized and Growing">Mid-sized and Growing</label>
 			<label class="radio"><input type="radio" name="scope_org" value="Large and Stable">Large and Stable</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="scope_org" value="None/Other">None/Other</label>
 			<label class="checkbox"><input type="text" name="scope_org" placeholder="Other organizational type"/></label>
 		</div>
 	</div>

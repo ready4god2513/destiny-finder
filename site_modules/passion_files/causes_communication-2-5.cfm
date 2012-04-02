@@ -13,7 +13,6 @@
 					<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Mentoring and Coaching" />Mentoring and Coaching </label>
 					<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Writing and Publishing" />Writing and Publishing</label>
                     <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Public Speaking and Motivating" />Public Speaking and Motivating</label>
-                    <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="None/Other">None/Other</label>
 					<label class="checkbox"><input type="text" name="causes_communication" placeholder="Other causes"/></label>
 				</ul>
 			</div>

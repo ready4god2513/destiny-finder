@@ -52,7 +52,7 @@
 						</tr>
 					<cfelseif qAssessments.assessment_id EQ 2>
 						<tr>
-							<th colspan="3">Destiny Profiler (5 surveys) BETA Free!</th>
+							<th colspan="3" class="padding-top">Destiny Profiler (5 surveys) BETA Free!</th>
 						</tr>
 					</cfif>
 					

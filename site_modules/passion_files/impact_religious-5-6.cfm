@@ -16,14 +16,13 @@
                     <label class="radio"><input type="radio" name="impact_religious" value="Higher Power/Mishmash">Higher Power/Mishmash</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="New Age">New Age</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="Occult/Wicca/Satanic">Occult/Wicca/Satanic</label>
-                    <label class="checkbox"><input type="checkbox" class="checkbox" name="impact_religious" value="None/Other">None/Other</label>
 					<label class="checkbox"><input type="text" name="impact_religious" placeholder="Other religion"/></label>
 				</ul>
 			</div>
 			
              <!---CLIP #1--->
 			<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
-            <input type="hidden" value="<cfoutput>#Encrypt('23,development-6-1,impact_religious,impact_religious','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
+            <input type="hidden" value="<cfoutput>#Encrypt('23,surveydone,impact_religious,impact_religious','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />
 		</form>
 <br class="clear"/>
         

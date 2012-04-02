@@ -177,12 +177,6 @@
 				<strong>#this.getAnswer("impact_religious")#</strong> religious orientation.
 			</p>
 			<p>
-				At present I'm in the <strong>#this.getAnswer("development_1")#</strong> 
-				stage of destiny development. In 3-5 years I want to be in the <strong>#this.getAnswer("development_2")#</strong> 
-				stage, and in 5-10 years I want to be in the <strong>#this.getAnswer("development_3")#</strong> 
-				destiny development stage.
-			</p>
-			<p>
 				I have a passion to bring kingdom impact and transformation to the 
 				people I feel called to, and by God's grace I will!
 			</p>

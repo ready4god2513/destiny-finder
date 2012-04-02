@@ -26,14 +26,18 @@
 			<section id="main">
 				<div class="row">
 					<h2 class="span6">My Account</h2>
-					<div class="pull-right">
+				</div>
+	
+				<cfinclude template="../../site_modules/assessment/profiler.cfm" />
+				
+				<div class="row">
+					<div id="account-settings" class="span6">
+						<h2>Settings</h2>
 						<a href="/auth/account/settings" class="btn btn-info">Account Settings</a>
 					</div>
 				</div>
 	
-				<cfinclude template="../../site_modules/assessment/profiler.cfm" />
-	
-				<h3>My Transactions</h3>
+				<h2>My Transactions</h2>
 				<cfset transactions = foxyCart.getCustomerTransactions(email = REQUEST.user.user_email) />
 				
 				<cfif arraylen(transactions) GT 0>

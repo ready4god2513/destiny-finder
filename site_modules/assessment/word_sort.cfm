@@ -55,7 +55,6 @@
 	<cfif ListLen(ATTRIBUTES.item_result) GT 0>
 		<cfloop from="1" to="#ListLen(ATTRIBUTES.item_result)#" index="i">
 			<cfset VARIABLES.sort_words[i][1] = ListGetAt(ATTRIBUTES.item_result,i)>
-			
 		</cfloop>
 	</cfif>
 			
@@ -70,15 +69,15 @@
 			<p>
             	<strong>Instructions:</strong><br />
                 <cfif vIsInvite EQ 1>
-                Rank the statements that complete the sentence by dragging the one that is most 
-				true about your friend to the top, and arranging the rest in order with the least true 
-				at the bottom. It’s easiest to do this by ranking the first two statements, 
-				then rank the third statement with the first two, and so on.
+	                Rank the statements that complete the sentence by dragging the one that is most 
+					true about your friend to the top, and arranging the rest in order with the least true 
+					at the bottom. It’s easiest to do this by ranking the first two statements, 
+					then rank the third statement with the first two, and so on.
 				<cfelse>
-                Rank the statements that complete the sentence by dragging the one that is most 
-				true about you to the top, and arranging the rest in order with the least true 
-				at the bottom. It’s easiest to do this by ranking the first two statements, 
-				then rank the third statement with the first two, and so on.
+	                Rank the statements that complete the sentence by dragging the one that is most 
+					true about you to the top, and arranging the rest in order with the least true 
+					at the bottom. It’s easiest to do this by ranking the first two statements, 
+					then rank the third statement with the first two, and so on.
 				</cfif>
 	            
             </p>
@@ -129,7 +128,6 @@
 		</form>
 <br class="clear"/>
 		<cfset progbar = (ATTRIBUTES.qcount / qItems.recordcount) * 100>
-        <div class="percent_complete_label">% of survey completed</div>
 		<div class="progress progress-info progress-striped active">
 		  <div class="bar" style="width: #progbar#%;"></div>
 		</div>

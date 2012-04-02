@@ -14,7 +14,6 @@
                     <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Church service support" />Church service support (Ushering, preparation, communion, baptism, etc.)</label>
                     <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Relational" />Relational (Small groups, one on one, accountability partners, discipling, mentoring, etc.) </label>
                     <label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Social" />Social (Dinners, events, parties, birthdays, holidays, etc)</label>
-					<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="None/Other">None/Other</label>
 					<label class="checkbox"><input type="text" name="causes_ministries" placeholder="Other causes"/></label>
 				</ul>
 			</div>

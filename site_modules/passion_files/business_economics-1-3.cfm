@@ -12,7 +12,6 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Trades, Transportation, and Technical Services">Trades, Transportation, and Technical Services</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Tourism, Travel, Hospitatily and Culinary">Tourism, Travel, Hospitality and Culinary</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Sales, Marketing and Advertising">Sales, Marketing and Advertising</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="None/Other">None/Other</label>
 			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other impact sphere"/></label>
 		</div>
 	</div>

@@ -9,7 +9,6 @@
 			<label class="radio"><input name="impact_area" type="radio" value="inner city">Inner City </label>
 			<label class="radio"><input name="impact_area" type="radio" value="urban">Urban </label>
 			<label class="radio"><input name="impact_area" type="radio" value="suburban">Suburban </label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="impact_area" value="None/Other">None/Other</label>
 			<label class="checkbox"><input type="text" name="impact_area" placeholder="Other impact area"/></label>
 		</div>
 	</div>

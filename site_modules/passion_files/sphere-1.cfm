@@ -34,7 +34,6 @@
 			<label class="radio"><input type="radio" name="sphere" value="Religion and Spirituality">Religion and Spirituality</label>
 		</div>
 	</div>
-	
 
 	<div class="form-actions"><input class="btn btn-primary" type="submit" name="submit" value="Next Step" /></div>
 	<input type="hidden" value="<cfoutput>#Encrypt('2,sphere-1,sphere,sphere','keyei3v2','CFMX_COMPAT','Hex')#</cfoutput>" name="nxpz3" />

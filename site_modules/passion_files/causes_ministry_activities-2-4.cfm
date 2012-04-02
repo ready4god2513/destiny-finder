@@ -14,7 +14,6 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="Healing the brokenhearted" />Healing the brokenhearted</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="Serving the poor" />Serving the poor</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="Caring for widows and orphans" />Caring for widows and orphans </label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="None/Other">None/Other</label>
 			<label class="checkbox"><input type="text" name="causes_ministry_activities" placeholder="Other ministry activity"/></label>
 		</div>
 	</div>

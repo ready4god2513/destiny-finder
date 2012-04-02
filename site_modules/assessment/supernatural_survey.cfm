@@ -11,24 +11,24 @@
 				<label class="control-label">#name[2]#</label>
 				<div class="controls">
 					<label class="radio">
-						<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 5)#" checked="checked" />
-						5 (Most Often)
-					</label>
-					<label class="radio">
-						<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 4)#" />
-						4 (Often)
+						<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 4)#" checked="checked" />
+						4 (Very Often)
 					</label>
 					<label class="radio">
 						<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 3)#" />
-						3 (Sometimes)
+						3 (Often)
 					</label>
 					<label class="radio">
 						<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 2)#" />
-						2 (Occasionally)
+						2 (Sometimes)
 					</label>
 					<label class="radio">
 						<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 1)#" />
-						1 (Never)
+						1 (Occasionally)
+					</label>
+					<label class="radio">
+						<input type="radio" name="#name[1]#" value="#(FORM[name[1]])#" />
+						0 (Never)
 					</label>
 				</div>
 			</div>
