@@ -6,7 +6,7 @@
     <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#") />
 </cfif>
 
-<cfif isDefined("FORM.user_name")>
+<cfif isDefined("URL.login")>
 	<!--- RUN THE LOGIN FUNCTION --->
     <cfset VARIABLES.process_login = obj_login.login_form_action()>
     
@@ -104,7 +104,7 @@
 	
 	<div class="span7 offset1">
 		<h2>Login to Existing Account</h2>
-		<form action="/auth/" method="POST" id="login-form">
+		<form action="/auth/?login=true" method="POST" id="login-form">
 			<fieldset>
 				<div class="control-group">
 					<label for="user_name">Email Address</label>

@@ -1,7 +1,19 @@
-<cfset delightSurvey = CreateObject("component","cfcs.supernatural") />
+<cfset delightSurvey = CreateObject("component","cfcs.supernatural").init(user_id = REQUEST.user_id) />
 <cfparam name="URL.question" default="1" min="1" max="4" type="range" />
+<cfset percentage="#(((URL.question - 1) / 4) * 100)#">
 
-<form action="/profile/?page=assessment&assessment_id=4&gift_type_id=3&question=<cfoutput>#(URL.question + 1)#</cfoutput>" class="survey-form" method="post">
+<cfif isDefined("URL.complete")>
+	<cfset delightSurvey.insertRecord(items = FORM) />
+	<cflocation url="/profile/?page=viewresult&assessment_id=4&gift_type_id=3" addtoken="no" />
+</cfif>
+
+<cfif URL.question EQ 4>
+	<cfset action = "/profile/?page=assessment&assessment_id=4&gift_type_id=3&complete=true">
+<cfelse>
+	<cfset action = "/profile/?page=assessment&assessment_id=4&gift_type_id=3&question=#(URL.question + 1)#">
+</cfif>
+
+<form action="<cfoutput>#action#</cfoutput>" class="survey-form" method="post">
 	<cfinclude template="../supernatural_survey/questions/#URL.question#.cfm" />
 	
 	<cfloop array="#types#" index="name">
@@ -43,12 +55,12 @@
 
 	<div class="percent_complete_label">% of survey completed</div>
 	<div class="progress progress-info progress-striped active">
-		<div class="bar" style="width: 50%;"></div>
+		<div class="bar" style="width: <cfoutput>#percentage#</cfoutput>%;"></div>
 	</div>
 
 	<script>
 		$(function(){
-			$(".progress .bar").css("width", "50%");
+			$(".progress .bar").css("width", "<cfoutput>#percentage#</cfoutput>%");
 		});
 	</script>
 </form>
