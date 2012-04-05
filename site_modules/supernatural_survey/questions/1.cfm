@@ -1,4 +1,4 @@
-<h2>1. I am used by God in the following gifts</h2>
+<h5>1. I am used by God in the following gifts</h5>
 
 <cfset types = ArrayNew(2) />
 <cfset types[1] = ["Discerning of Spirits", "Discerning of Spirits"] />

@@ -1,6 +1,6 @@
-<h2>The church role I feel most comfortable with is:</h2>
+<h5>The church role I feel most comfortable with is:</h5>
 <br />
-<h3>Instructions</h3>
+<h6>Instructions</h6>
 <p>Choose two answers that are truest for you.</p>
 
 

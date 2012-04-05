@@ -20,6 +20,8 @@
 <cfparam name="VARIABLES.invite" default="">
 
 <cfif isDefined('VARIABLES.assessment_id') AND isNumeric(VARIABLES.assessment_id)>
+	
+	<h2><cfoutput>#objAssessments.getAssessment(URL.assessment_id).assessment_name#</cfoutput></h2>
 
 	    <cfset qItems = objAssessments.retrieve_assessment_items(assessment_id="#VARIABLES.assessment_id#")>
         <cfset qResults = objAssessments.retrieve_result(user_id="#VARIABLES.user_id#",assessment_id="#VARIABLES.assessment_id#",invite_uid="#VARIABLES.invite#")>

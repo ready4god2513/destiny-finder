@@ -1,10 +1,10 @@
-<h2>2. When I am praying I feel impressed with</h2>
+<h5>2. When I am praying I feel impressed with</h5>
 
 <cfset types = ArrayNew(2) />
 <cfset types[1] = ["Discerning of Spirits", "awareness of the strategies of the enemy against others."] />
 <cfset types[2] = ["Gifts of Healings", "a sense of authority over sickness and disease."] />
 <cfset types[3] = ["Faith", "a confidence in God for impossible things."] />
-<cfset types[4] = ["Prophecy", "a word of encouragement for a friend or family member."] />
+<cfset types[4] = ["Prophecy", "a word of encouragement for someone else."] />
 <cfset types[5] = ["Interpretation of Tongues", "the understanding of a message spoken in an unknown language."] />
 <cfset types[6] = ["Kinds of Tongues", "an urge to speak a message to/from God in an unknown language."] />
 <cfset types[7] = ["Word of Knowledge", "solutions to problems or challenging situations."] />

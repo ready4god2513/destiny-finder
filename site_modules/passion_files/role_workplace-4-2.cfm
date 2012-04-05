@@ -1,6 +1,6 @@
-<h2>The workplace role I feel most comfortable with is:</h2>
+<h5>The workplace role I feel most comfortable with is:</h5>
 <br />
-<h3>Instructions</h3>
+<h6>Instructions</h6>
 <p>Choose two answers that are truest for you.</p>
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">

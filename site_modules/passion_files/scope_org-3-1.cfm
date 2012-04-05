@@ -1,7 +1,7 @@
 
-<h2>The organizational type I'm most comfortable in is:</h2>
+<h5>The organizational type I'm most comfortable in is:</h5>
 <br />
-<h3>Instructions</h3>
+<h6>Instructions</h6>
 <p>Choose one answer that is truest for you.</p>
 
 

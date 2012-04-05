@@ -1,7 +1,7 @@
 
-<h2>I feel most drawn to impact people with the following ethnicity:</h2>
+<h5>I feel most drawn to impact people with the following ethnicity:</h5>
 <br />
-<h3>Instructions</h3>
+<h6>Instructions</h6>
 <p>Select one that is truest for you.</p>
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">

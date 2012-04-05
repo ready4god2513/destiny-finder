@@ -1,5 +1,5 @@
-<h2>Business and Economics</h2>
-<h3>Instructions</h3>
+<h5>Business and Economics</h5>
+<h6>Instructions</h6>
 <p>Pick the two sub-spheres you are drawn to impact. Fill in your own answer if no other matches.</p>
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">

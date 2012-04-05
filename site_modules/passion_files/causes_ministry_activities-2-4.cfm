@@ -1,6 +1,6 @@
-<h2>I am most passionate about impacting others through the following ministry activities.</h2>
+<h5>I am most passionate about impacting others through the following ministry activities.</h5>
 <br />
-<h3>Instructions</h3>
+<h6>Instructions</h6>
 <p>Select two that are truest for you.</p>
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">

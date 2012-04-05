@@ -1,5 +1,5 @@
-<h2>I feel most passionate about the following societal causes:</h2>
-<h3>Instructions</h3>
+<h5>I feel most passionate about the following societal causes:</h5>
+<h6>Instructions</h6>
 <p>Select two that are truest for you.</p>
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">

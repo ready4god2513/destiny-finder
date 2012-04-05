@@ -60,8 +60,7 @@
 	<cffunction name="outputResults" output="true" return="void">
 		
 		<cfset var local = {} />
-		<cfset local.top_result = {name = "", counter = 0} />
-		<cfset local.secondary_result = {name = "", counter = 0} />
+		<cfset local.top_results = ArrayNew(1) />
 		<cfset local.gifts = {} />
 		
 		<cfquery name="local.results" datasource="#APPLICATION.DSN#">
@@ -71,20 +70,21 @@
 			AND assessment_id = 4
 		</cfquery>
 		
+		<cfoutput>
+			<h5>Introduction</h5>
+			<p>
+				The average scores for each of the supernatural orientations is shown along with the bar chart. 
+				The long text description is shown for the SOs with average scores of 3 or higher. 
+			</p>
+		</cfoutput>
+		
 		<cfloop query="local.results">
 			<cfset local.gifts = DeSerializeJSON(result_gift_count)>
 				
-			<!--- Get the top result --->
+			<!--- Get the top results (Anything over an average of 3) --->
 			<cfloop array="#local.gifts#" index="gift">
-				<cfif gift.counter GT local.top_result.counter>
-					<cfset local.top_result = {name = gift.name, counter = gift.counter}>
-				</cfif>
-			</cfloop>
-			
-			<!--- Get the secondary result --->
-			<cfloop array="#local.gifts#" index="gift">
-				<cfif gift.counter GT local.secondary_result.counter AND gift.name NEQ local.top_result.name>
-					<cfset local.secondary_result = {name = gift.name, counter = gift.counter}>
+				<cfif (gift.counter / 4) GTE 3>
+					<cfset ArrayAppend(local.top_results, gift.name)>
 				</cfif>
 			</cfloop>
 			
@@ -98,40 +98,28 @@
 					paintStyle="shade">
 
 					<cfloop array="#local.gifts#" index="gift">
-						<cfchartdata item="#gift.name#" value="#gift.counter#">
+						<cfchartdata item="#gift.name#" value="#(gift.counter / 4)#">
 					</cfloop>
 				</cfchartseries>
 			</cfchart>
 		</cfloop>
 		
-		<cfquery name="local.gifts" datasource="#APPLICATION.DSN#">
-			SELECT TOP 1 *
-			FROM gifts
-			WHERE gift_name = <cfqueryparam cfsqltype="cf_sql_varchar" value="#local.top_result.name#">
-		</cfquery>
+		<cfif ArrayLen(local.top_results) GT 0>
+			<cfquery name="local.gifts" datasource="#APPLICATION.DSN#">
+				SELECT *
+				FROM gifts
+				WHERE gift_name IN (<cfqueryparam cfsqltype="cf_sql_varchar" value="#ArrayToList(local.top_results)#" list="true">)
+			</cfquery>
+
+			<cfoutput>
+				<cfloop query="local.gifts">
+					<div class="short_desc">
+						#gift_primary#<hr />
+					</div>
+				</cfloop>
+			</cfoutput>
+		</cfif>
 		
-		<cfoutput>
-			<cfloop query="local.gifts">
-				<div class="short_desc">
-					#gift_primary#<hr />
-				</div>
-			</cfloop>
-		</cfoutput>
-		
-		
-		<cfquery name="local.gifts" datasource="#APPLICATION.DSN#">
-			SELECT TOP 1 *
-			FROM gifts
-			WHERE gift_name = <cfqueryparam cfsqltype="cf_sql_varchar" value="#local.secondary_result.name#">
-		</cfquery>
-		
-		<cfoutput>
-			<cfloop query="local.gifts">
-				<div class="short_desc">
-					#gift_primary#
-				</div>
-			</cfloop>
-		</cfoutput>
 	</cffunction>
 	
 	

@@ -21,8 +21,8 @@
 </p>
 
 
-<h2>Sphere</h2>
-<h3>Instructions</h3>
+<h5>Sphere</h5>
+<h6>Instructions</h6>
 <p>Pick the one sphere you're drawn to impact.  Only use undecided if you're really not sure.</p>
 <form name="form" action="act_passion_survey.cfm" class="survey-form" method="post">
 	<div class="controls">

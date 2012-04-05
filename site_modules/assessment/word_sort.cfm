@@ -83,13 +83,13 @@
             </p>
 		</cfif>
         
-        <h2>
+        <h5>
 			<cfif vIsInvite EQ 1>
 				#HTMLEditFormat(qSort.sort_name_alt)#
 			<cfelse>
 				#HTMLEditFormat(qSort.sort_name)#
 			</cfif>
-		</h2>
+		</h5>
 		<form action="/site_modules/assessment/act_word_sort.cfm" method="post" id="sort_form_#HTMLEditFormat(val(ATTRIBUTES.sort_id))#">
 			
              <!--- MANAGE CONVERSION OF SORTABLE CLICK AND DRAG QUESTIONS TO SIMPLE RADIO BUTTON FUNCTIONALITY AS NEEDED--->

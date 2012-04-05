@@ -1,8 +1,8 @@
 
-<h2>Culture and Lifestyle</h2>
+<h5>Culture and Lifestyle</h5>
 <br />
 
-<h3>Instructions</h3>
+<h6>Instructions</h6>
 <p>Pick the two sub-spheres you are drawn to impact. Only use undecided if You're really not sure.</p>
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
