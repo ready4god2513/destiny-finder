@@ -27,25 +27,25 @@
 				<div class="control-group">
 					<label class="control-label">#name[2]#</label>
 					<div class="controls">
-						<label class="radio">
+						<label class="radio inline">
 							<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 4)#" checked="checked" />
-							4 (Very Often)
+							Very Often
 						</label>
-						<label class="radio">
+						<label class="radio inline">
 							<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 3)#" />
-							3 (Often)
+							Often
 						</label>
-						<label class="radio">
+						<label class="radio inline">
 							<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 2)#" />
-							2 (Sometimes)
+							Sometimes
 						</label>
-						<label class="radio">
+						<label class="radio inline">
 							<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 1)#" />
-							1 (Occasionally)
+							Rarely
 						</label>
-						<label class="radio">
+						<label class="radio inline">
 							<input type="radio" name="#name[1]#" value="#(FORM[name[1]])#" />
-							0 (Never)
+							Never
 						</label>
 					</div>
 				</div>

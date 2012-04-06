@@ -70,8 +70,19 @@
 			AND assessment_id = 4
 		</cfquery>
 		
+		<div class="row">
+			<div class="span7">
+				<h2>Supernatural Survey Results - #dateformat(local.results.last_modified,'mmm dd, yyyy')#</h2>
+			</div>
+			<div class="pull-right">
+				<cfif not isDefined("URL.pdf")>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+				</cfif>
+			</div>
+		</div>
+		
 		<cfoutput>
-			<h5>Introduction</h5>
+			<h3>Introduction</h3>
 			<p>
 				The average scores for each of the supernatural orientations is shown along with the bar chart. 
 				The long text description is shown for the SOs with average scores of 3 or higher. 
@@ -87,38 +98,38 @@
 					<cfset ArrayAppend(local.top_results, gift.name)>
 				</cfif>
 			</cfloop>
-			
-			<!--- Show a chart with the user's overall scores --->
-			<cfchart
-				chartWidth="600"
-				format="flash">
-				<cfchartseries
-					type="bar"
-					serieslabel="Survey Results Breakdown"
-					paintStyle="shade">
-
-					<cfloop array="#local.gifts#" index="gift">
-						<cfchartdata item="#gift.name#" value="#(gift.counter / 4)#">
-					</cfloop>
-				</cfchartseries>
-			</cfchart>
 		</cfloop>
 		
 		<cfif ArrayLen(local.top_results) GT 0>
-			<cfquery name="local.gifts" datasource="#APPLICATION.DSN#">
+			<cfquery name="local.qGifts" datasource="#APPLICATION.DSN#">
 				SELECT *
 				FROM gifts
 				WHERE gift_name IN (<cfqueryparam cfsqltype="cf_sql_varchar" value="#ArrayToList(local.top_results)#" list="true">)
 			</cfquery>
 
 			<cfoutput>
-				<cfloop query="local.gifts">
+				<cfloop query="local.qGifts">
 					<div class="short_desc">
 						#gift_primary#<hr />
 					</div>
 				</cfloop>
 			</cfoutput>
 		</cfif>
+		
+		<!--- Show a chart with the user's overall scores --->
+		<cfchart
+			chartWidth="600"
+			format="flash">
+			<cfchartseries
+				type="bar"
+				serieslabel="Survey Results Breakdown"
+				paintStyle="shade">
+
+				<cfloop array="#local.gifts#" index="gift">
+					<cfchartdata item="#gift.name#" value="#(gift.counter / 4)#">
+				</cfloop>
+			</cfchartseries>
+		</cfchart>
 		
 	</cffunction>
 	
