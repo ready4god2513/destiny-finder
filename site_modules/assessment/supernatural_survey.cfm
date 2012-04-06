@@ -18,6 +18,8 @@
 
 	<form action="<cfoutput>#action#</cfoutput>" class="survey-form" method="post">
 		<cfinclude template="../supernatural_survey/questions/#URL.question#.cfm" />
+		
+		<cfset CreateObject("java", "java.util.Collections").Shuffle(types) />
 	
 		<cfloop array="#types#" index="name">
 			<cfparam name="FORM['#name[1]#']" default="0">

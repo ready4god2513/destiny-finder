@@ -4059,6 +4059,12 @@ header#top nav ul li:last-child a {
 .content #main table#users-surveys td {
   padding-left: 20px !important;
 }
+.content #main .assessment_item h5 {
+  font-size: 16px;
+}
+.content #main .assessment_item label {
+  text-align: left;
+}
 .content .single-product .product-image {
   overflow: hidden;
 }
