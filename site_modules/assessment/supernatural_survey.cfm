@@ -28,7 +28,7 @@
 					<label class="control-label">#name[2]#</label>
 					<div class="controls">
 						<label class="radio inline">
-							<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 4)#" checked="checked" />
+							<input type="radio" name="#name[1]#" value="#(FORM[name[1]] + 4)#" />
 							Very Often
 						</label>
 						<label class="radio inline">
@@ -44,7 +44,7 @@
 							Rarely
 						</label>
 						<label class="radio inline">
-							<input type="radio" name="#name[1]#" value="#(FORM[name[1]])#" />
+							<input type="radio" name="#name[1]#" value="#(FORM[name[1]])#" checked="checked" />
 							Never
 						</label>
 					</div>

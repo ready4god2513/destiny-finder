@@ -89,6 +89,8 @@
 			</p>
 		</cfoutput>
 		
+		
+		
 		<cfloop query="local.results">
 			<cfset local.gifts = DeSerializeJSON(result_gift_count)>
 				
@@ -99,6 +101,24 @@
 				</cfif>
 			</cfloop>
 		</cfloop>
+		
+		<!--- Display the average of each gift --->
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+				<tr>
+					<th>Gift</th>
+					<th>Average</th>
+				</tr>
+			</thead>
+			<tbody>
+				<cfloop array="#local.gifts#" index="gift">
+					<tr>
+						<td><cfoutput>#gift.name#</cfoutput></td>
+						<td><cfoutput>#(gift.counter / 4)#</cfoutput></td>
+					</tr>
+				</cfloop>
+			</tbody>
+		</table>
 		
 		<cfif ArrayLen(local.top_results) GT 0>
 			<cfquery name="local.qGifts" datasource="#APPLICATION.DSN#">

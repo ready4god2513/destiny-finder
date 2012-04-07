@@ -22,7 +22,7 @@
 	<li>4 = very often</li>
 	<li>3 = often</li>
 	<li>2 = sometimes</li>
-	<li>1 = once in a while</li>
+	<li>1 = rarely</li>
 	<li>0 = never</li>
 </ul>
 
