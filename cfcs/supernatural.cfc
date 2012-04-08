@@ -12,7 +12,7 @@
 	</cffunction>
 	
 	
-	<cffunction name="insertRecord" output="false" return="void">
+	<cffunction name="insertRecord" output="false" returnType="void">
 		<cfargument name="items" type="struct" required="true" />
 		
 		<cfset var local = {} />
@@ -35,7 +35,20 @@
 	</cffunction>
 	
 	
-	<cffunction name="calculateResults" output="false" return="string">
+	<cffunction name="sortResults" output="false" returnType="array">
+		<cfset var local = {} />
+		<cfset local.results = DeSerializeJSON(this.retrieveResults().result_gift_count) />
+		<cfset local.sorted = ArrayNew(1) />
+		
+		<cfloop array="#local.results#" index="i">
+			
+		</cfloop>
+		
+		<cfreturn local.sorted />
+	</cffunction>
+	
+	
+	<cffunction name="calculateResults" output="false" returnType="string">
 		<cfargument name="items" type="struct" required="true" />
 		
 		<cfset var local = {} />
@@ -57,18 +70,26 @@
 	</cffunction>
 	
 	
-	<cffunction name="outputResults" output="true" return="void">
-		
+	<cffunction name="retrieveResults" output="false" returnType="query">
 		<cfset var local = {} />
-		<cfset local.top_results = ArrayNew(1) />
-		<cfset local.gifts = {} />
-		
 		<cfquery name="local.results" datasource="#APPLICATION.DSN#">
 			SELECT TOP 1 *
 			FROM results
 			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#variables.user_id#">
 			AND assessment_id = 4
 		</cfquery>
+		
+		<cfreturn local.results />
+	</cffunction>
+	
+	
+	<cffunction name="outputResults" output="true" returnType="void">
+		
+		<cfset var local = {} />
+		<cfset local.top_results = ArrayNew(1) />
+		<cfset local.gifts = {} />
+		<cfset local.results = this.retrieveResults() />
+		
 		
 		<div class="row">
 			<div class="span7">

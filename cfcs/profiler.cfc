@@ -55,6 +55,7 @@
 			</ol>
 			
 			<h3>Supernatural Orientations</h3>
+			<cfset local.supernaturalSurveyObj.sortResults() />
 			<ol>
 				<li>Primary Supernatural Orientation - </li>
 				<li>Secondary Supernatural Orientation - </li>
