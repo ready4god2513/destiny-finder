@@ -3968,13 +3968,9 @@ header#top nav ul li:last-child a {
   padding: 1px 0px 0px 1px;
   background: url(/assets/images/progbar_bg.png) no-repeat;
 }
-#try-it-free-home {
+#free-banner-home {
   position: relative;
-  left: 5px;
   z-index: 100;
-}
-#try-it-free-home img {
-  width: 340px;
 }
 #rotating-banner {
   background: url(/assets/images/rotating-banner.png) top left no-repeat;

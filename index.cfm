@@ -31,12 +31,10 @@ ORDER BY gateway_sortorder ASC
 		</div>
 		<div id="cycle-nav"></div>
 	</div>
-	<div class="pull-right">
-		<div id="try-it-free-home">
-			<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">
-				<img src="/assets/images/free-trial-home-banner.png" />
-			</a>
-		</div>
+	<div id="free-banner-home" class="span6 pull-right">
+		<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">
+			<img src="/assets/images/free-trial-home-banner.png" />
+		</a>
 	</div>
 </div>
 
