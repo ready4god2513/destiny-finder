@@ -20,10 +20,24 @@
 		<cfset local.delightSurvey = CreateObject("component","cfcs.delight") />
 		<cfset local.passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
 		<cfset local.supernaturalSurveyObj = CreateObject("component","cfcs.supernatural").init(user_id = REQUEST.user_id) />
+		<cfset local.delightSurvey = CreateObject("component","cfcs.delight") />
+		<cfset local.delightResults = local.delightSurvey.getResults(user_id = variables.user_id) />
+		<cfset local.comparedResults = local.delightSurvey.compareResults(aptitudes = local.delightResults.aptitudes, delights = local.delightResults.delights) />
 		
 		<cfoutput>
-			<h2>Destiny Profiler Summary</h2>
-			<h6>#local.queries.username(variables.user_id)# - #DateFormat(now(), "mmmm d, yyyy")#</h6>
+			<div class="row">
+				<div class="span7">
+					<h2>Destiny Profiler Summary</h2>
+					<h6>#local.queries.username(variables.user_id)# - #DateFormat(now(), "mmmm d, yyyy")#</h6>
+				</div>
+				
+				<cfif not isDefined("URL.pdf")>
+					<div class="pull-right">
+						<a href="/profiler/summary.cfm?pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+					</div>
+				</cfif>
+			</div>
+			
 			
 			<h4>Introduction</h4>
 			<p>
@@ -55,17 +69,28 @@
 			</ol>
 			
 			<h3>Supernatural Orientations</h3>
-			<cfset local.supernaturalSurveyObj.sortResults() />
+			<cfset local.survey_results = local.supernaturalSurveyObj.sortResults() />
 			<ol>
-				<li>Primary Supernatural Orientation - </li>
-				<li>Secondary Supernatural Orientation - </li>
-				<li>Tertiary Supernatural Orientation - </li>
+				<li>Primary Supernatural Orientation - #local.survey_results[1].name#</li>
+				<li>Secondary Supernatural Orientation - #local.survey_results[2].name#</li>
+				<li>Tertiary Supernatural Orientation - #local.survey_results[3].name#</li>
 			</ol>
 			
 			#local.passionSurveyObj.calculateResults()#
 			
 			<h3>Aptitude-Delight Matches</h3>
 			<h6>Top aptitude and delight matches</h6>
+			<cfif ArrayLen(local.comparedResults) GT 0>
+				<ol>
+					<cfloop array="#local.comparedResults#" index="i">
+						<li><cfoutput>#i#</cfoutput></li>
+					</cfloop>
+				</ol>
+			<cfelse>
+				<p>
+					Unfortunately We didn't find any matches for your aptitudes and delights.
+				</p>
+			</cfif>
 			
 			<h4>Next Steps</h4>
 			<p>Congratulations! You've taken a major step forward on your destiny journey. You can print the summary</p>

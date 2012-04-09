@@ -37,14 +37,30 @@
 	
 	<cffunction name="sortResults" output="false" returnType="array">
 		<cfset var local = {} />
+		<cfset var sorted_to_query = "" />
 		<cfset local.results = DeSerializeJSON(this.retrieveResults().result_gift_count) />
-		<cfset local.sorted = ArrayNew(1) />
 		
-		<cfloop array="#local.results#" index="i">
-			
+		<!--- convert array to CF query --->
+		<cfset sorted_to_query = QueryNew("name, counter") />
+		<cfloop array="#local.results#" index="result">
+			<cfset local.newRow = QueryAddRow(sorted_to_query) />
+			<cfset QuerySetCell(sorted_to_query, "name", result.name) />
+			<cfset QuerySetCell(sorted_to_query, "counter", result.counter) />
 		</cfloop>
 		
-		<cfreturn local.sorted />
+		<cfquery name="local.sorted" dbtype="query">
+			SELECT *
+			FROM sorted_to_query
+			ORDER BY counter DESC
+		</cfquery>
+		
+		<cfset local.sorted_array = ArrayNew(1)>
+		<cfloop query="local.sorted">
+			<cfset local.temp = {name = name, counter = counter}>
+			<cfset ArrayAppend(local.sorted_array, local.temp)>
+		</cfloop>
+		
+		<cfreturn local.sorted_array />
 	</cffunction>
 	
 	

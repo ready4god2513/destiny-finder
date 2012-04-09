@@ -24,6 +24,6 @@
 	
 <cfelse>
 	<p>
-		We didn't find any matches... Needs verbiage from Michael, Tony, and Glen.
+		Unfortunately We didn't find any matches for your aptitudes and delights.
 	</p>
 </cfif>
