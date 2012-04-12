@@ -1,7 +1,5 @@
-<h5>The workplace role I feel most comfortable with is:</h5>
-<br />
-<h6>Instructions</h6>
-<p>Choose two answers that are truest for you.</p>
+<h5>14. The workplace role I feel most comfortable with is:</h5>
+<cfinclude template="instructions.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
@@ -10,9 +8,10 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Administrator or Facilitator">Administrator or Facilitator</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Manager or Director">Manager or Director</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Associate Leader">Associate Leader</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Primary Leader">Primary Leader</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Primary Leader">Primary Leader (president, CEO, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Regional Leader">Regional Leader</label>
-			<label class="checkbox"><input type="text" name="role_workplace" placeholder="Other workplace role"/></label>
+			<label class="checkbox"><input type="text" name="role_workplace" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="undecided">Undecided</label>
 		</div>
 	</div>
 	<!---CLIP #1--->

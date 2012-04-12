@@ -42,7 +42,7 @@
 			<cfif delightSurvey.getResults(user_id = REQUEST.user_id).recordcount GT 0>
 				<cfset VARIABLES.delightComplete = 1>
 			</cfif>
-			<cfset surveyNotTaken = false />
+			<cfset allSurveysTaken = true />
 			
 		
 			<table id="users-surveys" class="table table-condensed">
@@ -64,7 +64,7 @@
 				            	<td><a class="btn btn-success" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Retake</a></td>	
 								<td><a class="btn btn-primary" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Result</a></td>
 							<cfelse>
-								<cfset surveyNotTaken = true />
+								<cfset allSurveysTaken = false />
 				            	<td colspan="2"><a class="btn btn-success" href="/profile/?page=assessment&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Take Survey</a></td>	
 							</cfif>
 						<cfelse>
@@ -79,9 +79,11 @@
 						</tr>
 					</cfif>
 			    </cfloop>
-				<tr>
-					<th colspan="3"><a href="/profiler/summary.cfm" class="btn btn-small">View Profile Summary Report</a></th>
-				</tr>
+				<cfif allSurveysTaken>
+					<tr>
+						<th colspan="3"><a href="/profiler/summary.cfm" class="btn btn-small">View Profile Summary Report</a></th>
+					</tr>
+				</cfif>
 			</table>
 		</div>
 	</cfoutput>

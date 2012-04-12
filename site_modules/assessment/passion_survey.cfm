@@ -7,11 +7,17 @@
 	<cfset VARIABLES.passion_file = ListGetAt(vHiddenList,2) & '.cfm'>
 	<cfset VARIABLES.vCount = ListGetAt(vHiddenList,1)>
 <cfelse>
-    <cfset VARIABLES.passion_file="sphere-1.cfm">
-    <cfset VARIABLES.vCount=1>
-	
-	<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
-	<cfset passionSurvey = passionSurveyObj.beginSurvey()>
+	<cfif isDefined("URL.begin")>
+		<cfset VARIABLES.passion_file="sphere-1.cfm">
+	    <cfset VARIABLES.vCount=1>
+
+		<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
+		<cfset passionSurvey = passionSurveyObj.beginSurvey()>
+	<cfelse>
+		<cfset VARIABLES.passion_file="intro.cfm">
+		<cfset VARIABLES.vCount = 0>
+		<cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
+	</cfif>
 </cfif>
 
 <cfparam name="ATTRIBUTES.sort_id" default="#VARIABLES.vCount#">
@@ -27,11 +33,13 @@
 	</div>
 </cfoutput>
 
-<cfset progbar = (VARIABLES.vCount / 25) * 100>
-<div class="percent_complete_label"><cfoutput>#NumberFormat(progbar, 99)#</cfoutput>% of survey completed</div>
-<div class="progress progress-info progress-striped active">
-	<div class="bar" style="width: <cfoutput>#progbar#</cfoutput>%;"></div>
-</div>
+<cfif VARIABLES.vCount GT 0>
+	<cfset progbar = (VARIABLES.vCount / 25) * 100>
+	<div class="percent_complete_label"><cfoutput>#NumberFormat(progbar, 99)#</cfoutput>% of survey completed</div>
+	<div class="progress progress-info progress-striped active">
+		<div class="bar" style="width: <cfoutput>#progbar#</cfoutput>%;"></div>
+	</div>
+</cfif>
 
 <script>
 	$(function(){

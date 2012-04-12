@@ -1,17 +1,16 @@
-
-<h5>Government, Legal and Non-Profit</h5>
-<br />
-<h6>Instructions</h6>
-<p>Pick the two sub-spheres you are drawn to impact. Only use undecided if You're really not sure.</p>
+<h5>2. Government, Legal and Non-Profit</h5>
+<cfinclude template="instructions.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
 		<div class="inputs-list">
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Political Office and Campaigning">Political Office and Campaigning</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Military Service">Military Service</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Civil Service">Civil Service</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Law Enforcement">Law Enforcement</label>
-			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other impact sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Political Office and Campaigning">Political Office (elected office, from city council to US President, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Military Service">Military Service (including reserves, Coast Guard, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Civil Service">Civil Service (including local, state and federal government; government transportation and infrastructure, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Justice System, Law Enforcement & Fire/Rescue ">Justice System, Law Enforcement & Fire/Rescue (including, police, attorneys, judicial, firefighters, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Non-Profit">Non-Profit (including non-governmental organizations, foundations, Red Cross, GreenPeace, etc.)</label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>
 

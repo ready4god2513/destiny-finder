@@ -148,19 +148,21 @@
 				I'm drawn to help people who are afflicted with <strong>#this.getAnswer("causes_human")#</strong>.
 			</p>
 			<p>
-				I really enjoy being involved in <strong>#this.getAnswer("causes_ministries")#</strong> 
-				types of ministries. I am most passionate 
-				about bringing kingdom impact through <strong>#this.getAnswer("causes_ministry_activities")#</strong>.
+				I am most passionate serving others inside my church or group through  <strong>#this.getAnswer("causes_ministries")#</strong> 
+				ministries. I am most passionate about bringing kingdom impact to those outside my church or group through <strong>#this.getAnswer("causes_ministry_activities")#</strong> activities.
 			</p>
 			<p>
 				I feel the most fulfilled when communicating with others through 
 				<strong>#this.getAnswer("causes_communication")#</strong>, and I feel most alive when expressing 
-				myself through artistic and creative expressions of <strong>#this.getAnswer("causes_expressing")#</strong>. 
-				My heart direction is mostly <strong>#this.getAnswer("causes_heart")#</strong>.
+				myself through creative expressions of <strong>#this.getAnswer("causes_expressing")#</strong>. 
+			</p>
+			<p>
+				My heart direction is mostly <strong>#this.getAnswer("causes_heart")#</strong> and I connect with God the most through
+				<strong>#this.getAnswer("connect_god")#</strong>
 			</p>
 			<p>
 				I'm most comfortable in a <strong>#this.getAnswer("scope_org")#</strong> 
-				type of organization, and the size of group I prefer to work with is 
+				type of organization, and the size of group I am most comfortable working with is 
 				<strong>#this.getAnswer("scope_group")#</strong>. In my church or ministry commitment, 
 				I feel most comfortable serving as a <strong>#this.getAnswer("role_church")#</strong>.
 			</p>

@@ -1,18 +1,18 @@
-<h5>Business and Economics</h5>
-<h6>Instructions</h6>
-<p>Pick the two sub-spheres you are drawn to impact. Fill in your own answer if no other matches.</p>
+<h5>2. Business and Economics</h5>
+<cfinclude template="instructions.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	
 	<div class="control-group">
 		<div class="inputs-list">
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Finance, Investment, Insurance and Realestate">Finance, Investment, Insurance and Real estate</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Science, Technology, Energy and R&amp;D">Science, Technology, Energy and R&amp;D</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Manufacturing, Distribuation and Service">Manufacturing, Distribution and Service</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Trades, Transportation, and Technical Services">Trades, Transportation, and Technical Services</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Tourism, Travel, Hospitatily and Culinary">Tourism, Travel, Hospitality and Culinary</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Sales, Marketing and Advertising">Sales, Marketing and Advertising</label>
-			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other impact sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Basic Foods &amp; Raw Materials">Basic Foods & Raw Materials (including agriculture, fishing, forestry, mining, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Manufacturing &amp; Construction">Manufacturing & Construction (including processing, chemical, engineering, energy, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Retail, Wholesale & Service">Retail, Wholesale & Service (including restaurants, clerical, trades, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Transportation & Distribution">Transportation & Distribution (including tourism, travel, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Financial Services & Real Estate">Financial Services & Real Estate (including banking, insurance, etc.)</label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Science & Technology">Science & Technology (including R&D, information technology, communications, etc.)</label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>
 	

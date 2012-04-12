@@ -1,14 +1,12 @@
-
 <h5>I feel most drawn to impact the following country or region</h5>
-<br />
-<h6>Instructions</h6>
-<p>Select one that is truest for you.</p>
+<cfinclude template="instructions.cfm">
+
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="control-group">		<div class="controls">
 			<select name="impact_region">
 				<optgroup label="Select a Country">
-					<option value="United States">United States</option>
-					<option value="United Kingdom">United Kingdom</option>
+					<option value="the United States">the United States</option>
+					<option value="the United Kingdom">United Kingdom</option>
 					<option value="Afghanistan">Afghanistan</option>
 					<option value="Albania">Albania</option>
 					<option value="Algeria">Algeria</option>
@@ -48,18 +46,18 @@
 					<option value="Cameroon">Cameroon</option>
 					<option value="Canada">Canada</option>
 					<option value="Cape Verde">Cape Verde</option>
-					<option value="Cayman Islands">Cayman Islands</option>
+					<option value="Cayman Islands">the Cayman Islands</option>
 					<option value="Central African Republic">Central African Republic</option>
 					<option value="Chad">Chad</option>
 					<option value="Chile">Chile</option>
 					<option value="China">China</option>
 					<option value="Christmas Island">Christmas Island</option>
-					<option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+					<option value="Cocos (Keeling) Islands">the Cocos (Keeling) Islands</option>
 					<option value="Colombia">Colombia</option>
 					<option value="Comoros">Comoros</option>
 					<option value="Congo">Congo</option>
 					<option value="Congo, The Democratic Republic of The">Congo, The Democratic Republic of The</option>
-					<option value="Cook Islands">Cook Islands</option>
+					<option value="Cook Islands">the Cook Islands</option>
 					<option value="Costa Rica">Costa Rica</option>
 					<option value="Cote D'ivoire">Cote D'ivoire</option>
 					<option value="Croatia">Croatia</option>
@@ -77,7 +75,7 @@
 					<option value="Eritrea">Eritrea</option>
 					<option value="Estonia">Estonia</option>
 					<option value="Ethiopia">Ethiopia</option>
-					<option value="Falkland Islands (Malvinas)">Falkland Islands (Malvinas)</option>
+					<option value="Falkland Islands (Malvinas)">the Falkland Islands (Malvinas)</option>
 					<option value="Faroe Islands">Faroe Islands</option>
 					<option value="Fiji">Fiji</option>
 					<option value="Finland">Finland</option>
@@ -141,7 +139,7 @@
 					<option value="Maldives">Maldives</option>
 					<option value="Mali">Mali</option>
 					<option value="Malta">Malta</option>
-					<option value="Marshall Islands">Marshall Islands</option>
+					<option value="Marshall Islands">the Marshall Islands</option>
 					<option value="Martinique">Martinique</option>
 					<option value="Mauritania">Mauritania</option>
 					<option value="Mauritius">Mauritius</option>
@@ -158,8 +156,8 @@
 					<option value="Namibia">Namibia</option>
 					<option value="Nauru">Nauru</option>
 					<option value="Nepal">Nepal</option>
-					<option value="Netherlands">Netherlands</option>
-					<option value="Netherlands Antilles">Netherlands Antilles</option>
+					<option value="Netherlands">the Netherlands</option>
+					<option value="Netherlands Antilles">the Netherlands Antilles</option>
 					<option value="New Caledonia">New Caledonia</option>
 					<option value="New Zealand">New Zealand</option>
 					<option value="Nicaragua">Nicaragua</option>
@@ -167,7 +165,7 @@
 					<option value="Nigeria">Nigeria</option>
 					<option value="Niue">Niue</option>
 					<option value="Norfolk Island">Norfolk Island</option>
-					<option value="Northern Mariana Islands">Northern Mariana Islands</option>
+					<option value="Northern Mariana Islands">the Northern Mariana Islands</option>
 					<option value="Norway">Norway</option>
 					<option value="Oman">Oman</option>
 					<option value="Pakistan">Pakistan</option>
@@ -177,7 +175,7 @@
 					<option value="Papua New Guinea">Papua New Guinea</option>
 					<option value="Paraguay">Paraguay</option>
 					<option value="Peru">Peru</option>
-					<option value="Philippines">Philippines</option>
+					<option value="Philippines">the Philippines</option>
 					<option value="Pitcairn">Pitcairn</option>
 					<option value="Poland">Poland</option>
 					<option value="Portugal">Portugal</option>
@@ -185,7 +183,7 @@
 					<option value="Qatar">Qatar</option>
 					<option value="Reunion">Reunion</option>
 					<option value="Romania">Romania</option>
-					<option value="Russian Federation">Russian Federation</option>
+					<option value="Russian Federation">the Russian Federation</option>
 					<option value="Rwanda">Rwanda</option>
 					<option value="Saint Helena">Saint Helena</option>
 					<option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
@@ -198,12 +196,12 @@
 					<option value="Saudi Arabia">Saudi Arabia</option>
 					<option value="Senegal">Senegal</option>
 					<option value="Serbia and Montenegro">Serbia and Montenegro</option>
-					<option value="Seychelles">Seychelles</option>
+					<option value="Seychelles">the Seychelles</option>
 					<option value="Sierra Leone">Sierra Leone</option>
 					<option value="Singapore">Singapore</option>
 					<option value="Slovakia">Slovakia</option>
 					<option value="Slovenia">Slovenia</option>
-					<option value="Solomon Islands">Solomon Islands</option>
+					<option value="Solomon Islands">the Solomon Islands</option>
 					<option value="Somalia">Somalia</option>
 					<option value="South Africa">South Africa</option>
 					<option value="South Georgia and The South Sandwich Islands">South Georgia and The South Sandwich Islands</option>
@@ -232,22 +230,25 @@
 					<option value="Tuvalu">Tuvalu</option>
 					<option value="Uganda">Uganda</option>
 					<option value="Ukraine">Ukraine</option>
-					<option value="United Arab Emirates">United Arab Emirates</option>
-					<option value="United Kingdom">United Kingdom</option>
-					<option value="United States">United States</option>
-					<option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+					<option value="United Arab Emirates">the United Arab Emirates</option>
+					<option value="United Kingdom">the United Kingdom</option>
+					<option value="United States">the United States</option>
+					<option value="United States Minor Outlying Islands">the United States Minor Outlying Islands</option>
 					<option value="Uruguay">Uruguay</option>
 					<option value="Uzbekistan">Uzbekistan</option>
 					<option value="Vanuatu">Vanuatu</option>
 					<option value="Venezuela">Venezuela</option>
 					<option value="Viet Nam">Viet Nam</option>
-					<option value="Virgin Islands, British">Virgin Islands, British</option>
-					<option value="Virgin Islands, U.S.">Virgin Islands, U.S.</option>
+					<option value="Virgin Islands, British">the Virgin Islands, British</option>
+					<option value="Virgin Islands, U.S.">the Virgin Islands, U.S.</option>
 					<option value="Wallis and Futuna">Wallis and Futuna</option>
 					<option value="Western Sahara">Western Sahara</option>
 					<option value="Yemen">Yemen</option>
 					<option value="Zambia">Zambia</option>
 					<option value="Zimbabwe">Zimbabwe</option>
+					<option value="all">All</option>
+					<option value="other">Other</option>
+					<option value="undecided">Undecided</option>
 				</optgroup>
 			</select>
 		</div>

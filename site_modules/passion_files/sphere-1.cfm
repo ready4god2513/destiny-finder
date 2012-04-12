@@ -1,37 +1,30 @@
-<p>
-	Your passions are the key to what motivates you. We believe God has placed passions inside of you that define you. 
-	They are more than spiritual, mental, emotional or physical feelings or responses. They encompass all of that. 
-	Your passions become the hooks or goals that spur you on, that motivate you. If you can identify the passions that 
-	God has created inside of you, and distill them into something tangible, you'll have the most powerful motivating force imaginable.
-</p>
-<p>
-	Think about these kinds of questions: Why are you on this earth? What is in your heart to do or accomplish? What would 
-	you do even if you didn't get paid for it? Now it gets even more interesting. What is your passion? What makes you 
-	come alive? What are you willing to give your life for? What would you do for God if you knew you couldn't fail? Or 
-	put another way, "What would you do for God if there was no lack of money, resources or opportunities?" If there were 
-	no constraints, what would you do in life?
-</p>
-<p>
-	Here's a couple of examples: You have a desire to lead people to Christ through your music or rock and roll band. 
-	You want to help rescue young women from sex slavery. You want to start an internet business that generates wealth to 
-	use for inner city development. You want to raise kids that are world-changers and reach their friends too.
-</p>
-<p>
-	This survey will ask a lot of questions to help narrow down your thoughts about your passion, and develop a personal passion statement.
-</p>
-
-
 <h5>Sphere</h5>
+<p>
+	Although we are all called to be ministers, only a small percentage of us will ever make our living as full-time pastors or missionaries. 
+	The vast majority of us are called by God to serve Him in the other areas or "spheres" of society other than religion. 
+</p>
+<p>
+	We have identified five primary spheres that are outlined in the Book of Genesis. 
+	God created these five spheres of influence and embedded them in the human soul so that whenever 
+	we people gather in community, we they automatically begin to generate these five spheres realms. 
+	Within these spheres are dozens of other sub-spheres to which that you may be called to. For instance, 
+	the sphere of health and medicine and the sphere of education are not specifically mentioned. 
+	In our thinking, we place these two spheres of society health/medicine and education under the Family sphere as 
+	sub-spheres because these two realms areas are governed by the family or individual. In the same way, we don't 
+	specifically mention put law-enforcement or and military service here because they are within under the sphere realm of 
+	Government, Legal and Non-Profit.
+</p>
+<h5>1. What sphere are you most called to influence?</h5>
 <h6>Instructions</h6>
-<p>Pick the one sphere you're drawn to impact.  Only use undecided if you're really not sure.</p>
+<p>Select the ONE sphere you're most drawn to impact.</p>
 <form name="form" action="act_passion_survey.cfm" class="survey-form" method="post">
 	<div class="controls">
 		<div class="inputs-list">
-			<label class="radio"><input type="radio" name="sphere" value="Family and Individual">Family and Individual</label>
-			<label class="radio"><input type="radio" name="sphere" value="Culture and Lifestyle">Culture and Lifestyle</label>
-			<label class="radio"><input type="radio" name="sphere" value="Business and Economics">Business and Economics</label>
-			<label class="radio"><input type="radio" name="sphere" value="Government Legal and NonProfit">Government, Legal and Non-Profit</label>
-			<label class="radio"><input type="radio" name="sphere" value="Religion and Spirituality">Religion and Spirituality</label>
+			<label class="radio"><input type="radio" name="sphere" value="Family and Individual">Family and Individual (Family, Education, Health and Wellness, Therapy and Social Work, Senior Care)</label>
+			<label class="radio"><input type="radio" name="sphere" value="Culture and Lifestyle">Culture and Lifestyle (Cultural Expression, Entertainment, Sports and Games, Performing and Visual Arts, Traditional Media, Digital Media)</label>
+			<label class="radio"><input type="radio" name="sphere" value="Business and Economics">Business and Economics (Financial Services, & Real estate; Science & Technology, Energy; Manufacturing & Distribution; Transportation, Tourism & Travel; Agriculture, Food & Beverage, Retail & Service)</label>
+			<label class="radio"><input type="radio" name="sphere" value="Government Legal and NonProfit">Government, Legal and Non-Profit (Political Office, Military Service, Civil Service, Justice System/ Law Enforcement and Fire/Rescue, Non-Profit)</label>
+			<label class="radio"><input type="radio" name="sphere" value="Religion and Spirituality">Religion and Spirituality (Administration, Education and Training, Church Leadership, Non-Profit Organizations, Para-church Ministry, Outreach and Missions)</label>
 		</div>
 	</div>
 
