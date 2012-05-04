@@ -20,7 +20,7 @@
 <cfelse>
 	<cfoutput>
 		<cfif isDefined("URL.pdf")>
-			<cfheader name="Content-Disposition" value="attachment; filename=Survey-Results.pdf">
+			<cfheader name="Content-Disposition" value="attachment; filename=#objAssessments.getAssessment(URL.assessment_id).assessment_name#.pdf">
 			<cfdocument
 				format="pdf">
 

@@ -124,7 +124,7 @@
             	<input type="hidden" name="surveydone" value="1" />
             </cfif>
 			<input type="hidden" name="page" value="#HTMLEditFormat(ATTRIBUTES.page)#" />
-            <input class="btn primary" type="submit" name="submit" value="<cfif qcount LT qItems.recordcount>Next Step<cfelse>Show Results</cfif>" />
+            <input class="btn btn-primary" type="submit" name="submit" value="<cfif qcount LT qItems.recordcount>Next Step<cfelse>Show Results</cfif>" />
 		</form>
 <br class="clear"/>
 		<cfset progbar = (ATTRIBUTES.qcount / qItems.recordcount) * 100>

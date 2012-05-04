@@ -188,6 +188,15 @@
 			</cfchartseries>
 		</cfchart>
 		
+		
+		<div class="row">
+			<div class="pull-right">
+				<cfif not isDefined("URL.pdf")>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(URL.assessment_id)#&amp;gift_type_id=#val(URL.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+				</cfif>
+			</div>
+		</div>
+		
 	</cffunction>
 	
 	
