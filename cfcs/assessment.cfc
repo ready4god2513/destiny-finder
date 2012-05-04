@@ -497,7 +497,7 @@
 			<div class="span7">Survey Result - #HTMLEditFormat(local.qUser.user_first_name)# #HTMLEditFormat(local.qUser.user_last_name)# #dateformat(local.qResult.last_modified,'mmm dd, yyyy')#</div>
 			<div class="pull-right">
 				<cfif not isDefined("URL.pdf")>
-					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(arguments.assessment_id)#&amp;gift_type_id=#val(arguments.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(arguments.assessment_id)#&amp;gift_type_id=#val(arguments.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print Results (PDF)</a>
 				</cfif>
 			</div>
 		</div>
@@ -519,7 +519,7 @@
 		    	<div class="short_desc">#local.qGetClosing.assessment_closing_text#</div>
 
 				<cfif not isDefined("URL.pdf")>
-					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(arguments.assessment_id)#&amp;gift_type_id=#val(arguments.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(arguments.assessment_id)#&amp;gift_type_id=#val(arguments.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print Results (PDF)</a>
 				</cfif>
 		    </cfif>
 		</cfif>
