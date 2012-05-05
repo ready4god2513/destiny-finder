@@ -35,7 +35,7 @@
 	</cffunction>
 	
 	
-	<cffunction name="sortResults" output="false" returnType="array">
+	<cffunction name="sortResults" output="false" returnType="query">
 		<cfset var local = {} />
 		<cfset var sorted_to_query = "" />
 		<cfset local.results = DeSerializeJSON(this.retrieveResults().result_gift_count) />
@@ -54,6 +54,7 @@
 			ORDER BY counter DESC
 		</cfquery>
 		
+		<cfreturn local.sorted>
 		<cfset local.sorted_array = ArrayNew(1)>
 		<cfloop query="local.sorted">
 			<cfset local.temp = {name = name, counter = counter}>
@@ -105,11 +106,13 @@
 		<cfset local.top_results = ArrayNew(1) />
 		<cfset local.gifts = {} />
 		<cfset local.results = this.retrieveResults() />
-		
+		<cfset local.queries = CreateObject("component", "cfcs.queries")>
+		<cfset local.user = local.queries.user_detail(user_id = variables.user_id)>
 		
 		<div class="row">
 			<div class="span7">
-				<h2>Supernatural Survey Results - #dateformat(local.results.last_modified,'mmm dd, yyyy')#</h2>
+				<h1>Supernatural Survey Results</h1>
+				<h2>#HTMLEditFormat(local.user.user_first_name)# #HTMLEditFormat(local.user.user_last_name)# - #dateformat(local.results.last_modified,'mmm dd, yyyy')#</h2>
 			</div>
 			<div class="pull-right">
 				<cfif not isDefined("URL.pdf")>
@@ -127,16 +130,12 @@
 		</cfoutput>
 		
 		
-		
+		<cfset local.results = this.sortResults()>
 		<cfloop query="local.results">
-			<cfset local.gifts = DeSerializeJSON(result_gift_count)>
-				
 			<!--- Get the top results (Anything over an average of 3) --->
-			<cfloop array="#local.gifts#" index="gift">
-				<cfif (gift.counter / 4) GTE 3>
-					<cfset ArrayAppend(local.top_results, gift.name)>
-				</cfif>
-			</cfloop>
+			<cfif (counter / 4) GTE 3>
+				<cfset ArrayAppend(local.top_results, name)>
+			</cfif>
 		</cfloop>
 		
 		<!--- Display the average of each gift --->
@@ -148,10 +147,10 @@
 				</tr>
 			</thead>
 			<tbody>
-				<cfloop array="#local.gifts#" index="gift">
+				<cfloop query="local.results">
 					<tr>
-						<td><cfoutput>#gift.name#</cfoutput></td>
-						<td><cfoutput>#(gift.counter / 4)#</cfoutput></td>
+						<td><cfoutput>#name#</cfoutput></td>
+						<td><cfoutput>#(counter / 4)#</cfoutput></td>
 					</tr>
 				</cfloop>
 			</tbody>
@@ -182,8 +181,8 @@
 				serieslabel="Survey Results Breakdown"
 				paintStyle="shade">
 
-				<cfloop array="#local.gifts#" index="gift">
-					<cfchartdata item="#gift.name#" value="#(gift.counter / 4)#">
+				<cfloop query="local.results">
+					<cfchartdata item="#name#" value="#(counter / 4)#">
 				</cfloop>
 			</cfchartseries>
 		</cfchart>
