@@ -51,16 +51,7 @@
 		<cfargument name="aptitudes" type="string" required="true" />
 		<cfargument name="delights" type="string" required="true" />
 		
-		<cfset var local = {} />
-		<cfset local.matches = ArrayNew(1) />
-		
-		<cfloop list="#ARGUMENTS.aptitudes#" index="i">
-			<cfif ListFindNoCase(ARGUMENTS.delights, i)>
-				<cfset ArrayAppend(local.matches, i)>
-			</cfif>
-		</cfloop>
-		
-		<cfreturn local.matches />
+		<cfreturn ListToArray(arguments.delights) />
 	</cffunction>
 	
 </cfcomponent>

@@ -49,7 +49,7 @@
 
 	
 	<cfset APPLICATION.webadmin_email = "brandonh@ibethel.org">
-	<cfset APPLICATION.webadmin_ip = "75.140.117.108|68.229.193.96|75.140.100.15|68.189.112.146|71.94.35.210">
+	<cfset APPLICATION.webadmin_ip = "75.140.117.108|68.229.193.96|75.140.100.15|68.189.112.146|71.94.35.210|68.186.45.78">
 
 		
 	<!--- Run when application starts up --->
