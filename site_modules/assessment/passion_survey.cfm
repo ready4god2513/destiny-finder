@@ -34,8 +34,8 @@
 </cfoutput>
 
 <cfif VARIABLES.vCount GT 0>
-	<cfset progbar = (VARIABLES.vCount / 25) * 100>
-	<div class="percent_complete_label"><cfoutput>#NumberFormat(progbar, 99)#</cfoutput>% of survey completed</div>
+	<cfset progbar = ((VARIABLES.vCount - 1) / 25) * 100>
+	<h6><cfoutput>#progbar#</cfoutput>% Complete</h6>
 	<div class="progress progress-info progress-striped active">
 		<div class="bar" style="width: <cfoutput>#progbar#</cfoutput>%;"></div>
 	</div>

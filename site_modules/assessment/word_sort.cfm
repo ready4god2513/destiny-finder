@@ -127,7 +127,8 @@
             <input class="btn btn-primary" type="submit" name="submit" value="<cfif qcount LT qItems.recordcount>Next Step<cfelse>Show Results</cfif>" />
 		</form>
 <br class="clear"/>
-		<cfset progbar = (ATTRIBUTES.qcount / qItems.recordcount) * 100>
+		<cfset progbar = ((ATTRIBUTES.qcount - 1) / qItems.recordcount) * 100>
+		<h6>#progbar#% Complete</h6>
 		<div class="progress progress-info progress-striped active">
 		  <div class="bar" style="width: #progbar#%;"></div>
 		</div>

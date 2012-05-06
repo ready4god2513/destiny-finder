@@ -58,7 +58,7 @@
 			<input class="btn btn-primary" type="submit" name="submit" value="Next Step" />
 		</div>
 
-		<div class="percent_complete_label">% of survey completed</div>
+		<h6><cfoutput>#percentage#</cfoutput>% Complete</h6>
 		<div class="progress progress-info progress-striped active">
 			<div class="bar" style="width: <cfoutput>#percentage#</cfoutput>%;"></div>
 		</div>
