@@ -26,6 +26,11 @@
 			<section id="main">
 				<div class="row">
 					<h2 class="span6">My Account</h2>
+					<div class="pull-right">
+						<h6><cfoutput>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name#</cfoutput></h6>
+						<h6><cfoutput>#REQUEST.user.user_email#</cfoutput></h6>
+					</div>
+					
 				</div>
 	
 				<cfinclude template="../../site_modules/assessment/profiler.cfm" />
