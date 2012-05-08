@@ -1,3 +1,6 @@
+@import "bootstrap/mixins";
+@import "bootstrap/variables";
+
 .sortable 
 { 
 	list-style-type: none; 
@@ -8,7 +11,7 @@
 	
 	li 
 	{
-		.rounded(2px);
+		.border-radius(2px);
 		background:lighten(@blue, 64%);
 		border:1px solid lighten(@blue, 58%);
 		color:#222;

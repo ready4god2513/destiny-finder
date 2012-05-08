@@ -71,13 +71,11 @@
                 <cfif vIsInvite EQ 1>
 	                Rank the statements that complete the sentence by dragging the one that is most 
 					true about your friend to the top, and arranging the rest in order with the least true 
-					at the bottom. It’s easiest to do this by ranking the first two statements, 
-					then rank the third statement with the first two, and so on.
+					at the bottom. 
 				<cfelse>
 	                Rank the statements that complete the sentence by dragging the one that is most 
 					true about you to the top, and arranging the rest in order with the least true 
-					at the bottom. It’s easiest to do this by ranking the first two statements, 
-					then rank the third statement with the first two, and so on.
+					at the bottom.
 				</cfif>
 	            
             </p>

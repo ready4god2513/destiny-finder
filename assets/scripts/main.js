@@ -115,10 +115,10 @@ $(function(){
 	// Remove empty paragraph tags.  These often come from the CMS/blog
 	$("p").filter(function() {
 		return $.trim($(this).text()) === ""
-		}).remove();
+	}).remove();
 
 
-		// Dropdown Menu
-		$("#topbar").dropdown();
+	// Dropdown Menu
+	$("#topbar").dropdown();
 
-	});
+});
