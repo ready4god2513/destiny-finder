@@ -75,13 +75,13 @@
 						<tr>
 							<td>Friends 360 Survey (Free)</td>
 							<td><a href="/profile/?page=invmod" class="btn btn-success">Invite Friends</a></td>
-							<td><a class="btn btn-primary" href="/profile/?page=viewresult&amp;assessment_id=#val(qAssessments.assessment_id)#&amp;gift_type_id=#val(qAssessments.gift_type_id)#">Result</a></td>
+							<td><a class="btn btn-primary" href="/profile/?page=invmod">Result</a></td>
 						</tr>
 					</cfif>
 			    </cfloop>
 				<cfif allSurveysTaken>
 					<tr>
-						<th colspan="3"><a href="/profiler/summary.cfm" class="btn btn-small">View Profile Summary Report</a></th>
+						<th colspan="3"><a href="/profiler/summary.cfm" class="btn btn-small btn-primary">View Profiler Summary Report</a></th>
 					</tr>
 				</cfif>
 			</table>

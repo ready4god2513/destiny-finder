@@ -27,8 +27,8 @@
 				<div class="row">
 					<h2 class="span6">My Account</h2>
 					<div class="pull-right">
-						<h6><cfoutput>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name#</cfoutput></h6>
-						<h6><cfoutput>#REQUEST.user.user_email#</cfoutput></h6>
+						<h5><cfoutput>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name#</cfoutput></h5>
+						<h5><cfoutput>#REQUEST.user.user_email#</cfoutput></h5>
 					</div>
 					
 				</div>

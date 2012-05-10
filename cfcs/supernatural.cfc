@@ -187,6 +187,13 @@
 			</cfchartseries>
 		</cfchart>
 		
+		<cfquery name="local.qGetClosing" datasource="#APPLICATION.DSN#">
+			SELECT assessment_closing_text
+			FROM Assessments
+			WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="4">
+		</cfquery>
+    	<div class="short_desc">#local.qGetClosing.assessment_closing_text#</div>
+		
 		
 		<div class="row">
 			<div class="pull-right">

@@ -481,10 +481,26 @@
 			FROM Gifts
 		</cfquery>
 		
+		<div class="row">
+			<div class="span7">
+				<h1>Survey Result - #HTMLEditFormat(local.qUser.user_first_name)# #HTMLEditFormat(local.qUser.user_last_name)# #dateformat(local.qResult.last_modified,'mmm dd, yyyy')#</h1>
+			</div>
+			<div class="pull-right">
+				<cfif not isDefined("URL.pdf")>
+					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(arguments.assessment_id)#&amp;gift_type_id=#val(arguments.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print Results (PDF)</a>
+				</cfif>
+			</div>
+		</div>
+		
+		<cfset chart_format = "flash" />
+		<cfif isDefined("URL.pdf")>
+			<cfset chart_format = "png" />
+		</cfif>
+		
 		<cfif #assessment_id# NEQ 1>
 			<cfchart
 				chartWidth="600"
-				format="flash">
+				format="#chart_format#">
 				<cfchartseries
 					type="bar"
 					serieslabel="Survey Results Breakdown"
@@ -496,15 +512,6 @@
 				</cfchartseries>
 			</cfchart>
 		</cfif>
-		
-		<div class="row">
-			<div class="span7">Survey Result - #HTMLEditFormat(local.qUser.user_first_name)# #HTMLEditFormat(local.qUser.user_last_name)# #dateformat(local.qResult.last_modified,'mmm dd, yyyy')#</div>
-			<div class="pull-right">
-				<cfif not isDefined("URL.pdf")>
-					<a href="#REQUEST.site_url#profile/?page=viewresult&amp;assessment_id=#val(arguments.assessment_id)#&amp;gift_type_id=#val(arguments.gift_type_id)#&amp;pdf=true" target="_blank" class="btn btn-info">Print Results (PDF)</a>
-				</cfif>
-			</div>
-		</div>
 		
 		<cfif local.qThisResult.recordcount GT 0>
 			<cfloop query="local.qThisResult">

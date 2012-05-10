@@ -21,7 +21,7 @@
 </cfif>
 
 <div class="alert alert-info">
-	To take the Free Survey or purchase any of the online tools, you'll need a free account
+	<h5>To take the Free Survey or purchase any of the online tools, you'll need a free account</h5>
 </div>
 
 <div class="row">
