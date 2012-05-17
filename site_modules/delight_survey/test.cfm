@@ -28,10 +28,7 @@
 					Don't limit yourself.
 				</p>
 				<p>
-					Example: accounting, basketball,
-					organizing, singing, fishing, video
-					games, finding bargains, gardening,
-					etc.
+					Example: accounting, basketball, organizing, singing, fishing, video games, finding bargains, gardening, sewing, coaching, writing poetry, video games, programming, decorating, photography, growing herbs, organizing information, leading hiking trips,  first aid, fixing cars, building houses, creating ads, trivia, dancing, arranging flowers, counseling children, running summer camps, swimming, managing groups, travel, retrieving data, managing money, getting travel bargains, internet research, training animals, boating teaching middle schoolers, mothering, leading groups, putting on art shows, welding, diagramming, building websites, photoshop, carpentry, blogging, promotion, graphics, military video games, writing articles, hair styling, physics, etc.
 				</p>
 			</div>
 			<div class="span3">
@@ -44,10 +41,7 @@
 					limit yourself.
 				</p>
 				<p>
-					Example: singing, basketball,
-					organizing, sewing, coaching,
-					writing poetry, video games,
-					programming, decorating, etc.
+					Example: accounting, basketball, organizing, singing, fishing, video games, finding bargains, gardening, sewing, coaching, writing poetry, video games, programming, decorating, photography, growing herbs, organizing information, leading hiking trips,  first aid, fixing cars, building houses, creating ads, trivia, dancing, arranging flowers, counseling children, running summer camps, swimming, managing groups, travel, retrieving data, managing money, getting travel bargains, internet research, training animals, boating teaching middle schoolers, mothering, leading groups, putting on art shows, welding, diagramming, building websites, photoshop, carpentry, blogging, promotion, graphics, military video games, writing articles, hair styling, physics, etc.
 				</p>
 			</div>
 			<div class="span3">
@@ -68,18 +62,21 @@
 		</div>
 		<div class="row">
 			<div class="span3">
-				<cfloop from="1" to="10" index="i">
+				<h6>Talents</h6>
+				<cfloop from="1" to="20" index="i">
 					<input type="text" id="aptitudes#i#" class="span3" name="aptitudes" placeholder="#i#." />
 				</cfloop>
 			</div>
 			
 			<div class="span3">
-				<cfloop from="1" to="10" index="i">
+				<h6>Loves</h6>
+				<cfloop from="1" to="20" index="i">
 					<input type="text" id="loves#i#" class="span3" name="loves" placeholder="#i#." />
 				</cfloop>
 			</div>
 			
 			<div class="span3">
+				<h6>Delights</h6>
 				<cfloop from="1" to="10" index="i">
 					<input type="text" id="delights#i#" class="span3" name="delights" placeholder="#i#." />
 				</cfloop>

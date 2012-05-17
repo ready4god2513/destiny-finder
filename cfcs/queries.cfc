@@ -46,7 +46,7 @@
 			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
 		</cfquery>
 		
-		<cfreturn qName.user_first_name>
+		<cfreturn qName.user_first_name & " " & qName.user_last_name>
 		
 	</cffunction>
 	

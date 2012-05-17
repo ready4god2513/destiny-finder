@@ -39,7 +39,7 @@
 			</div>
 			
 			
-			<h4>Introduction</h4>
+			<h3>Introduction</h3>
 			<p>
 				This summary shows your top two or three orientations for each orientation type. 
 				Keep in mind that this is not set in stone. These are orientations, and that means it's a general direction or tendency. 
@@ -71,9 +71,9 @@
 			<h3>Supernatural Orientations</h3>
 			<cfset local.survey_results = local.supernaturalSurveyObj.sortResults() />
 			<ol>
-				<li>Primary Supernatural Orientation - #local.survey_results[1].name#</li>
-				<li>Secondary Supernatural Orientation - #local.survey_results[2].name#</li>
-				<li>Tertiary Supernatural Orientation - #local.survey_results[3].name#</li>
+				<cfloop query="local.survey_results" endRow="3">
+					<li>#name#</li>
+				</cfloop>
 			</ol>
 			
 			#local.passionSurveyObj.calculateResults()#
@@ -92,7 +92,7 @@
 				</p>
 			</cfif>
 			
-			<h4>Next Steps</h4>
+			<h3>Next Steps</h3>
 			<p>Congratulations! You've taken a major step forward on your destiny journey. You can print the summary</p>
 
 			<p>Pray over these results and start making some notes about what you see.</p>
@@ -127,6 +127,15 @@
 				Keep moving forward!<br />
 				--the Destiny Staff
 			</p>
+			
+			<div class="row">
+				
+				<cfif not isDefined("URL.pdf")>
+					<div class="pull-right">
+						<a href="/profiler/summary.cfm?pdf=true" target="_blank" class="btn btn-info">Print PDF</a>
+					</div>
+				</cfif>
+			</div>
 		</cfoutput>
 		
 	</cffunction>

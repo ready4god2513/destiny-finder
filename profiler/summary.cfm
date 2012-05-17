@@ -26,7 +26,7 @@
 		<div class="span11">
 			<section id="main">
 				<cfif isDefined("URL.pdf")>
-					<cfheader name="Content-Disposition" value="attachment; filename=Survey-Results.pdf">
+					<cfheader name="Content-Disposition" value="attachment; filename=Destiny-Profiler-Summary-Results.pdf">
 					<cfdocument
 						format="pdf">
 
@@ -37,7 +37,7 @@
 						<cfoutput>#profiler.summary()#</cfoutput>
 
 						<cfdocumentitem type="footer">
-							#cfdocument.currentpagenumber# of #cfdocument.totalpagecount#
+							<cfoutput>#cfdocument.currentpagenumber# of #cfdocument.totalpagecount#</cfoutput>
 						</cfdocumentitem>
 					</cfdocument>
 				<cfelse>	
