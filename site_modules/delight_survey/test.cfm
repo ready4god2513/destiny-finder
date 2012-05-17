@@ -69,19 +69,19 @@
 		<div class="row">
 			<div class="span3">
 				<cfloop from="1" to="10" index="i">
-					<input type="text" id="aptitudes#i#" class="span3 required" name="aptitudes" placeholder="#i#." />
+					<input type="text" id="aptitudes#i#" class="span3" name="aptitudes" placeholder="#i#." />
 				</cfloop>
 			</div>
 			
 			<div class="span3">
 				<cfloop from="1" to="10" index="i">
-					<input type="text" id="loves#i#" class="span3 required" name="loves" placeholder="#i#." />
+					<input type="text" id="loves#i#" class="span3" name="loves" placeholder="#i#." />
 				</cfloop>
 			</div>
 			
 			<div class="span3">
 				<cfloop from="1" to="10" index="i">
-					<input type="text" id="delights#i#" class="span3 required" name="delights" placeholder="#i#." />
+					<input type="text" id="delights#i#" class="span3" name="delights" placeholder="#i#." />
 				</cfloop>
 			</div>
 			
