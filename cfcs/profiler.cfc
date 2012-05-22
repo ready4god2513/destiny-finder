@@ -27,7 +27,7 @@
 		<cfoutput>
 			<div class="row">
 				<div class="span7">
-					<h2>Destiny Profiler Summary</h2>
+					<h1>Summary Report - All Surveys</h1>
 					<h6>#local.queries.username(variables.user_id)# - #DateFormat(now(), "mmmm d, yyyy")#</h6>
 				</div>
 				

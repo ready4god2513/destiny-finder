@@ -137,7 +137,7 @@
 		<cfset var local = {} />
 		
 		<cfoutput>
-			<h3>Passion Survey Results</h3>
+			<h1>Passion Survey Results</h1>
 			<p>
 				I am most passionate about bringing my primary kingdom impact in the sphere of 
 				<strong>#this.getAnswer("sphere")#</strong>, specifically working in the area(s) of 

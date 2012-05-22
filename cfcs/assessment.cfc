@@ -483,7 +483,7 @@
 		
 		<div class="row">
 			<div class="span7">
-				<h1>Survey Result - #HTMLEditFormat(local.qUser.user_first_name)# #HTMLEditFormat(local.qUser.user_last_name)# #dateformat(local.qResult.last_modified,'mmm dd, yyyy')#</h1>
+				<h1>#this.getAssessment(URL.assessment_id).assessment_name# Results - #HTMLEditFormat(local.qUser.user_first_name)# #HTMLEditFormat(local.qUser.user_last_name)# #dateformat(local.qResult.last_modified,'mmm dd, yyyy')#</h1>
 			</div>
 			<div class="pull-right">
 				<cfif not isDefined("URL.pdf")>

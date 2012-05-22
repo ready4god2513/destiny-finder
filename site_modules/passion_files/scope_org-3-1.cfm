@@ -9,8 +9,6 @@
 			<label class="radio"><input type="radio" name="scope_org" value="Small and Adaptive">Small and Adaptive (usually under 100 employees)</label>
 			<label class="radio"><input type="radio" name="scope_org" value="Mid-sized and Growing">Mid-sized and Growing (usually 100 - 500 employees)</label>
 			<label class="radio"><input type="radio" name="scope_org" value="Large and Stable">Large and Stable (usually over 1,000 employees)</label>
-			<label class="radio"><input type="text" name="scope_org" placeholder="Other sphere"/></label>
-			<label class="radio"><input type="radio" name="scope_org" value="undecided">Undecided</label>
 		</div>
 	</div>
 
