@@ -61,7 +61,7 @@
 			<cfelseif URL.assessment_id EQ 4>
 				#supernaturalSurveyObj.outputResults()#
 			<cfelseif URL.assessment_id EQ 5>
-				#passionSurveyObj.calculateResults()#
+				#passionSurveyObj.calculateResults(true)#
 
 			<cfelseif URL.assessment_id EQ 6>
 				<cfinclude template="../delight_survey/results.cfm" />

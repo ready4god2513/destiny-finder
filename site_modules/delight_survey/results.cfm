@@ -36,6 +36,12 @@
 	</p>
 </cfif>
 
+<div class="row">
+	<div class="pull-right">
+		<a href="/profile/?page=viewresult&assessment_id=6&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
+	</div>
+</div>
+
 <h3>Next Step</h3>
 <p>
 	If you've done the surveys in sequence, you've now finished all the surveys in the Profiler. Way
@@ -52,9 +58,3 @@
 	We encourage you to engage a coach at any time to help you interpret your destiny profile. 
 	<a href="/products/index.cfm?page=coaching&gateway=3&parent_gateway=3">See Coaching</a>
 </p>
-
-<div class="row">
-	<div class="pull-right">
-		<a href="/profile/?page=viewresult&assessment_id=6&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
-	</div>
-</div>

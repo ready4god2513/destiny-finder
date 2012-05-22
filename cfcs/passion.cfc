@@ -133,11 +133,24 @@
 		Parse through the answers provided and fill out the report for the user.
 	--->
 	<cffunction name="calculateResults" output="true" returnType="void">
-		
+		<cfargument name="printPDFButton" type="boolean" default="false" required="false" />
 		<cfset var local = {} />
 		
 		<cfoutput>
-			<h1>Passion Survey Results</h1>
+			<cfif #arguments.printPDFButton#>
+				<div class="row">
+					<div class="span8">
+						<h1>Passion Survey Results -- Passion Statement</h1>
+						<h4>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name# #DateFormat(now(), "mmm dd, yy")#</h4>
+					</div>
+					<div class="pull-right">
+						<a href="/profile/?page=viewresult&assessment_id=5&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
+					</div>
+				</div>
+			<cfelse>
+				
+			</cfif>
+			
 			<p>
 				I am most passionate about bringing my primary kingdom impact in the sphere of 
 				<strong>#this.getAnswer("sphere")#</strong>, specifically working in the area(s) of 
@@ -182,6 +195,21 @@
 				I have a passion to bring kingdom impact and transformation to the 
 				people I feel called to, and by God's grace I will!
 			</p>
+			
+			<cfif #arguments.printPDFButton#>
+				<cfquery name="local.qGetClosing" datasource="#APPLICATION.DSN#">
+					SELECT assessment_closing_text
+					FROM Assessments
+					WHERE assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="5">
+				</cfquery>
+		    	<div class="short_desc">#local.qGetClosing.assessment_closing_text#</div>
+		
+				<div class="row">
+					<div class="pull-right">
+						<a href="/profile/?page=viewresult&assessment_id=5&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
+					</div>
+				</div>
+			</cfif>
 		</cfoutput>
 		
 	</cffunction>
