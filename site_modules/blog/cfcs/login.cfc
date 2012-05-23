@@ -21,30 +21,8 @@
 	</cffunction>
 	
 	<cffunction name="login_form_action" returntype="string" output="true"	hint="I handle the login form actions">
-			
-				
-			<cfset VARIABLES.login_result = obj_queries.user_verify(user_name = "#FORM.user_name#", password = "#HASH(FORM.password)#", type="1")>
-			
-			<!--- DID THE USER_VERIFY FUNCTION RETURN A VALID USER_ID? --->
-			<cfif VARIABLES.login_result GT 0>
-				
-				<!--- IF YES, SET USER_ID IN THE SESSION --->
-				<cflock scope="session" type="exclusive" timeout="30">
-					<cfset SESSION.user_id = VARIABLES.login_result>
-					
-					<cfset VARIABLES.site_notification = "login_sucess">
-
-					<cfreturn VARIABLES.site_notification>
-				</cflock>
-				
-			<cfelse>
-				
-				<cfset VARIABLES.site_notification = "login_fail">
-
-				<cfreturn VARIABLES.site_notification>
-				
-			</cfif>
-						
+			<cfset var login = CreateObject("cfc", "cfcs.login")>
+			<cfreturn login.login_form_action()>
 	</cffunction>
 	
 	<cffunction name="logout" output="false" hint="I log a user out">

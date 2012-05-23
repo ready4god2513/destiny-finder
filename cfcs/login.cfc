@@ -48,7 +48,19 @@
 					<cfset VARIABLES.site_notification = "login_sucess">
 					<cfset foxyCart.save_user(username = "#FORM.user_name#", password = "#HASH(FORM.password)#") />
 					
-					<cflocation url="#REQUEST.site_url#auth/account" addtoken="no">
+					<!--- Tell the client that it will have to redirect. --->
+					<cfheader
+						statuscode="302"
+						statustext="Found"
+						/>
+
+					<!--- Redirect user to next page. --->
+					<cfheader
+						name="location"
+						value="#REQUEST.site_url#auth/account"
+						/>
+						
+					<cfflush />
 					<cfreturn VARIABLES.site_notification>
 				</cflock>
 				
