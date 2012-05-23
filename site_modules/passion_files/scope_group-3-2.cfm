@@ -9,8 +9,6 @@
 			<label class="radio"><input type="radio" name="scope_group" value="Mid-sized Group">Mid-sized Group (50+)</label>
 			<label class="radio"><input type="radio" name="scope_group" value="Large Group">Large Group (100+)</label>
 			<label class="radio"><input type="radio" name="scope_group" value="Mega-size Group">Mega-size Group (1000+)</label>
-			<label class="radio"><input type="text" name="scope_group" placeholder="Other sphere"/></label>
-			<label class="radio"><input type="radio" name="scope_group" value="undecided">Undecided</label>
 		</ul>
 	</div>
 

@@ -9,7 +9,6 @@
 			<label class="radio"><input type="radio" name="causes_heart" value="Inward" />Inward within my group</label>
 			<label class="radio"><input type="radio" name="causes_heart" value="Upward" />Upward to God</label>
 			<label class="radio"><input type="radio" name="causes_heart" value="Downward" />Equal toward all three</label>
-			<label class="radio"><input type="radio" name="causes_heart" value="Evenly directed between outward, inward, upward and downward." />Evenly directed between outward, inward, upward and downward.</label>
 			<label class="radio"><input type="radio" name="causes_heart" value="undecided">Undecided</label>
 		</div>
 	</div>

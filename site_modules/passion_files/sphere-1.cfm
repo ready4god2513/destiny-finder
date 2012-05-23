@@ -18,7 +18,7 @@
 <h6>Instructions</h6>
 <p>Select the ONE sphere you're most drawn to impact.</p>
 <form name="form" action="act_passion_survey.cfm" class="survey-form" method="post">
-	<div class="controls">
+	<div class="control-group">
 		<div class="inputs-list">
 			<label class="radio"><input type="radio" name="sphere" value="Family and Individual">Family and Individual (Family, Education, Health and Wellness, Therapy and Social Work, Senior Care)</label>
 			<label class="radio"><input type="radio" name="sphere" value="Culture and Lifestyle">Culture and Lifestyle (Cultural Expression, Entertainment, Sports and Games, Performing and Visual Arts, Traditional Media, Digital Media)</label>

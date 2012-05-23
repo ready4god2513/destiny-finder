@@ -14,6 +14,9 @@
 <p>
 	We want you to think outside the box. Don't limit yourself and don't be afraid to enter something that may seem trivial to others. You are unique! As you start thinking of answers, more will come to you. List as many as you can and then match the ones that are the same or similar. 
 </p>
+<p>
+	This may seem like a quick exercise, but take some time on it because as you come up with answers, they will spark more in your mind. If you retake the survey, your previous answers will be lost, so write them down (or take a picture of them with your camera phone) so you can re-enter them and add more if you do retake it.
+</p>
 
 <cfoutput>
 	<form action="/profile/?page=assessment&assessment_id=6&gift_type_id=0" method="POST" id="listing-aptitudes">

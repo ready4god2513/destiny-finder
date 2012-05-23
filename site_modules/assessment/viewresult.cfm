@@ -20,7 +20,7 @@
 <cfelse>
 	<cfoutput>
 		<cfif isDefined("URL.pdf")>
-			<!--- <cfheader name="Content-Disposition" value="attachment; filename=#objAssessments.getAssessment(URL.assessment_id).assessment_name#.pdf"> --->
+			<cfheader name="Content-Disposition" value="attachment; filename=#objAssessments.getAssessment(URL.assessment_id).assessment_name#.pdf">
 			<cfdocument
 				format="pdf">
 
@@ -61,7 +61,7 @@
 			<cfelseif URL.assessment_id EQ 4>
 				#supernaturalSurveyObj.outputResults()#
 			<cfelseif URL.assessment_id EQ 5>
-				#passionSurveyObj.calculateResults()#
+				#passionSurveyObj.calculateResults(true)#
 
 			<cfelseif URL.assessment_id EQ 6>
 				<cfinclude template="../delight_survey/results.cfm" />

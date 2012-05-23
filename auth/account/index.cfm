@@ -37,12 +37,12 @@
 				
 				<div class="row">
 					<div id="account-settings" class="span6">
-						<h2>Settings</h2>
+						<h3>Settings</h3>
 						<a href="/auth/account/settings" class="btn btn-info">Account Settings</a>
 					</div>
 				</div>
 	
-				<h2>My Transactions</h2>
+				<h3>My Transactions</h3>
 				<cfset transactions = foxyCart.getCustomerTransactions(email = REQUEST.user.user_email) />
 				
 				<cfif arraylen(transactions) GT 0>

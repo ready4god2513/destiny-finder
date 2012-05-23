@@ -44,6 +44,28 @@
 <script>
 	$(function(){
 		$.metadata.setType("attr", "validate");
+		$(".survey-form input[type=text]").addClass("other");
+		$(".survey-form input[type=checkbox]").attr("validate", "checkedOrCustom: true");
+		$(".survey-form input[type=radio]").attr("validate", "required:true");
+		
+		$.validator.addMethod("checkedOrCustom", function(value, element){
+			if($("input:checkbox:checked").length == 2)
+			{
+				return true;
+			}
+
+			if($(".other").val() != "")
+			{
+				return true;
+			}
+
+			if($("input[value=undecided]").is(":checked"))
+			{
+				return true;
+			}
+
+			return false;
+		}, $.format("Please choose two options or fill in your own"));
 		
 		$(".survey-form").validate({
 			errorLabelContainer: $("#validation-errors"),
@@ -56,7 +78,6 @@
 					url: "/site_modules/assessment/act_passion_survey.cfm",
 					beforeSubmit: function()
 					{
-
 						$(".assessment_item").fadeOut();
 					},
 					success: function()

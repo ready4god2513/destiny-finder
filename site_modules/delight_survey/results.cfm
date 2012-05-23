@@ -5,7 +5,7 @@
 
 <div class="row">
 	<div class="span8">
-		<h2>Delight Results</h2>
+		<h1>Delight Results</h1>
 	</div>
 	<div class="pull-right">
 		<a href="/profile/?page=viewresult&assessment_id=6&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
@@ -36,6 +36,12 @@
 	</p>
 </cfif>
 
+<div class="row">
+	<div class="pull-right">
+		<a href="/profile/?page=viewresult&assessment_id=6&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
+	</div>
+</div>
+
 <h3>Next Step</h3>
 <p>
 	If you've done the surveys in sequence, you've now finished all the surveys in the Profiler. Way
@@ -47,14 +53,8 @@
 	The next step is to get the Profiler Summary Report. It has a summary of all the surveys
 	you've done that you can print out.
 </p>
-<a href="/profiler/summary.cfm" class="btn">Profiler Summary Report</a>
+<a href="/profiler/summary.cfm" class="btn btn-primary">Profiler Summary Report</a>
 <p>
 	We encourage you to engage a coach at any time to help you interpret your destiny profile. 
 	<a href="/products/index.cfm?page=coaching&gateway=3&parent_gateway=3">See Coaching</a>
 </p>
-
-<div class="row">
-	<div class="pull-right">
-		<a href="/profile/?page=viewresult&assessment_id=6&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
-	</div>
-</div>

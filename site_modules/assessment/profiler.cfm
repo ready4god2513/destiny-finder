@@ -81,7 +81,8 @@
 			    </cfloop>
 				<cfif allSurveysTaken>
 					<tr>
-						<th colspan="3"><a href="/profiler/summary.cfm" class="btn btn-small btn-primary">View Profiler Summary Report</a></th>
+						<td colspan="2">Profiler Summary Report</td>
+						<td><a href="/profiler/summary.cfm" class="btn btn-small btn-primary">View Profiler Summary Report</a></td>
 					</tr>
 				</cfif>
 			</table>
