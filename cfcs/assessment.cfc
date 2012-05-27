@@ -724,9 +724,16 @@
 				</p>
                 <p>
 					All you need to do is follow this link take the survey:
-					<a href="#REQUEST.site_url#invite/?invite=#VARIABLES.invite_uid#">START THE SURVEY</a>
+					<a href="#REQUEST.site_url#invite/?invite=#VARIABLES.invite_uid#" target="_blank">START THE SURVEY</a>
 				</p>
-				<p>Thanks,<br /> #u.user_first_name#</p>
+				<p>Thanks,<br /> #u.user_first_name# #u.user_last_name#</p>
+				<p>
+					<a href="http://destinyfinder.com" target="_blank">Destiny Finder</a><br />
+					By taking this survey, you are not obligated in any way. 
+					It is a free survey about your friend. The sponsoring organization is Destiny Finder, 
+					headquartered in Redding California, working with many churches and ministries. 
+					If you're concerned, please contact your friend at <a href="mailto:#u.user_email#">#u.user_email#</a>
+				</p>
 			</cfmail>
 		
 		</cffunction>
