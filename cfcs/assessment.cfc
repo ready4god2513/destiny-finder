@@ -711,7 +711,7 @@
 				subject="You've been invited - DestinyFinder"
 				type="html">
 				<p>
-					Hello #FORM.user_first_name#
+					Hello #FORM.user_first_name# #FORM.user_last_name#,
 				</p>
 				<p>
 					I've just taken the Free Trial Destiny Survey from DestinyFinder.com. This survey is part

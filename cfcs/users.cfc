@@ -168,7 +168,6 @@
 						<cfif isDefined('return_url')>
 							<cflocation url="#return_url#" addtoken="no">
 						<cfelse>
-                        	<!---<cflocation url="#REQUEST.site_url#profile/?page=freesurvey" addtoken="no">--->
 	                        <cflocation url="#REQUEST.site_url#auth/account/" addtoken="no">
 						</cfif>
 					

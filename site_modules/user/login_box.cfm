@@ -4,7 +4,7 @@
 <cfparam name="SESSION.after" default="/auth/account">
 
 <cfif isDefined("FORM.submit")>
-    <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#") />
+    <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#", return_url="#SESSION.after#") />
 </cfif>
 
 <cfif isDefined("URL.login")>
