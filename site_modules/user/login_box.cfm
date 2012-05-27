@@ -1,6 +1,7 @@
 <cfset obj_login = CreateObject("component","cfcs.login")>
 <cfset obj_user = CreateObject("component","cfcs.users")>
 <cfset obj_queries = CreateObject("component","cfcs.queries")>
+<cfparam name="SESSION.after" default="/auth/account">
 
 <cfif isDefined("FORM.submit")>
     <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#") />
@@ -10,12 +11,12 @@
 	<!--- RUN THE LOGIN FUNCTION --->
     <cfset VARIABLES.process_login = obj_login.login_form_action()>
     
-    <cfif VARIABLES.process_login EQ "login_fail">
+    <cfif isDefined("VARIABLES.process_login") AND VARIABLES.process_login EQ "login_fail">
 		<div class="alert alert-error">
 			<p><strong>Login Failed.</strong> We couldn't find an account in our system with the username and password you provided.</p>
 		</div>
     <cfelse>
-        <cflocation url="/profile/?page=profiler" addtoken="no">
+        <cflocation url="#SESSION.after#" addtoken="no">
         <cfabort>
     </cfif>
 </cfif>

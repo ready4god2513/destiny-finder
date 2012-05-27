@@ -37,33 +37,39 @@
 
 			<cfset VARIABLES.login_result = obj_queries.user_verify(user_name = "#FORM.user_name#", 
 																password = "#HASH(FORM.password)#")>
+																
+
 			
 			<!--- DID THE USER_VERIFY FUNCTION RETURN A VALID USER_ID? --->
 			<cfif VARIABLES.login_result GT 0>
 				
 				<!--- IF YES, SET USER_ID IN THE SESSION --->
-				<cflock scope="session" type="exclusive" timeout="30">
-					<cfset SESSION.user_id = VARIABLES.login_result>
+				<cfset SESSION.user_id = VARIABLES.login_result>
+				
+				<cfset VARIABLES.site_notification = "login_sucess">
+				<cfset foxyCart.save_user(username = "#FORM.user_name#", password = "#HASH(FORM.password)#") />
+				
+				<!--- Tell the client that it will have to redirect. --->
+				
+				<cfheader
+					statuscode="302"
+					statustext="Found"
+					/>
 					
-					<cfset VARIABLES.site_notification = "login_sucess">
-					<cfset foxyCart.save_user(username = "#FORM.user_name#", password = "#HASH(FORM.password)#") />
-					
-					<!--- Tell the client that it will have to redirect. --->
+				<!--- Redirect user to next page. --->
+				<cfif isDefined("SESSION.after")>
 					<cfheader
-						statuscode="302"
-						statustext="Found"
+						name="location"
+						value="#SESSION.after#"
 						/>
-
-					<!--- Redirect user to next page. --->
+						
+					<cfflush>
+				<cfelse>
 					<cfheader
 						name="location"
 						value="#REQUEST.site_url#auth/account"
 						/>
-						
-					<cfflush />
-					<cfreturn VARIABLES.site_notification>
-				</cflock>
-				
+				</cfif>
 			<cfelse>
 				
 				<cfset VARIABLES.site_notification = "login_fail">
