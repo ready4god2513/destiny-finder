@@ -62,8 +62,6 @@
 						name="location"
 						value="#SESSION.after#"
 						/>
-						
-					<cfflush>
 				<cfelse>
 					<cfheader
 						name="location"

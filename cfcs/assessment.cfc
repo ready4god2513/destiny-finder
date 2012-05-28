@@ -451,8 +451,8 @@
     
     
 	    <cfquery name="local.qThisResult" datasource="#APPLICATION.DSN#">
-	    	SELECT 
-		    <cfif arguments.assessment_id GTE 2>gift_primary<cfelse>gift_brief</cfif> AS ThisResult from gifts
+	    	SELECT *
+			FROM gifts
 			<cfif arguments.assessment_id EQ 2>
 				WHERE gift_id IN (<cfqueryparam cfsqltype="cf_sql_integer" value="#local.top_gifts[1].id#">, <cfqueryparam cfsqltype="cf_sql_integer" value="#local.top_gifts[2].id#">)
 				ORDER BY (Case When gift_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#local.top_gifts[1].id#"> then 0
@@ -516,7 +516,11 @@
 		<cfif local.qThisResult.recordcount GT 0>
 			<cfloop query="local.qThisResult">
 			    <div class="short_desc">
-					#ThisResult#
+					<cfif #currentrow# eq 1>
+						#gift_primary#
+					<cfelse>
+						#gift_secondary#
+					</cfif>
 				</div>
 				<hr />
 			</cfloop>
