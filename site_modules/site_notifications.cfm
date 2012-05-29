@@ -16,7 +16,7 @@
 			</cfswitch>
 		</div>
 	</cfif>
-		
+	
 	<cfif Len(ATTRIBUTES.message) GT 0>
 		<div class="alert alert-error">
 			<cfswitch expression="#ATTRIBUTES.message#">
@@ -56,7 +56,6 @@
 			</cfswitch>
 		</div>
 	</cfif>
-	
 	
 	
 </cfoutput>

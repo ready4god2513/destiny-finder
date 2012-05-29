@@ -2,9 +2,26 @@
 <cfset obj_user = CreateObject("component","cfcs.users")>
 <cfset obj_queries = CreateObject("component","cfcs.queries")>
 <cfparam name="SESSION.after" default="/auth/account">
-
+<cfparam name="redirect_after" default="#SESSION.after#">
 <cfif isDefined("FORM.submit")>
     <cfset VARIABLES.create_account_message = obj_user.process_user_form(process="#FORM.submit#", return_url="#SESSION.after#") />
+</cfif>
+
+<cfif isDefined('VARIABLES.create_account_message')>
+	<cfif VARIABLES.create_account_message EQ "profile_updated">
+		<cfmodule 
+			template="/site_modules/site_notifications.cfm" 
+			success="#VARIABLES.create_account_message#">
+	<cfelse>
+		<cfmodule 
+			template="/site_modules/site_notifications.cfm" 
+			message="#VARIABLES.create_account_message#">
+	</cfif>
+	
+	<cfset qUser.user_first_name = "#FORM.user_first_name#">	
+	<cfset qUser.user_last_name = "#FORM.user_last_name#">
+	<cfset qUser.user_email = "#FORM.user_email#">
+	<cfset qUser.marketing_opt_in = "#FORM.marketing_opt_in#">
 </cfif>
 
 <cfif isDefined("URL.login")>
@@ -16,7 +33,8 @@
 			<p><strong>Login Failed.</strong> We couldn't find an account in our system with the username and password you provided.</p>
 		</div>
     <cfelse>
-        <cflocation url="#SESSION.after#" addtoken="no">
+		<cfset StructDelete(Session, "after")>
+        <cflocation url="#redirect_after#" addtoken="no">
         <cfabort>
     </cfif>
 </cfif>

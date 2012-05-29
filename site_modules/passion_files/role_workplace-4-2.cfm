@@ -1,4 +1,4 @@
-<h5>14. The workplace role I feel most comfortable with is:</h5>
+<h5>14. The workplace roles I feel most comfortable with are:</h5>
 <cfinclude template="instructions.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">

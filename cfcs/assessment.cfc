@@ -133,23 +133,22 @@
 			WHERE 1 = 1
 			<cfif isDefined("result_id")>
 				AND result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
-			</cfif>
-			<cfif isDefined("user_id")>
-				AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
-			</cfif>
-			<cfif isDefined('assessment_id')>
-				AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
-			</cfif>
-			<cfif isDefined("invite")>
-				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
 			<cfelse>
-				AND invite_uid IS NULL
+				<cfif isDefined("user_id")>
+					AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
+				</cfif>
+				<cfif isDefined('assessment_id')>
+					AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
+				</cfif>
+				<cfif isDefined("invite")>
+					AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
+				<cfelse>
+					AND invite_uid IS NULL
+				</cfif>
 			</cfif>
-
 		</cfquery>
-
+		
 		<cfreturn qResult>
-
 	</cffunction>
     
     <cffunction name="retrieve_invite_userid" output="false" returntype="query">
@@ -278,7 +277,7 @@
 		
 		<cfset var local = {} />
 		<cfset local.gifts = this.retrieve_gifts(gift_type_id = "#gift_type_id#")>
-		<cfset local.result_set = DeSerializeJSON(results.result_set, false)>
+		<cfset local.result_set = DeSerializeJSON(arguments.results.result_set, false)>
 		<cfset local.gift_count = ArrayNew(1)>
 		
 	

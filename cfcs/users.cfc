@@ -107,17 +107,15 @@
 					<cfset FORM.user_password = HASH(FORM.user_password)>
 				
 					<cfquery name="Check_user" datasource="#APPLICATION.DSN#">
-						SELECT user_id
+						SELECT *
 						FROM Users
-						WHERE user_username = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#" />
+						WHERE user_email = <cfqueryparam cfsqltype="cf_sql_char" value="#FORM.user_email#" />
 					</cfquery>
-
-					<cfif check_user.recordcount GT 0>
+					
+					<cfif Check_user.recordcount GT 0>
 						<cfset VARIABLES.message = "username exists">
 						<cfreturn VARIABLES.message>
 					<cfelse>
-			
-					
 						<cfquery name="Insert_User" datasource="#APPLICATION.dsn#">
 							INSERT INTO	Users
 								(user_first_name,user_last_name,user_username,user_email,user_password,

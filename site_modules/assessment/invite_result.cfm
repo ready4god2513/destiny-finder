@@ -1,7 +1,7 @@
 <cfset objQueries = CreateObject("component","cfcs.queries")>
 <cfset objAssessments = CreateObject("component","cfcs.assessment")>
 <cfset qInviteuid = objAssessments.retrieve_invite_userid(invite="#HTMLEditFormat(URL.invite)#") />
-<cfset vTempVar = objAssessments.process_results(nodisplay=1,result_id=qInviteuid.result_id) />
+<cfset vTempVar = objAssessments.process_results(nodisplay=1,result_id=qInviteuid.result_id, gift_type_id=URL.gift_type_id,assessment_id=1) />
 <cfset qResults = objAssessments.retrieve_result(user_id="#qInviteuid.user_id#",invite="#HTMLEditFormat(URL.invite)#") />
 
 <cfoutput>
