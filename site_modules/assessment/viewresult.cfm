@@ -3,7 +3,7 @@
 <cfset qUser = objQueries.user_detail(user_id="#REQUEST.user_id#")>
 <cfset qAssessments = objAssessments.retrieve_assessments()>
 	
-<cfif isDefined("URL.invite")>
+<cfif isDefined("URL.invite") AND Len(URL.invite) GT 2>
 	<cfset qResults = objAssessments.retrieve_result(invite="#URL.invite#")>
 <cfelse>
 	<cfset qResults = objAssessments.retrieve_result(user_id="#REQUEST.user_id#")>
@@ -15,7 +15,7 @@
 <cfset passionSurveyObj = CreateObject("component","cfcs.passion").init(user_id = REQUEST.user_id) />
 <cfset supernaturalSurveyObj = CreateObject("component","cfcs.supernatural").init(user_id = REQUEST.user_id) />
 
-<cfif isDefined("URL.invite")>
+<cfif isDefined("URL.invite") AND Len(URL.invite) GT 2>
 	<cfinclude template="invite_result.cfm">
 <cfelse>
 	<cfoutput>

@@ -21,7 +21,7 @@
 
 <cfif isDefined('VARIABLES.assessment_id') AND isNumeric(VARIABLES.assessment_id)>
 	
-	<cfif isDefined("URL.invite")>
+	<cfif isDefined("URL.invite") AND Len(URL.invite) GT 2>
 		<cfset referrer = objUsers.findByInviteId(URL.invite) />
 		<h2>Friends 360 Survey for <cfoutput>#referrer.user_first_name# #referrer.user_last_name#</cfoutput></h2>
 	<cfelse>

@@ -126,21 +126,22 @@
 		<cfargument name="user_id" required="no" type="numeric">
 		<cfargument name="invite" required="no" type="string">
 		<cfargument name="assessment_id" required="no" type="numeric">
-			
-		<cfquery name="qResult" datasource="#APPLICATION.DSN#">
+		<cfset var local = {} />
+		
+		<cfquery name="local.qResult" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Results
 			WHERE 1 = 1
-			<cfif isDefined("result_id")>
+			<cfif isDefined("arguments.result_id")>
 				AND result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
 			<cfelse>
-				<cfif isDefined("user_id")>
+				<cfif isDefined("arguments.user_id")>
 					AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
 				</cfif>
-				<cfif isDefined('assessment_id')>
+				<cfif isDefined("arguments.assessment_id")>
 					AND assessment_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
 				</cfif>
-				<cfif isDefined("invite")>
+				<cfif isDefined("arguments.invite")>
 					AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
 				<cfelse>
 					AND invite_uid IS NULL
@@ -148,7 +149,7 @@
 			</cfif>
 		</cfquery>
 		
-		<cfreturn qResult>
+		<cfreturn local.qResult>
 	</cffunction>
     
     <cffunction name="retrieve_invite_userid" output="false" returntype="query">
@@ -437,7 +438,7 @@
 		<cfset local.qGifts = this.retrieve_gifts(gift_type_id="#gift_type_id#")>
 		<cfset local.qResult = this.retrieve_result(result_id="#result_id#")>
 			
-		<cfset local.results = this.parse_responses(results = qResult, gift_type_id = arguments.gift_type_id) />
+		<cfset local.results = this.parse_responses(results = local.qResult, gift_type_id = arguments.gift_type_id) />
 		<cfset local.top_gifts = this.get_top_gifts(results = local.results) />
 		
 		<cfquery name="local.uResult" datasource="#APPLICATION.DSN#">
