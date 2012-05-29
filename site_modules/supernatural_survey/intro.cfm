@@ -9,7 +9,7 @@
 </p>
 
 <p>
-	This survey is mainly feedback based on how you’ve functioned in the past. The results will be most helpful when combined with the rest of the profile results and interpreted by a coach.
+	This survey is mainly feedback based on how you've functioned in the past. The results will be most helpful when combined with the rest of the profile results and interpreted by a coach.
 </p>
 
 <h5>Instructions</h5>

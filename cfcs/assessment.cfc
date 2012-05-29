@@ -709,7 +709,7 @@
 			</cfquery>
 		
 			<cfmail 
-				from="noreply@destinyfinder.com" 
+				from="Destiny Finder <noreply@destinyfinder.com>" 
 				to="#FORM.user_email#" 
 				subject="You've been invited - DestinyFinder"
 				type="html">

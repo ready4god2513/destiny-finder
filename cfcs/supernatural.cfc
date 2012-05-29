@@ -122,7 +122,7 @@
 		</div>
 		
 		<cfoutput>
-			<h3>Introduction</h3>
+			<h3>Scoring</h3>
 			<p>
 				The average scores for each of the supernatural orientations is shown along with the bar chart. 
 				The long text description is shown for the SOs with average scores of 3 or higher. 
