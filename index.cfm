@@ -44,7 +44,10 @@ ORDER BY gateway_sortorder ASC
 			<article>
 				<h2>About Us</h2>
 				<p>
-					We believe you've been uniquely designed by God with a personal destiny -- to do something significant for His kingdom. With unique online tools and personal coaching, we help you discover your destiny, maximize your impact and experience real fulfillment.
+					We believe you've been uniquely designed by God with a personal destiny - 
+					to do things that no one else can do in quite the same way. With exciting online tools and 
+					in-depth personal coaching, we help you identify your abilities, discover your destiny, 
+					maximize your impact, and experience real fulfillment in life.
 					<a href="/about/index.cfm?page=about&amp;gateway=2&amp;parent_gateway=2">More...</a>
 				</p>
 			</article>
@@ -82,7 +85,7 @@ ORDER BY gateway_sortorder ASC
 						<h5>Free Trial Destiny Survey</h5>
 						<p>
 							Reveals your inner design. Only 10 questions, instant results.
-							<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">More...</a>
+							<a href="/products/index.cfm?page=destinyguide10&gateway=3&parent_gateway=3">More...</a>
 						</p>
 					</div>
 				</div>
@@ -94,7 +97,7 @@ ORDER BY gateway_sortorder ASC
 						<h5>Destiny Profiler</h5>
 						<p>
 							Five surveys based on spiritual gifts, passion and more reveal your basic destiny direction.
-							<a href="/profile/?page=profiler">More...</a>
+							<a href="/products/index.cfm?page=profiler305&gateway=3&parent_gateway=3">More...</a>
 						</p>
 					</div>
 				</div>
@@ -115,7 +118,7 @@ ORDER BY gateway_sortorder ASC
 						<img src="/assets/images/df-book.jpg" />
 					</div>
 					<div class="span8">
-						<h5>DestinyFinder Book - Feb 2012 Release</h5>
+						<h5>Destiny Finder Book</h5>
 						<p>
 							Michael Brodeur's work sets the foundation for understanding and pursuing kingdom-focused personal destiny.
 							<a href="/products/index.cfm?page=destinyfinderbook&amp;gateway=3&amp;parent_gateway=3">More...</a>
