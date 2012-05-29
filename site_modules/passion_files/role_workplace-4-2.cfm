@@ -1,5 +1,5 @@
 <h5>14. The workplace roles I feel most comfortable with are:</h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
@@ -10,7 +10,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Associate Leader">Associate Leader</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Primary Leader">Primary Leader (president, CEO, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="Regional Leader">Regional Leader</label>
-			<label class="checkbox"><input type="text" name="role_workplace" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace"><input type="text" name="role_workplace" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_workplace" value="undecided">Undecided</label>
 		</div>
 	</div>

@@ -16,7 +16,7 @@
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" checked value="LGBT (Lesbian, Gay, Bi-sexual, Transgender)">LGBT (Lesbian, Gay, Bi-sexual, Transgender)</label>
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" checked value="Wealthy and Influential">Wealthy and Influential</label>
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" checked value="Celebrity">Celebrity</label>
-			<label class="radio"><input type="text" name="drawn_to_impact_ethnicity" placeholder="Other sphere"/></label>
+			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity"><input type="text" name="drawn_to_impact_ethnicity" placeholder="Other sphere"/></label>
 			<label class="radio"><input type="radio" name="drawn_to_impact_ethnicity" value="undecided">Undecided</label>
 		</div>
 	</div>

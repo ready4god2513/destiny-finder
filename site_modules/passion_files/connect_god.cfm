@@ -1,5 +1,5 @@
 <h5>10. I connect with God the most through:</h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 
@@ -13,7 +13,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="Serving Others" />Serving Others</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="Journaling" />Journaling</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="Artistic Expression" />Artistic Expression</label>
-			<label class="checkbox"><input type="text" name="connect_god" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god"><input type="text" name="connect_god" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="undecided">Undecided</label>
 		</div>
 	</div>

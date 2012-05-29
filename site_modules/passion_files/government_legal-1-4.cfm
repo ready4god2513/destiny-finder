@@ -1,5 +1,5 @@
 <h5>2. Government, Legal and Non-Profit</h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
@@ -9,7 +9,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Civil Service">Civil Service (including local, state and federal government; government transportation and infrastructure, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Justice System, Law Enforcement & Fire/Rescue ">Justice System, Law Enforcement & Fire/Rescue (including, police, attorneys, judicial, firefighters, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Non-Profit">Non-Profit (including non-governmental organizations, foundations, Red Cross, GreenPeace, etc.)</label>
-			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>

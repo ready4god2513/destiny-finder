@@ -1,9 +1,5 @@
 <h5>2. Religion and Spirituality</h5>
-<br />
-<h6>Instructions</h6>
-<p>
-	Select the TWO sub-spheres you are most drawn to impact. If you don't see a choice you identify with, enter your own in Other, and if you do, limit it to two or three words. <strong>Only</strong> use Undecided if you're really not sure.
-</p>
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
@@ -14,7 +10,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Education and Training">Education and Training (including ministry school, Christian college, seminary, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Para-church Ministry">Para-church Ministry (including mission organizations, campus ministry, non-profit organizations, non-church compassion ministry, music and arts ministry, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Outreach and Missions">Outreach and Missions</label>
-			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>

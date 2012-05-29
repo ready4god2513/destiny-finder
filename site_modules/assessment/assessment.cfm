@@ -1,5 +1,6 @@
 <cfset objAssessments = CreateObject("component","cfcs.assessment") />
 <cfset foxyCart = CreateObject("component","cfcs.foxycart") />
+<cfset objUsers = CreateObject("component", "cfcs.users") />
 
 <cfif isDefined('URL.invite')>
 	<cfset qInvite = objAssessments.retrieve_invites(invite_uid="#URL.invite#")>
@@ -16,12 +17,16 @@
 	<cflocation url="/auth/account/" addtoken="false" />
 </cfif>
 
-
 <cfparam name="VARIABLES.invite" default="">
 
 <cfif isDefined('VARIABLES.assessment_id') AND isNumeric(VARIABLES.assessment_id)>
 	
-	<h2><cfoutput>#objAssessments.getAssessment(URL.assessment_id).assessment_name#</cfoutput></h2>
+	<cfif isDefined("URL.invite")>
+		<cfset referrer = objUsers.findByInviteId(URL.invite) />
+		<h2>Friends 360 Survey for <cfoutput>#referrer.user_first_name# #referrer.user_last_name#</cfoutput></h2>
+	<cfelse>
+		<h2><cfoutput>#objAssessments.getAssessment(URL.assessment_id).assessment_name#</cfoutput></h2>
+	</cfif>
 
 	    <cfset qItems = objAssessments.retrieve_assessment_items(assessment_id="#VARIABLES.assessment_id#")>
         <cfset qResults = objAssessments.retrieve_result(user_id="#VARIABLES.user_id#",assessment_id="#VARIABLES.assessment_id#",invite_uid="#VARIABLES.invite#")>
@@ -45,7 +50,10 @@
 		
             <cfswitch expression="#item_type#">
                 <cfcase value="1">
-                        <cfmodule template="word_sort.cfm"
+					<cfif isDefined("URL.intro")>
+						<cfinclude template="friend-intro.cfm" />
+					<cfelse>
+						<cfmodule template="word_sort.cfm"
                             sort_id="#qItems.item_type_id#"
                             type_id="#qItems.item_type#"
                             item_result="#VARIABLES.item_result#"
@@ -53,10 +61,9 @@
                             invite="#VARIABLES.invite#"
                             assessment_id="#VARIABLES.assessment_id#"
                             >
-                    
+					</cfif>
                 </cfcase>
 				
-				<!--- Passion Survey --->
 				<cfcase value="6">
 					<cfmodule template="delight_survey.cfm"
 						type_id="#qItems.item_type#"
@@ -67,7 +74,6 @@
 						>
 				</cfcase>
 				
-				<!--- Supernatural Survey --->
 				<cfcase value="4">
 					<cfmodule template="supernatural_survey.cfm"
 						type_id="#qItems.item_type#"

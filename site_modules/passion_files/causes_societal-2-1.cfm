@@ -1,5 +1,5 @@
 <h5>3. I feel most passionate about the following causes:</h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	
@@ -12,7 +12,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="Justice Issues" />Justice Issues (human trafficking, racism, oppression, prison system, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="Political Issues" />Political Issues (war, corruption, legislative process, political ideology, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="Environmental Issues" />Environmental Issues (recycling, natural resources, endangered species, animal cruelty, climate change, etc.)</label>
-			<label class="checkbox"><input type="text" name="causes_societal" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal"><input type="text" name="causes_societal" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="undecided">Undecided</label>
 		</div>
 	</div>

@@ -16,7 +16,8 @@
                     <label class="radio"><input type="radio" name="impact_religious" value="Higher Power/Mishmash">Higher Power/Mishmash</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="New Age">New Age</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="Occult/Wicca/Satanic">Occult/Wicca/Satanic</label>
-					<label class="checkbox"><input type="text" name="impact_religious" placeholder="Other religion"/></label>
+					<label class="radio"><input type="radio" name="impact_religious"><input type="text" name="impact_religious" placeholder="Other sphere"/></label>
+					<label class="radio"><input type="radio" name="impact_religious" value="undecided">Undecided</label>
 				</ul>
 			</div>
 			

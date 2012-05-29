@@ -1,5 +1,5 @@
 <h5>4. I'm most drawn to help people with the following human problems:  </h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 
@@ -11,7 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Crime and Imprisonment" />Crime and Imprisonment </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Sin Issues" />Sin Issues (immorality, greed, fear, anger, envy, pride, idolatry, rebellion, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Spiritual Strongholds " />Spiritual Strongholds (occult, demonic oppression, SRA, etc.)</label>
-			<label class="checkbox"><input type="text" name="causes_human" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human"><input type="text" name="causes_human" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="undecided">Undecided</label>
 		</ul>
 	</div>

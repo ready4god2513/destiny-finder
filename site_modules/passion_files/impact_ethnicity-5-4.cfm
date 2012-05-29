@@ -11,7 +11,7 @@
 			<label class="radio"><input type="radio" name="impact_ethnicity" value="Middle Eastern/Arabic">Middle Eastern</label>
 			<label class="radio"><input type="radio" name="impact_ethnicity" value="Mixed">Mixed</label>
 			<label class="radio"><input type="radio" name="impact_ethnicity" value="Any">Any</label>
-			<label class="radio"><input type="text" name="impact_ethnicity" placeholder="Other sphere"/></label>
+			<label class="radio"><input name="impact_ethnicity" type="radio"><input type="text" name="impact_ethnicity" placeholder="Other sphere"/></label>
 			<label class="radio"><input type="radio" name="impact_ethnicity" value="undecided">Undecided</label>
 		</div>
 	</div>

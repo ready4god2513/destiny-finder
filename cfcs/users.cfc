@@ -84,6 +84,16 @@
 			
 		<cfreturn user.recordcount EQ 1>
 	</cffunction>
+	
+	
+	<cffunction name="findByInviteId" returntype="query" output="false" hint="I find the name of the invitee">
+		<cfargument name="invite_id" required="yes" type="string">
+			
+		<cfset var local = {} />
+		<cfset local.assessments = CreateObject("component", "cfcs.assessment")>
+		<cfset local.user_id = local.assessments.retrieve_invites(invite_uid = "f7yeiv").user_id>
+		<cfreturn this.findById(local.user_id)>
+	</cffunction>
 
 
 	<cffunction name="process_user_form" returntype="string" output="true" hint="I process the user form">

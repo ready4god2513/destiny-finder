@@ -1,5 +1,5 @@
 <h5>8. I feel most alive expressing myself through the following creative media:</h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 
@@ -11,7 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="Visual Arts" />Visual Arts </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="Crafts and Decorative Arts" />Crafts and Decorative Arts </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="Literature and Poetry" />Literature and Poetry</label>
-			<label class="checkbox"><input type="text" name="causes_expressing" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing"><input type="text" name="causes_expressing" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="undecided">Undecided</label>
 		</ul>
 	</div>

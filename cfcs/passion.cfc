@@ -137,19 +137,18 @@
 		<cfset var local = {} />
 		
 		<cfoutput>
-			<cfif #arguments.printPDFButton#>
-				<div class="row">
-					<div class="span8">
-						<h1>Passion Survey Results -- Passion Statement</h1>
-						<h4>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name# #DateFormat(now(), "mmm dd, yy")#</h4>
-					</div>
+			
+			<div class="row">
+				<div class="span8">
+					<h1>Passion Survey Results -- Passion Statement</h1>
+					<h4>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name# #DateFormat(now(), "mmm dd, YYYY")#</h4>
+				</div>
+				<cfif #arguments.printPDFButton#>
 					<div class="pull-right">
 						<a href="/profile/?page=viewresult&assessment_id=5&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
 					</div>
-				</div>
-			<cfelse>
-				
-			</cfif>
+				</cfif>
+			</div>
 			
 			<p>
 				I am most passionate about bringing my primary kingdom impact in the sphere of 
@@ -209,6 +208,25 @@
 						<a href="/profile/?page=viewresult&assessment_id=5&gift_type_id=0&pdf=true" class="btn btn-info">Print Results (PDF)</a>
 					</div>
 				</div>
+			</cfif>
+			
+			<cfif #arguments.printPDFButton#>
+				<h3>Next Steps</h3>
+				<p>
+					Well done! You have finished most of the Destiny Profiler. One more survey to go.
+				</p>
+				<p>
+					If you want to dig deeper into your passions and dreams, 
+					we recommend that you engage one of our destiny coaches to help you process these results and 
+					discover how God has made you and what motivates you.  See <a href="/products/index.cfm?page=coaching&gateway=3&parent_gateway=3" class="btn btn-primary">Coaching</a>
+				</p>
+				<p>
+					The next survey is the Delight Survey. For more information about the Delight Survey, go to the
+					<a href="/products/index.cfm?page=profiler305&gateway=3&parent_gateway=3" class="btn btn-primary">Profiler</a>
+				</p>
+				<p>
+					<a href="/profile/?page=assessment&assessment_id=6&gift_type_id=0" class="btn btn-primary">Start the Delight Survey</a>
+				</p>
 			</cfif>
 		</cfoutput>
 		

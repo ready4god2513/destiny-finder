@@ -1,6 +1,6 @@
 <h5>5. I am most passionate serving others INSIDE my church or group through the following types of ministries:  </h5>
 
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
@@ -13,7 +13,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Support" />Support (administration, ushering, preparation, communion, baptism, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Relational" />Relational (small groups, one on one, discipling, mentoring, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Social" />Social (dinners, events, parties, birthdays, holidays, festivals, etc.)</label>
-			<label class="checkbox"><input type="text" name="causes_ministries" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries"><input type="text" name="causes_ministries" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="undecided">Undecided</label>
 		</ul>
 	</div>

@@ -1,5 +1,5 @@
 <h5>7. I feel most fulfilled helping others when using the following means of communication:</h5>
-<cfinclude template="instructions.cfm">
+<cfinclude template="instructions-multiple.cfm">
 
 <form name="form<cfoutput>#VARIABLES.vCount#</cfoutput>" action="act_passion_survey.cfm" class="survey-form" method="post" id="sort_form_<cfoutput>#ATTRIBUTES.sort_id#</cfoutput>">
 	<div class="controls">
@@ -10,7 +10,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Mentoring and Coaching" />Mentoring and Coaching </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Writing and Publishing" />Writing and Publishing</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Public Speaking and Motivating" />Public Speaking and Motivating</label>
-			<label class="checkbox"><input type="text" name="causes_communication" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication"><input type="text" name="causes_communication" placeholder="Other sphere"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="undecided">Undecided</label>
 		</ul>
 	</div>
