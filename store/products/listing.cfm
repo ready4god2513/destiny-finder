@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="span7">
-				<h4>Profiler Module - <strike>$19.99</strike></h4>
+				<h4>Profiler Module - $19.99</h4>
 				<p>
 					This module is an online tool that produces a destiny profile that is a 
 					comprehensive picture of yourself. Includes the Destiny, Motivational, Supernatural, 
