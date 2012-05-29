@@ -1,7 +1,7 @@
 <h4>Introduction</h4>
 <p>
 	Thank you for agreeing to do this survey about your friend. This free survey will reveal a
-	basic aspect of one's design – what we call "destiny orientation." It's how people relate
+	basic aspect of one's design - what we call "destiny orientation." It's how people relate
 	to their world and is foundational to understanding one's destiny.
 </p>
 <p>

@@ -12,7 +12,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="Justice Issues" />Justice Issues (human trafficking, racism, oppression, prison system, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="Political Issues" />Political Issues (war, corruption, legislative process, political ideology, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="Environmental Issues" />Environmental Issues (recycling, natural resources, endangered species, animal cruelty, climate change, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal"><input type="text" name="causes_societal" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal"><input type="text" name="causes_societal" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_societal" value="undecided">Undecided</label>
 		</div>
 	</div>

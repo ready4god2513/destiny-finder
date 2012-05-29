@@ -13,7 +13,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="Compassion" />Compassion (feeding the poor, tutoring kids, helping the homeless)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="Justice Miinistry" />Justice Ministry (human trafficking, prison ministry, political causes, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="Social and Relational" />Social and Relational (social networking, events, friendship evangelism, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities"><input type="text" name="causes_ministry_activities" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities"><input type="text" name="causes_ministry_activities" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministry_activities" value="undecided">Undecided</label>
 		</div>
 	</div>

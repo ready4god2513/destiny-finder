@@ -9,7 +9,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Civil Service">Civil Service (including local, state and federal government; government transportation and infrastructure, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Justice System, Law Enforcement & Fire/Rescue ">Justice System, Law Enforcement & Fire/Rescue (including, police, attorneys, judicial, firefighters, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Non-Profit">Non-Profit (including non-governmental organizations, foundations, Red Cross, GreenPeace, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>

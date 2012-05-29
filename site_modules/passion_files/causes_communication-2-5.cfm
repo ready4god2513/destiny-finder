@@ -10,7 +10,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Mentoring and Coaching" />Mentoring and Coaching </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Writing and Publishing" />Writing and Publishing</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="Public Speaking and Motivating" />Public Speaking and Motivating</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication"><input type="text" name="causes_communication" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication"><input type="text" name="causes_communication" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_communication" value="undecided">Undecided</label>
 		</ul>
 	</div>

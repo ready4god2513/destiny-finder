@@ -91,7 +91,7 @@
 			
 		<cfset var local = {} />
 		<cfset local.assessments = CreateObject("component", "cfcs.assessment")>
-		<cfset local.user_id = local.assessments.retrieve_invites(invite_uid = "f7yeiv").user_id>
+		<cfset local.user_id = local.assessments.retrieve_invites(invite_uid = arguments.invite_id).user_id>
 		<cfreturn this.findById(local.user_id)>
 	</cffunction>
 

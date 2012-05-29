@@ -13,7 +13,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Support" />Support (administration, ushering, preparation, communion, baptism, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Relational" />Relational (small groups, one on one, discipling, mentoring, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="Social" />Social (dinners, events, parties, birthdays, holidays, festivals, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries"><input type="text" name="causes_ministries" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries"><input type="text" name="causes_ministries" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_ministries" value="undecided">Undecided</label>
 		</ul>
 	</div>

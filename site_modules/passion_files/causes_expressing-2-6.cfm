@@ -11,7 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="Visual Arts" />Visual Arts </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="Crafts and Decorative Arts" />Crafts and Decorative Arts </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="Literature and Poetry" />Literature and Poetry</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing"><input type="text" name="causes_expressing" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing"><input type="text" name="causes_expressing" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_expressing" value="undecided">Undecided</label>
 		</ul>
 	</div>

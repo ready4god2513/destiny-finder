@@ -8,7 +8,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Performing and Visual Arts">Performing and Visual Arts (theater, dance, fashion, photography, graphic arts, fine arts, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Traditional Media">Traditional Media (TV news, magazines, newspapers, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Digital Media">Digital Media (Internet, social networking, blogs, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>

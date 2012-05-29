@@ -7,7 +7,7 @@
 			<label class="radio"><input name="impact_area" type="radio" value="Urban or City">Urban or City</label>
 			<label class="radio"><input name="impact_area" type="radio" value="Suburban or Residential">Suburban or Residential</label>
 			<label class="radio"><input name="impact_area" type="radio" value="Rural or Country">Rural or Country</label>
-			<label class="radio"><input name="impact_area" type="radio"><input type="text" name="impact_area" placeholder="Other sphere"/></label>
+			<label class="radio"><input name="impact_area" type="radio"><input type="text" name="impact_area" placeholder="other"/></label>
 			<label class="radio"><input type="radio" name="impact_area" value="undecided">Undecided</label>
 		</div>
 	</div>

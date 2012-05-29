@@ -9,15 +9,27 @@
 		<cfif qResults.recordcount GT 0>
 			<cfset qUser = objQueries.user_detail(user_id="#qResults.user_id#")>        
 			<cfset qInvites = objAssessments.retrieve_invites(invite_uid="#HTMLEditFormat(URL.invite)#")>
-			<h2>You're a good friend, #HTMLEditFormat(qInvites.invite_first_name)# #HTMLEditFormat(qInvites.invite_last_name)#</h2>
 
-			<h3>Result For #qUser.user_first_name# #qUser.user_last_name#</h3>
-			<p>Your results suggest your friend #qUser.user_first_name# is a	
-			#Trim(objAssessments.compile_results(user_id="#qInviteuid.user_id#",invite="#qInvites.invite_uid#"))#</p>
-		</cfif>
-
-		<cfif REQUEST.user_id EQ 0>
-			<p><a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1" class="btn btn-primary">Create Your Account Today!</a></p>
+			<h2>Result For #qUser.user_first_name# #qUser.user_last_name#</h2>
+			<p>
+				Thanks for taking the survey about your friend.
+				The Friends 360 Survey is a short version of the Destiny Survey. 
+				It reveals what we call a destiny orientation. It's one's core trait, the basic way a person relates to the world. 
+				Your survey results will give your friend valuable feedback.
+			</p>
+			<p>
+				Your friend's Destiny Orientation: 
+				<strong>#Trim(objAssessments.compile_results(user_id="#qInviteuid.user_id#",invite="#qInvites.invite_uid#"))#</strong>
+			</p>
+			<h4>Now What?</h4>
+			<p>
+				You can find out more about the various destiny orientations in the Resources section.
+			</p>
+			<p>
+				Now that you've done the free survey about your friend, we hope you'll take it for yourself. 
+				Get started on your destiny discovery and fulfillment now. It's free and easy!  
+				<a href="/profile/?page=assessment&assessment_id=1&gift_type_id=1" class="btn btn-primary">Take the Free Test Today!</a>
+			</p>
 		</cfif>
 	</div>
 

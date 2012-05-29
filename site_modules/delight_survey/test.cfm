@@ -20,72 +20,61 @@
 
 <cfoutput>
 	<form action="/profile/?page=assessment&assessment_id=6&gift_type_id=0" method="POST" id="listing-aptitudes">
-		<div class="row">
-			<div class="span3">
-				<h3>Talents</h3>
-				<p>
-					Instructions: List your top talents, the
-					things you do best (skills, professions,
-					strengths, abilities, hobbies, sports,
-					etc.). Use as few words as possible.
-					Don't limit yourself.
-				</p>
-				<p>
-					Example: accounting, basketball, organizing, singing, fishing, video games, finding bargains, gardening, sewing, coaching, writing poetry, video games, programming, decorating, photography, growing herbs, organizing information, leading hiking trips,  first aid, fixing cars, building houses, creating ads, trivia, dancing, arranging flowers, counseling children, running summer camps, swimming, managing groups, travel, retrieving data, managing money, getting travel bargains, internet research, training animals, boating teaching middle schoolers, mothering, leading groups, putting on art shows, welding, diagramming, building websites, photoshop, carpentry, blogging, promotion, graphics, military video games, writing articles, hair styling, physics, etc.
-				</p>
+		<h3>Talents</h3>
+		<p>
+			Instructions: List your top talents, the
+			things you do best (skills, professions,
+			strengths, abilities, hobbies, sports,
+			etc.). Use as few words as possible.
+			Don't limit yourself.
+		</p>
+		<p>
+			<strong>Examples:</strong> accounting, basketball, organizing, singing, fishing, video games, finding bargains, gardening, sewing, coaching, writing poetry, video games, programming, decorating, photography, growing herbs, organizing information, leading hiking trips,  first aid, fixing cars, building houses, creating ads, trivia, dancing, arranging flowers, counseling children, running summer camps, swimming, managing groups, travel, retrieving data, managing money, getting travel bargains, internet research, training animals, boating teaching middle schoolers, mothering, leading groups, putting on art shows, welding, diagramming, building websites, photoshop, carpentry, blogging, promotion, graphics, military video games, writing articles, hair styling, physics, etc.
+		</p>
+		
+		<cfloop from="1" to="20" index="i">
+			<div class="control-group">
+				<input type="text" id="aptitudes#i#" class="span6" name="aptitudes" placeholder="#i#." />
 			</div>
-			<div class="span3">
-				<h3>Loves</h3>
-				<p>
-					Instructions: List the top things you
-					love to do or are most passionate
-					about (skills, professions, strengths,
-					abilities, hobbies, sports, etc ). Don't
-					limit yourself.
-				</p>
-				<p>
-					Example: accounting, basketball, organizing, singing, fishing, video games, finding bargains, gardening, sewing, coaching, writing poetry, video games, programming, decorating, photography, growing herbs, organizing information, leading hiking trips,  first aid, fixing cars, building houses, creating ads, trivia, dancing, arranging flowers, counseling children, running summer camps, swimming, managing groups, travel, retrieving data, managing money, getting travel bargains, internet research, training animals, boating teaching middle schoolers, mothering, leading groups, putting on art shows, welding, diagramming, building websites, photoshop, carpentry, blogging, promotion, graphics, military video games, writing articles, hair styling, physics, etc.
-				</p>
+		</cfloop>
+		
+		<h3>Loves</h3>
+		<p>
+			Instructions: List the top things you
+			love to do or are most passionate
+			about (skills, professions, strengths,
+			abilities, hobbies, sports, etc ). Don't
+			limit yourself.
+		</p>
+		<p>
+			<strong>Examples:</strong> accounting, basketball, organizing, singing, fishing, video games, finding bargains, gardening, sewing, coaching, writing poetry, video games, programming, decorating, photography, growing herbs, organizing information, leading hiking trips,  first aid, fixing cars, building houses, creating ads, trivia, dancing, arranging flowers, counseling children, running summer camps, swimming, managing groups, travel, retrieving data, managing money, getting travel bargains, internet research, training animals, boating teaching middle schoolers, mothering, leading groups, putting on art shows, welding, diagramming, building websites, photoshop, carpentry, blogging, promotion, graphics, military video games, writing articles, hair styling, physics, etc.
+		</p>
+		
+		<cfloop from="1" to="20" index="i">
+			<div class="control-group">
+				<input type="text" id="loves#i#" class="span6" name="loves" placeholder="#i#." />
 			</div>
-			<div class="span3">
-				<h3>Delights</h3>
-				<p>
-					Instructions: Find the talents and
-					loves that match. Include ones that
-					are similar to each other but not an
-					exact match such as playing guitar
-					and music.
-				</p>
-				<p>
-					Enter the more specific of the two.
-					Example: match "playing guitar" and
-					"music" - enter "playing guitar."
-				</p>
+		</cfloop>
+		
+		<h3>Delights</h3>
+		<p>
+			Instructions: Find the talents and
+			loves that match. Include ones that
+			are similar to each other but not an
+			exact match such as playing guitar
+			and music.
+		</p>
+		<p>
+			Enter the more specific of the two.
+			Example: match "playing guitar" and
+			"music" - enter "playing guitar."
+		</p>
+		
+		<cfloop from="1" to="10" index="i">
+			<div class="control-group">
+				<input type="text" id="delights#i#" class="span6" name="delights" placeholder="#i#." />
 			</div>
-		</div>
-		<div class="row">
-			<div class="span3">
-				<h6>Talents</h6>
-				<cfloop from="1" to="20" index="i">
-					<input type="text" id="aptitudes#i#" class="span3" name="aptitudes" placeholder="#i#." />
-				</cfloop>
-			</div>
-			
-			<div class="span3">
-				<h6>Loves</h6>
-				<cfloop from="1" to="20" index="i">
-					<input type="text" id="loves#i#" class="span3" name="loves" placeholder="#i#." />
-				</cfloop>
-			</div>
-			
-			<div class="span3">
-				<h6>Delights</h6>
-				<cfloop from="1" to="10" index="i">
-					<input type="text" id="delights#i#" class="span3" name="delights" placeholder="#i#." />
-				</cfloop>
-			</div>
-			
-		</div>
+		</cfloop>
 
 		<div class="form-actions">
 			<input type="submit" name="submit" value="Submit Answers" class="btn btn-info" />

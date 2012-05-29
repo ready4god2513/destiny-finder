@@ -11,7 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Crime and Imprisonment" />Crime and Imprisonment </label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Sin Issues" />Sin Issues (immorality, greed, fear, anger, envy, pride, idolatry, rebellion, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="Spiritual Strongholds " />Spiritual Strongholds (occult, demonic oppression, SRA, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human"><input type="text" name="causes_human" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human"><input type="text" name="causes_human" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="causes_human" value="undecided">Undecided</label>
 		</ul>
 	</div>

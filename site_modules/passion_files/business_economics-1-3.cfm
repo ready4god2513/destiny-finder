@@ -11,7 +11,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Transportation & Distribution">Transportation & Distribution (including tourism, travel, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Financial Services & Real Estate">Financial Services & Real Estate (including banking, insurance, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Science & Technology">Science & Technology (including R&D, information technology, communications, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="Other sphere"/></label>
+			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>
