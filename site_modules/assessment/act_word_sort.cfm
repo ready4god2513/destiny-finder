@@ -5,7 +5,7 @@
 
 		<cfset VARIABLES.result = Replace(FORM.sort_serialized,'item[]=','','ALL')>
 		<cfset VARIABLES.result = Replace(VARIABLES.result,'&',',','ALL')>
-
+		
 		<cfset VARIABLES.item = {
 			id = '#FORM.sort_id#',
 			type_id = '#FORM.type_id#',

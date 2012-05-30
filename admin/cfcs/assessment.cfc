@@ -26,10 +26,12 @@
 	<cfargument name="assessment_id" type="numeric" required="yes">
 	
 	<cfquery name="iItem" datasource="#APPLICATION.DSN#">
-		INSERT INTO Assessment_Items
-			(item_type,item_type_id,assessment_id)
-				VALUES
-			(<cfqueryparam cfsqltype="cf_sql_integer" value="#item_type#">,<cfqueryparam cfsqltype="cf_sql_integer" value="#item_type_id#">,<cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">)
+		INSERT INTO Assessment_Items (item_type,item_type_id,assessment_id)
+		VALUES (
+			<cfqueryparam cfsqltype="cf_sql_integer" value="#item_type#">,
+			<cfqueryparam cfsqltype="cf_sql_integer" value="#item_type_id#">,
+			<cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">
+		)
 	</cfquery>
 
 </cffunction>

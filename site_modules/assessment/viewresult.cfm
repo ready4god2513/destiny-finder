@@ -4,9 +4,9 @@
 <cfset qAssessments = objAssessments.retrieve_assessments()>
 	
 <cfif isDefined("URL.invite") AND Len(URL.invite) GT 2>
-	<cfset qResults = objAssessments.retrieve_result(invite="#URL.invite#")>
+	<cfset qResults = objAssessments.retrieve_result(invite="#URL.invite#", assessment_id="#URL.assessment_id#")>
 <cfelse>
-	<cfset qResults = objAssessments.retrieve_result(user_id="#REQUEST.user_id#")>
+	<cfset qResults = objAssessments.retrieve_result(user_id="#REQUEST.user_id#", assessment_id="#URL.assessment_id#")>
 </cfif>
 
 <cfset qInvites = objAssessments.retrieve_invites(user_id="#REQUEST.user_id#")>

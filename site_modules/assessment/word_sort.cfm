@@ -126,7 +126,7 @@
 		</form>
 <br class="clear"/>
 		<cfset progbar = ((ATTRIBUTES.qcount - 1) / qItems.recordcount) * 100>
-		<h6>#progbar#% Complete</h6>
+		<h6>#NumberFormat(progbar)#% Complete</h6>
 		<div class="progress progress-info progress-striped active">
 		  <div class="bar" style="width: #progbar#%;"></div>
 		</div>

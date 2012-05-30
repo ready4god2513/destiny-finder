@@ -140,8 +140,12 @@
 			
 			<div class="row">
 				<div class="span8">
-					<h1>Passion Survey Results -- Passion Statement</h1>
-					<h4>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name# #DateFormat(now(), "mmm dd, YYYY")#</h4>
+					<cfif #arguments.printPDFButton#>
+						<h1>Passion Survey Results -- Passion Statement</h1>
+						<h4>#REQUEST.user.user_first_name# #REQUEST.user.user_last_name# #DateFormat(now(), "mmm dd, YYYY")#</h4>
+					<cfelse>
+						<h2>Passion Survey Results -- Passion Statement</h2>
+					</cfif>
 				</div>
 				<cfif #arguments.printPDFButton#>
 					<div class="pull-right">

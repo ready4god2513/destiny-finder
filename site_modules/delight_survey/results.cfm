@@ -15,7 +15,7 @@
 <cfif ArrayLen(comparedResults) GT 0>
 	<ol>
 		<cfloop array="#comparedResults#" index="i">
-			<li><cfoutput>#i#</cfoutput></li>
+			<li><cfoutput>#Replace(i, '"', '', 'ALL')#</cfoutput></li>
 		</cfloop>
 	</ol>
 	

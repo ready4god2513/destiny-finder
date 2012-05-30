@@ -170,6 +170,8 @@
 		<cfargument name="item_detail" required="yes" type="struct">
 		<cfargument name="user_id" required="yes" type="numeric">
 		<cfargument name="invite" required="no" type="string">
+			
+		<cfset var local = {} />
 	
 		<!--- IF THE USER IS NOT LOGGED IN, REDIRECT THEM TO LOG IN --->
 		<cfif user_id EQ 0 >
@@ -178,7 +180,7 @@
 		</cfif>
 	
 		<!--- SEE IF THERE IS ALREADY A RECORD OF THIS ASSESSMENT IN THE SYSTEM --->
-		<cfquery name="qResult" datasource="#APPLICATION.DSN#">
+		<cfquery name="local.qResult" datasource="#APPLICATION.DSN#">
 			SELECT *
 			FROM Results
 			WHERE user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.user_id#">
@@ -187,74 +189,35 @@
 				AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.invite#">
 			</cfif>
 		</cfquery>
-	
-		<cfif qResult.recordcount EQ 0>
-			<!--- IF NO RECORD IS FOUND, PREPARE THE RESULT SET AND INSERT IT INTO THE DB --->
 		
-			<cfset VARIABLES.items = ArrayNew(1)>
-			<cfset VARIABLES.items[1] = item_detail>
-		
-			<cfset VARIABLES.result_set = SerializeJSON(VARIABLES.items)>
-				
-			<cfquery name="iResult" datasource="#APPLICATION.DSN#"	>
-				INSERT INTO Results
-				(assessment_id,user_id,last_modified,result_set
-				<cfif isDefined('invite') AND LEN(invite) GT 0>
-					,invite_uid
-				</cfif>)
-				VALUES
-				(<cfqueryparam cfsqltype="cf_sql_integer" value="#assessment_id#">,
-				<cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">,
-	            <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">,
-				<cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.result_set#">
-				<cfif isDefined('invite') AND LEN(invite) GT 0>
-					,<cfqueryparam cfsqltype="cf_sql_char" value="#invite#">
-				</cfif>)
-			</cfquery>
-		
-		<cfelse>
-			<!--- IF THERE IS A RECORD FOUND, WE NEED TO PULL THE EXISTING RESULT SET AND DETERMINE IF THIS IS AN UPDATE TO AN EXISTING ITEM OR A NEW ONE--->
-			<cfset VARIABLES.items = DeSerializeJSON(qResult.result_set, false)>
-				
-			<cfset VARIABLES.item_found = 0>
-
-			<cfloop from="1" to="#ArrayLen(VARIABLES.items)#" index="i">
-				<cfif VARIABLES.items[i].id EQ item_detail.id>
-					<cfset VARIABLES.item_found = i>
-				</cfif>
+		<cfif local.qResult.recordcount GT 0>
+			<cfloop query="local.qResult">
+				<cfquery datasource="#APPLICATION.DSN#">
+					DELETE FROM Results
+					WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#result_id#">
+				</cfquery>
 			</cfloop>
-		
-			<cfif VARIABLES.item_found EQ 0>
-				<!--- NEW ITEM --->
-				<cfset VARIABLES.items[ArrayLen(VARIABLES.items)+1] = item_detail>
-				<cfset VARIABLES.result_set = SerializeJSON(VARIABLES.items)>
-
-				<cfquery name="uResult" datasource="#APPLICATION.DSN#">
-					UPDATE Results
-					SET
-					result_set = <cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.result_set#">,
-	                last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
-					WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qResult.result_id#">			
-				</cfquery>
-			
-					
-			<cfelse>
-				<!--- UPDATE ITEM --->
-				<cfset VARIABLES.items[VARIABLES.item_found] = item_detail>
-			
-				<cfset VARIABLES.result_set = SerializeJSON(VARIABLES.items)>
-
-				<cfquery name="uResult" datasource="#APPLICATION.DSN#">
-					UPDATE Results
-					SET
-					result_set = <cfqueryparam cfsqltype="cf_sql_char" value="#VARIABLES.result_set#">,
-	                last_modified = <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">
-					WHERE result_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qResult.result_id#">
-				</cfquery>
-			
-			</cfif>
 		</cfif>
 	
+		<cfset local.items = ArrayNew(1)>
+		<cfset local.items[1] = item_detail>
+		<cfset local.result_set = SerializeJSON(local.items)>
+			
+		<cfquery name="local.iResult" datasource="#APPLICATION.DSN#">
+			INSERT INTO Results (assessment_id,user_id,last_modified,result_set
+				<cfif isDefined('arguments.invite') AND LEN(arguments.invite) GT 0>
+					,invite_uid
+				</cfif>)
+			VALUES
+			(<cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.assessment_id#">,
+			<cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.user_id#">,
+            <cfqueryparam cfsqltype="cf_sql_date" value="#now()#">,
+			<cfqueryparam cfsqltype="cf_sql_char" value="#local.result_set#">
+			<cfif isDefined('arguments.invite') AND LEN(arguments.invite) GT 0>
+				,<cfqueryparam cfsqltype="cf_sql_char" value="#arguments.invite#">
+			</cfif>)
+		</cfquery>
+		
 	</cffunction>
 	
 	
@@ -277,7 +240,7 @@
 		<cfargument name="gift_type_id" type="numeric" required="yes">
 		
 		<cfset var local = {} />
-		<cfset local.gifts = this.retrieve_gifts(gift_type_id = "#gift_type_id#")>
+		<cfset local.gifts = this.retrieve_gifts(gift_type_id = arguments.gift_type_id)>
 		<cfset local.result_set = DeSerializeJSON(arguments.results.result_set, false)>
 		<cfset local.gift_count = ArrayNew(1)>
 		
@@ -286,115 +249,17 @@
 		<cfloop from="1" to="#local.gifts.recordcount#" index="i"> 
 			<cfset local.gift_count[i] = {id = local.gifts.gift_id[i],counter = 0, name = local.gifts.gift_name[i]}>
 		</cfloop>
-	
-		<cfloop from="1" to="#ArrayLen(local.result_set)#" index="i">
-				<cfswitch expression="#local.result_set[i].type_id#">
-					<cfcase value="1">
-						<cfloop from="1" to="#ArrayLen(local.gift_count)#" index="j">
-							<!--- This section needs to be simplified with a CFLOOP to condense this section of code. TJ --->
-	                        <cfif arguments.gift_type_id EQ 3>
-                        
-								<cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),1)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 9 >
-	                            </cfif>
-                        
-								<cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),2)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 8 >
-	                            </cfif>
-                        
-								<cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),3)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 7 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 6 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 5 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),6)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 4 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),7)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 3 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),8)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 2 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),9)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 1 >
-	                            </cfif>
-                            
-	                        <cfelseif arguments.gift_type_id EQ 2>
-                        
-								<cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),1)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 7 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),2)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 6 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),3)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 5 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 4 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 3 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 2 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 1 >
-	                            </cfif>
-                            
-	                        <cfelseif arguments.gift_type_id EQ 1>
-                        
-	                        	<cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),1)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 5 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),2)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 4 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),3)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 3 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),4)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 2 >
-	                            </cfif>
-                            
-	                            <cfif local.gift_count[j].id EQ ListGetAt(Replace(local.result_set[i].result,'"','','ALL'),5)>
-	                                <cfset local.gift_count[j].counter = local.gift_count[j].counter + 1 >
-	                            </cfif>
-                            
-							</cfif>
-                        
-						</cfloop>
-					</cfcase>
-					<cfcase value="2">
-						<cfset local.rating = DeSerializeJSON(local.result_set[i].result, false)>
-						<cfloop from="1" to="#ArrayLen(local.gift_count)#" index="j">
-							<cfif local.gift_count[j].id EQ local.rating.gift>
-								<cfset local.gift_count[j].counter = local.gift_count[j].counter + local.rating.rate >
-							</cfif>
-						</cfloop>
-					</cfcase>
-				</cfswitch>
+		
+		<cfloop array="#local.result_set#" index="i">
+			<cfset local.add = ArrayLen(local.gift_count)>
+			<cfloop array="#ListToArray(Replace(i.result, '"', '', 'ALL'))#" index="j">
+				<cfloop array="#local.gift_count#" index="gift">
+					<cfif j EQ gift.id>
+						<cfset gift.counter = gift.counter + local.add>
+						<cfset local.add = local.add - 1>
+					</cfif>
+				</cfloop>
+			</cfloop>
 		</cfloop>
 		
 		<cfreturn local.gift_count />
@@ -434,9 +299,9 @@
         <cfargument name="nodisplay" required="no" type="numeric">
 		<!--- SIMPLE SCORING ENGINE. THE RESULT SET IS LOOPED OVER AND THE ITEM TYPE DETERMINES HOW THE SET WILL BE SCORED--->
 		<cfset var local = {}>
-		
-		<cfset local.qGifts = this.retrieve_gifts(gift_type_id="#gift_type_id#")>
-		<cfset local.qResult = this.retrieve_result(result_id="#result_id#")>
+			
+		<cfset local.qGifts = this.retrieve_gifts(gift_type_id="#arguments.gift_type_id#")>
+		<cfset local.qResult = this.retrieve_result(result_id="#arguments.result_id#")>
 			
 		<cfset local.results = this.parse_responses(results = local.qResult, gift_type_id = arguments.gift_type_id) />
 		<cfset local.top_gifts = this.get_top_gifts(results = local.results) />
@@ -516,10 +381,14 @@
 		<cfif local.qThisResult.recordcount GT 0>
 			<cfloop query="local.qThisResult">
 			    <div class="short_desc">
-					<cfif #currentrow# eq 1>
-						#gift_primary#
+					<cfif arguments.assessment_id EQ 1>
+						#gift_brief#
 					<cfelse>
-						#gift_secondary#
+						<cfif #currentrow# eq 1>
+							#gift_primary#
+						<cfelse>
+							#gift_secondary#
+						</cfif>
 					</cfif>
 				</div>
 				<hr />

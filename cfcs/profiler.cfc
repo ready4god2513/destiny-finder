@@ -48,7 +48,7 @@
 				Be intentional, trust the Lord, and He will guide you.
 			</p>
 			
-			<h3>Destiny Orientations</h3>
+			<h2>Destiny Orientations</h2>
 			<cfset local.destiny_assessment = local.assessments.retrieve_assessments(2) />
 			<cfset local.destiny_results = local.assessments.retrieve_result(user_id = variables.user_id, assessment_id = 2) />
 			<cfset local.responses = local.assessments.parse_responses(results = local.destiny_results, gift_type_id = local.destiny_assessment.gift_type_id) />
@@ -58,7 +58,7 @@
 				<li>Secondary Destiny Orientation - #local.assessments.get_gift_name(local.top_destiny[2].id)#</li>
 			</ol>
 			
-			<h3>Motivational Orientations</h3>
+			<h2>Motivational Orientations</h2>
 			<cfset local.motivational_assessment = local.assessments.retrieve_assessments(3) />
 			<cfset local.motivational_results = local.assessments.retrieve_result(user_id = variables.user_id, assessment_id = 3) />
 			<cfset local.responses = local.assessments.parse_responses(results = local.motivational_results, gift_type_id = local.motivational_assessment.gift_type_id) />
@@ -68,7 +68,7 @@
 				<li>Secondary Motivational Orientation - #local.assessments.get_gift_name(local.top_motivational[2].id)#</li>
 			</ol>
 			
-			<h3>Supernatural Orientations</h3>
+			<h2>Supernatural Orientations</h2>
 			<cfset local.survey_results = local.supernaturalSurveyObj.sortResults() />
 			<ol>
 				<cfloop query="local.survey_results" endRow="3">
@@ -78,8 +78,8 @@
 			
 			#local.passionSurveyObj.calculateResults()#
 			
-			<h3>Aptitude-Delight Matches</h3>
-			<h6>Top aptitude and delight matches</h6>
+			<h2>Delight Survey</h2>
+			<h6>Top Talents and Loves matches</h6>
 			<cfif ArrayLen(local.comparedResults) GT 0>
 				<ol>
 					<cfloop array="#local.comparedResults#" index="i">
