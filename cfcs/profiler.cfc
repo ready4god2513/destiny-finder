@@ -92,6 +92,42 @@
 				</p>
 			</cfif>
 			
+			<h3>Share your Passion</h3>
+			<p>
+				Michael, Brian, and Glen- Need text from you guys on what you want to say here about sharing
+				their passion to be encouraged and accountable.
+			</p>
+			
+			<a href="https://twitter.com/intent/tweet?screen_name=DestinyFinder1&text=If%20time%20and%20resources%20were%20immaterial..." class="twitter-mention-button" data-related="ready4god2513,DestinyFinder1">Tweet to @DestinyFinder1</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			
+			<script src="http://connect.facebook.net/en_US/all.js"></script>
+			<p><a onclick="postToFeed(); return false;" class="btn btn-primary">Post to Feed</a></p>
+
+			<script> 
+				FB.init({appId: "358884870793317", status: true, cookie: true});
+
+				function postToFeed() {
+
+					// calling the API ...
+					var obj = {
+						method: "feed",
+						link: "https://destinyfinder.com",
+						picture: "http://dev.destinyfinder.com/assets/images/logo.png",
+						name: "Destiny Finder",
+						caption: "Share your Passion",
+						description: "Michael, Brian, and Glen- Need text from you guys on what you want to say here about sharing their passion to be encouraged and accountable."
+					};
+					function callback(data)
+					{
+						console.log("Awesome");
+					}
+					
+					FB.ui(obj, callback);
+				}
+
+			</script>
+			
 			<h3>Next Steps</h3>
 			<p>Congratulations! You've taken a major step forward on your destiny journey. You can print the summary</p>
 
