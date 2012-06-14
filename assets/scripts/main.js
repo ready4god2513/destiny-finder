@@ -124,5 +124,25 @@ $(function(){
 	$(".do-share-passion").click(function(){
 		$(this).attr("href", $(this).data("base-url") + $("#share-your-passion").val());
 	});
+	
+	$("#delight-talents input").on("blur", function(){
+		$("#show-talents").html("<h4>Delights</h4><ol></ol>");
+		$("#delight-talents input").each(function(){
+			if($(this).val() != "")
+			{
+				$("#show-talents ol").append("<li>" + $(this).val() + "</li>");
+			}
+		});
+	});
+	
+	$("#delight-loves input").on("blur", function(){
+		$("#show-loves").html("<h4>Loves</h4><ol></ol>");
+		$("#delight-loves input").each(function(){
+			if($(this).val() != "")
+			{
+				$("#show-loves ol").append("<li>" + $(this).val() + "</li>");
+			}
+		});
+	});
 
 });
