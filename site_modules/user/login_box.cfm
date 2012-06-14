@@ -61,9 +61,7 @@
 						<input type="text" name="user_first_name" id="user_first_name" required="required" />
 					</div>
 				</div>
-
 				<div class="control-group">
-
 					<label for="user_last_name">Last Name</label>
 					<div class="controls">
 						<input type="text" name="user_last_name" id="user_last_name" required="required" />

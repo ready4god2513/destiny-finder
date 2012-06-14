@@ -120,5 +120,9 @@ $(function(){
 
 	// Dropdown Menu
 	$("#topbar").dropdown();
+	
+	$(".do-share-passion").click(function(){
+		$(this).attr("href", $(this).data("base-url") + $("#share-your-passion").val());
+	});
 
 });

@@ -25,25 +25,24 @@
 		</cfloop>
 	</cfif>
 	
-	<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
 	
 	<!-- BEGIN FOXYCART FILES -->
 	<link rel="stylesheet" href="//cdn.foxycart.com/static/scripts/colorbox/1.3.18/style1_fc/colorbox.css?v=1327967598" type="text/css" media="screen" charset="utf-8" />
 	<!-- END FOXYCART FILES -->
 
 	<link rel="stylesheet" type="text/css" href="/assets/styles/main.css?v=30034893" />
-	
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js?v=1327967598"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js?v=1327967598"></script>
 
 	<!-- Include all of the required libraries -->	
-	<script src="/assets/scripts/main-ck.js?v=1327967598"></script>
-	
-	<script src="//cdn.foxycart.com/destinyfinder/foxycart.colorbox.js?v=1327967598"></script>
+	<script src="/assets/scripts/libraries/modernizr.js?v=1327967598"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	<script src="/assets/scripts/libraries/bootstrap.js"></script>
+	<script src="/assets/scripts/libraries/jquery.form.js"></script>
+	<script src="/assets/scripts/libraries/jquery.metadata.js"></script>
+	<script src="/assets/scripts/libraries/jquery.sortable.js"></script>
+	<script src="/assets/scripts/libraries/jquery.validate.min.js"></script>
+	<script src="/assets/scripts/main.js"></script>
+	<script src="https://cdn.foxycart.com/destinyfinder/foxycart.colorbox.js?"></script>
 </head>
 <body>
 	<div class="container">
