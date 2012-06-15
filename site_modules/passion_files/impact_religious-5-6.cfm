@@ -13,7 +13,7 @@
 					<label class="radio"><input type="radio" name="impact_religious" value="Christian">Christian</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="Atheist/Post-Christian">Atheist/Post-Christian</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="Agnostic">Agnostic</label>
-                    <label class="radio"><input type="radio" name="impact_religious" value="Higher Power/Mishmash">Higher Power/Mishmash</label>
+                    <label class="radio"><input type="radio" name="impact_religious" value="Higher Power">Higher Power</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="New Age">New Age</label>
                     <label class="radio"><input type="radio" name="impact_religious" value="Occult/Wicca/Satanic">Occult/Wicca/Satanic</label>
 					<label class="radio"><input type="text" name="impact_religious" placeholder="other"/></label>
