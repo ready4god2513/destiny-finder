@@ -13,7 +13,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="Serving Others" />Serving Others</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="Journaling" />Journaling</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="Artistic Expression" />Artistic Expression</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god"><input type="text" name="connect_god" placeholder="other"/></label>
+			<label class="checkbox"><input type="text" name="connect_god" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="connect_god" value="undecided">Undecided</label>
 		</div>
 	</div>

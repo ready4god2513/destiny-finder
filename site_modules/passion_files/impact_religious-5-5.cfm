@@ -14,7 +14,7 @@
 			<label class="radio"><input type="radio" name="impact_religious" value="Postmodern">Postmodern</label>
 			<label class="radio"><input type="radio" name="impact_religious" value="New Age">New Age</label>
 			<label class="radio"><input type="radio" name="impact_religious" value="Occult, Wicca, Satanic">Occult, Wicca, Satanic</label>
-			<label class="radio"><input type="radio" name="impact_religious"><input type="text" name="impact_religious" placeholder="other"/></label>
+			<label class="radio"><input type="text" name="impact_religious" placeholder="other"/></label>
 			<label class="radio"><input type="radio" name="impact_religious" value="undecided">Undecided</label>
 		</div>
 	</div>

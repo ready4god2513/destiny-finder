@@ -18,7 +18,7 @@
                     <label class="radio"><input type="radio" name="impact_subculture" value="LGBT">LGBT</label>
                     <label class="radio"><input type="radio" name="impact_subculture" value="High Society">High Society</label>
                     <label class="radio"><input type="radio" name="impact_subculture" value="Celebrity">Celebrity</label>
-                    <label class="radio"><input type="radio" name="impact_subculture"><input type="text" name="impact_subculture" placeholder="Other subculture"/></label>
+                    <label class="radio"><input type="text" name="impact_subculture" placeholder="Other subculture"/></label>
 					<label class="radio"><input type="radio" name="impact_subculture" value="undecided">Undecided</label>
 				</ul>
 			</div>

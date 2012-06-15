@@ -10,7 +10,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Education and Training">Education and Training (including ministry school, Christian college, seminary, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Para-church Ministry">Para-church Ministry (including mission organizations, campus ministry, non-profit organizations, non-church compassion ministry, music and arts ministry, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Outreach and Missions">Outreach and Missions</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="other"/></label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>

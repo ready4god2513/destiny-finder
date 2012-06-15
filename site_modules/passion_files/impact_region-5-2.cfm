@@ -254,7 +254,7 @@
 					</optgroup>
 				</select>
 				<label class="radio"><input type="radio" name="impact_region" value="all">All</label>
-				<label class="radio"><input type="radio" name="impact_region"><input type="text" name="impact_region" placeholder="Other region"/></label>
+				<label class="radio"><input type="text" name="impact_region" placeholder="Other region"/></label>
 				<label class="radio"><input type="radio" name="impact_region" value="Undecided">Undecided</label>
 			</div>
 		</div>

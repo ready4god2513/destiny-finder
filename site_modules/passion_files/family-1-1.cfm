@@ -9,7 +9,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Health and Wellness">Health and Wellness (health, medical, physical therapy, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Therapy and Social Work">Therapy and Social Work (counseling, family support, bereavement, etc.)</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="Senior Care">Senior Care (retirement, senior care, hospice, etc.)</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1"><input type="text" name="sphere_sub1" placeholder="other"/></label>
+			<label class="checkbox"><input type="text" name="sphere_sub1" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="sphere_sub1" value="undecided">Undecided</label>
 		</div>
 	</div>

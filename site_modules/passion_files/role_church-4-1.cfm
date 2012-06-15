@@ -10,7 +10,7 @@
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_church" value="Ministry Leader or Elder">Ministry Leader or Elder</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_church" value="Associate or Assistant Pastor">Associate or Assistant Pastor</label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_church" value="Senior or Lead Pastor">Senior or Lead Pastor</label>
-			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_church"><input type="text" name="role_church" placeholder="other"/></label>
+			<label class="checkbox"><input type="text" name="role_church" placeholder="other"/></label>
 			<label class="checkbox"><input type="checkbox" class="checkbox" name="role_church" value="undecided">Undecided</label>
 		</div>
 	</div>
