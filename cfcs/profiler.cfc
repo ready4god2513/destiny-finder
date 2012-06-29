@@ -100,8 +100,8 @@
 			
 			<form action="##" method="POST">
 				<textarea name="share-your-passion" id="share-your-passion" rows="3" cols="50"></textarea>
-				<a href="##" id="share-passion-twitter" class="do-share-passion btn btn-info" data-base-url="http://twitter.com/intent/tweet?related=DestinyFinder1&text=" target="_blank">Share on Twitter</a>
-				<a href="##" id="share-passion-facebook" class="do-share-passion btn btn-primary" data-base-url="http://www.facebook.com/sharer.php?u=https://www.facebook.com/destinyfinder1&t=" target="_blank">Share on Facebook</a>
+				<a href="##" id="share-passion-twitter" class="do-share-passion btn btn-info" data-base-url="http://twitter.com/intent/tweet?related=mydestinyfinder&text=" target="_blank">Share on Twitter</a>
+				<a href="##" id="share-passion-facebook" class="do-share-passion btn btn-primary" data-base-url="http://www.facebook.com/sharer.php?u=https://www.facebook.com/mydestinyfinder&t=" target="_blank">Share on Facebook</a>
 			</form>
 			
 			<h3>Next Steps</h3>
@@ -132,7 +132,7 @@
 			
 			<p>
 				Check out our <a href="/blog/">blog</a><br />
-				And like us on <a href="https://www.facebook.com/destinyfinder1">Facebook</a>.
+				And like us on <a href="https://www.facebook.com/mydestinyfinder">Facebook</a>.
 			</p>
 
 			<p>

@@ -54,16 +54,10 @@ ORDER BY gateway_sortorder ASC
 
 			<article>
 				<h2>News</h2>
-				<h3>BETA Site launches, Profiler FREE during BETA test!</h3>
+				<h3>Destiny Profiler launching at Jesus Culture New York!</h3>
 				<p>
-					The Profiler is FREE right now while we BETA-test the new site. This won't last!
-					We need your feedback to make our website, products and services be the 
-					best they can be. Please take the Free Survey, invite friends to take the 
-					Friends Survey, and take the Destiny Profiler surveys for free 
-					(you'll still be sent to the store - the cost will be zero.) All we ask is that 
-					you use the Feedback button available on each page and give us as much 
-					feedback as possible about errors, things that don't make sense, or suggestions. 
-					Thank you for partnering with us to make a difference!
+					It's powerful, it's easy, it's here!  Five surveys based on spiritual gifts, motivational gifts, passion and more reveal your basic destiny direction
+					<a href="/products/index.cfm?page=profiler305&gateway=3&parent_gateway=3">More...</a>
 				</p>
 			</article>
 			

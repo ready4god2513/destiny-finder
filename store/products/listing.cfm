@@ -14,11 +14,6 @@
 					comprehensive picture of yourself. Includes the Destiny, Motivational, Supernatural, 
 					Passion and Delight surveys. You'll love it or your money back!
 				</p>
-				
-				<p>
-					Like us on Facebook for a Discount!
-					<div class="fb-like" data-href="https://www.facebook.com/destinyfinder1" data-send="true" data-width="450" data-show-faces="true"></div>
-				</p>
 
 				<p>
 					<a href="/products/index.cfm?page=profiler305&amp;gateway=3&amp;parent_gateway=3">More info</a>
@@ -74,19 +69,3 @@
 	</article>
 
 </div>
-
-<script>
-function showDiscountedPrice()
-{
-	$("#profiler-price").val("14.99");
-	$("#current-profiler-price").html("<strike>19.99</strike> $14.99");
-};
-
-window.fbAsyncInit = function() {
-	FB.Event.subscribe("edge.create",
-		function(response) {
-			showDiscountedPrice();
-		}
-	);
-};
-</script>
