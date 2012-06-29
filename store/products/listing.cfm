@@ -8,7 +8,7 @@
 			</div>
 
 			<div class="span7">
-				<h4>Profiler Module - $<span id="current-profiler-price">19.99</span></h4>
+				<h4>Profiler Module - $<span id="current-profiler-price">9.99</span></h4>
 				<p>
 					This module is an online tool that produces a destiny profile that is a 
 					comprehensive picture of yourself. Includes the Destiny, Motivational, Supernatural, 
@@ -24,7 +24,7 @@
 					<input type="hidden" name="code" value="<cfoutput>#Hash("profiler")#</cfoutput>" />
 					<input type="hidden" name="quantity_max" value="1" />
 					<input type="hidden" name="quantity_min" value="1" />
-					<input type="hidden" name="price" id="profiler-price" value="19.99" />
+					<input type="hidden" name="price" id="profiler-price" value="9.99" />
 					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/profiler-module.png" />
 					<input type="submit" value="Add to Cart" class="btn btn-primary" />
 				</form>

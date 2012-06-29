@@ -29,7 +29,7 @@
 	</article>
 	
 	<article>
-		<a href="https://twitter.com/Destiny_Finder" class="twitter-follow-button" data-show-count="false">Follow @mydestinyfinder</a>
+		<a href="https://twitter.com/mydestinyfinder" class="twitter-follow-button" data-show-count="false">Follow @mydestinyfinder</a>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		<div class="fb-like" data-href="https://www.facebook.com/mydestinyfinder" data-send="false" data-width="250" data-show-faces="false"></div>
 	</article>
