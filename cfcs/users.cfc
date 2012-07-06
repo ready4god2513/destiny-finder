@@ -165,7 +165,14 @@
 								<cfset result = createObject("component", "cfcs.constantcontact.ContactsCollection").addContact(contact = #newUser#)>
 								<!--- END ADD TO CONSTANT CONTACT --->
 								
-								<cfcatch type="any"></cfcatch>
+								<cfcatch type="any">
+									<cfmail
+										from="errors@destinyfinder.com"
+										to="brandonh@ibethel.org"
+										subject="#cfcatch.type#">
+										<cfoutput>#cfcatch.message#</cfoutput>
+									</cfmail>
+								</cfcatch>
 							</cftry>
 							
 							<cflock scope="session" type="readonly" timeout="30">
