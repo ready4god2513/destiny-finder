@@ -170,7 +170,7 @@
 										from="errors@destinyfinder.com"
 										to="brandonh@ibethel.org"
 										subject="#cfcatch.type#">
-										<cfoutput>#cfcatch.message#</cfoutput>
+										<cfoutput>#cfcatch.message#<br />#cfcatch.detail#</cfoutput>
 									</cfmail>
 								</cfcatch>
 							</cftry>
