@@ -19,22 +19,8 @@ ORDER BY gateway_sortorder ASC
 <cfinclude template="templates/header.cfm" />
 
 <div class="row">
-	<div class="span10">
-		<div id="rotating-banner">
-			<div id="rotating-images">
-				<img src="assets/images/slidepictures/LockSlide.jpg" width="590" height="280" alt="LockSlide">
-				<img src="assets/images/slidepictures/DadandSon.jpg" width="590" height="280" alt="DadandSon">
-				<img src="assets/images/slidepictures/ExploreYourPotential.jpg" width="590" height="280" alt="ExploreYourPotential">
-				<img src="assets/images/slidepictures/StepSToneSlide.jpg" width="590" height="280" alt="StepSToneSlide">
-				<img src="assets/images/slidepictures/TransformYourWorld.jpg" width="590" height="280" alt="TransformYourWorld">
-			</div>
-		</div>
-		<div id="cycle-nav"></div>
-	</div>
-	<div id="free-banner-home" class="span6 pull-right">
-		<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">
-			<img src="/assets/images/free-trial-home-banner.png" />
-		</a>
+	<div class="span16">
+		<iframe id="ytplayer" type="text/html" width="940" height="528.75" src="http://www.youtube.com/embed/k_fs9Uaye7o?autoplay=1&controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&theme=light" frameborder="0" allowfullscreen></iframe>
 	</div>
 </div>
 
