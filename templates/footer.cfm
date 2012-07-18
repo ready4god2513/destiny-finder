@@ -1,8 +1,4 @@
 		<footer id="bottom">
-	
-			<div id="social-media-footer">
-				<div class="fb-like" data-href="https://www.facebook.com/mydestinyfinder" data-send="true" data-width="450" data-show-faces="true"></div>
-			</div>
 			
 			<div class="row">
 				

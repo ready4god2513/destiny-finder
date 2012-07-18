@@ -16,6 +16,11 @@
 				</p>
 
 				<p>
+					Like us on Facebook for a Discount!
+					<div class="fb-like" data-href="https://www.facebook.com/mydestinyfinder" data-send="false" data-width="450" data-show-faces="false"></div>
+				</p>
+
+				<p>
 					<a href="/products/index.cfm?page=profiler305&amp;gateway=3&amp;parent_gateway=3">More info</a>
 				</p>
 
@@ -69,3 +74,19 @@
 	</article>
 
 </div>
+
+<script>
+function showDiscountedPrice()
+{
+	$("#profiler-price").val("4.99");
+	$("#current-profiler-price").html("<strike>9.99</strike> $4.99");
+};
+
+window.fbAsyncInit = function() {
+	FB.Event.subscribe("edge.create",
+		function(response) {
+			showDiscountedPrice();
+		}
+	);
+};
+</script>
