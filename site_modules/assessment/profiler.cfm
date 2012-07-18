@@ -85,6 +85,11 @@
 						<td><a href="/profiler/summary.cfm" class="btn btn-small btn-primary">View Profiler Summary Report</a></td>
 					</tr>
 				</cfif>
+				<tr>
+					<td colspan="3">
+						<cfinclude template="../../templates/share_your_passion.cfm" />
+					</td>
+				</tr>
 			</table>
 		</div>
 	</cfoutput>
