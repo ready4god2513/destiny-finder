@@ -1,5 +1,2 @@
 User-agent: *
-Disallow: /admin
-Disallow: /auth
-
-sitemap: http://a7286.hostedsitemaps.com/30734/sitemap.xml
+Disallow: /

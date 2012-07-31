@@ -123,7 +123,7 @@
 			
 		<!--- Modify your credentials here --->
 		<cfset application.ccUsername = "destinyfinder"> 
-		<cfset application.ccPassword = "destinybethel">
+		<cfset application.ccPassword = "cecilia">
 		<cfset application.apiKey = "71c7fffd-b05b-40ba-95c6-581942d36fb7">
 
 		<!--- Typical modifications should end here --->

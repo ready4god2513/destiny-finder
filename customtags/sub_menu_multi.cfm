@@ -9,7 +9,6 @@
 <cfparam name="ATTRIBUTES.submenuheader" default="no">
 <cfparam name="ATTRIBUTES.submenuindex" default="0">
 <cfparam name="ATTRIBUTES.tier" default="1">
-<cfparam name="REQUEST.DSN" default="destinyfinder_cms">
 <!--- START MODULE <cfoutput>#ATTRIBUTES.tier#</cfoutput>--->
 
 <cfparam name="URL.page" default="">
@@ -17,16 +16,19 @@
 
 
 <!--- RETRIEVE MENU ITEMS ASSIGNED TO THIS GATEWAY --->
-<cfquery name="qMenu" datasource="#REQUEST.DSN#">
-	SELECT menu_type,menu_item_id,menu_gateway_id
+<cfquery name="qMenu" datasource="#APPLICATION.DSN#">
+	SELECT *
 	FROM Menu_Items
+	INNER JOIN content
+	ON Menu_Items.menu_item_id = content.content_pageID
 	WHERE menu_gateway_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#ATTRIBUTES.gateway#">
-	ORDER BY menu_sortorder ASC	
+	AND content.content_active = 1
+	ORDER BY menu_sortorder
 </cfquery>
 
 <!--- FOR GATEWAYS THAT ONLY HAVE 1 MENU ITEM, CHECK AND MAKE SURE ITS NOT THE GATEWAY DEFAULT PAGE TO PREVENT AN EMPTY DROP DOWN --->
 <cfif qMenu.recordcount EQ 1>
-	<cfquery name="qPageName" datasource="#REQUEST.DSN#">
+	<cfquery name="qPageName" datasource="#APPLICATION.DSN#">
 		SELECT content_name
 		FROM content
 		WHERE content_pageid = <cfqueryparam cfsqltype="cf_sql_integer" value="#qMenu.menu_item_id[1]#">
@@ -57,7 +59,7 @@
 		<cfif qMenu.menu_type EQ "page">
 			<!--- DEBUG** ATTRIBUTES.submenuindex #ATTRIBUTES.submenuindex# --->
 			<!--- DEBUG** ATTRIBUTES.tier #ATTRIBUTES.tier# --->
-			<cfquery name="qPage" datasource="#REQUEST.DSN#">
+			<cfquery name="qPage" datasource="#APPLICATION.DSN#">
 				SELECT content_gateway,content_external_link,content_name,content_action,content_additional_url_var,content_external_link_target
 				FROM Content
 				WHERE content_active = 1 AND content_pageid = <cfqueryparam cfsqltype="cf_sql_integer" value="#qMenu.menu_item_id#">
@@ -76,13 +78,6 @@
 													<cfif URL.page EQ qPage.content_action>
 														<cfset VARIABLES.subpage_class = "subnav_on">
 													</cfif>
-													
-													<!--- TROUBLE WITH IMPLEMENTING A STYLE SO HAD TO HARD CODE NBSPs --->
-													<!---
-													<cfif ATTRIBUTES.submenuheader EQ "yes">
-														 <cfset VARIABLES.subpage_indent = "&nbsp;&nbsp;">													
-													</cfif>
-													--->
 													
 													<cfif ATTRIBUTES.submenuindex NEQ 0>
 														<cfset VARIABLES.additional_url_var = "&submenuheader=" & (ATTRIBUTES.submenuindex - 1)>
@@ -105,7 +100,7 @@
 			--->
 			<!--- DEBUG** ATTRIBUTES.submenuindex #ATTRIBUTES.submenuindex# --->
 			<!--- DEBUG** ATTRIBUTES.tier #ATTRIBUTES.tier# --->
-			<cfquery name="qGateway" datasource="#REQUEST.DSN#">
+			<cfquery name="qGateway" datasource="#APPLICATION.DSN#">
 				SELECT gateway_name
 				FROM gateway_pages
 				WHERE gateway_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#qMenu.menu_item_id#">
