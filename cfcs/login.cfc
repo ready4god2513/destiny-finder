@@ -58,6 +58,7 @@
 	<cffunction name="logout" output="false" hint="I log a user out">
 		<cflock scope="session" timeout="30">
 			<cfset StructClear(Session)>
+			<cfset StructClear(COOKIE)>
 		</cflock>
 	</cffunction>		
 
