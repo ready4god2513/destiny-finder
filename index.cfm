@@ -50,6 +50,9 @@ ORDER BY gateway_sortorder ASC
 					Like us on Facebook for an extra $5 off! It's powerful, it's easy, it's here! Five surveys based on spiritual gifts, motivational gifts, passion and more reveal your basic destiny direction. 
 					<a href="/products/index.cfm?page=profiler305&gateway=3&parent_gateway=3">More...</a>
 				</p>
+			</article>
+			
+			<article>
 				<h3>
 					20% off Destiny Finder book August 2-4th
 				</h3>
