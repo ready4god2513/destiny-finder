@@ -20,7 +20,7 @@ ORDER BY gateway_sortorder ASC
 
 <div class="row">
 	<div class="span10">
-		<iframe id="ytplayer" type="text/html" width="640" height="360" src="http://www.youtube.com/embed/k_fs9Uaye7o?autoplay=0&controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&theme=light&wmode=transparent" frameborder="0" allowfullscreen></iframe>
+		<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/k_fs9Uaye7o?autoplay=0&controls=0&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&theme=light&wmode=transparent" frameborder="0" allowfullscreen></iframe>
 	</div>
 	<div id="free-banner-home" class="span6 pull-right">
 		<a href="/profile/?page=assessment&amp;assessment_id=1&amp;gift_type_id=1">
