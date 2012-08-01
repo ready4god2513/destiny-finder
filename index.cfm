@@ -45,10 +45,16 @@ ORDER BY gateway_sortorder ASC
 
 			<article>
 				<h2>News</h2>
-				<h3>Destiny Profiler launching at Jesus Culture New York!</h3>
+				<h3>Destiny Profiler Introductory Rate $14.95 for a Limited Time</h3>
 				<p>
-					It's powerful, it's easy, it's here!  Five surveys based on spiritual gifts, motivational gifts, passion and more reveal your basic destiny direction
+					Like us on Facebook for an extra $5 off! It's powerful, it's easy, it's here! Five surveys based on spiritual gifts, motivational gifts, passion and more reveal your basic destiny direction. 
 					<a href="/products/index.cfm?page=profiler305&gateway=3&parent_gateway=3">More...</a>
+				</p>
+				<p>
+					20% off Destiny Finder book August 2-4th
+				</p>
+				<p>
+					Pastor Michael Brodeur is releasing his book, Destiny Finder, for 20% off from Aug 2-4th as a part of the Jesus Culture LA Event. Destiny finder will lead you on a journey of discovery to help you identify your spiritual gifts and equip you with the necessary tools to find and fulfill your God-given destiny. Click the link and type in the code: C6S8F2BA  <a href="https://www.createspace.com/3889317">Purchase the Book</a>
 				</p>
 			</article>
 			

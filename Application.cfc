@@ -116,6 +116,9 @@
 		<!--- THIS VARIABLE EITHER STORES THE USER_ID OR 0 IF A USER IS NOT LOGGED IN --->
 		<cfset REQUEST.user_id = obj_login.is_logged_in()>
 			
+		<cfdump var="#COOKIE#">
+		<cfabort/>
+			
 		<cfif REQUEST.user_id GT 0>
 			<cfset REQUEST.user = u.findById(id = REQUEST.user_id)>
 		</cfif>

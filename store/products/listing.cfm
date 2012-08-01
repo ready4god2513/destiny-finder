@@ -11,7 +11,7 @@
 				</div>
 
 				<div class="span7">
-					<h4>Profiler Module - $<span id="current-profiler-price"><strike>19.95</strike>14.95</span></h4>
+					<h4>Profiler Module - $<span id="current-profiler-price"><strike>19.95</strike>14.95</span> Introductory Rate</h4>
 					<p>
 						This module is an online tool that produces a destiny profile that is a 
 						comprehensive picture of yourself. Includes the Destiny, Motivational, Supernatural, 

@@ -11,6 +11,8 @@
 		<cflock scope="session" timeout="30" type="readonly">
 			<cfif isDefined('SESSION.user_id')>
 				<cfset VARIABLES.user_id = SESSION.user_id>
+			<cfelseif isDefined("COOKIE.user_id")>
+				<cfset VARIABLES.user_id = COOKIE.user_id>
 			<cfelse>
 				<cfset VARIABLES.user_id = 0>
 			</cfif>
@@ -28,6 +30,7 @@
 		
 		<cflock scope="session" type="exclusive" timeout="30">
 			<cfset SESSION.user_id = user.user_id />
+			<cfset COOKIE.user_id = user.user_id />
 			<cflocation url="#ARGUMENTS.redirect_after#" addtoken="no" />
 		</cflock>
 	</cffunction>
@@ -42,7 +45,7 @@
 		<cfif VARIABLES.login_result GT 0>
 			<!--- IF YES, SET USER_ID IN THE SESSION --->
 			<cfset SESSION.user_id = VARIABLES.login_result>
-			
+			<cfset COOKIE.user_id = VARIABLES.login_result>
 			<cfset VARIABLES.site_notification = "login_sucess">
 			<cfset foxyCart.save_user(username = "#FORM.user_name#", password = "#HASH(FORM.password)#") />
 		<cfelse>
