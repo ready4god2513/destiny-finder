@@ -36,6 +36,7 @@
 						<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/profiler-module.png" />
 						<input type="submit" value="Add to Cart" class="btn btn-primary" />
 					</form>
+					<p><em>You may be asked to sign in again for security purposes</em></p>
 				</div>
 
 			</div>
@@ -72,6 +73,7 @@
 					<input type="hidden" name="image" value="<cfoutput>#REQUEST.site_url#</cfoutput>/assets/images/coaching.png" />
 					<input type="submit" value="Add to Cart" class="btn btn-primary" />
 				</form>
+				<p><em>You may be asked to sign in again for security purposes</em></p>
 			</div>
 
 		</div>

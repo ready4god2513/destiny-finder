@@ -12,7 +12,7 @@
     
 	
 		<cfquery name="qAssessments" datasource="#APPLICATION.DSN#">
-	      <cfif isDefined("user_id")>
+	      <cfif isDefined("ARGUMENTS.user_id") AND ARGUMENTS.user_id GT 0>
 	        SELECT a.*,b.result_id
 			FROM Assessments a
 	        LEFT OUTER JOIN Results b ON a.assessment_id = b.assessment_id

@@ -170,6 +170,7 @@
 							
 							<cflock scope="session" type="readonly" timeout="30">
 								<cfset SESSION.user_id = qUser.user_id>
+								<cfset COOKIE.user_id = qUser.user_id>
 							</cflock>
 						</cfif>
 					
