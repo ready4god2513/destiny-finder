@@ -534,12 +534,12 @@
 			<cfquery name="qInvites" datasource="#APPLICATION.DSN#">
 				SELECT *
 				FROM Invites
-				WHERE 
-				<cfif isDefined('user_id')>
-					user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#user_id#">
+				WHERE 1 = 1
+				<cfif isDefined('ARGUMENTS.user_id')>
+					AND user_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#ARGUMENTS.user_id#">
 				</cfif>
-				<cfif isDefined('invite_uid')>
-					invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#invite_uid#">
+				<cfif isDefined('ARGUMENTS.invite_uid')>
+					AND invite_uid = <cfqueryparam cfsqltype="cf_sql_char" value="#ARGUMENTS.invite_uid#">
 				</cfif>
 			</cfquery>
 		
